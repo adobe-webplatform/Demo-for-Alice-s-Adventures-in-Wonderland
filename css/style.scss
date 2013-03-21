@@ -1,0 +1,19 @@
+@import 'lib/normalize/normalize.css';
+
+body{
+  margin: 0;
+  padding: 0;
+}
+#scene1{
+  background: url(../images/bg_scn1.jpg) 30% top;
+  
+  .content{
+    width: 480px;
+    height: 1000px;
+    margin-left: 32.5%;
+    padding-top: 185px;
+    outline: 1px solid red;
+    -webkit-shape-inside: polygon( 99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px);
+  }
+  
+}
