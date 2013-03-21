@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <title>Bug shape-inside re-layout</title>
+  <meta charset="UTF-8">
+  <style type="text/css">
+
+  .content{
+    width: 480px;
+    height: 1000px;
+    outline: 2px solid red;
+    -webkit-shape-inside: polygon( 99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px);
+  }
+  
+  .content.ok{
+    outline: 2px solid green;
+  }
+  
+  .content p:first-child{
+    -webkit-transition: padding 2s linear;
+  }
+  
+  .content:hover p:first-child{
+    padding-top: 500px;
+  }
+  
+  </style>
+</head>
+<body>
+  <h1>CSS shape-inside: siblings re-layout bug</h1>
+  <p><strong>Description:</strong> Changing the box model of one element doesn't re-layout sibling elements according to the parent container's shape-inside.</p>
+  <p><strong>Instructions to reproduce:</strong> Mouse over the content in the red border box. Observe the first paragraph increase padding top and re-layout itself acording to shape-inside. Other paragraphs don't respect the shape-inside.</p>
+  <p><strong>Expected behavior:</strong> Other paragraphs should re-layout to respect the shape-inside. See example below, in green border box.</p>
+  
+    <div class="content">
+        <p>Alice was beginning to get very tired of sitting by her sister on the
+        bank, and of having nothing to do: once or twice she had peeped into the
+        book her sister was reading, but it had no pictures or conversations in
+        it, 'and what is the use of a book,' thought Alice 'without pictures or
+        conversation?'</p>
+        
+        <p>So she was considering in her own mind (as well as she could, for the
+        hot day made her feel very sleepy and stupid), whether the pleasure
+        of making a daisy-chain would be worth the trouble of getting up and
+        picking the daisies, when suddenly a White Rabbit with pink eyes ran
+        close by her.</p>
+        
+        <p>In another moment down went Alice after it, never once considering how
+        in the world she was to get out again.</p>
+        
+        <p>The rabbit-hole went straight on like a tunnel for some way, and then
+        dipped suddenly down, so suddenly that Alice had not a moment to think
+        about stopping herself before she found herself falling down a very deep
+        well.</p>
+    </div>                
+    
+    <h2>Expected result</h2>
+    <div class="content ok">
+        <p>Alice was beginning to get very tired of sitting by her sister on the
+        bank, and of having nothing to do: once or twice she had peeped into the
+        book her sister was reading, but it had no pictures or conversations in
+        it, 'and what is the use of a book,' thought Alice 'without pictures or
+        conversation?'<br /><br />So she was considering in her own mind (as well as she could, for the
+        hot day made her feel very sleepy and stupid), whether the pleasure
+        of making a daisy-chain would be worth the trouble of getting up and
+        picking the daisies, when suddenly a White Rabbit with pink eyes ran
+        close by her.<br /><br />In another moment down went Alice after it, never once considering how
+        in the world she was to get out again.<br /><br />The rabbit-hole went straight on like a tunnel for some way, and then
+        dipped suddenly down, so suddenly that Alice had not a moment to think
+        about stopping herself before she found herself falling down a very deep
+        well.</p>
+    </div>
+</body>
+</html>
