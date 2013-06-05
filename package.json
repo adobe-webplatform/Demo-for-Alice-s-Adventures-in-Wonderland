@@ -1,0 +1,13 @@
+{
+  "name": "alice",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib": "~0.7.0",
+    "grunt-sass": "~0.6.0",
+    "grunt-contrib-watch": "~0.4.4"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
