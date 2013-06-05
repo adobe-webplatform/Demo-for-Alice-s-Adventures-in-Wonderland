@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 </head>
 <body>
+  <div class="overlay"></div>
   <div id="scene1">
     <div class="content">
         <p>Alice was beginning to get very tired of sitting by her sister on the
@@ -25,11 +26,47 @@
     <script type="text/javascript">
 
     var p = document.querySelector('#scene1 p:first-child')
+    var maxHeight = document.querySelector('#scene1').offsetHeight
+    var offsetMultiplier = 1.5  // TODO make multiplier factor of scroll distance from container height. Short screens need multiplier < 1.
+    
     window.onscroll = function(e){
-      p.style.marginTop = (window.scrollY * 1.68) + "px"
-    }                                          
+        var newMargin = window.scrollY * offsetMultiplier;
+        // var oldMargin = parseInt(p.style.marginTop, 10) | 0
+        // var usedHeight = p.offsetHeight + p.offsetTop + (newMargin - oldMargin)
+        
+        if (window.scrollY + window.innerHeight < document.height) {
+          p.style.marginTop = newMargin + "px"
+          document.body.classList.remove('scene1-end')
+        }
+        else{
+          document.body.classList.add('scene1-end')
+        }
+    }
     
     </script>
+  </div> 
+  
+  <div id="scene2">
+    <div class="content">
+      <div class="smoke smoke1"></div>
+      <div class="smoke smoke2"></div>
+      <div class="smoke smoke3"></div>
+      
+      <article class="caterpillar">
+        <p>
+          'Who are YOU?' said the Caterpillar.
+        </p>
+        <p>
+          'I--I hardly know, sir, just at present--at least I know
+          who I WAS when I got up this morning, but I think I must have been
+          changed several times since then.'
+        </p>
+        <p>
+          'What do you mean by that?' said the Caterpillar sternly. 'Explain
+          yourself!'
+        </p>
+      </article>
+    </div>
   </div>
 </body>
 </html>
