@@ -9,16 +9,68 @@ body{
   padding: 0;
 }
 
+p{
+  margin:0;
+}
+
+#timeline{
+  width: 15px;
+  font-size: 5em;
+  background-image: -webkit-linear-gradient(yellow 50%, black 50%);
+  /* Make the background gradients be the full width of the container and only 15 pixels high */
+  background-size: 100% 15px;
+  /* Prevent the background gradients from repeating on the X and Y axes */
+  background-repeat: repeat-y;
+  position: absolute;
+  top: 0;
+  
+  .wrapper{
+    position: relative;
+    height: 100em;
+  }
+  
+  .keyframe{
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    background: red;
+  }
+  
+  #scn1-stop-move-text{
+    top: 5em;
+  }
+}
+
 #scene1{
-  background: url(../images/bg_scn1.jpg) 30% top;
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(0,0,0,0.9)) bottom, url(../images/bg_scn1.jpg) 30% top;
   height: 1200px;
+  overflow: hidden;
+  position: relative;
 
   .content{
     width: 480px;
     margin-left: 32.5%;
     padding-top: 185px;
     -webkit-shape-inside: polygon( 99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px);
-    outline: 1px solid red;
+  }
+  
+  .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+/*    -webkit-animation: flicker 8s infinite ease-in-out;*/
+
+    background: -webkit-radial-gradient(center center, ellipse cover, rgba(0,0,0,0.1), rgba(0, 0, 0, 1) 40%);
+    background-color: rgba(0,0,0,0);
+
+    /* 
+      Fake vignette with scaling because gradients can't be animated in CSS
+      scale(1) for tight vignette
+      scale(5+) for wide vignette
+    */
+    -webkit-transform: scale(8);
   }
 }
 
@@ -27,25 +79,6 @@ body.scene1-end{
     -webkit-animation: overlay-fade-to-black 1.5s 1 ease-out, overlay-darken 1s 1 ease-in;
     -webkit-animation-fill-mode: forwards;
   }
-}
-
-.overlay{
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-/*  -webkit-animation: flicker 8s infinite ease-in-out;*/
-  
-  background: -webkit-radial-gradient(center center, ellipse cover, rgba(0,0,0,0.1), rgba(0, 0, 0, 1) 40%);
-  background-color: rgba(0,0,0,0);
-  
-  /* 
-    Fake vignette with scaling because gradients can't be animated in CSS
-    scale(1) for tight vignette
-    scale(5+) for wide vignette
-  */
-  -webkit-transform: scale(5);
 }
 
 @-webkit-keyframes darken{
@@ -93,5 +126,38 @@ body.scene1-end{
 }
 
 #scene2{
-  display: none;
+  background: url(../images/bg_scn2.jpg) 15% top;
+  background-size: cover;
+  width: 100%;
+  height: 3000px;
+  z-index: 2;
+  color: lime;
+  
+  .content{
+    width: 500px;
+    margin-left: 400px;
+  }
+  
+  .shape{
+    background: rgba(255,0,0,0.5);
+    -webkit-clip-path:  circle(50%, 50%, 50%);
+    -webkit-shape-outside: circle(50%, 50%, 50%);
+  }
+  
+  .cat1{
+    width: 200px;
+    height: 200px;
+    float: right;
+  }
+  
+  .cat2{
+    width: 200px;
+    height: 200px;
+    float: left;
+    background: rgba(0,255,255,0.5);
+  }
+  
+  
+  
+/*  display: none;*/
 }
