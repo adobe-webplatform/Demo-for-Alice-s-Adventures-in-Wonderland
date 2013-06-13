@@ -335,7 +335,8 @@ p {
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) 30% top;
   height: 1200px;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  display: none; }
   #scene1 .content {
     width: 480px;
     margin-left: 32.5%;
@@ -400,19 +401,29 @@ body.scene1-end .overlay {
   width: 100%;
   height: 3000px;
   z-index: 2;
-  color: lime;
+  color: red;
+  /* hack to force first line to respect in shape-inside*/
   /*  display: none;*/ }
   #scene2 .content {
-    width: 500px;
-    margin-left: 400px; }
-  #scene2 .shape {
-    background: rgba(255, 0, 0, 0.5);
-    -webkit-clip-path: circle(50%, 50%, 50%);
-    -webkit-shape-outside: circle(50%, 50%, 50%); }
+    width: 600px;
+    height: 700px;
+    overflow: hidden;
+    line-height: 2em;
+    margin-left: 350px;
+    background: rgba(0, 255, 160, 0.3);
+    outline: 1px solid red;
+    -webkit-shape-inside: polygon(0px 0px, 485px 0px, 494.5px 85.5px, 482.25px 166.75px, 527.125px 310.375px, 504.0625px 402.6875px, 543.03125px 491.34375px, 490.51562px 601.671875px, 513.25781px 675.8359375px, 409.62891px 868.91796875px, -4px 870px, -0.28394px 722.720703125px, 54.43213px 659.44140625px, 137.86426px 657.8828125px, 180.72852px 581.765625px, 102.45703px 581.53125px, 77.91406px 545.0625px, 106.82812px 468.125px, 64.65625px 406.25px, 88.3125px 342.5px, 47.625px 273px, 44.25px 220px, 10.5px 134px); }
+  #scene2 .content p:before {
+    display: block;
+    clear: both;
+    content: ""; }
   #scene2 .cat1 {
-    width: 200px;
-    height: 200px;
-    float: right; }
+    width: 472px;
+    height: 534px;
+    background: rgba(0, 0, 250, 0.5) url(../images/cat_falling1.png) top left no-repeat;
+    -webkit-transform-origin: left top;
+    /*    -webkit-transform: scale(0.7);*/
+    float: left; }
   #scene2 .cat2 {
     width: 200px;
     height: 200px;
