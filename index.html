@@ -6,11 +6,6 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 </head>
 <body>
-  <div id="timeline">
-    <div class="wrapper">
-      <div class="keyframe" id="scn1-stop-move-text"></div>
-    </div>
-  </div>
   
   <div id="scene1">
     <div class="overlay"></div>
@@ -36,14 +31,12 @@
     var maxHeight = document.querySelector('#scene1').offsetHeight
     var offsetMultiplier = 1.5  // TODO make multiplier factor of scroll distance from container height. Short screens need multiplier < 1.
     
-    var stopkeyframe = document.querySelector('#scn1-stop-move-text')
-    
     window.onscroll = function(e){
         var newMargin = window.scrollY * offsetMultiplier;
         var oldMargin = parseInt(p.style.marginTop, 10) | 0
         var usedHeight = p.offsetHeight + p.offsetTop + (newMargin - oldMargin)
 
-        var min = stopkeyframe.offsetTop
+        var min = 0
         var max = min + window.innerHeight
         var current = window.innerHeight + window.scrollY
         var viewport = {
@@ -120,27 +113,5 @@
     
   </div>
   
-  <!-- <script src="tool/third-party/raphael-min.js"></script>
-  <script src="tool/shape-overlay.js"></script>
-  <script>
-   
-  var overlay
-  var shapeHandler = function() { 
-      console.log(overlay.getPolygonPath())
-      overlay.element.style['-webkit-shape-inside'] = overlay.getPolygonPath()
-  };
-
-  function loadShapeEditor(el){
-    overlay = new ShapeOverlay(el);
-    overlay.shapechange(shapeHandler);
-  }
-  
-  window.onload = function(){
-      var target = document.querySelector('#scene2 .content')
-      // loadShapeEditor(target)
-  } -->
-
-  
-  </script>
 </body>
 </html>

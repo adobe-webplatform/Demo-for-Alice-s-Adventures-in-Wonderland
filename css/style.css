@@ -310,33 +310,11 @@ body {
 p {
   margin: 0; }
 
-#timeline {
-  width: 15px;
-  font-size: 5em;
-  background-image: -webkit-linear-gradient(yellow 50%, black 50%);
-  /* Make the background gradients be the full width of the container and only 15 pixels high */
-  background-size: 100% 15px;
-  /* Prevent the background gradients from repeating on the X and Y axes */
-  background-repeat: repeat-y;
-  position: absolute;
-  top: 0; }
-  #timeline .wrapper {
-    position: relative;
-    height: 100em; }
-  #timeline .keyframe {
-    position: absolute;
-    height: 15px;
-    width: 15px;
-    background: red; }
-  #timeline #scn1-stop-move-text {
-    top: 5em; }
-
 #scene1 {
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) 30% top;
   height: 1200px;
   overflow: hidden;
-  position: relative;
-  display: none; }
+  position: relative; }
   #scene1 .content {
     width: 480px;
     margin-left: 32.5%;
