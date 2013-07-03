@@ -310,14 +310,23 @@ body {
 p {
   margin: 0; }
 
+/* 
+Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.
+Wrapping all content to prevent horizontal scrolling. 
+*/
+.wrapper {
+  overflow-x: hidden; }
+
 #scene1 {
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) 30% top;
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) left top;
   height: 1200px;
+  width: 1900px;
+  margin-left: -200px;
   overflow: hidden;
   position: relative; }
   #scene1 .content {
     width: 480px;
-    margin-left: 32.5%;
+    margin-left: 600px;
     padding-top: 185px;
     -webkit-shape-inside: polygon(99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px); }
   #scene1 .overlay {
@@ -336,81 +345,36 @@ p {
     */
     -webkit-transform: scale(8); }
 
-body.scene1-end .overlay {
-  -webkit-animation: overlay-fade-to-black 1.5s 1 ease-out, overlay-darken 1s 1 ease-in;
-  -webkit-animation-fill-mode: forwards; }
-
-@-webkit-keyframes darken {
-  from {
-    background-color: rgba(0, 0, 0, 0); }
-
-  to {
-    background-color: black; } }
-
-@-webkit-keyframes overlay-fade-to-black {
-  from {
-    -webkit-transform: scale(5) translateZ(0);
-    background-color: rgba(0, 0, 0, 0); }
-
-  to {
-    -webkit-transform: scale(1) translateZ(0);
-    /* fade to black */
-    background-color: black; } }
-
-@-webkit-keyframes flicker {
-  0% {
-    -webkit-transform: scale(3); }
-
-  30% {
-    -webkit-transform: scale(2); }
-
-  50% {
-    -webkit-transform: scale(3); }
-
-  90% {
-    -webkit-transform: scale(2.5); }
-
-  100% {
-    -webkit-transform: scale(3); } }
-
-#scene2 {
-  background: url(../images/bg_scn2.jpg) 15% top;
-  background-size: cover;
-  width: 100%;
-  height: 3000px;
-  z-index: 2;
-  color: red;
-  /* hack to force first line to respect in shape-inside*/
-  /*  display: none;*/ }
-  #scene2 .content {
-    width: 600px;
-    height: 700px;
-    overflow: hidden;
-    line-height: 2em;
-    margin-left: 350px;
-    background: rgba(0, 255, 160, 0.3);
-    outline: 1px solid red;
-    -webkit-shape-inside: polygon(0px 0px, 485px 0px, 494.5px 85.5px, 482.25px 166.75px, 527.125px 310.375px, 504.0625px 402.6875px, 543.03125px 491.34375px, 490.51562px 601.671875px, 513.25781px 675.8359375px, 409.62891px 868.91796875px, -4px 870px, -0.28394px 722.720703125px, 54.43213px 659.44140625px, 137.86426px 657.8828125px, 180.72852px 581.765625px, 102.45703px 581.53125px, 77.91406px 545.0625px, 106.82812px 468.125px, 64.65625px 406.25px, 88.3125px 342.5px, 47.625px 273px, 44.25px 220px, 10.5px 134px); }
-  #scene2 .content p:before {
+#scene2_1 {
+  background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
+  background-size: 100%;
+  width: 1900px;
+  height: 1700px;
+  margin-left: -200px;
+  /* hack to force first line to respect in shape-inside*/ }
+  #scene2_1 .content p:before {
     display: block;
     clear: both;
     content: ""; }
-  #scene2 .cat1 {
-    width: 472px;
-    height: 534px;
-    background: rgba(0, 0, 250, 0.5) url(../images/cat_falling1.png) top left no-repeat;
-    -webkit-transform-origin: left top;
-    /*    -webkit-transform: scale(0.7);*/
-    float: left; }
-  #scene2 .cat2 {
-    width: 200px;
-    height: 200px;
-    float: left;
-    background: rgba(0, 255, 255, 0.5); }
+
+#scene2_2 {
+  background: pink url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
+  background-size: 100%;
+  width: 4860px;
+  height: 4860px;
+  margin-left: -200px;
+  position: relative;
+  /* hack to force first line to respect in shape-inside*/ }
+  #scene2_2 .content p:before {
+    display: block;
+    clear: both;
+    content: ""; }
 
 .cat-shape {
   float: left;
-  background-size: contain; }
+  background-size: contain;
+  clear: left;
+  -webkit-shape-margin: 1em; }
 
 .cat-shape1 {
   background: url(../images/cat_falling1.png) top left no-repeat;
