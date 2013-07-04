@@ -317,7 +317,7 @@ Wrapping all content to prevent horizontal scrolling.
 .wrapper {
   overflow-x: hidden;
   /* Use font-size to scale the scenes. They are in ems */
-  font-size: 90%;
+  font-size: 100%;
   background: black; }
 
 #scene1 {
@@ -335,13 +335,9 @@ Wrapping all content to prevent horizontal scrolling.
     width: 30em;
     margin-left: 37.5em;
     padding-top: 11.56em;
-    /*  -webkit-shape-inside: polygon( 99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px);*/
     -webkit-shape-inside: polygon(6.1875em 0em, 2.4375em 4.4375em, 3.75em 7em, 2.6875em 9.625em, 7.3125em 11.1875em, 7.25em 12.6875em, 4.5625em 14.375em, 4.9375em 16.375em, 7.25em 17.5em, 10.4375em 17.4375em, 10.4375em 19.1875em, 8.3125em 20.5em, 8.8125em 23em, 11.375em 24em, 14.875em 22.9375em, 15.125em 26.5em, 2.0625em 30.6875em, 3.6875em 33.6875em, 7.4375em 35.4375em, 10.25em 35.9375em, 12em 38.9375em, 11.8125em 42.3125em, 3.8125em 46em, 2.1875em 50.3125em, 0.5625em 58em, 0em 62.3125em, 25.875em 62.3125em, 28em 49.75em, 25.5em 42.25em, 21.5em 41.3125em, 21.3125em 36.9375em, 23.4375em 32.8125em, 22.5625em 31.0625em, 25.4375em 27.8125em, 28.375em 25.3125em, 30em 23.5em, 30.0625em 0em, 6.1875em 0em); }
     #scene1 .content p {
-      /*
-        Keeps font-size consistent with root.
-        Don't set font-size on the parent .content unless you want to also mainpulate its scale. The parent scales with the scene.
-      */
+      /* Keeps font-size consistent with root. */
       font-size: 1rem; }
   #scene1 .overlay {
     position: absolute;
@@ -362,73 +358,131 @@ Wrapping all content to prevent horizontal scrolling.
 #scene2_1 {
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
-  box-sizing: border-box;
   width: 109em;
   height: 97.5em;
-  /*  -webkit-shape-inside: polygon(363px 0px, 901px 0px, 929px 72px, 910px 159px, 929px 257px, 972px 342px, 943px 379px, 936px 423px, 945px 499px, 994px 518px, 967px 605px, 940px 617px, 923px 657px, 955px 736px, 881px 900px, 805px 994px, 731px 951px, 668px 1008px, 619px 1072px, 691px 1119px, 744px 1245px, 706px 1561px, 0px 1560px, 0px 1462px, 56px 1390px, 171px 1348px, 218px 1273px, 250px 1253px, 256px 1213px, 103px 1198px, 99px 1142px, 59px 1046px, 291px 832px, 309px 799px, 427px 791px, 493px 722px, 544px 681px, 521px 645px, 490px 676px, 433px 612px, 446px 557px, 466px 532px, 457px 469px, 426px 452px, 451px 374px, 396px 291px, 413px 250px, 360px 139px, 350px 74px);*/
-  -webkit-shape-inside: polygon(22.69em 0em, 56.31em 0em, 58.06em 4.50em, 56.88em 9.94em, 58.06em 16.06em, 60.75em 21.38em, 58.94em 23.69em, 58.5em 26.44em, 59.06em 31.19em, 62.13em 32.38em, 60.44em 37.81em, 58.75em 38.56em, 57.69em 41.06em, 59.69em 46.00em, 55.06em 56.25em, 50.31em 62.13em, 45.69em 59.44em, 41.75em 63.00em, 38.69em 67.00em, 43.19em 69.94em, 46.5em 77.81em, 44.13em 97.56em, 0em 97.50em, 0em 91.38em, 3.5em 86.88em, 10.69em 84.25em, 13.63em 79.56em, 15.63em 78.31em, 16em 75.81em, 6.44em 74.88em, 6.19em 71.38em, 3.69em 65.38em, 18.19em 52.00em, 19.31em 49.94em, 26.69em 49.44em, 30.81em 45.13em, 34em 42.56em, 32.56em 40.31em, 30.63em 42.25em, 27.06em 38.25em, 27.88em 34.81em, 29.13em 33.25em, 28.56em 29.31em, 26.63em 28.25em, 28.19em 23.38em, 24.75em 18.19em, 25.81em 15.63em, 22.5em 8.69em, 21.88em 4.63em);
-  /* TODO, investigate bug with shape-padding 16px+ / 1em+. Might be self-intersecting paths. */
-  -webkit-shape-padding: 0.99em;
-  /* hack to force first line to respect in shape-inside*/ }
+  /* 
+     Bumpers are a workaround. Using margins to position a floated shape-outside element will not offset the element's shape as well.
+     
+     The bumper floats next to the cat shape. Set the bumper's width to what you wanted set on the floated shape-outside element's margin.
+     Change the bumper's width to offset the cat shape horizontally together with its shape.
+  */
+  /* cat falling 1 */
+  /* cat falling 2 */
+  /* cat falling 3 */
+  /* cat falling 4 */ }
   #scene2_1 .content {
     width: 62em;
     margin-left: 16em;
-    height: 97.5em; }
-  #scene2_1 .content p:before {
-    display: block;
-    clear: both;
-    content: ""; }
+    height: 97.5em;
+    -webkit-shape-inside: polygon(22.69em 0em, 56.31em 0em, 58.06em 4.50em, 56.88em 9.94em, 58.06em 16.06em, 60.75em 21.38em, 58.94em 23.69em, 58.5em 26.44em, 59.06em 31.19em, 62.13em 32.38em, 60.44em 37.81em, 58.75em 38.56em, 57.69em 41.06em, 59.69em 46.00em, 55.06em 56.25em, 50.31em 62.13em, 45.69em 59.44em, 41.75em 63.00em, 38.69em 67.00em, 43.19em 69.94em, 46.5em 77.81em, 44.13em 97.56em, 0em 97.50em, 0em 91.38em, 3.5em 86.88em, 10.69em 84.25em, 13.63em 79.56em, 15.63em 78.31em, 16em 75.81em, 6.44em 74.88em, 6.19em 71.38em, 3.69em 65.38em, 18.19em 52.00em, 19.31em 49.94em, 26.69em 49.44em, 30.81em 45.13em, 34em 42.56em, 32.56em 40.31em, 30.63em 42.25em, 27.06em 38.25em, 27.88em 34.81em, 29.13em 33.25em, 28.56em 29.31em, 26.63em 28.25em, 28.19em 23.38em, 24.75em 18.19em, 25.81em 15.63em, 22.5em 8.69em, 21.88em 4.63em);
+    /* TODO, investigate bug with shape-padding 16px+ / 1em+. Might be self-intersecting paths. */
+    -webkit-shape-padding: 0.99em; }
+  #scene2_1 .bumper-cat-shape1 {
+    float: left;
+    width: 26em;
+    height: 2em;
+    background: blue; }
+  #scene2_1 .cat-shape1 {
+    float: left;
+    -webkit-shape-margin: 1em;
+    font-size: 70%;
+    outline: 1px solid blue; }
+    #scene2_1 .cat-shape1 + p {
+      padding-top: 3em;
+      margin-bottom: 3em;
+      color: blue; }
+  #scene2_1 .bumper-cat-shape2 {
+    float: right;
+    width: 2em;
+    height: 2em;
+    background: red; }
+  #scene2_1 .cat-shape2 {
+    float: right;
+    font-size: 70%;
+    outline: 1px solid red; }
+    #scene2_1 .cat-shape2 + p {
+      padding-top: 3em;
+      margin-bottom: 3em;
+      color: red; }
+  #scene2_1 .bumper-cat-shape3 {
+    float: left;
+    width: 2em;
+    height: 2em;
+    background: green; }
+  #scene2_1 .cat-shape3 {
+    float: left;
+    -webkit-shape-margin: 1em;
+    font-size: 70%;
+    outline: 1px solid green; }
+    #scene2_1 .cat-shape3 + p {
+      margin-bottom: 3em;
+      color: green; }
+  #scene2_1 .bumper-cat-shape4 {
+    float: left;
+    width: 2em;
+    height: 2em;
+    background: orange; }
+  #scene2_1 .cat-shape4 {
+    float: left;
+    -webkit-shape-margin: 1em;
+    font-size: 70%;
+    outline: 1px solid orange; }
+    #scene2_1 .cat-shape4 + p {
+      margin-bottom: 3em;
+      color: orange; }
 
 #scene2_2 {
   background: pink url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
-  height: 91.25em; }
-
-.cat-shape {
-  float: left;
-  background-size: contain;
-  clear: left;
-  -webkit-shape-margin: 1em; }
+  height: 91.25em;
+  border-top: 1px solid yellow; }
 
 .cat-shape1 {
-  background: url(../images/cat_falling1.png) top left no-repeat;
-  width: 472px;
-  height: 534px;
-  -webkit-shape-outside: polygon(nonzero, 22px -5px, 60px 36px, 116px 69px, 112px 115px, 131px 136px, 179px 114px, 188px 136px, 144px 174px, 119px 200px, 171px 232px, 193px 217px, 276px 236px, 339px 226px, 373px 217px, 394px 180px, 405px 230px, 428px 239px, 438px 277px, 474px 280px, 434px 318px, 409px 372px, 390px 438px, 321px 504px, 303px 492px, 187px 529px, 90px 505px, 35px 441px, 1px 363px, 50px 243px, 7px 199px, 31px 138px, 58px 95px, 30px 58px); }
+  -webkit-shape-outside: polygon(1.38em -0.31em, 3.75em 2.25em, 7.25em 4.31em, 7em 7.19em, 8.19em 8.50em, 11.19em 7.13em, 11.75em 8.50em, 9em 10.88em, 7.44em 12.50em, 10.69em 14.50em, 12.06em 13.56em, 17.25em 14.75em, 21.19em 14.13em, 23.31em 13.56em, 24.63em 11.25em, 25.31em 14.38em, 26.75em 14.94em, 27.38em 17.31em, 29.63em 17.50em, 27.13em 19.88em, 25.56em 23.25em, 24.38em 27.38em, 20.06em 31.50em, 18.94em 30.75em, 11.69em 33.06em, 5.63em 31.56em, 2.19em 27.56em, 0.06em 22.69em, 3.13em 15.19em, 0.44em 12.44em, 1.94em 8.63em, 3.63em 5.94em, 1.88em 3.63em);
+  background: url('../images/cat_falling1.png') top left no-repeat;
+  background-size: contain;
+  width: 29.5em;
+  height: 33.25em; }
 
 .cat-shape2 {
-  background: url(../images/cat_falling2.png) top left no-repeat;
-  -webkit-shape-outside: polygon(nonzero, 37px 25px, 148px 0px, 180px 26px, 187px 66px, 166px 110px, 201px 128px, 218px 176px, 298px 190px, 335px 155px, 385px 134px, 420px 97px, 475px 90px, 521px 88px, 576px 114px, 552px 140px, 553px 176px, 533px 224px, 497px 229px, 480px 259px, 522px 286px, 552px 353px, 514px 365px, 536px 406px, 496px 407px, 484px 367px, 427px 353px, 403px 337px, 332px 386px, 273px 391px, 108px 341px, 18px 285px, 1px 245px, 10px 212px, 41px 141px, 32px 113px, 48px 81px);
-  width: 575px;
-  height: 410px; }
+  -webkit-shape-outside: polygon(2.31em 1.56em, 9.25em 0em, 11.25em 1.63em, 11.69em 4.13em, 10.38em 6.88em, 12.56em 8.00em, 13.63em 11.00em, 18.63em 11.88em, 20.94em 9.69em, 24.06em 8.38em, 26.25em 6.06em, 29.69em 5.63em, 32.56em 5.50em, 36em 7.13em, 34.5em 8.75em, 34.56em 11.00em, 33.31em 14.00em, 31.06em 14.31em, 30em 16.19em, 32.63em 17.88em, 34.5em 22.06em, 32.13em 22.81em, 33.5em 25.38em, 31em 25.44em, 30.25em 22.94em, 26.69em 22.06em, 25.19em 21.06em, 20.75em 24.13em, 17.06em 24.44em, 6.75em 21.31em, 1.13em 17.81em, 0.06em 15.31em, 0.63em 13.25em, 2.56em 8.81em, 2em 7.06em, 3em 5.06em);
+  background: url('../images/cat_falling2.png') top left no-repeat;
+  background-size: contain;
+  width: 35.94em;
+  height: 26.625em; }
 
 .cat-shape3 {
-  background: url(../images/cat_falling3.png) top left no-repeat;
-  -webkit-shape-outside: polygon(nonzero, 22px 5px, 67px 5px, 88px 47px, 94px 79px, 134px 80px, 171px 41px, 204px 31px, 256px 30px, 342px 62px, 445px 45px, 564px 72px, 626px 80px, 662px 92px, 682px 156px, 717px 181px, 672px 190px, 634px 219px, 569px 236px, 466px 251px, 433px 317px, 393px 374px, 374px 368px, 409px 276px, 387px 254px, 305px 248px, 270px 278px, 173px 251px, 191px 290px, 172px 332px, 122px 228px, 121px 145px, 49px 131px, 5px 81px, 1px 29px);
-  width: 711px;
-  height: 375px; }
+  -webkit-shape-outside: polygon(1.38em 0.31em, 4.19em 0.31em, 5.5em 2.94em, 5.88em 4.94em, 8.38em 5.00em, 10.69em 2.56em, 12.75em 1.94em, 16em 1.88em, 21.38em 3.88em, 27.81em 2.81em, 35.25em 4.50em, 39.13em 5.00em, 41.38em 5.75em, 42.63em 9.75em, 44.81em 11.31em, 42em 11.88em, 39.63em 13.69em, 35.56em 14.75em, 29.13em 15.69em, 27.06em 19.81em, 24.56em 23.38em, 23.38em 23.00em, 25.56em 17.25em, 24.19em 15.88em, 19.06em 15.50em, 16.88em 17.38em, 10.81em 15.69em, 11.94em 18.13em, 10.75em 20.75em, 7.63em 14.25em, 7.56em 9.06em, 3.06em 8.19em, 0.31em 5.06em, 0.06em 1.81em);
+  background: url('../images/cat_falling3.png') top left no-repeat;
+  background-size: contain;
+  width: 44.5em;
+  height: 23.25em; }
 
 .cat-shape4 {
-  background: url(../images/cat_falling4.png) top left no-repeat;
-  -webkit-shape-outside: polygon(nonzero, -4px 119px, 47px 61px, 249px 2px, 281px 17px, 480px 31px, 565px 7px, 656px 69px, 628px 89px, 590px 150px, 551px 149px, 511px 196px, 547px 324px, 539px 361px, 494px 394px, 412px 199px, 272px 200px, 202px 243px, 259px 282px, 250px 301px, 118px 247px, 129px 201px, 104px 158px, 21px 161px);
-  width: 652px;
-  height: 386px; }
+  -webkit-shape-outside: polygon(-0.25em 7.44em, 2.94em 3.81em, 15.56em 0.13em, 17.56em 1.06em, 30em 1.94em, 35.31em 0.44em, 41em 4.31em, 39.25em 5.56em, 36.88em 9.38em, 34.44em 9.31em, 31.94em 12.25em, 34.19em 20.25em, 33.69em 22.56em, 30.88em 24.63em, 25.75em 12.44em, 17em 12.50em, 12.63em 15.19em, 16.19em 17.63em, 15.63em 18.81em, 7.38em 15.44em, 8.06em 12.56em, 6.5em 9.88em, 1.31em 10.06em);
+  background: url('../images/cat_falling4.png') top left no-repeat;
+  background-size: contain;
+  width: 40.75em;
+  height: 24.125em; }
 
 .cat-shape5 {
-  background: url(../images/cat_falling5.png) top left no-repeat;
-  -webkit-shape-outside: polygon(nonzero, 7px 102px, 77px 53px, 81px 117px, 233px 130px, 388px 15px, 468px 1px, 554px 30px, 588px 76px, 641px 48px, 711px 69px, 773px 124px, 727px 148px, 705px 203px, 662px 232px, 608px 276px, 593px 305px, 602px 477px, 491px 489px, 379px 500px, 343px 477px, 303px 497px, 330px 550px, 280px 543px, 264px 512px, 233px 414px, 230px 335px, 198px 251px, 207px 191px, 162px 181px, 89px 205px, 4px 166px);
-  width: 772px;
-  height: 554px; }
+  -webkit-shape-outside: polygon(0.44em 6.38em, 4.81em 3.31em, 5.06em 7.31em, 14.56em 8.13em, 24.25em 0.94em, 29.25em 0.06em, 34.63em 1.88em, 36.75em 4.75em, 40.06em 3.00em, 44.44em 4.31em, 48.31em 7.75em, 45.44em 9.25em, 44.06em 12.69em, 41.38em 14.50em, 38em 17.25em, 37.06em 19.06em, 37.63em 29.81em, 30.69em 30.56em, 23.69em 31.25em, 21.44em 29.81em, 18.94em 31.06em, 20.63em 34.38em, 17.5em 33.94em, 16.5em 32.00em, 14.56em 25.88em, 14.38em 20.94em, 12.38em 15.69em, 12.94em 11.94em, 10.13em 11.31em, 5.56em 12.81em, 0.25em 10.38em);
+  background: url('../images/cat_falling5.png') top left no-repeat;
+  background-size: contain;
+  width: 48.25em;
+  height: 34.5em; }
 
 .cat-shape6 {
-  background: url(../images/cat_falling6.png) top left no-repeat;
-  -webkit-shape-outside: polygon(nonzero, -5px 4px, 79px 36px, 134px 101px, 155px 234px, 186px 247px, 281px 183px, 353px 162px, 463px 197px, 513px 248px, 594px 245px, 654px 270px, 634px 291px, 634px 341px, 618px 370px, 596px 393px, 553px 386px, 536px 442px, 527px 474px, 539px 529px, 538px 592px, 569px 659px, 529px 660px, 481px 650px, 483px 700px, 441px 698px, 419px 630px, 359px 592px, 299px 619px, 310px 653px, 232px 680px, 199px 657px, 175px 589px, 157px 495px, 141px 371px, 161px 300px, 119px 280px, 92px 186px, 25px 103px);
-  width: 652px;
-  height: 702px; }
+  -webkit-shape-outside: polygon(-0.31em 0.25em, 4.94em 2.25em, 8.38em 6.31em, 9.69em 14.63em, 11.63em 15.44em, 17.56em 11.44em, 22.06em 10.13em, 28.94em 12.31em, 32.06em 15.50em, 37.13em 15.31em, 40.88em 16.88em, 39.63em 18.19em, 39.63em 21.31em, 38.63em 23.13em, 37.25em 24.56em, 34.56em 24.13em, 33.5em 27.63em, 32.94em 29.63em, 33.69em 33.06em, 33.63em 37.00em, 35.56em 41.19em, 33.06em 41.25em, 30.06em 40.63em, 30.19em 43.75em, 27.56em 43.63em, 26.19em 39.38em, 22.44em 37.00em, 18.69em 38.69em, 19.38em 40.81em, 14.5em 42.50em, 12.44em 41.06em, 10.94em 36.81em, 9.81em 30.94em, 8.81em 23.19em, 10.06em 18.75em, 7.44em 17.50em, 5.75em 11.63em, 1.56em 6.44em);
+  background: url('../images/cat_falling6.png') top left no-repeat;
+  background-size: contain;
+  width: 40.75em;
+  height: 43.75em; }
 
 .cat-shape-walking {
-  background: url(../images/cat_walking.png) top left no-repeat;
-  -webkit-shape-outside: polygon(nonzero, 120px 1px, 195px 9px, 220px 56px, 205px 107px, 139px 130px, 133px 184px, 188px 272px, 344px 259px, 567px 296px, 631px 279px, 620px 216px, 679px 230px, 738px 211px, 761px 237px, 809px 201px, 811px 264px, 841px 313px, 804px 336px, 744px 407px, 740px 517px, 812px 620px, 887px 666px, 866px 693px, 802px 676px, 621px 527px, 555px 532px, 497px 656px, 524px 678px, 501px 704px, 467px 699px, 458px 665px, 482px 529px, 304px 529px, 269px 585px, 237px 640px, 279px 683px, 325px 714px, 256px 720px, 187px 651px, 171px 599px, 184px 542px, 75px 577px, 33px 701px, -2px 683px, 28px 575px, 45px 512px, 102px 455px, 121px 295px, 66px 182px, 50px 121px, 70px 47px);
-  width: 884px;
-  height: 723px; }
+  -webkit-shape-outside: polygon(7.5em 0.06em, 12.19em 0.56em, 13.75em 3.50em, 12.81em 6.69em, 8.69em 8.13em, 8.31em 11.50em, 11.75em 17.00em, 21.5em 16.19em, 35.44em 18.50em, 39.44em 17.44em, 38.75em 13.50em, 42.44em 14.38em, 46.13em 13.19em, 47.56em 14.81em, 50.56em 12.56em, 50.69em 16.50em, 52.56em 19.56em, 50.25em 21.00em, 46.5em 25.44em, 46.25em 32.31em, 50.75em 38.75em, 55.44em 41.63em, 54.13em 43.31em, 50.13em 42.25em, 38.81em 32.94em, 34.69em 33.25em, 31.06em 41.00em, 32.75em 42.38em, 31.31em 44.00em, 29.19em 43.69em, 28.63em 41.56em, 30.13em 33.06em, 19em 33.06em, 16.81em 36.56em, 14.81em 40.00em, 17.44em 42.69em, 20.31em 44.63em, 16em 45.00em, 11.69em 40.69em, 10.69em 37.44em, 11.5em 33.88em, 4.69em 36.06em, 2.06em 43.81em, -0.13em 42.69em, 1.75em 35.94em, 2.81em 32.00em, 6.38em 28.44em, 7.56em 18.44em, 4.13em 11.38em, 3.13em 7.56em, 4.38em 2.94em);
+  background: url('../images/cat_walking.png') top left no-repeat;
+  background-size: contain;
+  width: 55.25em;
+  height: 42.125em; }
