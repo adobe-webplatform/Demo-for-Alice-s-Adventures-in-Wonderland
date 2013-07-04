@@ -1,0 +1,52 @@
+#scene1 .content{
+  -webkit-shape-inside: polygon( 99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px);    
+}
+
+#scene2_1 .content{
+    -webkit-shape-inside: polygon(363px 0px, 901px 0px, 929px 72px, 910px 159px, 929px 257px, 972px 342px, 943px 379px, 936px 423px, 945px 499px, 994px 518px, 967px 605px, 940px 617px, 923px 657px, 955px 736px, 881px 900px, 805px 994px, 731px 951px, 668px 1008px, 619px 1072px, 691px 1119px, 744px 1245px, 706px 1561px, 0px 1560px, 0px 1462px, 56px 1390px, 171px 1348px, 218px 1273px, 250px 1253px, 256px 1213px, 103px 1198px, 99px 1142px, 59px 1046px, 291px 832px, 309px 799px, 427px 791px, 493px 722px, 544px 681px, 521px 645px, 490px 676px, 433px 612px, 446px 557px, 466px 532px, 457px 469px, 426px 452px, 451px 374px, 396px 291px, 413px 250px, 360px 139px, 350px 74px);
+}
+.cat-shape1{
+  -webkit-shape-outside: polygon(nonzero, 22px -5px, 60px 36px, 116px 69px, 112px 115px, 131px 136px, 179px 114px, 188px 136px, 144px 174px, 119px 200px, 171px 232px, 193px 217px, 276px 236px, 339px 226px, 373px 217px, 394px 180px, 405px 230px, 428px 239px, 438px 277px, 474px 280px, 434px 318px, 409px 372px, 390px 438px, 321px 504px, 303px 492px, 187px 529px, 90px 505px, 35px 441px, 1px 363px, 50px 243px, 7px 199px, 31px 138px, 58px 95px, 30px 58px);
+} 
+
+.cat-shape2{
+  background: url(../images/cat_falling2.png) top left no-repeat;
+  -webkit-shape-outside: polygon(nonzero, 37px 25px, 148px 0px, 180px 26px, 187px 66px, 166px 110px, 201px 128px, 218px 176px, 298px 190px, 335px 155px, 385px 134px, 420px 97px, 475px 90px, 521px 88px, 576px 114px, 552px 140px, 553px 176px, 533px 224px, 497px 229px, 480px 259px, 522px 286px, 552px 353px, 514px 365px, 536px 406px, 496px 407px, 484px 367px, 427px 353px, 403px 337px, 332px 386px, 273px 391px, 108px 341px, 18px 285px, 1px 245px, 10px 212px, 41px 141px, 32px 113px, 48px 81px);
+  width: 575px;
+  height: 410px;
+}
+
+.cat-shape3{
+  background: url(../images/cat_falling3.png) top left no-repeat;
+  -webkit-shape-outside: polygon(nonzero, 22px 5px, 67px 5px, 88px 47px, 94px 79px, 134px 80px, 171px 41px, 204px 31px, 256px 30px, 342px 62px, 445px 45px, 564px 72px, 626px 80px, 662px 92px, 682px 156px, 717px 181px, 672px 190px, 634px 219px, 569px 236px, 466px 251px, 433px 317px, 393px 374px, 374px 368px, 409px 276px, 387px 254px, 305px 248px, 270px 278px, 173px 251px, 191px 290px, 172px 332px, 122px 228px, 121px 145px, 49px 131px, 5px 81px, 1px 29px);
+  width: 711px;
+  height: 375px;
+}
+
+.cat-shape4{
+  background: url(../images/cat_falling4.png) top left no-repeat;
+  -webkit-shape-outside: polygon(nonzero, -4px 119px, 47px 61px, 249px 2px, 281px 17px, 480px 31px, 565px 7px, 656px 69px, 628px 89px, 590px 150px, 551px 149px, 511px 196px, 547px 324px, 539px 361px, 494px 394px, 412px 199px, 272px 200px, 202px 243px, 259px 282px, 250px 301px, 118px 247px, 129px 201px, 104px 158px, 21px 161px);
+  width: 652px;
+  height: 386px;
+}
+
+.cat-shape5{
+  background: url(../images/cat_falling5.png) top left no-repeat;
+  -webkit-shape-outside: polygon(nonzero, 7px 102px, 77px 53px, 81px 117px, 233px 130px, 388px 15px, 468px 1px, 554px 30px, 588px 76px, 641px 48px, 711px 69px, 773px 124px, 727px 148px, 705px 203px, 662px 232px, 608px 276px, 593px 305px, 602px 477px, 491px 489px, 379px 500px, 343px 477px, 303px 497px, 330px 550px, 280px 543px, 264px 512px, 233px 414px, 230px 335px, 198px 251px, 207px 191px, 162px 181px, 89px 205px, 4px 166px);
+  width: 772px;
+  height: 554px;
+}
+
+.cat-shape6{
+  background: url(../images/cat_falling6.png) top left no-repeat;
+  -webkit-shape-outside: polygon(nonzero, -5px 4px, 79px 36px, 134px 101px, 155px 234px, 186px 247px, 281px 183px, 353px 162px, 463px 197px, 513px 248px, 594px 245px, 654px 270px, 634px 291px, 634px 341px, 618px 370px, 596px 393px, 553px 386px, 536px 442px, 527px 474px, 539px 529px, 538px 592px, 569px 659px, 529px 660px, 481px 650px, 483px 700px, 441px 698px, 419px 630px, 359px 592px, 299px 619px, 310px 653px, 232px 680px, 199px 657px, 175px 589px, 157px 495px, 141px 371px, 161px 300px, 119px 280px, 92px 186px, 25px 103px);
+  width: 652px;
+  height: 702px;
+}
+
+.cat-shape-walking{
+  background: url(../images/cat_walking.png) top left no-repeat;
+  -webkit-shape-outside: polygon(nonzero, 120px 1px, 195px 9px, 220px 56px, 205px 107px, 139px 130px, 133px 184px, 188px 272px, 344px 259px, 567px 296px, 631px 279px, 620px 216px, 679px 230px, 738px 211px, 761px 237px, 809px 201px, 811px 264px, 841px 313px, 804px 336px, 744px 407px, 740px 517px, 812px 620px, 887px 666px, 866px 693px, 802px 676px, 621px 527px, 555px 532px, 497px 656px, 524px 678px, 501px 704px, 467px 699px, 458px 665px, 482px 529px, 304px 529px, 269px 585px, 237px 640px, 279px 683px, 325px 714px, 256px 720px, 187px 651px, 171px 599px, 184px 542px, 75px 577px, 33px 701px, -2px 683px, 28px 575px, 45px 512px, 102px 455px, 121px 295px, 66px 182px, 50px 121px, 70px 47px);
+  width: 884px;
+  height: 723px;
+}
