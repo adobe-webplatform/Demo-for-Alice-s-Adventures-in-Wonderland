@@ -14,31 +14,47 @@ p{
   margin:0;
 }
 
-// TODO: remove offsets, make lef-aligned designed
-$base-offset: -200px;
-
-
 /* 
 Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.
 Wrapping all content to prevent horizontal scrolling. 
 */
 .wrapper{
   overflow-x: hidden;
+  
+  /* Use font-size to scale the scenes. They are in ems */
+  font-size: 90%;
+  background: black;
 }
 
 #scene1{
   background: -webkit-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(0,0,0,0.9)) bottom, url(../images/bg_scn1.jpg) left top;
-  height: 1200px;
-  width: 1900px;
-  margin-left: $base-offset;
+  background-size: 100%;
+  
+  /* 
+    Scale the scene size by tweaking the font-size on .wrapper 
+    The background will scale with the scene. Fonts are in `rem` so they stay constant.
+  */
+  height: 75em;
+  width: 118.75em;
   overflow: hidden;
   position: relative;
 
   .content{
-    width: 480px;
-    margin-left: 600px;
-    padding-top: 185px;
-    -webkit-shape-inside: polygon( 99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px);
+    width: 30em;
+    margin-left: 37.5em;
+    padding-top: 11.56em;
+/*  -webkit-shape-inside: polygon( 99px 0px, 39px 71px, 60px 112px, 43px 154px, 117px 179px, 116px 203px, 73px 230px, 79px 262px, 116px 280px, 167px 279px, 167px 307px, 133px 328px, 141px 368px, 182px 384px, 238px 367px, 242px 424px, 33px 491px, 59px 539px, 119px 567px, 164px 575px, 192px 623px, 189px 677px, 61px 736px, 35px 805px, 9px 928px, 0px 997px, 414px 997px, 448px 796px, 408px 676px, 344px 661px, 341px 591px, 375px 525px, 361px 497px, 407px 445px, 454px 405px, 480px 376px, 481px 0px, 99px 0px);*/    
+    -webkit-shape-inside: polygon( 6.1875em 0em, 2.4375em 4.4375em, 3.75em 7em, 2.6875em 9.625em, 7.3125em 11.1875em, 7.25em 12.6875em, 4.5625em 14.375em, 4.9375em 16.375em, 7.25em 17.5em, 10.4375em 17.4375em, 10.4375em 19.1875em, 8.3125em 20.5em, 8.8125em 23em, 11.375em 24em, 14.875em 22.9375em, 15.125em 26.5em, 2.0625em 30.6875em, 3.6875em 33.6875em, 7.4375em 35.4375em, 10.25em 35.9375em, 12em 38.9375em, 11.8125em 42.3125em, 3.8125em 46em, 2.1875em 50.3125em, 0.5625em 58em, 0em 62.3125em, 25.875em 62.3125em, 28em 49.75em, 25.5em 42.25em, 21.5em 41.3125em, 21.3125em 36.9375em, 23.4375em 32.8125em, 22.5625em 31.0625em, 25.4375em 27.8125em, 28.375em 25.3125em, 30em 23.5em, 30.0625em 0em, 6.1875em 0em);
+    
+    
+    p{
+      /*
+        Keeps font-size consistent with root.
+        Don't set font-size on the parent .content unless you want to also mainpulate its scale. The parent scales with the scene.
+      */
+      font-size: 1rem;
+    }
+
   }
   
   .overlay{
@@ -65,11 +81,19 @@ Wrapping all content to prevent horizontal scrolling.
 #scene2_1{
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
-  width: 1900px;
-  height: 1700px;
-  margin-left: $base-offset;
+  box-sizing: border-box;
+  width: 109em;
+  height: 97.5em;
+/*  -webkit-shape-inside: polygon(363px 0px, 901px 0px, 929px 72px, 910px 159px, 929px 257px, 972px 342px, 943px 379px, 936px 423px, 945px 499px, 994px 518px, 967px 605px, 940px 617px, 923px 657px, 955px 736px, 881px 900px, 805px 994px, 731px 951px, 668px 1008px, 619px 1072px, 691px 1119px, 744px 1245px, 706px 1561px, 0px 1560px, 0px 1462px, 56px 1390px, 171px 1348px, 218px 1273px, 250px 1253px, 256px 1213px, 103px 1198px, 99px 1142px, 59px 1046px, 291px 832px, 309px 799px, 427px 791px, 493px 722px, 544px 681px, 521px 645px, 490px 676px, 433px 612px, 446px 557px, 466px 532px, 457px 469px, 426px 452px, 451px 374px, 396px 291px, 413px 250px, 360px 139px, 350px 74px);*/
+  -webkit-shape-inside: polygon(22.69em 0em, 56.31em 0em, 58.06em 4.50em, 56.88em 9.94em, 58.06em 16.06em, 60.75em 21.38em, 58.94em 23.69em, 58.50em 26.44em, 59.06em 31.19em, 62.13em 32.38em, 60.44em 37.81em, 58.75em 38.56em, 57.69em 41.06em, 59.69em 46.00em, 55.06em 56.25em, 50.31em 62.13em, 45.69em 59.44em, 41.75em 63.00em, 38.69em 67.00em, 43.19em 69.94em, 46.50em 77.81em, 44.13em 97.56em, 0em 97.50em, 0em 91.38em, 3.50em 86.88em, 10.69em 84.25em, 13.63em 79.56em, 15.63em 78.31em, 16.00em 75.81em, 6.44em 74.88em, 6.19em 71.38em, 3.69em 65.38em, 18.19em 52.00em, 19.31em 49.94em, 26.69em 49.44em, 30.81em 45.13em, 34.00em 42.56em, 32.56em 40.31em, 30.63em 42.25em, 27.06em 38.25em, 27.88em 34.81em, 29.13em 33.25em, 28.56em 29.31em, 26.63em 28.25em, 28.19em 23.38em, 24.75em 18.19em, 25.81em 15.63em, 22.50em 8.69em, 21.88em 4.63em);
   
+  /* TODO, investigate bug with shape-padding 16px+ / 1em+. Might be self-intersecting paths. */
+  -webkit-shape-padding: 0.99em;
+    
   .content{
+    width: 62em;
+    margin-left: 16em;
+    height: 97.5em;
   }
   
   /* hack to force first line to respect in shape-inside*/ 
@@ -84,20 +108,8 @@ Wrapping all content to prevent horizontal scrolling.
 #scene2_2{
   background: pink url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
-  width: 4860px;
-  height: 4860px;
-  margin-left: $base-offset;
-  position: relative;
-  
-  .content{
-  }
-  
-  /* hack to force first line to respect in shape-inside*/ 
-  .content p:before{
-    display: block;
-    clear: both;
-    content: "";
-  }
+  width: 278.75em;
+  height: 91.25em;
 }
 
 
