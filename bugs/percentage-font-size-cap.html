@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Case - percentage font-size is ignored below 56%</title>
+  <style>
+  
+  .box{
+  width: 10em; 
+  height: 10em;
+  font-size: 100%;
+  outline: 1px solid red;
+  margin: 0 0 2rem;
+  }
+  
+  .percent56{
+    font-size: 56%;
+  }
+
+  .percent25{
+    font-size: 25%;
+  }
+  
+  </style>
+</head>
+<body>
+  <h1>Percentage font-size is ignored below 56%</h1>
+  <p><strong>Expected result:</strong> the third box should be visibly smaller than the first and second boxes</p>
+  <code>font-size: 100%</code>
+  <div class="box">
+  text
+  </div>
+  
+  <code>font-size: 56%</code>
+  <div class="box percent56">
+  text
+  </div>
+
+  <code>font-size: 25%</code>
+  <div class="box percent25">
+  text
+  </div>
+  
+  <script>
+  
+  var p56 = document.querySelector('.percent56')
+  console.log('computed font-size: 56% is %s', window.getComputedStyle(p56, null)['font-size'])
+
+  var p25 = document.querySelector('.percent25')
+  console.log('computed font-size: 25% is %s', window.getComputedStyle(p25, null)['font-size'])
+  
+  </script>
+  
+</body>
+</html>
