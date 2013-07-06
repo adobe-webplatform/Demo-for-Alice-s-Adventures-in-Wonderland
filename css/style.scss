@@ -281,6 +281,12 @@ Wrapping all content to prevent horizontal scrolling.
   width: 278.75em;
   height: 91.25em;
   border-top: 1px solid yellow;
+  
+  .content{
+    width: 278.75em;
+    height: 80em;
+    background: rgba(0,240,0,0.1);
+  }
 }
 
 

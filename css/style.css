@@ -492,6 +492,10 @@ Wrapping all content to prevent horizontal scrolling.
   width: 278.75em;
   height: 91.25em;
   border-top: 1px solid yellow; }
+  #scene2_2 .content {
+    width: 278.75em;
+    height: 80em;
+    background: rgba(0, 240, 0, 0.1); }
 
 .cat-shape1 {
   -webkit-shape-outside: polygon(1.38em -0.31em, 3.75em 2.25em, 7.25em 4.31em, 7em 7.19em, 8.19em 8.50em, 11.19em 7.13em, 11.75em 8.50em, 9em 10.88em, 7.44em 12.50em, 10.69em 14.50em, 12.06em 13.56em, 17.25em 14.75em, 21.19em 14.13em, 23.31em 13.56em, 24.63em 11.25em, 25.31em 14.38em, 26.75em 14.94em, 27.38em 17.31em, 29.63em 17.50em, 27.13em 19.88em, 25.56em 23.25em, 24.38em 27.38em, 20.06em 31.50em, 18.94em 30.75em, 11.69em 33.06em, 5.63em 31.56em, 2.19em 27.56em, 0.06em 22.69em, 3.13em 15.19em, 0.44em 12.44em, 1.94em 8.63em, 3.63em 5.94em, 1.88em 3.63em);
