@@ -315,7 +315,7 @@ Scroll events don't trigger on vertical scrolling if overflow-x is applied to th
 Wrapping all content to prevent horizontal scrolling. 
 */
 .wrapper {
-  overflow-x: hidden;
+  /*  overflow-x: hidden;*/
   /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
   background: black; }
@@ -369,7 +369,10 @@ Wrapping all content to prevent horizontal scrolling.
   /* cat falling 1 */
   /* cat falling 2 */
   /* cat falling 3 */
-  /* cat falling 4 */ }
+  /* cat falling 4 */
+  /* cat falling 5 */
+  /* cat falling 6 */
+  /* cat falling 6 */ }
   #scene2_1 .content {
     width: 62em;
     margin-left: 16em;
@@ -392,44 +395,96 @@ Wrapping all content to prevent horizontal scrolling.
       margin-bottom: 3em;
       color: blue; }
   #scene2_1 .bumper-cat-shape2 {
+    display: none;
     float: right;
     width: 2em;
     height: 2em;
     background: red; }
   #scene2_1 .cat-shape2 {
+    display: none;
     float: right;
-    font-size: 70%;
+    /* TODO: use calc() with percentages because WebKit doesn't go below 56% (9px) */
+    font-size: 8px;
     outline: 1px solid red; }
     #scene2_1 .cat-shape2 + p {
+      display: none;
       padding-top: 3em;
       margin-bottom: 3em;
       color: red; }
   #scene2_1 .bumper-cat-shape3 {
+    display: none;
     float: left;
-    width: 2em;
+    width: 12em;
     height: 2em;
     background: green; }
   #scene2_1 .cat-shape3 {
+    display: none;
     float: left;
     -webkit-shape-margin: 1em;
-    font-size: 70%;
+    font-size: 8px;
     outline: 1px solid green; }
     #scene2_1 .cat-shape3 + p {
+      display: none;
       margin-bottom: 3em;
       color: green; }
   #scene2_1 .bumper-cat-shape4 {
+    display: none;
     float: left;
-    width: 2em;
+    width: 10em;
     height: 2em;
     background: orange; }
   #scene2_1 .cat-shape4 {
+    display: none;
     float: left;
     -webkit-shape-margin: 1em;
-    font-size: 70%;
+    font-size: 8px;
     outline: 1px solid orange; }
     #scene2_1 .cat-shape4 + p {
+      display: none;
       margin-bottom: 3em;
       color: orange; }
+  #scene2_1 .bumper-cat-shape5 {
+    float: left;
+    width: 2em;
+    height: 2em;
+    background: purple; }
+  #scene2_1 .cat-shape5 {
+    float: left;
+    -webkit-shape-margin: 1em;
+    font-size: 8px;
+    outline: 1px solid purple; }
+    #scene2_1 .cat-shape5 + p {
+      margin-bottom: 3em;
+      color: purple; }
+  #scene2_1 .bumper-cat-shape6 {
+    float: left;
+    width: 2em;
+    height: 2em;
+    background: fuchsia; }
+  #scene2_1 .cat-shape6 {
+    float: left;
+    -webkit-shape-margin: 1em;
+    font-size: 8px;
+    outline: 1px solid fuchsia; }
+    #scene2_1 .cat-shape6 + p {
+      margin-bottom: 3em;
+      color: fuchsia; }
+  #scene2_1 .bumper-cat-shape-walking {
+    display: none;
+    float: left;
+    width: 2em;
+    height: 2em;
+    background: #008000; }
+  #scene2_1 .cat-shape-walking {
+    display: none;
+    float: left;
+    -webkit-shape-margin: 1em;
+    font-size: 7px;
+    outline: 1px solid #008000; }
+    #scene2_1 .cat-shape-walking + p {
+      display: none;
+      margin-bottom: 3em;
+      color: #008000; }
 
 #scene2_2 {
   background: pink url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
