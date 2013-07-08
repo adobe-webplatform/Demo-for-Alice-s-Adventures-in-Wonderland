@@ -315,10 +315,11 @@ Scroll events don't trigger on vertical scrolling if overflow-x is applied to th
 Wrapping all content to prevent horizontal scrolling. 
 */
 .wrapper {
-  /*  overflow-x: hidden;*/
+  overflow-x: hidden;
   /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
-  background: black; }
+  background: black;
+  /*  margin-left: -170px;*/ }
 
 #scene1 {
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) left top;
@@ -332,10 +333,13 @@ Wrapping all content to prevent horizontal scrolling.
   overflow: hidden;
   position: relative; }
   #scene1 .content {
-    width: 30em;
+    position: relative;
+    width: 33em;
+    height: 75em;
+    box-sizing: border-box;
     margin-left: 37.5em;
     padding-top: 11.56em;
-    -webkit-shape-inside: polygon(6.1875em 0em, 2.4375em 4.4375em, 3.75em 7em, 2.6875em 9.625em, 7.3125em 11.1875em, 7.25em 12.6875em, 4.5625em 14.375em, 4.9375em 16.375em, 7.25em 17.5em, 10.4375em 17.4375em, 10.4375em 19.1875em, 8.3125em 20.5em, 8.8125em 23em, 11.375em 24em, 14.875em 22.9375em, 15.125em 26.5em, 2.0625em 30.6875em, 3.6875em 33.6875em, 7.4375em 35.4375em, 10.25em 35.9375em, 12em 38.9375em, 11.8125em 42.3125em, 3.8125em 46em, 2.1875em 50.3125em, 0.5625em 58em, 0em 62.3125em, 25.875em 62.3125em, 28em 49.75em, 25.5em 42.25em, 21.5em 41.3125em, 21.3125em 36.9375em, 23.4375em 32.8125em, 22.5625em 31.0625em, 25.4375em 27.8125em, 28.375em 25.3125em, 30em 23.5em, 30.0625em 0em, 6.1875em 0em); }
+    -webkit-shape-inside: polygon(0em 0em, 33em -0.06em, 33.13em 23.75em, 30em 23.88em, 28em 25.88em, 28em 28.75em, 32.88em 33.00em, 31.38em 37.50em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.5em 46.81em, 21.19em 49.56em, 24em 53.13em, 27em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75.00em, 0em 65.94em, 2em 58.00em, 11.94em 53.50em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40.00em, 6.38em 40.00em, 12.44em 38.50em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.50em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4em 23.44em, 1em 20.63em, 2.88em 18.50em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em); }
     #scene1 .content p {
       /* Keeps font-size consistent with root. */
       font-size: 1rem; }
@@ -346,7 +350,7 @@ Wrapping all content to prevent horizontal scrolling.
     top: 0;
     right: 0;
     /*    -webkit-animation: flicker 8s infinite ease-in-out;*/
-    background: -webkit-radial-gradient(center center, ellipse cover, rgba(0, 0, 0, 0.1), black 40%);
+    background: -webkit-radial-gradient(center center, ellipse cover, rgba(0, 0, 0, 0), black 40%);
     background-color: rgba(0, 0, 0, 0);
     /* 
       Fake vignette with scaling because gradients can't be animated in CSS
