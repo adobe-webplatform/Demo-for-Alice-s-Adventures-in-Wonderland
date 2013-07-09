@@ -144,7 +144,6 @@ Wrapping all content to prevent horizontal scrolling.
    
    /* cat falling 2 */
    .bumper-cat-shape2{
-          @include hide;
      float: right;
      width: 2em;
      height: 2em;
@@ -152,14 +151,12 @@ Wrapping all content to prevent horizontal scrolling.
    }
    
    .cat-shape2{
-          @include hide;
      float: right; 
      /* TODO: use calc() with percentages because WebKit doesn't go below 56% (9px) */
      font-size: 8px;
      outline: 1px solid red;
      
      & + p{
-            @include hide;
        padding-top: 3em;
        margin-bottom: 3em;
        color: red;
@@ -168,7 +165,6 @@ Wrapping all content to prevent horizontal scrolling.
    
    /* cat falling 3 */
    .bumper-cat-shape3{
-          @include hide;
      float: left;
      width: 12em;
      height: 2em;
@@ -176,14 +172,12 @@ Wrapping all content to prevent horizontal scrolling.
    }
    
    .cat-shape3{
-          @include hide;
      float: left;
      -webkit-shape-margin: 1em;
      font-size: 8px;
      outline: 1px solid green;
      
      & + p{
-            @include hide;
        margin-bottom: 3em;
        color: green;
      }
@@ -191,7 +185,6 @@ Wrapping all content to prevent horizontal scrolling.
    
    /* cat falling 4 */
    .bumper-cat-shape4{
-    @include hide;
      float: left;
      width: 10em;
      height: 2em;
@@ -199,14 +192,12 @@ Wrapping all content to prevent horizontal scrolling.
    }
    
    .cat-shape4{
-     @include hide;
      float: left;
      -webkit-shape-margin: 1em;
      font-size: 8px;
      outline: 1px solid orange;
      
      & + p{
-            @include hide;
        margin-bottom: 3em;
        color: orange;
      }
@@ -256,7 +247,6 @@ Wrapping all content to prevent horizontal scrolling.
    $cat-color: green;
    /* cat falling 6 */
    .bumper-cat-shape-walking{
-      @include hide;
      float: left;
      width: 2em;
      height: 2em;
@@ -264,19 +254,16 @@ Wrapping all content to prevent horizontal scrolling.
    }
    
    .cat-shape-walking{
-           @include hide;
      float: left;
      -webkit-shape-margin: 1em;
      font-size: 7px;
      outline: 1px solid $cat-color;
      
      & + p{
-             @include hide;
        margin-bottom: 3em;
        color: $cat-color;
      }
    }
-   
   
 }
 
