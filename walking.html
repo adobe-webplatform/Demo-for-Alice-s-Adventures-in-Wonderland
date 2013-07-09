@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alice Animation</title>
+  <style>
+  
+  
+  .alice{
+    background-image: url(images/alice_walking_sprite.jpg);
+    width: 260px;
+    height: 575px;
+    outline: 1px solid red;
+    -webkit-animation: sprite-animation 1s steps(4) infinite;
+  }
+  
+  
+  @-webkit-keyframes sprite-animation{
+    0%{
+      background-position: 0 0;
+    }
+    
+    100%{
+      background-position: -1040px 0;
+    }
+  }
+  
+  </style>
+</head>
+<body>
+  <div class="alice"></div>
+</body>
+</html>
