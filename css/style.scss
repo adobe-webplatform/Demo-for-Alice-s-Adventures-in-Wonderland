@@ -16,11 +16,6 @@
   }
 }
 
-@mixin hide(){
-  display: none;
-}
-
-
 html, body{
   height: 100%;
   width: 100%;
@@ -33,6 +28,12 @@ body{
 
 p{
   margin:0;
+}
+
+.content p{
+  /* Keeps font-size consistent with root. */
+  font-size: 1rem;
+  font-family: merriweather, serif;
 }
 
 /* 
@@ -70,11 +71,6 @@ Wrapping all content to prevent horizontal scrolling.
     margin-left: 37.5em;
     padding-top: 11.56em;
     -webkit-shape-inside: polygon(0em 0em, 33.00em -0.06em, 33.13em 23.75em, 30.00em 23.88em, 28.00em 25.88em, 28.00em 28.75em, 32.88em 33.00em, 31.38em 37.50em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.50em 46.81em, 21.19em 49.56em, 24.00em 53.13em, 27.00em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75.00em, 0em 65.94em, 2.00em 58.00em, 11.94em 53.50em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40.00em, 6.38em 40.00em, 12.44em 38.50em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.50em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4.00em 23.44em, 1.00em 20.63em, 2.88em 18.50em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em);
-    
-    p{
-      /* Keeps font-size consistent with root. */
-      font-size: 1rem;
-    }
   }
   
   .overlay{
@@ -103,9 +99,8 @@ Wrapping all content to prevent horizontal scrolling.
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
-  height: 97.5em;
+  height: 97.5em; 
   
-    
   .content{
     width: 62em;
     margin-left: 16em;
@@ -123,7 +118,7 @@ Wrapping all content to prevent horizontal scrolling.
   */
    .bumper-cat-shape1{
      float: left;
-     width: 26em;
+     width: 29em;
      height: 2em;
      background: blue;
    }
@@ -132,7 +127,7 @@ Wrapping all content to prevent horizontal scrolling.
    .cat-shape1{
      float: left;
      -webkit-shape-margin: 1em;
-     font-size: 70%;
+     font-size: 8px;
      outline: 1px solid blue;
      
      & + p{
@@ -153,11 +148,10 @@ Wrapping all content to prevent horizontal scrolling.
    .cat-shape2{
      float: right; 
      /* TODO: use calc() with percentages because WebKit doesn't go below 56% (9px) */
-     font-size: 8px;
+     font-size: 7px;
      outline: 1px solid red;
      
      & + p{
-       padding-top: 3em;
        margin-bottom: 3em;
        color: red;
      }
@@ -166,7 +160,7 @@ Wrapping all content to prevent horizontal scrolling.
    /* cat falling 3 */
    .bumper-cat-shape3{
      float: left;
-     width: 12em;
+     width: 15em;
      height: 2em;
      background: green;
    }
@@ -174,7 +168,7 @@ Wrapping all content to prevent horizontal scrolling.
    .cat-shape3{
      float: left;
      -webkit-shape-margin: 1em;
-     font-size: 8px;
+     font-size: 7px;
      outline: 1px solid green;
      
      & + p{
@@ -185,6 +179,7 @@ Wrapping all content to prevent horizontal scrolling.
    
    /* cat falling 4 */
    .bumper-cat-shape4{
+     clear: left;
      float: left;
      width: 10em;
      height: 2em;
@@ -194,7 +189,7 @@ Wrapping all content to prevent horizontal scrolling.
    .cat-shape4{
      float: left;
      -webkit-shape-margin: 1em;
-     font-size: 8px;
+     font-size: 7px;
      outline: 1px solid orange;
      
      & + p{
@@ -214,7 +209,7 @@ Wrapping all content to prevent horizontal scrolling.
    .cat-shape5{
      float: left;
      -webkit-shape-margin: 1em;
-     font-size: 8px;
+     font-size: 6px;
      outline: 1px solid purple;
      
      & + p{
@@ -223,24 +218,20 @@ Wrapping all content to prevent horizontal scrolling.
      }
    }
 
-   $cat-color: magenta;
    /* cat falling 6 */
    .bumper-cat-shape6{
      float: left;
      width: 2em;
      height: 2em;
-     background: $cat-color;
    }
    
    .cat-shape6{
      float: left;
      -webkit-shape-margin: 1em;
-     font-size: 8px;
-     outline: 1px solid $cat-color;
+     font-size: 7px;
      
      & + p{
        margin-bottom: 3em;
-       color: $cat-color;
      }
    }
 
@@ -264,7 +255,6 @@ Wrapping all content to prevent horizontal scrolling.
        color: $cat-color;
      }
    }
-  
 }
 
 
