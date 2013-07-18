@@ -327,7 +327,6 @@ Wrapping all content to prevent horizontal scrolling.
   /*  margin-left: -170px;*/ }
 
 #scene1 {
-  display: none;
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
   /* 
@@ -363,7 +362,6 @@ Wrapping all content to prevent horizontal scrolling.
     -webkit-transform: scale(8); }
 
 #scene2_1 {
-  display: none;
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
@@ -500,6 +498,7 @@ Wrapping all content to prevent horizontal scrolling.
     height: 80em;
     margin-left: 16em; }
   #scene2_2 .act2 {
+    /* temporarily hidden while working */
     display: none;
     background: rgba(0, 160, 0, 0.1);
     width: 30em;
