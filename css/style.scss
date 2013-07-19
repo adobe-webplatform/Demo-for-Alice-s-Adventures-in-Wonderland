@@ -117,17 +117,18 @@ Wrapping all content to prevent horizontal scrolling.
      Change the bumper's width to offset the cat shape horizontally together with its shape.
   */
    .bumper-cat-shape1{
-     float: left;
+/*     float: left;
      width: 29em;
      height: 2em;
      background: blue;
-   }
+*/   }
    
     /* cat falling 1 */
    .cat-shape1{
      float: left;
      -webkit-shape-margin: 1em;
      font-size: 8px;
+     margin-left: 52em;
      outline: 1px solid blue;
      
      & + p{
@@ -139,11 +140,11 @@ Wrapping all content to prevent horizontal scrolling.
    
    /* cat falling 2 */
    .bumper-cat-shape2{
-     float: right;
+/*     float: right;
      width: 2em;
      height: 2em;
      background: red;
-   }
+*/   }
    
    .cat-shape2{
      float: right; 
@@ -179,35 +180,43 @@ Wrapping all content to prevent horizontal scrolling.
    
    /* cat falling 4 */
    .bumper-cat-shape4{
-     clear: left;
+/*     clear: left;
      float: left;
      width: 10em;
      height: 2em;
      background: orange;
-   }
+*/   }
    
    .cat-shape4{
-     float: left;
+     float: right;
      -webkit-shape-margin: 1em;
      font-size: 7px;
-     outline: 1px solid orange;
+     outline: 1px solid green;
+     clear: right;
      
      & + p{
        margin-bottom: 3em;
-       color: orange;
+       color: green;
+       clear: left;
+       
+       &:after{
+         display: block;
+         content: "";
+         height: 1px;
+         clear: both;
+       }
      }
    }
    
    /* cat falling 5 */
    .bumper-cat-shape5{
-     float: left;
+/*     float: left;
      width: 2em;
      height: 2em;
      background: purple;
-   }
+*/   }
    
    .cat-shape5{
-     float: left;
      -webkit-shape-margin: 1em;
      font-size: 6px;
      outline: 1px solid purple;
