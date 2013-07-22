@@ -33,7 +33,6 @@ p{
 .content p{
   /* Keeps font-size consistent with root. */
   font-size: 1rem;
-  font-family: merriweather, serif;
 }
 
 /* 
@@ -41,13 +40,11 @@ Scroll events don't trigger on vertical scrolling if overflow-x is applied to th
 Wrapping all content to prevent horizontal scrolling. 
 */
 .wrapper{
-/*  overflow-x: hidden;*/
+  overflow-x: hidden;
   
   /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
   background: black;
-  
-/*  margin-left: -170px;*/
 }
 
 #scene1{

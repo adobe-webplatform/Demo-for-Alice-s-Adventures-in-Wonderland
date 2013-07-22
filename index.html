@@ -214,14 +214,14 @@
 
         // TODO: remove margin offset, make left-aligned design
         var styles = window.getComputedStyle(container, null)
-        var marginLeft = parseInt(styles.marginLeft, 10)
+        var marginLeft = parseInt(styles.marginLeft, 10) 
         
         var fauxHeight = null
         var cache = {
           offsetTop: container.offsetTop,
           position: container.style.position,
-          maxScroll: container.offsetWidth + container.offsetTop - window.innerWidth + marginLeft
-        }
+          maxScroll: container.offsetWidth + container.offsetTop - window.innerWidth
+        } 
         
         function listen(e){
 
@@ -238,7 +238,7 @@
             */
             
             fauxHeight = document.createElement('div')
-            fauxHeight.style.height = container.offsetWidth + 'px'
+            fauxHeight.style.height = container.offsetWidth - window.innerWidth + window.innerHeight + 'px'
             container.parentNode.insertBefore(fauxHeight, container)
             container.style.position = 'fixed'
             container.style.top = 0
@@ -259,9 +259,8 @@
         }
         
         function scrollHorizontally(){
-          console.log(window.scrollY) 
           
-          if (window.scrollY > cache.maxScroll)
+          if (window.scrollY >= cache.maxScroll)
             return;
 
           var amount = window.scrollY - cache.offsetTop

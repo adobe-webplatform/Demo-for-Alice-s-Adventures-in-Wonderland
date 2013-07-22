@@ -312,19 +312,17 @@ p {
 
 .content p {
   /* Keeps font-size consistent with root. */
-  font-size: 1rem;
-  font-family: merriweather, serif; }
+  font-size: 1rem; }
 
 /* 
 Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.
 Wrapping all content to prevent horizontal scrolling. 
 */
 .wrapper {
-  /*  overflow-x: hidden;*/
+  overflow-x: hidden;
   /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
-  background: black;
-  /*  margin-left: -170px;*/ }
+  background: black; }
 
 #scene1 {
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) left top;
@@ -344,7 +342,7 @@ Wrapping all content to prevent horizontal scrolling.
     box-sizing: border-box;
     margin-left: 37.5em;
     padding-top: 11.56em;
-    -webkit-shape-inside: polygon(0em 0em, 33em -0.06em, 33.13em 23.75em, 30em 23.88em, 28em 25.88em, 28em 28.75em, 32.88em 33.00em, 31.38em 37.50em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.5em 46.81em, 21.19em 49.56em, 24em 53.13em, 27em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75.00em, 0em 65.94em, 2em 58.00em, 11.94em 53.50em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40.00em, 6.38em 40.00em, 12.44em 38.50em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.50em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4em 23.44em, 1em 20.63em, 2.88em 18.50em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em); }
+    -webkit-shape-inside: polygon(0em 0em, 33em -0.06em, 33.13em 23.75em, 30em 23.88em, 28em 25.88em, 28em 28.75em, 32.88em 33em, 31.38em 37.5em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.5em 46.81em, 21.19em 49.56em, 24em 53.13em, 27em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75em, 0em 65.94em, 2em 58em, 11.94em 53.5em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40em, 6.38em 40em, 12.44em 38.5em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.5em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4em 23.44em, 1em 20.63em, 2.88em 18.5em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em); }
   #scene1 .overlay {
     position: absolute;
     width: 100%;
@@ -399,7 +397,7 @@ Wrapping all content to prevent horizontal scrolling.
     width: 62em;
     margin-left: 16em;
     height: 97.5em;
-    -webkit-shape-inside: polygon(22.69em 0em, 56.31em 0em, 58.06em 4.50em, 56.88em 9.94em, 58.06em 16.06em, 60.75em 21.38em, 58.94em 23.69em, 58.5em 26.44em, 59.06em 31.19em, 62.13em 32.38em, 60.44em 37.81em, 58.75em 38.56em, 57.69em 41.06em, 59.69em 46.00em, 55.06em 56.25em, 50.31em 62.13em, 45.69em 59.44em, 41.75em 63.00em, 38.69em 67.00em, 43.19em 69.94em, 46.5em 77.81em, 44.13em 97.56em, 0em 97.50em, 0em 91.38em, 3.5em 86.88em, 10.69em 84.25em, 13.63em 79.56em, 15.63em 78.31em, 16em 75.81em, 6.44em 74.88em, 6.19em 71.38em, 3.69em 65.38em, 18.19em 52.00em, 19.31em 49.94em, 26.69em 49.44em, 30.81em 45.13em, 34em 42.56em, 32.56em 40.31em, 30.63em 42.25em, 27.06em 38.25em, 27.88em 34.81em, 29.13em 33.25em, 28.56em 29.31em, 26.63em 28.25em, 28.19em 23.38em, 24.75em 18.19em, 25.81em 15.63em, 22.5em 8.69em, 21.88em 4.63em);
+    -webkit-shape-inside: polygon(22.69em 0em, 56.31em 0em, 58.06em 4.5em, 56.88em 9.94em, 58.06em 16.06em, 60.75em 21.38em, 58.94em 23.69em, 58.5em 26.44em, 59.06em 31.19em, 62.13em 32.38em, 60.44em 37.81em, 58.75em 38.56em, 57.69em 41.06em, 59.69em 46em, 55.06em 56.25em, 50.31em 62.13em, 45.69em 59.44em, 41.75em 63em, 38.69em 67em, 43.19em 69.94em, 46.5em 77.81em, 44.13em 97.56em, 0em 97.5em, 0em 91.38em, 3.5em 86.88em, 10.69em 84.25em, 13.63em 79.56em, 15.63em 78.31em, 16em 75.81em, 6.44em 74.88em, 6.19em 71.38em, 3.69em 65.38em, 18.19em 52em, 19.31em 49.94em, 26.69em 49.44em, 30.81em 45.13em, 34em 42.56em, 32.56em 40.31em, 30.63em 42.25em, 27.06em 38.25em, 27.88em 34.81em, 29.13em 33.25em, 28.56em 29.31em, 26.63em 28.25em, 28.19em 23.38em, 24.75em 18.19em, 25.81em 15.63em, 22.5em 8.69em, 21.88em 4.63em);
     /* TODO, investigate bug with shape-padding 16px+ / 1em+. Might be self-intersecting paths. */
     -webkit-shape-padding: 0.99em; }
   #scene2_1 .cat-shape1 {
@@ -537,49 +535,49 @@ Wrapping all content to prevent horizontal scrolling.
       background-size: contain; }
 
 .cat-shape1 {
-  -webkit-shape-outside: polygon(1.38em -0.31em, 3.75em 2.25em, 7.25em 4.31em, 7em 7.19em, 8.19em 8.50em, 11.19em 7.13em, 11.75em 8.50em, 9em 10.88em, 7.44em 12.50em, 10.69em 14.50em, 12.06em 13.56em, 17.25em 14.75em, 21.19em 14.13em, 23.31em 13.56em, 24.63em 11.25em, 25.31em 14.38em, 26.75em 14.94em, 27.38em 17.31em, 29.63em 17.50em, 27.13em 19.88em, 25.56em 23.25em, 24.38em 27.38em, 20.06em 31.50em, 18.94em 30.75em, 11.69em 33.06em, 5.63em 31.56em, 2.19em 27.56em, 0.06em 22.69em, 3.13em 15.19em, 0.44em 12.44em, 1.94em 8.63em, 3.63em 5.94em, 1.88em 3.63em);
+  -webkit-shape-outside: polygon(1.38em -0.31em, 3.75em 2.25em, 7.25em 4.31em, 7em 7.19em, 8.19em 8.5em, 11.19em 7.13em, 11.75em 8.5em, 9em 10.88em, 7.44em 12.5em, 10.69em 14.5em, 12.06em 13.56em, 17.25em 14.75em, 21.19em 14.13em, 23.31em 13.56em, 24.63em 11.25em, 25.31em 14.38em, 26.75em 14.94em, 27.38em 17.31em, 29.63em 17.5em, 27.13em 19.88em, 25.56em 23.25em, 24.38em 27.38em, 20.06em 31.5em, 18.94em 30.75em, 11.69em 33.06em, 5.63em 31.56em, 2.19em 27.56em, 0.06em 22.69em, 3.13em 15.19em, 0.44em 12.44em, 1.94em 8.63em, 3.63em 5.94em, 1.88em 3.63em);
   background: url('../images/cat_falling1.png') top left no-repeat;
   background-size: contain;
   width: 29.5em;
   height: 33.25em; }
 
 .cat-shape2 {
-  -webkit-shape-outside: polygon(2.31em 1.56em, 9.25em 0em, 11.25em 1.63em, 11.69em 4.13em, 10.38em 6.88em, 12.56em 8.00em, 13.63em 11.00em, 18.63em 11.88em, 20.94em 9.69em, 24.06em 8.38em, 26.25em 6.06em, 29.69em 5.63em, 32.56em 5.50em, 36em 7.13em, 34.5em 8.75em, 34.56em 11.00em, 33.31em 14.00em, 31.06em 14.31em, 30em 16.19em, 32.63em 17.88em, 34.5em 22.06em, 32.13em 22.81em, 33.5em 25.38em, 31em 25.44em, 30.25em 22.94em, 26.69em 22.06em, 25.19em 21.06em, 20.75em 24.13em, 17.06em 24.44em, 6.75em 21.31em, 1.13em 17.81em, 0.06em 15.31em, 0.63em 13.25em, 2.56em 8.81em, 2em 7.06em, 3em 5.06em);
+  -webkit-shape-outside: polygon(2.31em 1.56em, 9.25em 0em, 11.25em 1.63em, 11.69em 4.13em, 10.38em 6.88em, 12.56em 8em, 13.63em 11em, 18.63em 11.88em, 20.94em 9.69em, 24.06em 8.38em, 26.25em 6.06em, 29.69em 5.63em, 32.56em 5.5em, 36em 7.13em, 34.5em 8.75em, 34.56em 11em, 33.31em 14em, 31.06em 14.31em, 30em 16.19em, 32.63em 17.88em, 34.5em 22.06em, 32.13em 22.81em, 33.5em 25.38em, 31em 25.44em, 30.25em 22.94em, 26.69em 22.06em, 25.19em 21.06em, 20.75em 24.13em, 17.06em 24.44em, 6.75em 21.31em, 1.13em 17.81em, 0.06em 15.31em, 0.63em 13.25em, 2.56em 8.81em, 2em 7.06em, 3em 5.06em);
   background: url('../images/cat_falling2.png') top left no-repeat;
   background-size: contain;
   width: 35.94em;
   height: 26.625em; }
 
 .cat-shape3 {
-  -webkit-shape-outside: polygon(1.38em 0.31em, 4.19em 0.31em, 5.5em 2.94em, 5.88em 4.94em, 8.38em 5.00em, 10.69em 2.56em, 12.75em 1.94em, 16em 1.88em, 21.38em 3.88em, 27.81em 2.81em, 35.25em 4.50em, 39.13em 5.00em, 41.38em 5.75em, 42.63em 9.75em, 44.81em 11.31em, 42em 11.88em, 39.63em 13.69em, 35.56em 14.75em, 29.13em 15.69em, 27.06em 19.81em, 24.56em 23.38em, 23.38em 23.00em, 25.56em 17.25em, 24.19em 15.88em, 19.06em 15.50em, 16.88em 17.38em, 10.81em 15.69em, 11.94em 18.13em, 10.75em 20.75em, 7.63em 14.25em, 7.56em 9.06em, 3.06em 8.19em, 0.31em 5.06em, 0.06em 1.81em);
+  -webkit-shape-outside: polygon(1.38em 0.31em, 4.19em 0.31em, 5.5em 2.94em, 5.88em 4.94em, 8.38em 5em, 10.69em 2.56em, 12.75em 1.94em, 16em 1.88em, 21.38em 3.88em, 27.81em 2.81em, 35.25em 4.5em, 39.13em 5em, 41.38em 5.75em, 42.63em 9.75em, 44.81em 11.31em, 42em 11.88em, 39.63em 13.69em, 35.56em 14.75em, 29.13em 15.69em, 27.06em 19.81em, 24.56em 23.38em, 23.38em 23em, 25.56em 17.25em, 24.19em 15.88em, 19.06em 15.5em, 16.88em 17.38em, 10.81em 15.69em, 11.94em 18.13em, 10.75em 20.75em, 7.63em 14.25em, 7.56em 9.06em, 3.06em 8.19em, 0.31em 5.06em, 0.06em 1.81em);
   background: url('../images/cat_falling3.png') top left no-repeat;
   background-size: contain;
   width: 44.5em;
   height: 23.25em; }
 
 .cat-shape4 {
-  -webkit-shape-outside: polygon(-0.25em 7.44em, 2.94em 3.81em, 15.56em 0.13em, 17.56em 1.06em, 30em 1.94em, 35.31em 0.44em, 41em 4.31em, 39.25em 5.56em, 36.88em 9.38em, 34.44em 9.31em, 31.94em 12.25em, 34.19em 20.25em, 33.69em 22.56em, 30.88em 24.63em, 25.75em 12.44em, 17em 12.50em, 12.63em 15.19em, 16.19em 17.63em, 15.63em 18.81em, 7.38em 15.44em, 8.06em 12.56em, 6.5em 9.88em, 1.31em 10.06em);
+  -webkit-shape-outside: polygon(-0.25em 7.44em, 2.94em 3.81em, 15.56em 0.13em, 17.56em 1.06em, 30em 1.94em, 35.31em 0.44em, 41em 4.31em, 39.25em 5.56em, 36.88em 9.38em, 34.44em 9.31em, 31.94em 12.25em, 34.19em 20.25em, 33.69em 22.56em, 30.88em 24.63em, 25.75em 12.44em, 17em 12.5em, 12.63em 15.19em, 16.19em 17.63em, 15.63em 18.81em, 7.38em 15.44em, 8.06em 12.56em, 6.5em 9.88em, 1.31em 10.06em);
   background: url('../images/cat_falling4.png') top left no-repeat;
   background-size: contain;
   width: 40.75em;
   height: 24.125em; }
 
 .cat-shape5 {
-  -webkit-shape-outside: polygon(0.44em 6.38em, 4.81em 3.31em, 5.06em 7.31em, 14.56em 8.13em, 24.25em 0.94em, 29.25em 0.06em, 34.63em 1.88em, 36.75em 4.75em, 40.06em 3.00em, 44.44em 4.31em, 48.31em 7.75em, 45.44em 9.25em, 44.06em 12.69em, 41.38em 14.50em, 38em 17.25em, 37.06em 19.06em, 37.63em 29.81em, 30.69em 30.56em, 23.69em 31.25em, 21.44em 29.81em, 18.94em 31.06em, 20.63em 34.38em, 17.5em 33.94em, 16.5em 32.00em, 14.56em 25.88em, 14.38em 20.94em, 12.38em 15.69em, 12.94em 11.94em, 10.13em 11.31em, 5.56em 12.81em, 0.25em 10.38em);
+  -webkit-shape-outside: polygon(0.44em 6.38em, 4.81em 3.31em, 5.06em 7.31em, 14.56em 8.13em, 24.25em 0.94em, 29.25em 0.06em, 34.63em 1.88em, 36.75em 4.75em, 40.06em 3em, 44.44em 4.31em, 48.31em 7.75em, 45.44em 9.25em, 44.06em 12.69em, 41.38em 14.5em, 38em 17.25em, 37.06em 19.06em, 37.63em 29.81em, 30.69em 30.56em, 23.69em 31.25em, 21.44em 29.81em, 18.94em 31.06em, 20.63em 34.38em, 17.5em 33.94em, 16.5em 32em, 14.56em 25.88em, 14.38em 20.94em, 12.38em 15.69em, 12.94em 11.94em, 10.13em 11.31em, 5.56em 12.81em, 0.25em 10.38em);
   background: url('../images/cat_falling5.png') top left no-repeat;
   background-size: contain;
   width: 48.25em;
   height: 34.5em; }
 
 .cat-shape6 {
-  -webkit-shape-outside: polygon(-0.31em 0.25em, 4.94em 2.25em, 8.38em 6.31em, 9.69em 14.63em, 11.63em 15.44em, 17.56em 11.44em, 22.06em 10.13em, 28.94em 12.31em, 32.06em 15.50em, 37.13em 15.31em, 40.88em 16.88em, 39.63em 18.19em, 39.63em 21.31em, 38.63em 23.13em, 37.25em 24.56em, 34.56em 24.13em, 33.5em 27.63em, 32.94em 29.63em, 33.69em 33.06em, 33.63em 37.00em, 35.56em 41.19em, 33.06em 41.25em, 30.06em 40.63em, 30.19em 43.75em, 27.56em 43.63em, 26.19em 39.38em, 22.44em 37.00em, 18.69em 38.69em, 19.38em 40.81em, 14.5em 42.50em, 12.44em 41.06em, 10.94em 36.81em, 9.81em 30.94em, 8.81em 23.19em, 10.06em 18.75em, 7.44em 17.50em, 5.75em 11.63em, 1.56em 6.44em);
+  -webkit-shape-outside: polygon(-0.31em 0.25em, 4.94em 2.25em, 8.38em 6.31em, 9.69em 14.63em, 11.63em 15.44em, 17.56em 11.44em, 22.06em 10.13em, 28.94em 12.31em, 32.06em 15.5em, 37.13em 15.31em, 40.88em 16.88em, 39.63em 18.19em, 39.63em 21.31em, 38.63em 23.13em, 37.25em 24.56em, 34.56em 24.13em, 33.5em 27.63em, 32.94em 29.63em, 33.69em 33.06em, 33.63em 37em, 35.56em 41.19em, 33.06em 41.25em, 30.06em 40.63em, 30.19em 43.75em, 27.56em 43.63em, 26.19em 39.38em, 22.44em 37em, 18.69em 38.69em, 19.38em 40.81em, 14.5em 42.5em, 12.44em 41.06em, 10.94em 36.81em, 9.81em 30.94em, 8.81em 23.19em, 10.06em 18.75em, 7.44em 17.5em, 5.75em 11.63em, 1.56em 6.44em);
   background: url('../images/cat_falling6.png') top left no-repeat;
   background-size: contain;
   width: 40.75em;
   height: 43.75em; }
 
 .cat-shape-walking {
-  -webkit-shape-outside: polygon(7.5em 0.06em, 12.19em 0.56em, 13.75em 3.50em, 12.81em 6.69em, 8.69em 8.13em, 8.31em 11.50em, 11.75em 17.00em, 21.5em 16.19em, 35.44em 18.50em, 39.44em 17.44em, 38.75em 13.50em, 42.44em 14.38em, 46.13em 13.19em, 47.56em 14.81em, 50.56em 12.56em, 50.69em 16.50em, 52.56em 19.56em, 50.25em 21.00em, 46.5em 25.44em, 46.25em 32.31em, 50.75em 38.75em, 55.44em 41.63em, 54.13em 43.31em, 50.13em 42.25em, 38.81em 32.94em, 34.69em 33.25em, 31.06em 41.00em, 32.75em 42.38em, 31.31em 44.00em, 29.19em 43.69em, 28.63em 41.56em, 30.13em 33.06em, 19em 33.06em, 16.81em 36.56em, 14.81em 40.00em, 17.44em 42.69em, 20.31em 44.63em, 16em 45.00em, 11.69em 40.69em, 10.69em 37.44em, 11.5em 33.88em, 4.69em 36.06em, 2.06em 43.81em, -0.13em 42.69em, 1.75em 35.94em, 2.81em 32.00em, 6.38em 28.44em, 7.56em 18.44em, 4.13em 11.38em, 3.13em 7.56em, 4.38em 2.94em);
+  -webkit-shape-outside: polygon(7.5em 0.06em, 12.19em 0.56em, 13.75em 3.5em, 12.81em 6.69em, 8.69em 8.13em, 8.31em 11.5em, 11.75em 17em, 21.5em 16.19em, 35.44em 18.5em, 39.44em 17.44em, 38.75em 13.5em, 42.44em 14.38em, 46.13em 13.19em, 47.56em 14.81em, 50.56em 12.56em, 50.69em 16.5em, 52.56em 19.56em, 50.25em 21em, 46.5em 25.44em, 46.25em 32.31em, 50.75em 38.75em, 55.44em 41.63em, 54.13em 43.31em, 50.13em 42.25em, 38.81em 32.94em, 34.69em 33.25em, 31.06em 41em, 32.75em 42.38em, 31.31em 44em, 29.19em 43.69em, 28.63em 41.56em, 30.13em 33.06em, 19em 33.06em, 16.81em 36.56em, 14.81em 40em, 17.44em 42.69em, 20.31em 44.63em, 16em 45em, 11.69em 40.69em, 10.69em 37.44em, 11.5em 33.88em, 4.69em 36.06em, 2.06em 43.81em, -0.13em 42.69em, 1.75em 35.94em, 2.81em 32em, 6.38em 28.44em, 7.56em 18.44em, 4.13em 11.38em, 3.13em 7.56em, 4.38em 2.94em);
   background: url('../images/cat_walking.png') top left no-repeat;
   background-size: contain;
   width: 55.25em;
