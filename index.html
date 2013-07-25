@@ -202,7 +202,27 @@
           </div>
           
         </div>
-        <div class="act act4"></div>
+        <div class="act act4">
+          
+          <div class="alice-shape"></div>
+          
+          <div class="content-wrapper">
+            <p>
+              Alice was beginning to get very tired of sitting by her sister on the
+              bank, and of having nothing to do: once or twice she had peeped into the
+              book her sister was reading, but it had no pictures or conversations in
+              it, 'and what is the use of a book,' thought Alice 'without pictures or
+              conversation?'
+            </p>
+            <p>
+              once or twice she had peeped into the
+              book her sister was reading, but it had no pictures or conversations in
+              it, 'and what is the use of a book,' thought Alice 'without pictures or
+              conversation?'
+            </p>
+          </div>
+          
+          </div>
         <div class="act act5"></div>
         <div class="act act6"></div>
       </div>
@@ -212,7 +232,6 @@
       (function(){
         var container = document.querySelector('#scene2_2')
 
-        // TODO: remove margin offset, make left-aligned design
         var styles = window.getComputedStyle(container, null)
         var marginLeft = parseInt(styles.marginLeft, 10) 
         
@@ -220,7 +239,9 @@
         var cache = {
           offsetTop: container.offsetTop,
           position: container.style.position,
-          maxScroll: container.offsetWidth + container.offsetTop - window.innerWidth
+          maxScroll: container.offsetWidth + container.offsetTop - window.innerWidth,
+          vOffsetTrigger: container.offsetWidth / 3,
+          vOffset: window.innerHeight - container.offsetHeight
         } 
         
         function listen(e){
@@ -262,9 +283,17 @@
           
           if (window.scrollY >= cache.maxScroll)
             return;
-
+            
           var amount = window.scrollY - cache.offsetTop
           container.style.left = -1 * amount + 'px'
+
+          // vary the Y offset of the scene
+          if (amount > cache.vOffsetTrigger){
+            var delta = amount - cache.vOffsetTrigger
+            var left = container.offsetWidth - cache.vOffsetTrigger
+            var off = cache.vOffset / left
+            container.style.top = delta * off + "px"
+          }
         }
         
         window.addEventListener('scroll', listen)
