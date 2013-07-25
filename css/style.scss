@@ -366,7 +366,7 @@ Wrapping all content to prevent horizontal scrolling.
     height: 53em;
     margin-left: 50em;
     position: relative;
-    background: rgba(0,0,160,0.2);
+    -webkit-perspective: 900px;
     
     .alice-shape{
       position: absolute;
@@ -374,19 +374,67 @@ Wrapping all content to prevent horizontal scrolling.
       height: 26.35em;
       width: 11.9em;
       background: url(../images/alice_walking_4.png) left top no-repeat;
-      background-size: contain;
+      background-size: contain; 
+      opacity: 0;
+      -webkit-animation: alice-act-in 0.5s 1 ease-in-out;
+      -webkit-animation-fill-mode: forwards;
     }
     
     .content-wrapper{
       width: 30em;
       height: 18em;
-      outline: 1px solid lime;
       margin: 25em 0 0 15em;
       -webkit-shape-inside: polygon(nonzero, 141px -1px, 394px 26px, 481px 157px, 247px 185px, 52px 279px, 23px 217px, 3px 112px, 46px 44px);
     }
   }
+  
+  .shade{
+    position: absolute;
+    top: 0;
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0.15), rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 100% );
+    -webkit-filter: blur(7px);
+    -webkit-transform-origin: center top; 
+    -webkit-transform: rotateZ(-25deg);
+  }
+  
+  .shade1{
+    width: 40px;
+    height: 80em;
+    left: -20em;
+    -webkit-animation: shadow-swivel1 8s infinite ease-out;
+  }
+  
+  .shade2{
+    width: 70px;
+    height: 80em;
+    left: -5em;
+    -webkit-animation: shadow-swivel1 10s 3s infinite ease-out;
+  }
 }
 
+
+@-webkit-keyframes shadow-swivel1{
+  from{
+    -webkit-transform: rotateZ(-25deg);
+  }
+  50%{
+    -webkit-transform: rotateZ(-23deg);
+  }
+  to{
+    -webkit-transform: rotateZ(-25deg);
+  }
+}
+
+
+@-webkit-keyframes alice-act-in{
+  from{
+    -webkit-transform: rotateY(-20deg);
+  }
+  to{
+    opacity: 1;
+    -webkit-transform: rotateY(0);
+  }
+}
 
 .cat-shape1{
   @include cat-shape('../images/cat_falling1.png', polygon(1.38em -0.31em, 3.75em 2.25em, 7.25em 4.31em, 7.00em 7.19em, 8.19em 8.50em, 11.19em 7.13em, 11.75em 8.50em, 9.00em 10.88em, 7.44em 12.50em, 10.69em 14.50em, 12.06em 13.56em, 17.25em 14.75em, 21.19em 14.13em, 23.31em 13.56em, 24.63em 11.25em, 25.31em 14.38em, 26.75em 14.94em, 27.38em 17.31em, 29.63em 17.50em, 27.13em 19.88em, 25.56em 23.25em, 24.38em 27.38em, 20.06em 31.50em, 18.94em 30.75em, 11.69em 33.06em, 5.63em 31.56em, 2.19em 27.56em, 0.06em 22.69em, 3.13em 15.19em, 0.44em 12.44em, 1.94em 8.63em, 3.63em 5.94em, 1.88em 3.63em));
