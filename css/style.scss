@@ -48,6 +48,7 @@ Wrapping all content to prevent horizontal scrolling.
 }
 
 #scene1{
+  display: none;
   background: -webkit-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(0,0,0,0.9)) bottom, url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
   
@@ -93,6 +94,7 @@ Wrapping all content to prevent horizontal scrolling.
 
 
 #scene2_1{
+  display: none;
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
@@ -262,6 +264,7 @@ Wrapping all content to prevent horizontal scrolling.
   width: 278.75em;
   height: 91.25em;
   border-top: 1px solid yellow;
+  left: -1500px;
   
   $act-height: 80em;
   .content{
@@ -279,7 +282,7 @@ Wrapping all content to prevent horizontal scrolling.
   .act1{
     background: rgba(0,240,0,0.1);
     width: 55em;
-    height: 80em;
+    height: 50em;
     margin-left: 16em;
   }
   
@@ -301,8 +304,10 @@ Wrapping all content to prevent horizontal scrolling.
   }
   
   .act3{
-/*    background: rgba(0,160,0,0.1);*/
-    width: 40em;
+    
+    /* temporary hidden while working */
+    display: none;
+    width: 50em;
     height: 45em;
     position: relative;
     
@@ -353,6 +358,31 @@ Wrapping all content to prevent horizontal scrolling.
       width: 11.9em;
       background: url(../images/alice_walking_3.png) left top no-repeat;
       background-size: contain;
+    }
+  }
+  
+  .act4{
+    width: 50em;
+    height: 53em;
+    margin-left: 50em;
+    position: relative;
+    background: rgba(0,0,160,0.2);
+    
+    .alice-shape{
+      position: absolute;
+      bottom: 0; 
+      height: 26.35em;
+      width: 11.9em;
+      background: url(../images/alice_walking_4.png) left top no-repeat;
+      background-size: contain;
+    }
+    
+    .content-wrapper{
+      width: 30em;
+      height: 18em;
+      outline: 1px solid lime;
+      margin: 25em 0 0 15em;
+      -webkit-shape-inside: polygon(nonzero, 141px -1px, 394px 26px, 481px 157px, 247px 185px, 52px 279px, 23px 217px, 3px 112px, 46px 44px);
     }
   }
 }
