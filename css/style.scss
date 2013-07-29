@@ -48,7 +48,7 @@ Wrapping all content to prevent horizontal scrolling.
 }
 
 #scene1{
-  display: none;
+/*  display: none;*/
   background: -webkit-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(0,0,0,0.9)) bottom, url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
   
@@ -94,7 +94,6 @@ Wrapping all content to prevent horizontal scrolling.
 
 
 #scene2_1{
-  display: none;
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
@@ -109,19 +108,6 @@ Wrapping all content to prevent horizontal scrolling.
     -webkit-shape-padding: 0.99em;
   }
   
-   /* 
-     Bumpers are a workaround. Using margins to position a floated shape-outside element will not offset the element's shape as well.
-     
-     The bumper floats next to the cat shape. Set the bumper's width to what you wanted set on the floated shape-outside element's margin.
-     Change the bumper's width to offset the cat shape horizontally together with its shape.
-  */
-   .bumper-cat-shape1{
-/*     float: left;
-     width: 29em;
-     height: 2em;
-     background: blue;
-*/   }
-   
     /* cat falling 1 */
    .cat-shape1{
      float: left;
@@ -137,14 +123,6 @@ Wrapping all content to prevent horizontal scrolling.
      }
    }
    
-   /* cat falling 2 */
-   .bumper-cat-shape2{
-/*     float: right;
-     width: 2em;
-     height: 2em;
-     background: red;
-*/   }
-   
    .cat-shape2{
      float: right; 
      /* TODO: use calc() with percentages because WebKit doesn't go below 56% (9px) */
@@ -157,36 +135,7 @@ Wrapping all content to prevent horizontal scrolling.
      }
    }
    
-   /* cat falling 3 */
-/*   .bumper-cat-shape3{
-     float: left;
-     width: 15em;
-     height: 2em;
-     background: green;
-   }
-   
    .cat-shape3{
-     float: left;
-     -webkit-shape-margin: 1em;
-     font-size: 7px;
-     outline: 1px solid green;
-     
-     & + p{
-       margin-bottom: 3em;
-       color: green;
-     }
-   }  */
-   
-   /* cat falling 4 */
-   .bumper-cat-shape4{
-/*     clear: left;
-     float: left;
-     width: 10em;
-     height: 2em;
-     background: orange;
-*/   }
-   
-   .cat-shape4{
      float: right;
      -webkit-shape-margin: 1em;
      font-size: 7px;
@@ -206,16 +155,8 @@ Wrapping all content to prevent horizontal scrolling.
        }
      }
    }
-   
-   /* cat falling 5 */
-   .bumper-cat-shape5{
-/*     float: left;
-     width: 2em;
-     height: 2em;
-     background: purple;
-*/   }
-   
-   .cat-shape5{
+      
+   .cat-shape4{
      -webkit-shape-margin: 1em;
      font-size: 6px;
      outline: 1px solid purple;
@@ -228,19 +169,12 @@ Wrapping all content to prevent horizontal scrolling.
 }
 
 
-/* cat falling 6 */
-.bumper-cat-shape6{
-  float: right;
-  width: 2em;
-  height: 2em; 
-  background: lime;
-}
-
-.cat-shape6{
+.cat-shape5{
   float: right;
   -webkit-shape-margin: 1em;
-  font-size: 7px;
+  font-size: 4px;
   outline: 1px solid lime;
+  margin-top: 10em;
   
   & + p{
     margin-bottom: 3em;

@@ -325,7 +325,7 @@ Wrapping all content to prevent horizontal scrolling.
   background: black; }
 
 #scene1 {
-  display: none;
+  /*  display: none;*/
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
   /* 
@@ -361,40 +361,11 @@ Wrapping all content to prevent horizontal scrolling.
     -webkit-transform: scale(8); }
 
 #scene2_1 {
-  display: none;
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
   height: 97.5em;
-  /* 
-     Bumpers are a workaround. Using margins to position a floated shape-outside element will not offset the element's shape as well.
-     
-     The bumper floats next to the cat shape. Set the bumper's width to what you wanted set on the floated shape-outside element's margin.
-     Change the bumper's width to offset the cat shape horizontally together with its shape.
-  */
-  /* cat falling 1 */
-  /* cat falling 2 */
-  /* cat falling 3 */
-  /*   .bumper-cat-shape3{
-     float: left;
-     width: 15em;
-     height: 2em;
-     background: green;
-   }
-   
-   .cat-shape3{
-     float: left;
-     -webkit-shape-margin: 1em;
-     font-size: 7px;
-     outline: 1px solid green;
-     
-     & + p{
-       margin-bottom: 3em;
-       color: green;
-     }
-   }  */
-  /* cat falling 4 */
-  /* cat falling 5 */ }
+  /* cat falling 1 */ }
   #scene2_1 .content {
     width: 62em;
     margin-left: 16em;
@@ -420,42 +391,36 @@ Wrapping all content to prevent horizontal scrolling.
     #scene2_1 .cat-shape2 + p {
       margin-bottom: 3em;
       color: red; }
-  #scene2_1 .cat-shape4 {
+  #scene2_1 .cat-shape3 {
     float: right;
     -webkit-shape-margin: 1em;
     font-size: 7px;
     outline: 1px solid green;
     clear: right; }
-    #scene2_1 .cat-shape4 + p {
+    #scene2_1 .cat-shape3 + p {
       margin-bottom: 3em;
       color: green;
       clear: left; }
-      #scene2_1 .cat-shape4 + p:after {
+      #scene2_1 .cat-shape3 + p:after {
         display: block;
         content: "";
         height: 1px;
         clear: both; }
-  #scene2_1 .cat-shape5 {
+  #scene2_1 .cat-shape4 {
     -webkit-shape-margin: 1em;
     font-size: 6px;
     outline: 1px solid purple; }
-    #scene2_1 .cat-shape5 + p {
+    #scene2_1 .cat-shape4 + p {
       margin-bottom: 3em;
       color: purple; }
 
-/* cat falling 6 */
-.bumper-cat-shape6 {
-  float: right;
-  width: 2em;
-  height: 2em;
-  background: lime; }
-
-.cat-shape6 {
+.cat-shape5 {
   float: right;
   -webkit-shape-margin: 1em;
-  font-size: 7px;
-  outline: 1px solid lime; }
-  .cat-shape6 + p {
+  font-size: 4px;
+  outline: 1px solid lime;
+  margin-top: 10em; }
+  .cat-shape5 + p {
     margin-bottom: 3em; }
 
 .cat-shape-walking {
