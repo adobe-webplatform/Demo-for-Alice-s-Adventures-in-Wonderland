@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+  
+  .content{
+    width: 300px;
+    height: 300px;
+    background: lightgreen;
+    -webkit-shape-inside: polygon(nonzero, 0px 0px, 300px 0px, 300px 300px);
+    -webkit-clip-path: polygon(nonzero, 0px 0px, 300px 0px, 300px 300px);
+  }
+  
+  p{
+    margin: 0;
+  }
+  
+  .expected .shape{
+    margin-left: 50px;
+  }
+
+  .shape{
+    width: 50px;
+    height: 50px;
+    background: red;
+    float: left;
+  }
+  
+  </style>
+</head>
+<body>
+  <h1>Floated block in shape-inside element renders outside the shape-inside</h1>
+  
+  <p>
+    <strong>Expected:</strong> The red box should have its bottom left corner on the diagonal line that wraps the content.
+  </p>
+  
+  <h2>Bug</h2>
+  <div class="content"> 
+    <div class="shape"></div>
+    <p>
+      Alice was beginning to get very tired of sitting by her sister on the
+      bank, and of having nothing to do: once or twice she had peeped into the
+      book her sister was reading, but it had no pictures or conversations in
+      it, 'and what is the use of a book,' thought Alice.
+    </p>  
+  </div>
+  
+  <h2>Expected</h2>
+  <div class="content expected"> 
+    <div class="shape"></div>
+    <p>
+      Alice was beginning to get very tired of sitting by her sister on the
+      bank, and of having nothing to do: once or twice she had peeped into the
+      book her sister was reading, but it had no pictures or conversations in
+      it, 'and what is the use of a book,' thought Alice.
+    </p>  
+  </div>
+  
+</body>
+</html>
