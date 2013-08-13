@@ -47,8 +47,33 @@ Wrapping all content to prevent horizontal scrolling.
   background: black;
 }
 
+
+@-webkit-keyframes title-in{
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0em);
+  }
+}
+
 #scene1{
-/*  display: none;*/
+  
+  h1{
+    font-size: 1em;
+    margin: 0 auto 3em;
+    width: 15em; 
+    height: 9em;
+    background: url('../images/title-full.png') center bottom no-repeat;
+    background-size: contain;
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+    -webkit-animation: title-in 1.3s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+
+    span{
+      margin-left: -100%;
+    }
+  }
+  
   background: -webkit-linear-gradient(top, rgba(0,0,0,0) 90%, rgba(0,0,0,0.9)) bottom, url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
   
@@ -67,7 +92,7 @@ Wrapping all content to prevent horizontal scrolling.
     height: 75em;
     box-sizing: border-box;
     margin-left: 37.5em;
-    padding-top: 11.56em;
+    padding-top: 9em;
     -webkit-shape-inside: polygon(0em 0em, 33.00em -0.06em, 33.13em 23.75em, 30.00em 23.88em, 28.00em 25.88em, 28.00em 28.75em, 32.88em 33.00em, 31.38em 37.50em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.50em 46.81em, 21.19em 49.56em, 24.00em 53.13em, 27.00em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75.00em, 0em 65.94em, 2.00em 58.00em, 11.94em 53.50em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40.00em, 6.38em 40.00em, 12.44em 38.50em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.50em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4.00em 23.44em, 1.00em 20.63em, 2.88em 18.50em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em);
   }
   

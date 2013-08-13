@@ -14,6 +14,12 @@
       
     
       <div class="content">
+          <h1>
+            <span>Alice in Wonderland</span>
+            <div></div>
+          </h1>
+          
+          
           <p>Alice was beginning to get very tired of sitting by her sister on the
           bank, and of having nothing to do: once or twice she had peeped into the
           book her sister was reading, but it had no pictures or conversations in
@@ -31,7 +37,7 @@
       
       <script type="text/javascript">
 
-      var p = document.querySelector('#scene1 p:first-child')
+      var p = document.querySelector('#scene1 p:first-of-type')
       var maxHeight = document.querySelector('#scene1').offsetHeight
       var offsetMultiplier = 1.5  // TODO make multiplier factor of scroll distance from container height. Short screens need multiplier < 1.
 
@@ -294,6 +300,6 @@
     </div><!-- end #scene2_2 -->
   
   </div><!-- end .wrapper -->
-  <script src="js/ScrollDriver.js"></script>
+  <!-- // <script src="js/ScrollDriver.js"></script> -->
 </body>
 </html>
