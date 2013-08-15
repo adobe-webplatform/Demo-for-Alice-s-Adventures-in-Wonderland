@@ -15,9 +15,7 @@
       <div class="content">
           <h1>
             <span>Alice in Wonderland</span>
-            <div></div>
           </h1>
-          
           
           <p>Alice was beginning to get very tired of sitting by her sister on the
           bank, and of having nothing to do: once or twice she had peeped into the
@@ -34,36 +32,6 @@
           well.</p>
       </div>
       
-      <script type="text/javascript">
-
-      var p = document.querySelector('#scene1 p:first-of-type')
-      var maxHeight = document.querySelector('#scene1').offsetHeight
-      var offsetMultiplier = 1.5  // TODO make multiplier factor of scroll distance from container height. Short screens need multiplier < 1.
-
-      window.onscroll = function(e){
-          var newMargin = window.scrollY * offsetMultiplier;
-          var oldMargin = parseInt(p.style.marginTop, 10) | 0
-          var usedHeight = p.offsetHeight + p.offsetTop + (newMargin - oldMargin)
-
-          var min = 0
-          var max = min + window.innerHeight
-          var current = window.innerHeight + window.scrollY
-          var viewport = {
-            start: window.scrollY,
-            end: window.innerHeight + window.scrollY
-          }
-          // console.log(min, max, viewport.start, viewport.end)
-        
-          if (usedHeight < maxHeight) {
-            p.style.marginTop = newMargin + "px"
-            // document.body.classList.remove('scene1-end')
-          }
-          else{
-            // document.body.classList.add('scene1-end')
-          }
-      }
-    
-      </script>
     </div><!-- end #scene1 -->
   
     <div id="scene2_1">
@@ -223,14 +191,18 @@
       </div>
 
       <script>
-      
-      (function(){
-        var container = document.querySelector('#scene2_2')
 
+      /* 
+        Listen to scroll and offset scene2_2 horizontally while in the viewport. 
+        #scene2_2 container will be pinned at the top of the viewport with 'position:fixed'.
+      */
+      (function(){
+
+        // placeholder element to simulate height of container while fixed; keeps v scroll working.
+        var fauxHeight = null
+        var container = document.querySelector('#scene2_2')
         var styles = window.getComputedStyle(container, null)
         var marginLeft = parseInt(styles.marginLeft, 10) 
-        
-        var fauxHeight = null
         var cache = {
           offsetTop: container.offsetTop,
           position: container.style.position,
@@ -240,19 +212,20 @@
         } 
         
         function listen(e){
-
+          
+          // pin the scene only when it reaces the top of the viewport
           if (window.scrollY >= cache.offsetTop){
-
+            
+            // jump out if placeholder was already created
             if (fauxHeight)
               return;
 
             /* 
             fauxHeight simulates the height of the container while it is fixed, 
             in order to keep scrolling working. Using the container's width for 
-            fauxHeight because we want to translate vertical scroll into 
-            horizontal offsets. 
+            fauxHeight because we translate vertical scroll into 
+            horizontal offset. 
             */
-            
             fauxHeight = document.createElement('div')
             fauxHeight.style.height = container.offsetWidth - window.innerWidth + window.innerHeight + 'px'
             container.parentNode.insertBefore(fauxHeight, container)
@@ -299,6 +272,59 @@
     </div><!-- end #scene2_2 -->
   
   </div><!-- end .wrapper -->
-  <!-- // <script src="js/ScrollDriver.js"></script> -->
+  <script src="js/underscore.js"></script>
+  <script src="js/timeline.js"></script>
+  <script>
+  
+  scene1 = new Timeline
+  
+  // opening scene action, text offset through rabbit hole
+  scene1.addAction(Action({
+    el: document.querySelector('#scene1 p:first-of-type'),
+    maxHeight: document.querySelector('#scene1').offsetHeight,
+    
+    //  0 delay to force quick re-layout on text in shape-inside rabbit hole
+    delay: 0,
+
+    onEnter: function(){
+      console.log("Enter")
+    },
+
+    onProgress: function(e){
+      var p = this.config.el
+      var offsetMultiplier = 1.5  // TODO make multiplier factor of scroll distance from container height. Short screens need multiplier < 1.
+      var newMargin = window.scrollY * offsetMultiplier;
+      var oldMargin = parseInt(p.style.marginTop, 10) | 0
+      var usedHeight = p.offsetHeight + p.offsetTop + (newMargin - oldMargin)
+
+      var min = 0
+      var max = min + window.innerHeight
+      var current = window.innerHeight + window.scrollY
+      var viewport = {
+        start: window.scrollY,
+        end: window.innerHeight + window.scrollY
+      }
+      // console.log(min, max, viewport.start, viewport.end)
+    
+      if (usedHeight < this.config.maxHeight) {
+        p.style.marginTop = newMargin + "px"
+        // document.body.classList.remove('scene1-end')
+      }
+      else{
+        // document.body.classList.add('scene1-end')
+      }
+      
+      console.log("Progress")
+    },
+
+    onExit: function(e){
+      console.log("Exit")
+    }
+  }))
+  
+  scene1.play()  
+  
+  
+  </script>
 </body>
 </html>
