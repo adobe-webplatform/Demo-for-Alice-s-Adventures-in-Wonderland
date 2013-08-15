@@ -24,99 +24,70 @@ Timeline.prototype = {
     return (-1 < index && index < this.actions.length) ? this.actions[index] : null
   },
 
-  enterPrev: function(){
-    console.log("prev requested")
+  playPrev: function(){
     var _index = this.index
     this.index = Math.max(this.index - 1, 0)
     
-    if (_index === this.index)
-      return
+    // if (_index === this.index)
+    //   return
     
     this.getAction(this.index).enter()
   },
 
-  enterNext: function(){
+  playNext: function(){
     var _index = this.index
     this.index = Math.min(this.index + 1, this.actions.length - 1)
     
-    if (_index === this.index)
-      return
+    // if (_index === this.index)
+    //   return
       
     this.getAction(this.index).enter()
+  },
+  
+  play: function(){
+    this.goingReverse ? this.playPrev() : this.playNext()
   }
 }
 
 var Action = function Action(options){
-  var noop = function(){}
   
-  // will be set automatically when Action is added by Timeline.addAction()
-  this.timeline = null
-  this.config = _.extend({
-    onEnter: noop,
-    onProgress: noop,
-    onExit: noop,
-    delay: 150
-  }, options)
+  // placeholder harmless function for missing callbacks
+  var _noop = function(){}
   
-  this.throttledProgress = _.throttle(this.progress.bind(this), this.config.delay)
-} 
+  var _obj = function(options){
+    
+    // will be set automatically when Action is added by Timeline.addAction()
+    this.timeline = null
+    this.config = _.extend({
+      onEnter: _noop,
+      onProgress: _noop,
+      onExit: _noop,
+      delay: 100
+    }, options)
 
-Action.prototype = {
-  enter: function(){
-    window.addEventListener('scroll', this.throttledProgress)
-    this.config.onEnter.call(this)
-  },
-  
-  exit: function(){
-    window.removeEventListener('scroll', this.throttledProgress)
-    console.log(this.timeline.goingReverse)
-    this.timeline.goingReverse
-      ? this.timeline.enterPrev()
-      : this.timeline.enterNext()
-      
-    this.config.onExit.call(this)
-  },
-  
-  progress: function(e){
-    this.config.onProgress.call(this, e)
+    this.throttledProgress = _.throttle(this.progress.bind(this), this.config.delay)
   }
+  
+  _obj.prototype = {
+    enter: function(){
+      window.addEventListener('scroll', this.throttledProgress)
+      this.config.onEnter.call(this)
+    },
+
+    exit: function(){
+      window.removeEventListener('scroll', this.throttledProgress)
+      this.timeline.goingReverse
+        ? this.timeline.playPrev()
+        : this.timeline.playNext()
+
+      this.config.onExit.call(this)
+    },
+
+    progress: function(e){
+      this.config.onProgress.call(this, e)
+    }
+  }
+
+  // ensure new Action() and Action() return the same proto signature
+  return new _obj(options)
 }
-
-act1 = new Action({
-  onEnter: function(){
-    console.log("Enter")
-  },
-  
-  onProgress: function(e){
-    if (window.scrollY > 150){
-      this.exit()
-    }
-    console.log("Progress")
-  },
-  
-  onExit: function(e){
-    console.log("Exit")
-  }
-}) 
-
-act2 = new Action({
-  onEnter: function(){
-    console.log("Action2 Enter")
-  },
-  
-  onProgress: function(e){
-    if (window.scrollY < 150){
-      this.exit()
-    }
-    console.log("Action2 Progress")
-  },
-  
-  onExit: function(e){
-    console.log("Action2 Exit")
-  }
-})
-
-time1 = new Timeline
-time1.addAction(act1)
-time1.addAction(act2)
-time1.enterNext()
