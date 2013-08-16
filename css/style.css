@@ -152,15 +152,6 @@ Wrapping all content to prevent horizontal scrolling.
     font-size: 7px;
     margin-right: 20rem; }
 
-.cat-shape5 {
-  float: right;
-  -webkit-shape-margin: 1em;
-  font-size: 4px;
-  outline: 1px solid lime;
-  margin-top: 10em; }
-  .cat-shape5 + p {
-    margin-bottom: 3em; }
-
 .cat-shape-walking {
   float: left;
   -webkit-shape-margin: 1em;
@@ -169,11 +160,10 @@ Wrapping all content to prevent horizontal scrolling.
     margin-bottom: 3em; }
 
 #scene2_2 {
-  background: pink url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
+  background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
   height: 91.25em;
-  border-top: 1px solid yellow;
   left: -2500px;
   top: -300px; }
   #scene2_2 .content {
@@ -181,32 +171,33 @@ Wrapping all content to prevent horizontal scrolling.
     height: 80em;
     /*    -webkit-shape-inside: polygon(16.56em 0em, 61.50em 0.06em, 61.88em 8.25em, 66.38em 9.81em, 71.81em 5.69em, 74.75em 0em, 83.44em 0em, 93.19em 10.56em, 106.75em 15.25em, 115.00em 16.25em, 125.69em 21.69em, 136.00em 18.25em, 137.56em 20.31em, 146.56em 18.94em, 151.19em 15.19em, 153.06em 18.50em, 157.69em 16.25em, 159.13em 19.31em, 161.56em 15.94em, 164.56em 17.44em, 169.81em 16.75em, 171.06em 20.56em, 174.50em 20.19em, 177.06em 18.50em, 182.25em 22.69em, 194.63em 24.94em, 195.88em 28.38em, 198.81em 28.94em, 199.88em 31.94em, 201.06em 28.38em, 206.50em 28.31em, 214.69em 24.31em, 220.69em 23.81em, 223.63em 29.81em, 227.69em 20.38em, 242.06em 18.38em, 248.13em 14.88em, 255.13em 16.63em, 267.00em 16.25em, 278.63em 11.50em, 278.88em 62.13em, 271.38em 60.50em, 252.00em 63.50em, 251.56em 54.75em, 249.69em 52.31em, 240.63em 52.25em, 241.31em 56.81em, 242.56em 59.94em, 239.19em 62.81em, 234.81em 61.88em, 231.56em 64.94em, 227.19em 65.00em, 223.69em 69.69em, 222.31em 66.19em, 220.00em 63.31em, 217.00em 61.13em, 213.06em 64.44em, 212.19em 72.63em, 204.44em 69.00em, 204.06em 62.44em, 201.25em 60.81em, 197.94em 54.31em, 194.31em 49.88em, 188.13em 47.94em, 188.00em 42.13em, 184.63em 39.94em, 181.13em 36.31em, 176.81em 38.25em, 171.38em 37.38em, 169.38em 34.13em, 164.00em 35.88em, 161.63em 37.19em, 151.13em 39.50em, 141.56em 43.69em, 138.56em 56.75em, 130.31em 52.94em, 122.69em 50.50em, 118.50em 43.88em, 118.75em 41.19em, 115.56em 38.56em, 113.06em 40.00em, 109.69em 39.06em, 106.13em 38.13em, 102.25em 44.31em, 97.69em 44.38em, 97.69em 42.69em, 94.13em 37.88em, 92.31em 39.75em, 86.25em 33.81em, 80.94em 38.19em, 74.81em 37.69em, 72.75em 36.88em, 69.94em 33.44em, 67.56em 32.75em, 60.94em 36.81em, 60.50em 33.19em, 56.63em 32.00em, 50.25em 34.88em, 50.56em 31.19em, 44.19em 30.81em, 42.63em 24.69em, 46.88em 21.75em, 46.75em 18.69em, 40.94em 23.56em, 34.00em 21.63em, 33.13em 18.00em, 38.00em 17.19em, 42.63em 12.19em, 37.38em 14.94em, 34.38em 15.63em, 32.00em 13.19em, 33.06em 10.75em, 29.44em 8.75em, 17.31em 9.94em);*/ }
   #scene2_2 .act {
-    float: left;
-    position: relative;
-    outline: 1px solid red; }
+    position: absolute; }
   #scene2_2 .act1 {
-    background: rgba(0, 240, 0, 0.1);
+    -webkit-shape-inside: polygon(nonzero, 584px 292px, 650px 293px, 687px 419px, 880px 422px, 881px 539px, 584px 513px, 471px 414px, 509px 368px, 502px 305px, 363px 277px, 429px 205px, 594px 205px);
     width: 55em;
     height: 50em;
-    margin-left: 16em; }
+    left: 16em; }
+    #scene2_2 .act1 .cat-shape5 {
+      float: right;
+      margin-top: 13rem;
+      -webkit-shape-margin: 1rem;
+      font-size: 5px;
+      /*  outline: 1px solid lime;*/ }
+      #scene2_2 .act1 .cat-shape5 + p {
+        margin-bottom: 3em; }
   #scene2_2 .act2 {
-    /* temporarily hidden while working */
-    display: none;
-    background: rgba(0, 160, 0, 0.1);
     width: 30em;
-    height: 48em; }
+    height: 48em;
+    left: 71em; }
     #scene2_2 .act2 .cat-shape {
       position: absolute;
       bottom: 0;
-      right: 0;
+      left: 0;
       -webkit-transform: rotate(7deg); }
   #scene2_2 .act3 {
-    /* temporary hidden while working */
-    display: none;
-    float: left;
     width: 50em;
-    height: 45em;
-    position: relative; }
+    height: 50em;
+    left: 95em; }
     #scene2_2 .act3 .cat-paws-shape {
       background: url(../images/cat-paws.png) left top no-repeat;
       background-size: contain;
@@ -245,8 +236,8 @@ Wrapping all content to prevent horizontal scrolling.
   #scene2_2 .act4 {
     width: 50em;
     height: 53em;
-    margin-left: 50em;
-    -webkit-perspective: 900px; }
+    -webkit-perspective: 900px;
+    left: 124em; }
     #scene2_2 .act4 .alice-shape {
       position: absolute;
       bottom: 0;
@@ -273,16 +264,16 @@ Wrapping all content to prevent horizontal scrolling.
       width: 40px;
       height: 80em;
       left: -20em;
-      -webkit-animation: shadow-swivel1 8s infinite ease-out; }
+      /*      -webkit-animation: shadow-swivel1 8s infinite ease-out;*/ }
     #scene2_2 .act4 .shade2 {
       width: 70px;
       height: 80em;
       left: -5em;
-      -webkit-animation: shadow-swivel1 10s 3s infinite ease-out; }
+      /*      -webkit-animation: shadow-swivel1 10s 3s infinite ease-out;*/ }
   #scene2_2 .act5 {
-    height: 70em;
+    height: 73em;
     width: 40em;
-    margin-left: 20em; }
+    left: 200em; }
     #scene2_2 .act5 .alice-shape {
       position: absolute;
       bottom: 0;

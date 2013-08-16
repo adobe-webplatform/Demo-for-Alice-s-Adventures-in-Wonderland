@@ -200,18 +200,6 @@ Wrapping all content to prevent horizontal scrolling.
 }
 
 
-.cat-shape5{
-  float: right;
-  -webkit-shape-margin: 1em;
-  font-size: 4px;
-  outline: 1px solid lime;
-  margin-top: 10em;
-  
-  & + p{
-    margin-bottom: 3em;
-  }
-}
-
 .cat-shape-walking{
   float: left;
   -webkit-shape-margin: 1em;
@@ -224,11 +212,10 @@ Wrapping all content to prevent horizontal scrolling.
 
 
 #scene2_2{
-  background: pink url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
+  background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
   height: 91.25em;
-  border-top: 1px solid yellow;
   left: -2500px;
   top: -300px;
   
@@ -241,42 +228,45 @@ Wrapping all content to prevent horizontal scrolling.
   }
   
   .act{
-    float: left;
-    position: relative;
-    outline: 1px solid red;
+    position: absolute;
   }
   
   .act1{
-    background: rgba(0,240,0,0.1);
+    -webkit-shape-inside: polygon(nonzero, 584px 292px, 650px 293px, 687px 419px, 880px 422px, 881px 539px, 584px 513px, 471px 414px, 509px 368px, 502px 305px, 363px 277px, 429px 205px, 594px 205px);
     width: 55em;
     height: 50em;
-    margin-left: 16em;
+    left: 16em;
+    
+    .cat-shape5{
+      float: right;
+      margin-top: 13rem;
+      -webkit-shape-margin: 1rem;
+      font-size: 5px;
+    /*  outline: 1px solid lime;*/
+      & + p{
+        margin-bottom: 3em;
+      }
+    }
+    
   }
   
   .act2{
-    
-    /* temporarily hidden while working */
-    display: none;
-    background: rgba(0,160,0,0.1);
     width: 30em;
     height: 48em;
+    left: 71em;
     
     .cat-shape{
       position: absolute;
       bottom: 0;
-      right: 0;
+      left: 0;
       -webkit-transform: rotate(7deg);
     }
   }
   
   .act3{
-    
-    /* temporary hidden while working */
-    display: none;
-    float: left;
     width: 50em;
-    height: 45em;
-    position: relative;
+    height: 50em;
+    left: 95em;
     
     .cat-paws-shape{
       background: url(../images/cat-paws.png) left top no-repeat;
@@ -331,8 +321,8 @@ Wrapping all content to prevent horizontal scrolling.
   .act4{
     width: 50em;
     height: 53em;
-    margin-left: 50em;
     -webkit-perspective: 900px;
+    left: 124em;
     
     .alice-shape{
       position: absolute;
@@ -366,21 +356,21 @@ Wrapping all content to prevent horizontal scrolling.
       width: 40px;
       height: 80em;
       left: -20em;
-      -webkit-animation: shadow-swivel1 8s infinite ease-out;
+/*      -webkit-animation: shadow-swivel1 8s infinite ease-out;*/
     }
 
     .shade2{
       width: 70px;
       height: 80em;
       left: -5em;
-      -webkit-animation: shadow-swivel1 10s 3s infinite ease-out;
+/*      -webkit-animation: shadow-swivel1 10s 3s infinite ease-out;*/
     }
   }
   
   .act5{
-    height: 70em;
+    height: 73em;
     width: 40em;
-    margin-left: 20em;
+    left: 200em;
     
     .alice-shape{
       position: absolute;
