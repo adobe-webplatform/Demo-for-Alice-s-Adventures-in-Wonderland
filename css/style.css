@@ -119,47 +119,38 @@ Wrapping all content to prevent horizontal scrolling.
     height: 97.5em;
     -webkit-shape-inside: polygon(22.69em 0em, 56.31em 0em, 58.06em 4.5em, 56.88em 9.94em, 58.06em 16.06em, 60.75em 21.38em, 58.94em 23.69em, 58.5em 26.44em, 59.06em 31.19em, 62.13em 32.38em, 60.44em 37.81em, 58.75em 38.56em, 57.69em 41.06em, 59.69em 46em, 55.06em 56.25em, 50.31em 62.13em, 45.69em 59.44em, 41.75em 63em, 38.69em 67em, 43.19em 69.94em, 46.5em 77.81em, 44.13em 97.56em, 0em 97.5em, 0em 91.38em, 3.5em 86.88em, 10.69em 84.25em, 13.63em 79.56em, 15.63em 78.31em, 16em 75.81em, 6.44em 74.88em, 6.19em 71.38em, 3.69em 65.38em, 18.19em 52em, 19.31em 49.94em, 26.69em 49.44em, 30.81em 45.13em, 34em 42.56em, 32.56em 40.31em, 30.63em 42.25em, 27.06em 38.25em, 27.88em 34.81em, 29.13em 33.25em, 28.56em 29.31em, 26.63em 28.25em, 28.19em 23.38em, 24.75em 18.19em, 25.81em 15.63em, 22.5em 8.69em, 21.88em 4.63em);
     /* TODO, investigate bug with shape-padding 16px+ / 1em+. Might be self-intersecting paths. */
-    -webkit-shape-padding: 0.99em; }
+    -webkit-shape-padding: 1.5em;
+    padding-top: 2em; }
   #scene2_1 .cat-shape1 {
     float: left;
-    -webkit-shape-margin: 1em;
+    -webkit-shape-margin: 1rem;
     font-size: 8px;
-    margin-left: 52em;
-    outline: 1px solid blue; }
+    margin-left: 28rem; }
     #scene2_1 .cat-shape1 + p {
-      padding-top: 3em;
-      margin-bottom: 3em;
-      color: blue; }
+      padding-top: 2em;
+      clear: right;
+      display: block;
+      margin-bottom: 5em; }
   #scene2_1 .cat-shape2 {
     float: right;
-    /* TODO: use calc() with percentages because WebKit doesn't go below 56% (9px) */
     font-size: 7px;
-    outline: 1px solid red; }
+    -webkit-shape-margin: 1rem; }
     #scene2_1 .cat-shape2 + p {
-      margin-bottom: 3em;
-      color: red; }
+      display: block;
+      clear: left;
+      margin-bottom: 1rem; }
   #scene2_1 .cat-shape3 {
-    float: right;
-    -webkit-shape-margin: 1em;
-    font-size: 7px;
-    outline: 1px solid green;
-    clear: right; }
+    float: left;
+    margin-left: 10rem;
+    -webkit-shape-margin: 1rem;
+    font-size: 7px; }
     #scene2_1 .cat-shape3 + p {
-      margin-bottom: 3em;
-      color: green;
-      clear: left; }
-      #scene2_1 .cat-shape3 + p:after {
-        display: block;
-        content: "";
-        height: 1px;
-        clear: both; }
+      margin-bottom: 3em; }
   #scene2_1 .cat-shape4 {
-    -webkit-shape-margin: 1em;
-    font-size: 6px;
-    outline: 1px solid purple; }
-    #scene2_1 .cat-shape4 + p {
-      margin-bottom: 3em;
-      color: purple; }
+    float: right;
+    -webkit-shape-margin: 1rem;
+    font-size: 7px;
+    margin-right: 20rem; }
 
 .cat-shape5 {
   float: right;
