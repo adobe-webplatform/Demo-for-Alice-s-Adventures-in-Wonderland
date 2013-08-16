@@ -8,10 +8,10 @@
 <body>
   
   <div class="wrapper">
-    <div id="scene1">
-      <div class="overlay"></div> 
-      
     
+    <div id="trans" class="hidden"></div> 
+    
+    <div id="scene1">
       <div class="content">
           <h1>
             <span>Alice in Wonderland</span>
@@ -21,8 +21,7 @@
           bank, and of having nothing to do: once or twice she had peeped into the
           book her sister was reading, but it had no pictures or conversations in
           it, 'and what is the use of a book,' thought Alice 'without pictures or
-          conversation?' <br /><br />So she was considering in her own mind (as well as she could, for the
-          hot day made her feel very sleepy and stupid), whether the pleasure
+          conversation?' <br /><br />So she was considering in her own mind whether the pleasure
           of making a daisy-chain would be worth the trouble of getting up and
           picking the daisies, when suddenly a White Rabbit with pink eyes ran
           close by her.<br /><br />In another moment down went Alice after it, never once considering how
@@ -272,59 +271,5 @@
     </div><!-- end #scene2_2 -->
   
   </div><!-- end .wrapper -->
-  <script src="js/underscore.js"></script>
-  <script src="js/timeline.js"></script>
-  <script>
-  
-  scene1 = new Timeline
-  
-  // opening scene action, text offset through rabbit hole
-  scene1.addAction(Action({
-    el: document.querySelector('#scene1 p:first-of-type'),
-    maxHeight: document.querySelector('#scene1').offsetHeight,
-    
-    //  0 delay to force quick re-layout on text in shape-inside rabbit hole
-    delay: 0,
-
-    onEnter: function(){
-      console.log("Enter")
-    },
-
-    onProgress: function(e){
-      var p = this.config.el
-      var offsetMultiplier = 1.5  // TODO make multiplier factor of scroll distance from container height. Short screens need multiplier < 1.
-      var newMargin = window.scrollY * offsetMultiplier;
-      var oldMargin = parseInt(p.style.marginTop, 10) | 0
-      var usedHeight = p.offsetHeight + p.offsetTop + (newMargin - oldMargin)
-
-      var min = 0
-      var max = min + window.innerHeight
-      var current = window.innerHeight + window.scrollY
-      var viewport = {
-        start: window.scrollY,
-        end: window.innerHeight + window.scrollY
-      }
-      // console.log(min, max, viewport.start, viewport.end)
-    
-      if (usedHeight < this.config.maxHeight) {
-        p.style.marginTop = newMargin + "px"
-        // document.body.classList.remove('scene1-end')
-      }
-      else{
-        // document.body.classList.add('scene1-end')
-      }
-      
-      console.log("Progress")
-    },
-
-    onExit: function(e){
-      console.log("Exit")
-    }
-  }))
-  
-  scene1.play()  
-  
-  
-  </script>
 </body>
 </html>
