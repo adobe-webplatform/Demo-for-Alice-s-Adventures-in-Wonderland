@@ -15,6 +15,20 @@
   -webkit-animation: fade-out 1s ease-out;
   -webkit-animation-fill-mode: forwards; }
 
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translate(0, 0); }
+
+  50% {
+    -webkit-transform: translate(3px, -12px); }
+
+  100% {
+    -webkit-transform: translate(0, 0); } }
+
+.anim-floating, #scene2_2 .act6 .cat_shape {
+  -webkit-transfrom: translateZ(0);
+  -webkit-animation: float 8s infinite ease-in-out; }
+
 html, body {
   height: 100%;
   width: 100%; }
@@ -288,7 +302,6 @@ Wrapping all content to prevent horizontal scrolling.
   #scene2_2 .act6 {
     height: 40em;
     width: 45em;
-    background: rgba(0, 160, 0, 0.3);
     left: 225em;
     top: 25em; }
     #scene2_2 .act6 .cat_shape {
@@ -303,7 +316,6 @@ Wrapping all content to prevent horizontal scrolling.
     #scene2_2 .act6 .content-wrapper {
       width: 100%;
       height: 100%;
-      outline: 1px solid red;
       position: relative; }
     #scene2_2 .act6 p {
       -webkit-flow-into: act6-flow; }
@@ -314,14 +326,14 @@ Wrapping all content to prevent horizontal scrolling.
       width: 20em;
       margin-top: 15%;
       height: 80%;
-      outline: 1px solid lime; }
+      -webkit-shape-inside: polygon(nonzero, 46px 0px, 206px 0px, 183px 74px, 200px 103px, 321px 158px, 321px 307px, 242px 328px, 242px 405px, 274px 448px, 207px 482px, 7px 465px); }
     #scene2_2 .act6 #region2 {
       float: left;
       margin-left: 1.5rem;
-      width: 20em;
+      width: 23em;
       margin-top: 10%;
-      height: 80%;
-      outline: 1px solid blue; }
+      height: 50%;
+      -webkit-shape-inside: polygon(nonzero, 130px 58px, 76px 0px, 368px 0px, 324px 323px, 0px 320px, 0px 218px, 46px 187px, 90px 130px); }
 
 @-webkit-keyframes shadow-swivel1 {
   from {

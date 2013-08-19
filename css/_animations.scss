@@ -18,3 +18,23 @@
   -webkit-animation: fade-out 1s ease-out;
   -webkit-animation-fill-mode: forwards;
 }
+
+
+@-webkit-keyframes float{
+  0%{
+    -webkit-transform: translate(0,0);
+  }
+  
+  50%{
+    -webkit-transform: translate(3px,-12px);
+  }
+
+  100%{
+    -webkit-transform: translate(0,0);
+  }
+}
+
+.anim-floating{
+  -webkit-transfrom: translateZ(0);
+  -webkit-animation: float 8s infinite ease-in-out;
+}
