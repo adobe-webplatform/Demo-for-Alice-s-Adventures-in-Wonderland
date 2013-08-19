@@ -25,7 +25,7 @@
   100% {
     -webkit-transform: translate(0, 0); } }
 
-.anim-floating, #scene2_2 .act6 .cat_shape {
+.anim-floating, #scene2_2 .act6 .cat-shape {
   -webkit-transfrom: translateZ(0);
   -webkit-animation: float 8s infinite ease-in-out; }
 
@@ -308,7 +308,7 @@ Wrapping all content to prevent horizontal scrolling.
     width: 45em;
     left: 225em;
     top: 25em; }
-    #scene2_2 .act6 .cat_shape {
+    #scene2_2 .act6 .cat-shape {
       width: 20.75em;
       height: 20.75em;
       font-size: 80%;
