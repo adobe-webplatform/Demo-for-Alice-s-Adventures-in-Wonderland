@@ -285,6 +285,43 @@ Wrapping all content to prevent horizontal scrolling.
       opacity: 0;
       -webkit-animation: alice-act-in 0.5s 1 ease-in-out;
       -webkit-animation-fill-mode: forwards; }
+  #scene2_2 .act6 {
+    height: 40em;
+    width: 45em;
+    background: rgba(0, 160, 0, 0.3);
+    left: 225em;
+    top: 25em; }
+    #scene2_2 .act6 .cat_shape {
+      width: 20.75em;
+      height: 20.75em;
+      font-size: 80%;
+      background: url(../images/cat_smiling/s04.png) top left no-repeat;
+      background-size: contain;
+      position: absolute;
+      left: 12rem;
+      z-index: 5; }
+    #scene2_2 .act6 .content-wrapper {
+      width: 100%;
+      height: 100%;
+      outline: 1px solid red;
+      position: relative; }
+    #scene2_2 .act6 p {
+      -webkit-flow-into: act6-flow; }
+    #scene2_2 .act6 .region {
+      -webkit-flow-from: act6-flow; }
+    #scene2_2 .act6 #region1 {
+      float: left;
+      width: 20em;
+      margin-top: 15%;
+      height: 80%;
+      outline: 1px solid lime; }
+    #scene2_2 .act6 #region2 {
+      float: left;
+      margin-left: 1.5rem;
+      width: 20em;
+      margin-top: 10%;
+      height: 80%;
+      outline: 1px solid blue; }
 
 @-webkit-keyframes shadow-swivel1 {
   from {
