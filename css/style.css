@@ -50,7 +50,7 @@ Scroll events don't trigger on vertical scrolling if overflow-x is applied to th
 Wrapping all content to prevent horizontal scrolling. 
 */
 .wrapper {
-  overflow-x: hidden;
+  /*  overflow-x: hidden;*/
   /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
   background: black;
@@ -122,6 +122,7 @@ Wrapping all content to prevent horizontal scrolling.
     /*    -webkit-transform: scale(8);*/ }
 
 #scene2_1 {
+  display: none;
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
@@ -174,6 +175,7 @@ Wrapping all content to prevent horizontal scrolling.
     margin-bottom: 3em; }
 
 #scene2_2 {
+  display: none;
   background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
@@ -338,6 +340,13 @@ Wrapping all content to prevent horizontal scrolling.
       margin-top: 10%;
       height: 50%;
       -webkit-shape-inside: polygon(nonzero, 130px 58px, 76px 0px, 368px 0px, 324px 323px, 0px 320px, 0px 218px, 46px 187px, 90px 130px); }
+
+#scene3 {
+  width: 161em;
+  height: 172em;
+  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;
+  background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
+  background-size: contain; }
 
 @-webkit-keyframes shadow-swivel1 {
   from {
