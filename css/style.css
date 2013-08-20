@@ -363,6 +363,7 @@ Wrapping all content to prevent horizontal scrolling.
 #scene3 {
   width: 161em;
   height: 172em;
+  overflow: hidden;
   /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
   background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
   background-size: contain; }
@@ -420,7 +421,8 @@ Wrapping all content to prevent horizontal scrolling.
         position: absolute;
         -webkit-transform-origin: left top;
         top: 0;
-        /*         -webkit-filter: blur(6px)*/ }
+        -webkit-transform: translateZ(0);
+        -webkit-filter: blur(6px); }
       #scene3 .content .act2 .shadow1 {
         width: 10em;
         height: 60em;
@@ -428,7 +430,7 @@ Wrapping all content to prevent horizontal scrolling.
         top: -10em;
         -webkit-transform: rotate(50deg);
         background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-        -webkit-animation: swiv1 8s infinite ease-in-out; }
+        /*        -webkit-animation: swiv1 8s infinite ease-in-out;*/ }
       #scene3 .content .act2 .shadow2 {
         width: 10em;
         height: 60em;
@@ -436,7 +438,7 @@ Wrapping all content to prevent horizontal scrolling.
         top: -10em;
         -webkit-transform: rotate(40deg);
         background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0));
-        -webkit-animation: swiv2 8s 0.5s infinite ease-in-out; }
+        /*        -webkit-animation: swiv2 8s 0.5s infinite ease-in-out;*/ }
       #scene3 .content .act2 .shadow3 {
         width: 20em;
         height: 60em;
@@ -444,15 +446,55 @@ Wrapping all content to prevent horizontal scrolling.
         top: -10em;
         -webkit-transform: rotate(32deg);
         background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0) 90%);
-        -webkit-animation: swiv3 8s 1s infinite ease-in-out; }
+        /*        -webkit-animation: swiv3 8s 1s infinite ease-in-out;*/ }
+      #scene3 .content .act2 .shadow4 {
+        width: 40em;
+        height: 95em;
+        left: 18em;
+        top: -10em;
+        -webkit-transform: rotate(17deg);
+        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 90%); }
+      #scene3 .content .act2 .shadow5 {
+        width: 56em;
+        height: 95em;
+        left: 14em;
+        top: -2em;
+        -webkit-transform: rotate(-7deg);
+        background: -webkit-linear-gradient(65deg, rgba(0, 0, 0, 0.9) 50%, transparent 85%); }
+      #scene3 .content .act2 .shadow4,
+      #scene3 .content .act2 .shadow5 {
+        -webkit-transtion: all;
+        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
+      #scene3 .content .act2 .shadow4 {
+        -webkit-transition-duration: 1.8s;
+        -webkit-transition-delay: 0.2s; }
+      #scene3 .content .act2 .shadow5 {
+        -webkit-transition-duration: 1.8s; }
+      #scene3 .content .act2.day .caterpillar-shape.light, #scene3 .content .act2:hover .caterpillar-shape.light {
+        opacity: 1; }
+      #scene3 .content .act2.day .caterpillar-shape.dark, #scene3 .content .act2:hover .caterpillar-shape.dark {
+        opacity: 0;
+        -webkit-filter: blur(7px); }
+      #scene3 .content .act2.day .shadow4,
+      #scene3 .content .act2.day .shadow5, #scene3 .content .act2:hover .shadow4,
+      #scene3 .content .act2:hover .shadow5 {
+        opacity: 0; }
       #scene3 .content .act2 .caterpillar-shape {
         position: absolute;
         width: 32.6em;
         height: 19em;
         top: 10em;
         left: 5em;
-        background: url(../images/caterpillar-day.png) top left no-repeat;
-        background-size: contain; }
+        background-size: contain;
+        -webkit-transform: translateZ(0); }
+        #scene3 .content .act2 .caterpillar-shape.light {
+          -webkit-transition: all 1s 0.2s ease-in;
+          opacity: 0;
+          background: url(../images/caterpillar-day.png) top left no-repeat; }
+        #scene3 .content .act2 .caterpillar-shape.dark {
+          -webkit-transition: all 2s ease-out;
+          opacity: 1;
+          background: url(../images/caterpillar-night.png) top left no-repeat; }
 
 @-webkit-keyframes swiv1 {
   50% {
