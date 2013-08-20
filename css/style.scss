@@ -533,6 +533,44 @@ Wrapping all content to prevent horizontal scrolling.
       left: 42em;
       top: 0;
       
+      .shadow{
+         position: absolute;
+         -webkit-transform-origin: left top;
+         top: 0;                   
+/*         -webkit-filter: blur(6px)*/
+      }
+      
+      .shadow1{
+        width: 10em;
+        height: 60em;
+        left: 15em;
+        top: -10em;
+        -webkit-transform: rotate(50deg);
+        background: -webkit-linear-gradient(-90deg, rgba(0,0,0,0.2), rgba(0,0,0,0.1));
+        -webkit-animation: swiv1 8s infinite ease-in-out;
+      }
+
+      .shadow2{
+        width: 10em;
+        height: 60em;
+        left: 18em;
+        top: -10em;
+        -webkit-transform: rotate(40deg);
+        background: -webkit-linear-gradient(left, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0));
+        -webkit-animation: swiv2 8s 0.5s infinite ease-in-out;
+        
+      }
+
+      .shadow3{
+        width: 20em;
+        height: 60em;
+        left: 20em;
+        top: -10em;
+        -webkit-transform: rotate(32deg);
+        background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3) 55%, rgba(0,0,0,0) 90%);
+        -webkit-animation: swiv3 8s 1s infinite ease-in-out;
+      }
+
       .caterpillar-shape{
         position: absolute;
         width: 32.6em;
@@ -545,9 +583,26 @@ Wrapping all content to prevent horizontal scrolling.
       
     }
     
-    
   }
     
+}
+
+@-webkit-keyframes swiv1{
+  50%{                          
+    -webkit-transform: rotate(48deg);
+  }
+}
+
+@-webkit-keyframes swiv2{
+  50%{                          
+    -webkit-transform: rotate(38deg);
+  }
+}
+
+@-webkit-keyframes swiv3{
+  50%{                          
+    -webkit-transform: rotate(30deg);
+  }
 }
 
 
