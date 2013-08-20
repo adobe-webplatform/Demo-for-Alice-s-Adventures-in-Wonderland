@@ -9,16 +9,29 @@
     opacity: 1;
   }
 }
-.anim-fade-out{
-  -webkit-animation: fade-out 1s ease-out;
-  -webkit-animation-fill-mode: forwards;
+
+@-webkit-keyframes shadow-swivel1{
+  from{
+    -webkit-transform: rotateZ(-25deg);
+  }
+  50%{
+    -webkit-transform: rotateZ(-23deg);
+  }
+  to{
+    -webkit-transform: rotateZ(-25deg);
+  }
 }
 
-.anim-fade-in{
-  -webkit-animation: fade-out 1s ease-out;
-  -webkit-animation-fill-mode: forwards;
-}
 
+@-webkit-keyframes alice-act-in{
+  from{
+    -webkit-transform: rotateY(-20deg);
+  }
+  to{
+    opacity: 1;
+    -webkit-transform: rotateY(0);
+  }
+}
 
 @-webkit-keyframes float{
   0%{
@@ -33,6 +46,17 @@
     -webkit-transform: translate(0,0);
   }
 }
+
+.anim-fade-out{
+  -webkit-animation: fade-out 1s ease-out;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.anim-fade-in{
+  -webkit-animation: fade-out 1s ease-out;
+  -webkit-animation-fill-mode: forwards;
+}
+
 
 .anim-floating{
   -webkit-transform: translateZ(0);
