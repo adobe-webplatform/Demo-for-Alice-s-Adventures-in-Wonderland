@@ -366,7 +366,8 @@ Wrapping all content to prevent horizontal scrolling.
   overflow: hidden;
   /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
   background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
-  background-size: contain; }
+  background-size: contain;
+  /* end .content */ }
   #scene3 .decoration {
     width: 55em;
     height: 90em;
@@ -394,10 +395,9 @@ Wrapping all content to prevent horizontal scrolling.
     width: 90em;
     height: 40em;
     margin-left: 20em;
-    outline: 1px solid lime;
-    position: relative; }
+    position: relative;
+    /* end .act2 */ }
     #scene3 .content .act1 {
-      outline: 1px solid blue;
       height: 100%;
       width: 17em;
       left: 25em;
@@ -408,15 +408,14 @@ Wrapping all content to prevent horizontal scrolling.
         width: 17em;
         height: 14.375em;
         background: url(../images/alice_seated.png) top left no-repeat;
-        background-size: contain;
-        outline: 1px solid lime; }
+        background-size: contain; }
     #scene3 .content .act2 {
       position: absolute;
-      outline: 1px solid purple;
       height: 100%;
       width: 40em;
       left: 42em;
-      top: 0; }
+      top: 0;
+      /* end .caterpillar-shape */ }
       #scene3 .content .act2 .shadow {
         position: absolute;
         -webkit-transform-origin: left top;
@@ -495,6 +494,15 @@ Wrapping all content to prevent horizontal scrolling.
           -webkit-transition: all 2s ease-out;
           opacity: 1;
           background: url(../images/caterpillar-night.png) top left no-repeat; }
+    #scene3 .content .dialogue {
+      width: 65em;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      outline: 1px solid lime; }
+    #scene3 .content .dialogue1 .alice-speech {
+      width: 18em; }
 
 @-webkit-keyframes swiv1 {
   50% {

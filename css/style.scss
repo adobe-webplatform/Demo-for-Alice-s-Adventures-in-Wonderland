@@ -505,11 +505,9 @@ Wrapping all content to prevent horizontal scrolling.
     width: 90em;
     height: 40em;
     margin-left: 20em;
-    outline: 1px solid lime;
     position: relative;
     
     .act1{
-      outline: 1px solid blue;
       height: 100%;
       width: 17em;
       left: 25em;
@@ -522,13 +520,11 @@ Wrapping all content to prevent horizontal scrolling.
         height: 14.375em;
         background: url(../images/alice_seated.png) top left no-repeat;
         background-size: contain;
-        outline: 1px solid lime;
       }
     }
 
     .act2{
       position: absolute;
-      outline: 1px solid purple;
       height: 100%;
       width: 40em;
       left: 42em;
@@ -538,7 +534,6 @@ Wrapping all content to prevent horizontal scrolling.
          position: absolute;
          -webkit-transform-origin: left top;
          top: 0;       
-         // TODO: apply filter on a group level. try translateZ.            
          -webkit-transform: translateZ(0);
          -webkit-filter: blur(6px)
       }
@@ -646,11 +641,27 @@ Wrapping all content to prevent horizontal scrolling.
           opacity: 1;
           background: url(../images/caterpillar-night.png) top left no-repeat;
         }
-      }
+        
+      }/* end .caterpillar-shape */
+      
+    }/* end .act2 */
+    
+    
+    .dialogue{
+      width: 65em;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      outline: 1px solid lime;
+    }
+    
+    .dialogue1 .alice-speech{
+      width: 18em;
       
     }
     
-  }
+  }/* end .content */
     
 }
 
