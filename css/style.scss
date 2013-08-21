@@ -63,6 +63,21 @@ Wrapping all content to prevent horizontal scrolling.
   visibility: hidden;
 }
 
+#timeline{
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 15px;
+  height: 9000px;
+  background:yellow;
+  
+  div{
+    position: absolute;
+    width: 100%;
+    background: red;
+  }
+}
+
 
 // TODO: move to _animations.scss
 @-webkit-keyframes title-in{

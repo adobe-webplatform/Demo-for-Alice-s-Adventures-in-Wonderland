@@ -84,6 +84,18 @@ Wrapping all content to prevent horizontal scrolling.
   opacity: 0;
   visibility: hidden; }
 
+#timeline {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 15px;
+  height: 9000px;
+  background: yellow; }
+  #timeline div {
+    position: absolute;
+    width: 100%;
+    background: red; }
+
 @-webkit-keyframes title-in {
   100% {
     opacity: 1;

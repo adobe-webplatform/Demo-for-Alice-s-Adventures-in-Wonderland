@@ -9,6 +9,10 @@
 
   <!-- overlay for fade to black -->
   <div id="overlay"></div> 
+
+  <!-- keyframes for use by scroll driver -->
+  <div id="timeline">
+  </div>
   
   <div class="wrapper">
     
@@ -31,38 +35,6 @@
           about stopping herself before she found herself falling down a very deep
           well.</p>
       </div>
-      
-      <script type="text/javascript">
-
-        var p = document.querySelector('#scene1 p:first-of-type')
-        var maxHeight = document.querySelector('#scene1').offsetHeight
-        var offsetMultiplier = 1.5  // TODO make multiplier factor of scroll distance from container height. Short screens need multiplier < 1.
-
-        window.onscroll = function(e){
-            var newMargin = window.scrollY * offsetMultiplier;
-            var oldMargin = parseInt(p.style.marginTop, 10) | 0
-            var usedHeight = p.offsetHeight + p.offsetTop + (newMargin - oldMargin)
-
-            var min = 0
-            var max = min + window.innerHeight
-            var current = window.innerHeight + window.scrollY
-            var viewport = {
-              start: window.scrollY,
-              end: window.innerHeight + window.scrollY
-            }
-            // console.log(min, max, viewport.start, viewport.end)
-
-            if (usedHeight < maxHeight) {
-              p.style.marginTop = newMargin + "px"
-              // document.body.classList.remove('scene1-end')
-            }
-            else{
-              // document.body.classList.add('scene1-end')
-            }
-        }
-
-        </script>
-      
     </div><!-- end #scene1 -->
     
     <div id="scene3">
