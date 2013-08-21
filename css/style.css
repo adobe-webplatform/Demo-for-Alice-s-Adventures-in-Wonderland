@@ -460,7 +460,7 @@ Wrapping all content to prevent horizontal scrolling.
         background: -webkit-linear-gradient(65deg, rgba(0, 0, 0, 0.9) 50%, transparent 85%); }
       #scene3 .content .act2 .shadow4,
       #scene3 .content .act2 .shadow5 {
-        -webkit-transtion: all;
+        -webkit-transition: all;
         -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
       #scene3 .content .act2 .shadow4 {
         -webkit-transition-duration: 1.8s;
