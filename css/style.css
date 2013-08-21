@@ -91,7 +91,6 @@ Wrapping all content to prevent horizontal scrolling.
     -webkit-transform: translateY(0em); } }
 
 #scene1 {
-  display: none;
   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
   /* 
@@ -141,7 +140,7 @@ Wrapping all content to prevent horizontal scrolling.
     /*    -webkit-transform: scale(8);*/ }
 
 #scene2_1 {
-  display: none;
+  /*  display: none;*/
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
@@ -194,7 +193,7 @@ Wrapping all content to prevent horizontal scrolling.
     margin-bottom: 3em; }
 
 #scene2_2 {
-  display: none;
+  /*  display: none;*/
   background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
@@ -371,7 +370,6 @@ Wrapping all content to prevent horizontal scrolling.
   #scene3 .decoration {
     width: 55em;
     height: 90em;
-    outline: 1px solid red;
     position: relative;
     margin-left: 20em; }
     #scene3 .decoration .alice-shape {
@@ -499,8 +497,7 @@ Wrapping all content to prevent horizontal scrolling.
       height: 100%;
       position: absolute;
       top: 0;
-      right: 0;
-      outline: 1px solid lime; }
+      right: 0; }
     #scene3 .content .dialogue1 .alice-speech {
       width: 18em; }
 

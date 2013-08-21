@@ -77,8 +77,6 @@ Wrapping all content to prevent horizontal scrolling.
 
 #scene1{
   
-  display: none;
-  
   h1{
     font-size: 1em;
     margin: 0 auto 3em;
@@ -143,7 +141,7 @@ Wrapping all content to prevent horizontal scrolling.
 
 #scene2_1{
   // TODO: show when done working
-  display: none;
+/*  display: none;*/
  
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
@@ -220,7 +218,7 @@ Wrapping all content to prevent horizontal scrolling.
 
 #scene2_2{
   // TODO: show when done working
-  display: none;
+/*  display: none;*/
   
   background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
@@ -468,7 +466,6 @@ Wrapping all content to prevent horizontal scrolling.
   .decoration{
     width: 55em;
     height: 90em;
-    outline: 1px solid red;
     position: relative;
     margin-left: 20em;
     
@@ -653,7 +650,6 @@ Wrapping all content to prevent horizontal scrolling.
       position: absolute;
       top: 0;
       right: 0;
-      outline: 1px solid lime;
     }
     
     .dialogue1 .alice-speech{
