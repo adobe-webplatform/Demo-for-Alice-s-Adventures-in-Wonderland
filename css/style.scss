@@ -51,19 +51,16 @@ Wrapping all content to prevent horizontal scrolling.
   position: relative;
 }
 
-#trans{
+#overlay{
+  position: fixed;
+  z-index: 3;
   width: 100%;
   height: 100%;
-  position: absolute;
   top: 0;
-  z-index: 9;
-  
   background-color: rgba(0,0,0,1);
-  opacity: 0;
-  
-  &.hidden{
-    visibility: hidden;
-  }
+  opacity: 0; 
+  // visibility toggled by TweenMax when animating 'autoAlpha' property
+  visibility: hidden;
 }
 
 
@@ -141,7 +138,7 @@ Wrapping all content to prevent horizontal scrolling.
 
 #scene2_1{
   // TODO: show when done working
-/*  display: none;*/
+  display: none;
  
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
@@ -218,7 +215,7 @@ Wrapping all content to prevent horizontal scrolling.
 
 #scene2_2{
   // TODO: show when done working
-/*  display: none;*/
+  display: none;
   
   background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
