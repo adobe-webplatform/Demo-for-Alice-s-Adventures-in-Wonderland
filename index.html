@@ -114,12 +114,14 @@
         var cache = {
           position: 'relative',
           maxScroll: hOffset + catRect.top
-        }           
+        }          
+        
+        var extent = Math.abs(container.offsetHeight - catRect.height - catRect.top)
         
         function listen(e){
-          
+
           // pin the scene only when it reaces the top of the viewport
-          if (window.scrollY >= catRect.top){
+          if (window.scrollY >= catRect.top && window.scrollY < cache.maxScroll + (extent * 2)){
             
             // jump out if placeholder was already created
             if (fauxHeight)
@@ -138,25 +140,46 @@
             container.style.top = -1 * decoRect.height + "px"
             
             window.addEventListener('scroll', scrollHorizontally)
-          } else {
-            
-            if (!fauxHeight)
-              return;
-
-            fauxHeight.parentNode.removeChild(fauxHeight)
-            fauxHeight = null
-            container.style.position = cache.position
-            container.style.left = 0
-            container.style.top = 0
-
-            window.removeEventListener('scroll', scrollHorizontally)
+            // window.addEventListener('scroll', offsetVertically)
           }
+          else{
+            detach()
+          }              
         }
+        
+        function detach(){
+          if (!fauxHeight)
+            return;
+            
+          fauxHeight.parentNode.removeChild(fauxHeight)
+          fauxHeight = null
+          container.style.position = cache.position
+          container.style.top = 'auto'
+
+          window.removeEventListener('scroll', scrollHorizontally)
+          // window.removeEventListener('scroll', offsetVertically)
+        }
+        
+        // function offsetVertically(){  
+        //   if (window.scrollY > cache.maxScroll + (extent * 2)){
+        //     return
+        //   }
+        //   
+        //   if (window.scrollY > cache.maxScroll + extent){
+        //     console.log("boom!")
+        //     var amount = window.scrollY - cache.maxScroll - extent
+        //     
+        //     console.log(amount)
+        //     container.style.top = -1 * decoRect.height - amount + "px" 
+        //   }
+        //   
+        // }
         
         function scrollHorizontally(){
           
-          if (window.scrollY >= cache.maxScroll)
+          if (window.scrollY >= cache.maxScroll){
             return;
+          }
             
           var amount = window.scrollY - catRect.top
           container.style.left = -1 * amount + 'px'

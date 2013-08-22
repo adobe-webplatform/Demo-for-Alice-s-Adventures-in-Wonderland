@@ -15,7 +15,7 @@
   var ctrlPosition = new $.superscrollorama({
     triggerAtCenter: true
   });
-
+  
 	
 	function addKeyframe(className, css){
     var _defaults = {
@@ -80,7 +80,7 @@
     ctrlPosition.addTween($el, TweenMax.from( $el, 0.25, {css: { autoAlpha: 0 }}), $el.height())
   }
 
-  function setupCaterPillarDay(){
+  function setupCaterpillarDay(){
     var $el = $('#scene2 .act2')
     var $deco = $('#scene2 .decoration')
     
@@ -98,14 +98,13 @@
     ctrlTimeline.addTween(keyframe, TweenMax.to( $el, 0, {className:"+=day"}));
   }
   
-  
   function setup(){
     setupScene1()
     setupAliceFalling1()
     setupAliceFalling2()
     setupAliceFalling3()
     setupAliceSeated()
-    setupCaterPillarDay()
+    setupCaterpillarDay()
   }
   
   $(setup)
