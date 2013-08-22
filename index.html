@@ -134,13 +134,12 @@
             horizontal offset. 
             */
             fauxHeight = document.createElement('div')
-            fauxHeight.style.height = container.offsetHeight + 'px'
+            fauxHeight.style.height = cache.maxScroll + (extent * 2) + 'px'
             container.parentNode.insertBefore(fauxHeight, container)
             container.style.position = 'fixed'
             container.style.top = -1 * decoRect.height + "px"
             
             window.addEventListener('scroll', scrollHorizontally)
-            // window.addEventListener('scroll', offsetVertically)
           }
           else{
             detach()
@@ -157,23 +156,7 @@
           container.style.top = 'auto'
 
           window.removeEventListener('scroll', scrollHorizontally)
-          // window.removeEventListener('scroll', offsetVertically)
         }
-        
-        // function offsetVertically(){  
-        //   if (window.scrollY > cache.maxScroll + (extent * 2)){
-        //     return
-        //   }
-        //   
-        //   if (window.scrollY > cache.maxScroll + extent){
-        //     console.log("boom!")
-        //     var amount = window.scrollY - cache.maxScroll - extent
-        //     
-        //     console.log(amount)
-        //     container.style.top = -1 * decoRect.height - amount + "px" 
-        //   }
-        //   
-        // }
         
         function scrollHorizontally(){
           
