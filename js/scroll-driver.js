@@ -1,6 +1,8 @@
 (function(){
   var $scene1 = $('#scene1')
-  var $scene2_1 = $('#scene2_1')
+  var $scene2 = $('#scene2')
+  var $scene3_1 = $('#scene3_1')
+  var $scene3_3 = $('#scene3_2')
   var $overlay = $('#overlay')
   var $timeline = $('#timeline')
   
@@ -98,6 +100,22 @@
     ctrlTimeline.addTween(keyframe, TweenMax.to( $el, 0, {className:"+=day"}));
   }
   
+  function crossfade2to3(){
+    var $el = $('#overlay')
+    var tl = new TimelineLite()
+
+    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, }}))
+    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, }}))
+    
+    var keyframe = addKeyframe('key4', {
+      top: $scene2.offset().top + $scene2.height(),
+      height: 300,
+      background: 'lime'
+    })
+    
+    ctrlTimeline.addTween(keyframe, tl, keyframe.height())
+  }
+  
   function setup(){
     setupScene1()
     setupAliceFalling1()
@@ -105,6 +123,7 @@
     setupAliceFalling3()
     setupAliceSeated()
     setupCaterpillarDay()
+    crossfade2to3()
   }
   
   $(setup)
