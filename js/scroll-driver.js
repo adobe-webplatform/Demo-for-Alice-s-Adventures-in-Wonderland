@@ -47,8 +47,8 @@
 	    .css($.extend({}, _defaults, options))
 	    .attr('class', className) 
 	    .appendTo($timeline)
-	}     
-
+	}
+	
   // --------------------- SCENE 1 
 
   function setupScene1(){
@@ -158,6 +158,132 @@
     ctrlTimeline.addTween(keyframe, tl, keyframe.height())
   }
   
+  // --------------------- SCENE 3
+  
+  function setupCatFalling2(){
+    var $el = $('#scene3_1 .cat-shape2')
+    var $content = $('#scene3_1 .cat-shape2 + p')
+    var offset = 200
+    
+    var keyframeEnter = addKeyframe({
+      top: $content.offset().top - offset,
+      height: $el.height(),
+      background: 'aliceblue'
+    })
+    
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-40px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    
+    var keyframeExit = addKeyframe({
+      top: $content.offset().top,
+      height: 100,
+      background: 'blue'
+    })
+    
+    var tlExit = new TimelineLite()
+    tlExit.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}))
+    tlExit.add(TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}))
+    
+    ctrlTimeline.addTween(keyframeExit, tlExit, keyframeExit.height())
+  }
+  
+  function setupCatFalling3(){
+    var $el = $('#scene3_1 .cat-shape3')
+    var $content = $('#scene3_1 .cat-shape3 + p')
+    var offset = 300
+    
+    var keyframeEnter = addKeyframe({
+      top: $content.offset().top - offset,
+      height: $el.height(),
+      background: 'aliceblue'
+    })
+    
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    
+    var keyframeExit = addKeyframe({
+      top: $content.offset().top - 100,
+      height: 100,
+      background: 'blue'
+    })
+    
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+  }
+
+  function setupCatFalling4(){
+    var $el = $('#scene3_1 .cat-shape4')
+    var $content = $('#scene3_1 .cat-shape4 + p')
+    var offset = 300
+    
+    var keyframeEnter = addKeyframe({
+      top: $content.offset().top - offset,
+      height: $el.height(),
+      background: 'aliceblue'
+    })
+    
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    
+    var keyframeExit = addKeyframe({
+      top: $content.offset().top,
+      height: 200,
+      background: 'blue'
+    })
+    
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+  }
+
+  function setupCatFalling5(){
+    var $el = $('#scene3_2 .cat-shape5')
+    var $content = $('#scene3_2 .cat-shape5 + p')
+    var offset = 300
+    
+    var keyframeEnter = addKeyframe({
+      top: $content.offset().top - offset,
+      height: $el.height(),
+      background: 'aliceblue'
+    })
+    
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-35px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    
+    var keyframeExit = addKeyframe({
+      top: $content.offset().top + offset,
+      height: 100,
+      background: 'blue'
+    })
+    
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+  }
+
+  function setupCatWalking(){
+    var $el = $('#scene3_2 .cat-shape-walking')
+    var $content = $('#scene3_2 .content-wrapper p')
+    var offset = 100
+    
+    var keyframeEnter = addKeyframe({
+      top: $el.offset().top - offset,
+      height: 150,
+      background: 'purple'
+    })
+
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateX(-35px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateY(100px)"}), keyframeEnter.height())
+
+    // 
+    // var keyframeExit = addKeyframe({
+    //   top: $content.offset().top,
+    //   height: 100,
+    //   background: 'blue'
+    // })
+    // 
+    // ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    // ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+  }
+  
   function setup(){
     // scene 1
     setupScene1()
@@ -171,9 +297,13 @@
     crossfade2to3()
     
     // scene 3_1
-    
+    setupCatFalling2()
+    setupCatFalling3()
+    setupCatFalling4()
+    setupCatFalling5()
     
     // scene 3_2
+    setupCatWalking()
   }            
   
   $(setup)
