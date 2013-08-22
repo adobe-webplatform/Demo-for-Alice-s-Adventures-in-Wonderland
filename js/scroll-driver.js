@@ -4,12 +4,18 @@
   var $overlay = $('#overlay')
   var $timeline = $('#timeline')
   
-  // --------------------- SCENE 1 
-  
-  // controller for scene1
-  var ctrl1 = new $.superscrollorama({
+  // controller timeline element driven animations
+  // when top-left corner of the keyframe element reaches top-left corner of viewport
+  var ctrlTimeline = new $.superscrollorama({
 	  triggerAtCenter: false
 	});
+	
+	// controller for element position driven animation 
+  // when top-left corner of the target element reaches mid-point of viewport
+  var ctrlPosition = new $.superscrollorama({
+    triggerAtCenter: true
+  });
+
 	
 	function addKeyframe(className, css){
     var _defaults = {
@@ -23,74 +29,74 @@
 	    .appendTo($timeline)
 	}     
 
+  // --------------------- SCENE 1 
+
   function setupScene1(){
-    var $content = $('#scene1 p')
-    var topOffset = $content.offset().top / 4
-    var maxMargin = $scene1.height() - $content.offset().top - $content.height()  
-    var k = addKeyframe('key1', {
+    var $el = $('#scene1 p')
+    var topOffset = $el.offset().top / 4
+    var maxMargin = $scene1.height() - $el.offset().top - $el.height()  
+    var keyframe = addKeyframe('key1', {
       top: topOffset,
       height: $scene1.height() - window.innerHeight - topOffset
     })
     
-    var options = {
-      css: { 
-        marginTop: maxMargin 
-      }, 
-      onComplete: function(){
-        console.log('complete')
-      }, 
-      onReverseComplete: function(){
-        console.log('reverse reverse!!!')
-      }
-    }
-    
-    ctrl1.addTween(k, TweenMax.to( $content, 1, options), k.height());
+    ctrlTimeline.addTween(keyframe, TweenMax.to( $el, 1, {css: { marginTop: maxMargin }}), keyframe.height());
   }
   
   // --------------------- SCENE 2
   
-//  controller for element triggers, mid-screen
-  var ctrl2 = new $.superscrollorama({
-    triggerAtCenter: true
-  });
-	
-	
   function setupAliceFalling1(){
     var $el = $('#scene2 .falling1')
-    
-     var tl = new TimelineLite()
-     tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-45deg) scale(0.85)" }}))
-     tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-45deg) scale(0.85)" }}))
-  
-     ctrl2.addTween($el, tl, $el.height() * 2)
+    var tl = new TimelineLite()
+
+    tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-45deg) scale(0.85)" }}))
+    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-45deg) scale(0.85)" }}))
+
+    ctrlPosition.addTween($el, tl, $el.height() * 2)
   }
 
   function setupAliceFalling2(){
     var $el = $('#scene2 .falling2')
+    var tl = new TimelineLite()
     
-     var tl = new TimelineLite()
-     tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-65deg) scale(0.85)" }}))
-     tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-35deg) scale(0.85)" }}))
-  
-     ctrl2.addTween($el, tl, $el.height())
+    tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-65deg) scale(0.85)" }}))
+    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-35deg) scale(0.85)" }}))
+
+    ctrlPosition.addTween($el, tl, $el.height())
   }
 
   function setupAliceFalling3(){
     var $el = $('#scene2 .falling3')
-    
-     var tl = new TimelineLite()
-     tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-25deg) scale(0.85)" }}))
-     tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-25deg) scale(0.85)" }}))
-  
-     ctrl2.addTween($el, tl, $el.height())
+    var tl = new TimelineLite()
+
+    tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-25deg) scale(0.85)" }}))
+    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-25deg) scale(0.85)" }}))
+
+    ctrlPosition.addTween($el, tl, $el.height())
   }
 
   function setupAliceSeated(){
     var $el = $('#scene2 .act1 .alice-shape')
-  
-    ctrl2.addTween($el, TweenMax.from($el, 0.25, {css: { autoAlpha: 0 }}), $el.height())
+    ctrlPosition.addTween($el, TweenMax.from( $el, 0.25, {css: { autoAlpha: 0 }}), $el.height())
   }
-	
+
+  function setupCaterPillarDay(){
+    var $el = $('#scene2 .act2')
+    var $deco = $('#scene2 .decoration')
+    
+    var offset = $el.offset().top + $deco.offset().left
+    
+    // horizontal offset applied to scene to scroll caterpillar into viewport
+    var hOffset = window.innerWidth - ($el.offset().left + $el.width())
+    hOffset = Math.max(Math.abs(hOffset), $deco.offset().left)
+    
+    // var container = $el.offset().top / 4
+    var keyframe = addKeyframe('key2', {
+      top: $el.offset().top + hOffset
+    })
+    
+    ctrlTimeline.addTween(keyframe, TweenMax.to( $el, 0, {className:"+=day"}));
+  }
   
   
   function setup(){
@@ -99,6 +105,7 @@
     setupAliceFalling2()
     setupAliceFalling3()
     setupAliceSeated()
+    setupCaterPillarDay()
   }
   
   $(setup)

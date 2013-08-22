@@ -479,14 +479,13 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-transition-delay: 0.2s; }
       #scene2 .content .act2 .shadow5 {
         -webkit-transition-duration: 1.8s; }
-      #scene2 .content .act2.day .caterpillar-shape.light, #scene2 .content .act2:hover .caterpillar-shape.light {
+      #scene2 .content .act2.day .caterpillar-shape.light {
         opacity: 1; }
-      #scene2 .content .act2.day .caterpillar-shape.dark, #scene2 .content .act2:hover .caterpillar-shape.dark {
+      #scene2 .content .act2.day .caterpillar-shape.dark {
         opacity: 0;
         -webkit-filter: blur(7px); }
       #scene2 .content .act2.day .shadow4,
-      #scene2 .content .act2.day .shadow5, #scene2 .content .act2:hover .shadow4,
-      #scene2 .content .act2:hover .shadow5 {
+      #scene2 .content .act2.day .shadow5 {
         opacity: 0; }
       #scene2 .content .act2 .caterpillar-shape {
         position: absolute;

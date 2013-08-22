@@ -613,8 +613,7 @@ Wrapping all content to prevent horizontal scrolling.
       
       
       // applay 'day' class to .act2 to run the shadow & caterpillar transition
-      &.day,
-      &:hover{
+      &.day{
         .caterpillar-shape.light{
           opacity: 1; 
         }

@@ -109,15 +109,12 @@
         var container = document.querySelector('#scene2')
         
         var hOffset = window.innerWidth - (catRect.left + catRect.width)
-        hOffset = (hOffset < 0) ? -1 * hOffset : hOffset
-        hOffset = Math.max(decoration.offsetLeft, hOffset)
+        hOffset = Math.max(Math.abs(hOffset), decoration.offsetLeft)
         
         var cache = {
           position: 'relative',
           maxScroll: hOffset + catRect.top
         }           
-        
-        console.log()
         
         function listen(e){
           
