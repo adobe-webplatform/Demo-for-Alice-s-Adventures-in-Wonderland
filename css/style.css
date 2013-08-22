@@ -374,6 +374,7 @@ Wrapping all content to prevent horizontal scrolling.
   width: 161em;
   height: 172em;
   overflow: hidden;
+  position: relative;
   /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
   background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
   background-size: contain;
@@ -430,7 +431,7 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-transform-origin: left top;
         top: 0;
         -webkit-transform: translateZ(0);
-        -webkit-filter: blur(6px); }
+        /*         -webkit-filter: blur(6px)*/ }
       #scene2 .content .act2 .shadow1 {
         width: 10em;
         height: 60em;

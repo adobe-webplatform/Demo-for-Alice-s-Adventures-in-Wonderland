@@ -468,6 +468,7 @@ Wrapping all content to prevent horizontal scrolling.
   width: 161em;
   height: 172em;
   overflow: hidden;
+  position: relative;
   
   // TODO: use individual mushrooms for subtle animation
 /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
@@ -543,7 +544,7 @@ Wrapping all content to prevent horizontal scrolling.
          -webkit-transform-origin: left top;
          top: 0;       
          -webkit-transform: translateZ(0);
-         -webkit-filter: blur(6px)
+/*         -webkit-filter: blur(6px)*/
       }
       
       .shadow1{
