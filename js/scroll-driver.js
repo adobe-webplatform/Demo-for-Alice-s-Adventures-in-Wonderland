@@ -120,6 +120,22 @@
   
   function crossfade2to3(){
     var $el = $('#overlay')
+    
+    // TODO: merge this logic with scene pin logic
+   // ---------------- SNIP
+    $caterpillar = $('#scene2 .act2')
+    $decoration = $('#scene2 .decoration')
+    $scene2 = $('#scene2')
+    
+    var hOffset = window.innerWidth - ($caterpillar.offset().left + $caterpillar.width())
+    hOffset = Math.max(Math.abs(hOffset), $decoration.offset().left)
+    
+    var maxScroll = hOffset + $caterpillar.offset().top
+    
+    // available space under the caterpillar act
+    var extent = Math.abs($scene2.height() - $caterpillar.height() - $caterpillar.offset().top)
+   // ---------------- SNIP 
+    
     var tl = new TimelineLite()
 
     tl.add(TweenMax.to($el, 1, 
@@ -142,15 +158,15 @@
         ease: Linear.easeNone, 
         immediateRender: false, 
         onComplete: function(){
-          console.log("DESTIANTION REACHED")
+
         },
         onReverseComplete: function(){
           // todo pin scene2
         }
       }))
-
+    
     var keyframe = addKeyframe({
-      top: $scene2.offset().top + $scene2.height() + 150,
+      top: maxScroll + (extent * 2) - 150,
       height: 300,
       background: 'lime'
     })
@@ -260,8 +276,8 @@
   }
 
   function setupCatWalking(){
-    var $el = $('#scene3_2 .cat-shape-walking')
-    var $content = $('#scene3_2 .content-wrapper p')
+    var $el = $('#scene3_2 .act2 .cat-shape-walking')
+    var $content = $('#scene3_2 .act2 .content-wrapper p')
     var offset = 100
     
     var keyframeEnter = addKeyframe({
@@ -270,18 +286,66 @@
       background: 'purple'
     })
 
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateX(-35px)" }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateY(100px)"}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateX(-15px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}), keyframeEnter.height())
 
-    // 
-    // var keyframeExit = addKeyframe({
-    //   top: $content.offset().top,
-    //   height: 100,
-    //   background: 'blue'
-    // })
-    // 
-    // ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    // ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    var keyframeExit = addKeyframe({
+      top: $el.offset().top + 100,
+      height: 100,
+      background: 'blue'
+    })
+    
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+  }
+  
+  function setupAliceWalking1(){
+    var $el = $('#scene3_2 .act3 .alice-shape')
+    var $content = $('#scene3_2 .act3 .cat-paws-shape')
+    
+    var keyframeEnter = addKeyframe({
+      top: $el.offset().top + $el.offset().left - window.innerWidth,
+      height: $el.height(),
+      background: 'black'
+    })
+    
+    var tlEnter = new TimelineLite()
+    tlEnter.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0 }}))
+    tlEnter.add(TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
+    
+    ctrlTimeline.addTween(keyframeEnter, tlEnter, keyframeEnter.height())
+
+    var keyframeExit = addKeyframe({
+      top: $el.offset().top + $el.offset().left - window.innerWidth/2,
+      height: 100,
+      background: 'blue'
+    })
+    
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+  }
+
+  function setupAliceWalking2(){
+    var $el = $('#scene3_2 .act4 .alice-shape')
+    var $content = $('#scene3_2 .act4 .content-wrapper p')
+    
+    var keyframeEnter = addKeyframe({
+      top: $el.offset().top + $el.offset().left - window.innerWidth,
+      height: $el.height(),
+      background: 'lime'
+    })
+    
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    
+    var keyframeExit = addKeyframe({
+      top: $el.offset().top + $el.offset().left - window.innerWidth/2,
+      height: 100,
+      background: 'blue'
+    })
+    
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
   
   function setup(){
@@ -304,6 +368,8 @@
     
     // scene 3_2
     setupCatWalking()
+    setupAliceWalking1()
+    setupAliceWalking2()
   }            
   
   $(setup)

@@ -287,7 +287,7 @@ Wrapping all content to prevent horizontal scrolling.
   .act3{
     width: 50em;
     height: 50em;
-    left: 95em;
+    left: 90em;
     
     .cat-paws-shape{
       background: url(../images/cat-paws.png) left top no-repeat;
@@ -304,29 +304,6 @@ Wrapping all content to prevent horizontal scrolling.
       margin-left: 14em;
       width: 30em;
       height: 20em;
-    }
-    
-    p{
-      -webkit-flow-into: act3;
-    }
-    
-    .region{
-      -webkit-flow-from: act3;
-    }
-    
-    .part1{
-      width: 20em;
-      height: 13em;
-      box-sizing: border-box;
-      padding-top: 2em;
-      -webkit-shape-inside: polygon(nonzero, 0px 0px, 325px 0px, 0px 208px);
-    }
-    
-    .part2{
-      width: 20em;
-      float: right;
-      margin-top: -3em;
-      -webkit-shape-inside: polygon(nonzero, 314px -68px, 322px 190px, -50px 187px, 143px -5px);
     }
     
     .alice-shape{
@@ -362,29 +339,6 @@ Wrapping all content to prevent horizontal scrolling.
       height: 18em;
       margin: 25em 0 0 15em;
       -webkit-shape-inside: polygon(nonzero, 141px -1px, 394px 26px, 481px 157px, 247px 185px, 52px 279px, 23px 217px, 3px 112px, 46px 44px);
-    }
-    
-    .shade{
-      position: absolute;
-      top: 0;
-      background: -webkit-linear-gradient(left, rgba(0,0,0,0.15), rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.1) 100% );
-      -webkit-filter: blur(7px);
-      -webkit-transform-origin: center top; 
-      -webkit-transform: rotateZ(-25deg);
-    }
-
-    .shade1{
-      width: 40px;
-      height: 80em;
-      left: -20em;
-/*      -webkit-animation: shadow-swivel1 8s infinite ease-out;*/
-    }
-
-    .shade2{
-      width: 70px;
-      height: 80em;
-      left: -5em;
-/*      -webkit-animation: shadow-swivel1 10s 3s infinite ease-out;*/
     }
   }
   
