@@ -325,28 +325,6 @@
     ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
 
-  function setupAliceWalking2(){
-    var $el = $('#scene3_2 .act4 .alice-shape')
-    var $content = $('#scene3_2 .act4 .content-wrapper p')
-    
-    var keyframeEnter = addKeyframe({
-      top: $el.offset().top + $el.offset().left - window.innerWidth,
-      height: $el.height(),
-      background: 'lime'
-    })
-    
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
-    
-    var keyframeExit = addKeyframe({
-      top: $el.offset().top + $el.offset().left - window.innerWidth/2,
-      height: 100,
-      background: 'blue'
-    })
-    
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-  }
   
   function setup(){
     // scene 1
@@ -369,7 +347,7 @@
     // scene 3_2
     setupCatWalking()
     setupAliceWalking1()
-    setupAliceWalking2()
+    
   }            
   
   $(setup)
