@@ -43,7 +43,7 @@
   -webkit-animation: fade-out 1s ease-out;
   -webkit-animation-fill-mode: forwards; }
 
-.anim-floating, #scene2_2 .act6 .cat-shape {
+.anim-floating, #scene3_2 .act6 .cat-shape {
   -webkit-transform: translateZ(0);
   -webkit-animation: float 8s infinite ease-in-out; }
 
@@ -150,14 +150,14 @@ Wrapping all content to prevent horizontal scrolling.
     */
     /*    -webkit-transform: scale(8);*/ }
 
-#scene2_1 {
+#scene3_1 {
   display: none;
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
   height: 97.5em;
   /* cat falling 1 */ }
-  #scene2_1 .content {
+  #scene3_1 .content {
     width: 62em;
     margin-left: 16em;
     height: 97.5em;
@@ -165,32 +165,32 @@ Wrapping all content to prevent horizontal scrolling.
     /* TODO, investigate bug with shape-padding 16px+ / 1em+. Might be self-intersecting paths. */
     -webkit-shape-padding: 1.5em;
     padding-top: 2em; }
-  #scene2_1 .cat-shape1 {
+  #scene3_1 .cat-shape1 {
     float: left;
     -webkit-shape-margin: 1rem;
     font-size: 8px;
     margin-left: 28rem; }
-    #scene2_1 .cat-shape1 + p {
+    #scene3_1 .cat-shape1 + p {
       padding-top: 2em;
       clear: right;
       display: block;
       margin-bottom: 5em; }
-  #scene2_1 .cat-shape2 {
+  #scene3_1 .cat-shape2 {
     float: right;
     font-size: 7px;
     -webkit-shape-margin: 1rem; }
-    #scene2_1 .cat-shape2 + p {
+    #scene3_1 .cat-shape2 + p {
       display: block;
       clear: left;
       margin-bottom: 1rem; }
-  #scene2_1 .cat-shape3 {
+  #scene3_1 .cat-shape3 {
     float: left;
     margin-left: 10rem;
     -webkit-shape-margin: 1rem;
     font-size: 7px; }
-    #scene2_1 .cat-shape3 + p {
+    #scene3_1 .cat-shape3 + p {
       margin-bottom: 3em; }
-  #scene2_1 .cat-shape4 {
+  #scene3_1 .cat-shape4 {
     float: right;
     -webkit-shape-margin: 1rem;
     font-size: 7px;
@@ -203,7 +203,7 @@ Wrapping all content to prevent horizontal scrolling.
   .cat-shape-walking + p {
     margin-bottom: 3em; }
 
-#scene2_2 {
+#scene3_2 {
   display: none;
   background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
@@ -211,83 +211,83 @@ Wrapping all content to prevent horizontal scrolling.
   height: 91.25em;
   left: -2500px;
   top: -300px; }
-  #scene2_2 .content {
+  #scene3_2 .content {
     width: 278.75em;
     height: 80em;
     /*    -webkit-shape-inside: polygon(16.56em 0em, 61.50em 0.06em, 61.88em 8.25em, 66.38em 9.81em, 71.81em 5.69em, 74.75em 0em, 83.44em 0em, 93.19em 10.56em, 106.75em 15.25em, 115.00em 16.25em, 125.69em 21.69em, 136.00em 18.25em, 137.56em 20.31em, 146.56em 18.94em, 151.19em 15.19em, 153.06em 18.50em, 157.69em 16.25em, 159.13em 19.31em, 161.56em 15.94em, 164.56em 17.44em, 169.81em 16.75em, 171.06em 20.56em, 174.50em 20.19em, 177.06em 18.50em, 182.25em 22.69em, 194.63em 24.94em, 195.88em 28.38em, 198.81em 28.94em, 199.88em 31.94em, 201.06em 28.38em, 206.50em 28.31em, 214.69em 24.31em, 220.69em 23.81em, 223.63em 29.81em, 227.69em 20.38em, 242.06em 18.38em, 248.13em 14.88em, 255.13em 16.63em, 267.00em 16.25em, 278.63em 11.50em, 278.88em 62.13em, 271.38em 60.50em, 252.00em 63.50em, 251.56em 54.75em, 249.69em 52.31em, 240.63em 52.25em, 241.31em 56.81em, 242.56em 59.94em, 239.19em 62.81em, 234.81em 61.88em, 231.56em 64.94em, 227.19em 65.00em, 223.69em 69.69em, 222.31em 66.19em, 220.00em 63.31em, 217.00em 61.13em, 213.06em 64.44em, 212.19em 72.63em, 204.44em 69.00em, 204.06em 62.44em, 201.25em 60.81em, 197.94em 54.31em, 194.31em 49.88em, 188.13em 47.94em, 188.00em 42.13em, 184.63em 39.94em, 181.13em 36.31em, 176.81em 38.25em, 171.38em 37.38em, 169.38em 34.13em, 164.00em 35.88em, 161.63em 37.19em, 151.13em 39.50em, 141.56em 43.69em, 138.56em 56.75em, 130.31em 52.94em, 122.69em 50.50em, 118.50em 43.88em, 118.75em 41.19em, 115.56em 38.56em, 113.06em 40.00em, 109.69em 39.06em, 106.13em 38.13em, 102.25em 44.31em, 97.69em 44.38em, 97.69em 42.69em, 94.13em 37.88em, 92.31em 39.75em, 86.25em 33.81em, 80.94em 38.19em, 74.81em 37.69em, 72.75em 36.88em, 69.94em 33.44em, 67.56em 32.75em, 60.94em 36.81em, 60.50em 33.19em, 56.63em 32.00em, 50.25em 34.88em, 50.56em 31.19em, 44.19em 30.81em, 42.63em 24.69em, 46.88em 21.75em, 46.75em 18.69em, 40.94em 23.56em, 34.00em 21.63em, 33.13em 18.00em, 38.00em 17.19em, 42.63em 12.19em, 37.38em 14.94em, 34.38em 15.63em, 32.00em 13.19em, 33.06em 10.75em, 29.44em 8.75em, 17.31em 9.94em);*/ }
-  #scene2_2 .act {
+  #scene3_2 .act {
     position: absolute; }
-  #scene2_2 .act1 {
+  #scene3_2 .act1 {
     -webkit-shape-inside: polygon(nonzero, 584px 292px, 650px 293px, 687px 419px, 880px 422px, 881px 539px, 584px 513px, 471px 414px, 509px 368px, 502px 305px, 363px 277px, 429px 205px, 594px 205px);
     width: 55em;
     height: 50em;
     left: 16em; }
-    #scene2_2 .act1 .cat-shape5 {
+    #scene3_2 .act1 .cat-shape5 {
       float: right;
       margin-top: 13rem;
       -webkit-shape-margin: 1rem;
       font-size: 5px;
       /*  outline: 1px solid lime;*/ }
-      #scene2_2 .act1 .cat-shape5 + p {
+      #scene3_2 .act1 .cat-shape5 + p {
         margin-bottom: 3em; }
-  #scene2_2 .act2 {
+  #scene3_2 .act2 {
     width: 30em;
     height: 48em;
     left: 71em; }
-    #scene2_2 .act2 .content-wrapper {
+    #scene3_2 .act2 .content-wrapper {
       width: 100%;
       height: 100%;
       -webkit-shape-inside: polygon(nonzero, 113px 59px, 297px 161px, 368px 236px, 481px 261px, 479px 606px, 256px 541px, 113px 528px, 89px 414px); }
-    #scene2_2 .act2 .cat-shape {
+    #scene3_2 .act2 .cat-shape {
       position: absolute;
       bottom: 0;
       left: 0;
       -webkit-transform: rotate(7deg); }
-  #scene2_2 .act3 {
+  #scene3_2 .act3 {
     width: 50em;
     height: 50em;
     left: 95em; }
-    #scene2_2 .act3 .cat-paws-shape {
+    #scene3_2 .act3 .cat-paws-shape {
       background: url(../images/cat-paws.png) left top no-repeat;
       background-size: contain;
       width: 29em;
       height: 18em;
       position: absolute;
       top: 0; }
-    #scene2_2 .act3 .content-wrapper {
+    #scene3_2 .act3 .content-wrapper {
       position: relative;
       margin-top: 18em;
       margin-left: 14em;
       width: 30em;
       height: 20em; }
-    #scene2_2 .act3 p {
+    #scene3_2 .act3 p {
       -webkit-flow-into: act3; }
-    #scene2_2 .act3 .region {
+    #scene3_2 .act3 .region {
       -webkit-flow-from: act3; }
-    #scene2_2 .act3 .part1 {
+    #scene3_2 .act3 .part1 {
       width: 20em;
       height: 13em;
       box-sizing: border-box;
       padding-top: 2em;
       -webkit-shape-inside: polygon(nonzero, 0px 0px, 325px 0px, 0px 208px); }
-    #scene2_2 .act3 .part2 {
+    #scene3_2 .act3 .part2 {
       width: 20em;
       float: right;
       margin-top: -3em;
       -webkit-shape-inside: polygon(nonzero, 314px -68px, 322px 190px, -50px 187px, 143px -5px); }
-    #scene2_2 .act3 .alice-shape {
+    #scene3_2 .act3 .alice-shape {
       position: absolute;
       bottom: 0;
       height: 26.35em;
       width: 11.9em;
       background: url(../images/alice_walking_3.png) left top no-repeat;
       background-size: contain; }
-  #scene2_2 .act4 {
+  #scene3_2 .act4 {
     width: 50em;
     height: 53em;
     -webkit-perspective: 900px;
     left: 124em; }
-    #scene2_2 .act4 .alice-shape {
+    #scene3_2 .act4 .alice-shape {
       position: absolute;
       bottom: 0;
       height: 26.35em;
@@ -297,33 +297,33 @@ Wrapping all content to prevent horizontal scrolling.
       opacity: 0;
       -webkit-animation: alice-act-in 0.5s 1 ease-in-out;
       -webkit-animation-fill-mode: forwards; }
-    #scene2_2 .act4 .content-wrapper {
+    #scene3_2 .act4 .content-wrapper {
       width: 30em;
       height: 18em;
       margin: 25em 0 0 15em;
       -webkit-shape-inside: polygon(nonzero, 141px -1px, 394px 26px, 481px 157px, 247px 185px, 52px 279px, 23px 217px, 3px 112px, 46px 44px); }
-    #scene2_2 .act4 .shade {
+    #scene3_2 .act4 .shade {
       position: absolute;
       top: 0;
       background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.3) 70%, rgba(0, 0, 0, 0.1) 100%);
       -webkit-filter: blur(7px);
       -webkit-transform-origin: center top;
       -webkit-transform: rotateZ(-25deg); }
-    #scene2_2 .act4 .shade1 {
+    #scene3_2 .act4 .shade1 {
       width: 40px;
       height: 80em;
       left: -20em;
       /*      -webkit-animation: shadow-swivel1 8s infinite ease-out;*/ }
-    #scene2_2 .act4 .shade2 {
+    #scene3_2 .act4 .shade2 {
       width: 70px;
       height: 80em;
       left: -5em;
       /*      -webkit-animation: shadow-swivel1 10s 3s infinite ease-out;*/ }
-  #scene2_2 .act5 {
+  #scene3_2 .act5 {
     height: 73em;
     width: 40em;
     left: 200em; }
-    #scene2_2 .act5 .alice-shape {
+    #scene3_2 .act5 .alice-shape {
       position: absolute;
       bottom: 0;
       left: 4em;
@@ -334,12 +334,12 @@ Wrapping all content to prevent horizontal scrolling.
       opacity: 0;
       -webkit-animation: alice-act-in 0.5s 1 ease-in-out;
       -webkit-animation-fill-mode: forwards; }
-  #scene2_2 .act6 {
+  #scene3_2 .act6 {
     height: 40em;
     width: 45em;
     left: 225em;
     top: 25em; }
-    #scene2_2 .act6 .cat-shape {
+    #scene3_2 .act6 .cat-shape {
       width: 20.75em;
       height: 20.75em;
       font-size: 80%;
@@ -348,21 +348,21 @@ Wrapping all content to prevent horizontal scrolling.
       position: absolute;
       left: 12rem;
       z-index: 5; }
-    #scene2_2 .act6 .content-wrapper {
+    #scene3_2 .act6 .content-wrapper {
       width: 100%;
       height: 100%;
       position: relative; }
-    #scene2_2 .act6 p {
+    #scene3_2 .act6 p {
       -webkit-flow-into: act6-flow; }
-    #scene2_2 .act6 .region {
+    #scene3_2 .act6 .region {
       -webkit-flow-from: act6-flow; }
-    #scene2_2 .act6 #region1 {
+    #scene3_2 .act6 #region1 {
       float: left;
       width: 20em;
       margin-top: 15%;
       height: 80%;
       -webkit-shape-inside: polygon(nonzero, 46px 0px, 206px 0px, 183px 74px, 200px 103px, 321px 158px, 321px 307px, 242px 328px, 242px 405px, 274px 448px, 207px 482px, 7px 465px); }
-    #scene2_2 .act6 #region2 {
+    #scene3_2 .act6 #region2 {
       float: left;
       margin-left: 1.5rem;
       width: 23em;
@@ -370,7 +370,7 @@ Wrapping all content to prevent horizontal scrolling.
       height: 50%;
       -webkit-shape-inside: polygon(nonzero, 130px 58px, 76px 0px, 368px 0px, 324px 323px, 0px 320px, 0px 218px, 46px 187px, 90px 130px); }
 
-#scene3 {
+#scene2 {
   width: 161em;
   height: 172em;
   overflow: hidden;
@@ -378,60 +378,60 @@ Wrapping all content to prevent horizontal scrolling.
   background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
   background-size: contain;
   /* end .content */ }
-  #scene3 .decoration {
+  #scene2 .decoration {
     width: 55em;
     height: 90em;
     position: relative;
     margin-left: 20em; }
-    #scene3 .decoration .alice-shape {
+    #scene2 .decoration .alice-shape {
       position: absolute;
       background: url(../images/alice_leaning.png) top left no-repeat;
       background-size: contain;
       width: 10.5em;
       height: 22em; }
-      #scene3 .decoration .alice-shape.falling1 {
+      #scene2 .decoration .alice-shape.falling1 {
         right: 12em;
         -webkit-transform: rotate(-45deg) scale(0.85); }
-      #scene3 .decoration .alice-shape.falling2 {
+      #scene2 .decoration .alice-shape.falling2 {
         top: 45em;
         left: 20em;
         -webkit-transform: rotate(-65deg) scale(0.85); }
-      #scene3 .decoration .alice-shape.falling3 {
+      #scene2 .decoration .alice-shape.falling3 {
         top: 75em;
         left: 18em;
         -webkit-transform: rotate(-25deg) scale(0.85); }
-  #scene3 .content {
+  #scene2 .content {
     width: 90em;
     height: 40em;
     margin-left: 20em;
     position: relative;
     /* end .act2 */ }
-    #scene3 .content .act1 {
+    #scene2 .content .act1 {
       height: 100%;
       width: 17em;
       left: 25em;
       position: relative; }
-      #scene3 .content .act1 .alice-shape {
+      #scene2 .content .act1 .alice-shape {
         position: absolute;
         top: 6em;
         width: 17em;
         height: 14.375em;
         background: url(../images/alice_seated.png) top left no-repeat;
         background-size: contain; }
-    #scene3 .content .act2 {
+    #scene2 .content .act2 {
       position: absolute;
       height: 100%;
       width: 40em;
       left: 42em;
       top: 0;
       /* end .caterpillar-shape */ }
-      #scene3 .content .act2 .shadow {
+      #scene2 .content .act2 .shadow {
         position: absolute;
         -webkit-transform-origin: left top;
         top: 0;
         -webkit-transform: translateZ(0);
         -webkit-filter: blur(6px); }
-      #scene3 .content .act2 .shadow1 {
+      #scene2 .content .act2 .shadow1 {
         width: 10em;
         height: 60em;
         left: 15em;
@@ -439,7 +439,7 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-transform: rotate(50deg);
         background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
         /*        -webkit-animation: swiv1 8s infinite ease-in-out;*/ }
-      #scene3 .content .act2 .shadow2 {
+      #scene2 .content .act2 .shadow2 {
         width: 10em;
         height: 60em;
         left: 18em;
@@ -447,7 +447,7 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-transform: rotate(40deg);
         background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0));
         /*        -webkit-animation: swiv2 8s 0.5s infinite ease-in-out;*/ }
-      #scene3 .content .act2 .shadow3 {
+      #scene2 .content .act2 .shadow3 {
         width: 20em;
         height: 60em;
         left: 20em;
@@ -455,39 +455,39 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-transform: rotate(32deg);
         background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0) 90%);
         /*        -webkit-animation: swiv3 8s 1s infinite ease-in-out;*/ }
-      #scene3 .content .act2 .shadow4 {
+      #scene2 .content .act2 .shadow4 {
         width: 40em;
         height: 95em;
         left: 18em;
         top: -10em;
         -webkit-transform: rotate(17deg);
         background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 90%); }
-      #scene3 .content .act2 .shadow5 {
+      #scene2 .content .act2 .shadow5 {
         width: 56em;
         height: 95em;
         left: 14em;
         top: -2em;
         -webkit-transform: rotate(-7deg);
         background: -webkit-linear-gradient(65deg, rgba(0, 0, 0, 0.9) 50%, transparent 85%); }
-      #scene3 .content .act2 .shadow4,
-      #scene3 .content .act2 .shadow5 {
+      #scene2 .content .act2 .shadow4,
+      #scene2 .content .act2 .shadow5 {
         -webkit-transition: all;
         -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
-      #scene3 .content .act2 .shadow4 {
+      #scene2 .content .act2 .shadow4 {
         -webkit-transition-duration: 1.8s;
         -webkit-transition-delay: 0.2s; }
-      #scene3 .content .act2 .shadow5 {
+      #scene2 .content .act2 .shadow5 {
         -webkit-transition-duration: 1.8s; }
-      #scene3 .content .act2.day .caterpillar-shape.light, #scene3 .content .act2:hover .caterpillar-shape.light {
+      #scene2 .content .act2.day .caterpillar-shape.light, #scene2 .content .act2:hover .caterpillar-shape.light {
         opacity: 1; }
-      #scene3 .content .act2.day .caterpillar-shape.dark, #scene3 .content .act2:hover .caterpillar-shape.dark {
+      #scene2 .content .act2.day .caterpillar-shape.dark, #scene2 .content .act2:hover .caterpillar-shape.dark {
         opacity: 0;
         -webkit-filter: blur(7px); }
-      #scene3 .content .act2.day .shadow4,
-      #scene3 .content .act2.day .shadow5, #scene3 .content .act2:hover .shadow4,
-      #scene3 .content .act2:hover .shadow5 {
+      #scene2 .content .act2.day .shadow4,
+      #scene2 .content .act2.day .shadow5, #scene2 .content .act2:hover .shadow4,
+      #scene2 .content .act2:hover .shadow5 {
         opacity: 0; }
-      #scene3 .content .act2 .caterpillar-shape {
+      #scene2 .content .act2 .caterpillar-shape {
         position: absolute;
         width: 32.6em;
         height: 19em;
@@ -495,21 +495,21 @@ Wrapping all content to prevent horizontal scrolling.
         left: 5em;
         background-size: contain;
         -webkit-transform: translateZ(0); }
-        #scene3 .content .act2 .caterpillar-shape.light {
+        #scene2 .content .act2 .caterpillar-shape.light {
           -webkit-transition: all 1s 0.2s ease-in;
           opacity: 0;
           background: url(../images/caterpillar-day.png) top left no-repeat; }
-        #scene3 .content .act2 .caterpillar-shape.dark {
+        #scene2 .content .act2 .caterpillar-shape.dark {
           -webkit-transition: all 2s ease-out;
           opacity: 1;
           background: url(../images/caterpillar-night.png) top left no-repeat; }
-    #scene3 .content .dialogue {
+    #scene2 .content .dialogue {
       width: 65em;
       height: 100%;
       position: absolute;
       top: 0;
       right: 0; }
-    #scene3 .content .dialogue1 .alice-speech {
+    #scene2 .content .dialogue1 .alice-speech {
       width: 18em; }
 
 @-webkit-keyframes swiv1 {

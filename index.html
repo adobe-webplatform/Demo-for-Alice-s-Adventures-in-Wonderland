@@ -37,7 +37,7 @@
       </div>
     </div><!-- end #scene1 -->
     
-    <div id="scene3">
+    <div id="scene2">
       
       <div class="decoration">
           <div class="alice-shape falling1"></div>
@@ -95,7 +95,7 @@
       </div>
     </div>
   
-    <div id="scene2_1">
+    <div id="scene3_1">
       <div class="overlay"></div>
     
       <div class="content">
@@ -164,9 +164,9 @@
         </p>
 
       </div>
-    </div><!-- end #scene2_1 -->
+    </div><!-- end #scene3_1 -->
     
-    <div id="scene2_2">
+    <div id="scene3_2">
       
       <div class="content">
         <div class="act act1">
@@ -282,14 +282,14 @@
       <script>
 
       /* 
-        Listen to scroll and offset scene2_2 horizontally while in the viewport. 
-        #scene2_2 container will be pinned at the top of the viewport with 'position:fixed'.
+        Listen to scroll and offset scene3_2 horizontally while in the viewport. 
+        #scene3_2 container will be pinned at the top of the viewport with 'position:fixed'.
       */
       (function(){
 
         // placeholder element to simulate height of container while fixed; keeps v scroll working.
         var fauxHeight = null
-        var container = document.querySelector('#scene2_2')
+        var container = document.querySelector('#scene3_2')
         var styles = window.getComputedStyle(container, null)
         var marginLeft = parseInt(styles.marginLeft, 10) 
         var cache = {
@@ -358,7 +358,7 @@
       })()
         
       </script>
-    </div><!-- end #scene2_2 -->
+    </div><!-- end #scene3_2 -->
   
   </div><!-- end .wrapper -->
   <script src="third-party/greensock/TweenMax.min.js"></script>
