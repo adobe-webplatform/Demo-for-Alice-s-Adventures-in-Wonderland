@@ -43,7 +43,7 @@ Scroll events don't trigger on vertical scrolling if overflow-x is applied to th
 Wrapping all content to prevent horizontal scrolling. 
 */
 .wrapper{
-/*  overflow-x: hidden;*/
+  overflow-x: hidden;
   
   /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
@@ -67,7 +67,7 @@ Wrapping all content to prevent horizontal scrolling.
   position: absolute;
   top: 0;
   z-index: 2;
-  width: 15px;
+  width: 1px;
   height: 9000px;
   background:yellow;
   
@@ -494,7 +494,7 @@ Wrapping all content to prevent horizontal scrolling.
          -webkit-transform-origin: left top;
          top: 0;       
          -webkit-transform: translateZ(0);
-/*         -webkit-filter: blur(6px)*/
+         -webkit-filter: blur(6px)
       }
       
       .shadow1{
@@ -606,6 +606,9 @@ Wrapping all content to prevent horizontal scrolling.
     
     
     .dialogue{
+      // TODO: remove when working
+      display: none;
+      
       width: 65em;
       height: 100%;
       position: absolute;
