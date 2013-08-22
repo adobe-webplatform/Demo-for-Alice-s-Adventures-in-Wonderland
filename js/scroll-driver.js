@@ -17,16 +17,34 @@
   var ctrlPosition = new $.superscrollorama({
     triggerAtCenter: true
   });
-  
+
+  // keyframe index, auto-increment
+  var _index = 0
 	
-	function addKeyframe(className, css){
+	/*
+	  Add a keyframe element to the timeline. It will be used as an element proxy for the scroll driver to trigger animations. 
+	  
+	  All keyframes are absolutely positioned elements on a long, vertical timeline element.
+	  Vertical timeline approach used because there are vertical scroll and horizontal offsets to look at when triggering animations.
+	  
+	  @param {Object} options Hash with CSS properties to add.                              
+	  @example:
+    {
+	    top: '100px',  // will trigger the animation when window.scrollY reaches 100px
+	    height: '200px' // will run the animation over a scroll of 200px after the trigger, scrollY from 100px to 300px
+	  }
+	  
+	  @return {Object} jQuery object reference to keyframe element.
+	*/
+	function addKeyframe(options){
+	  var className = 'key' + (++_index)
     var _defaults = {
           top: 0,
           height: '20px'
         }
-	  
+    
 	  return $('<div>')
-	    .css($.extend({}, _defaults, css))
+	    .css($.extend({}, _defaults, options))
 	    .attr('class', className) 
 	    .appendTo($timeline)
 	}     
@@ -37,7 +55,7 @@
     var $el = $('#scene1 p')
     var topOffset = $el.offset().top / 4
     var maxMargin = $scene1.height() - $el.offset().top - $el.height()  
-    var keyframe = addKeyframe('key1', {
+    var keyframe = addKeyframe({
       top: topOffset,
       height: $scene1.height() - window.innerHeight - topOffset
     })
@@ -93,7 +111,7 @@
     hOffset = Math.max(Math.abs(hOffset), $deco.offset().left)
     
     // var container = $el.offset().top / 4
-    var keyframe = addKeyframe('key2', {
+    var keyframe = addKeyframe({
       top: $el.offset().top + hOffset
     })
     
@@ -104,11 +122,35 @@
     var $el = $('#overlay')
     var tl = new TimelineLite()
 
-    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, }}))
-    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, }}))
-    
-    var keyframe = addKeyframe('key4', {
-      top: $scene2.offset().top + $scene2.height(),
+    tl.add(TweenMax.to($el, 1, 
+      { 
+        css: { 
+          autoAlpha: 1
+        },
+        ease: Linear.easeNone, 
+        immediateRender: false, 
+        onComplete: function(){
+          // todo: unpin scene 2
+        }
+      }))
+
+    tl.add(TweenMax.to($el, 1, 
+      { 
+        css: { 
+          autoAlpha: 0
+        },
+        ease: Linear.easeNone, 
+        immediateRender: false, 
+        onComplete: function(){
+          console.log("DESTIANTION REACHED")
+        },
+        onReverseComplete: function(){
+          // todo pin scene2
+        }
+      }))
+
+    var keyframe = addKeyframe({
+      top: $scene2.offset().top + $scene2.height() + 150,
       height: 300,
       background: 'lime'
     })
@@ -117,14 +159,22 @@
   }
   
   function setup(){
+    // scene 1
     setupScene1()
+    
+    // scene 2
     setupAliceFalling1()
     setupAliceFalling2()
     setupAliceFalling3()
     setupAliceSeated()
     setupCaterpillarDay()
     crossfade2to3()
-  }
+    
+    // scene 3_1
+    
+    
+    // scene 3_2
+  }            
   
   $(setup)
 })()
