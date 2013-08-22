@@ -151,7 +151,6 @@ Wrapping all content to prevent horizontal scrolling.
     /*    -webkit-transform: scale(8);*/ }
 
 #scene3_1 {
-  display: none;
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
   background-size: 100%;
   width: 109em;
@@ -204,7 +203,6 @@ Wrapping all content to prevent horizontal scrolling.
     margin-bottom: 3em; }
 
 #scene3_2 {
-  display: none;
   background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
