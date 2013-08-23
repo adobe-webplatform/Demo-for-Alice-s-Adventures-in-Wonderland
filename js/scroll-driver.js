@@ -1,4 +1,53 @@
+
 (function(){
+  
+  /*
+    Position fixed an element to the viewport.
+    @param {String} position Optional edge of the element to pin against: 'top', 'bottom'. Default 'top'
+  */
+  $.fn.pin = function(position){
+    
+    // check given position or use 'top' as default
+    position = (['top', 'bottom'].indexOf(position) !== -1) ? position : 'top'
+    
+    function _pin(el){
+      el.css({
+        position: 'fixed',
+        top: (position === 'top') ? 0 : 'auto',
+        bottom: (position === 'bottom') ? 0 : 'auto',
+        left: 0,
+        zIndex: 1
+      })
+    }
+                 
+    return $(this).each(function(){
+      _pin($(this))
+    })
+  }
+  
+  /*
+    Remove position fixed form an element. Reset coordinates and zIndex to auto
+  */
+  $.fn.unpin = function(){
+    function _unpin(el){
+      
+      if (el.css('position') !== 'fixed')
+        return
+        
+      el.css({
+        position: 'relative',
+        top: 'auto',
+        botton: 'auto',
+        left: 'auto',
+        zIndex: 'auto'
+      })
+    }              
+    
+    return $(this).each(function(){
+      _unpin($(this))
+    })
+  }
+  
   var $scene1 = $('#scene1')
   var $scene2 = $('#scene2')
   var $scene3_1 = $('#scene3_1')
@@ -9,9 +58,10 @@
   // controller timeline element driven animations
   // when top-left corner of the keyframe element reaches top-left corner of viewport
   var ctrlTimeline = new $.superscrollorama({
-	  triggerAtCenter: false
-	});
-	
+    triggerAtCenter: false,
+    playoutAnimations: false
+  });
+
 	// controller for element position driven animation 
   // when top-left corner of the target element reaches mid-point of viewport
   var ctrlPosition = new $.superscrollorama({
@@ -49,9 +99,105 @@
 	    .appendTo($timeline)
 	}
 	
+	function setupCrossFade(from, to, duration){
+	  var $from = $(from)
+	  var $to = $(to)
+	  var $overlay = $('#overlay')
+	  
+    var keyframe = addKeyframe({
+      top: $from.offset().top + $from.height() - window.innerHeight,
+      height: duration,
+      background: 'rgba(0,0,0,0.5)'
+    })
+    
+    // $('<div>')
+    //   .attr('class', 'pin-spacer')
+    //   .css({
+    //     height: $from.height() + keyframe.height()
+    //   })
+    //   .insertAfter($from)
+    
+    var tl = new TimelineLite()
+    
+    // fade-in
+    tl.add(TweenMax.to($overlay, 0.25, 
+      { 
+        css: { 
+          autoAlpha: 1
+        },
+        ease: Linear.easeNone, 
+        immediateRender: false,
+        onStart: function(){ 
+          $from.pin('bottom')
+          
+          this._lastProgress = this.totalProgress()
+
+          this._onReverseStart = function(){
+            console.log('#1 reverse start')
+            $from.pin('bottom')
+          }
+          
+        },
+        onComplete: function(){
+          $from.unpin()
+        },
+        onReverseComplete: function(){
+          $from.unpin()
+          console.log('#1 reverse complete')
+        },
+        onUpdate: function(){
+          // the end was reached and going reverse
+          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
+            this._onReverseStart.call(this)
+          }
+          
+          this._lastProgress = this.totalProgress()
+        } 
+      }))
+      
+    // fade-out
+    tl.add(TweenMax.to($overlay, 0.25, 
+      { 
+        css: { 
+          autoAlpha: 0
+        },
+        ease: Linear.easeNone, 
+        immediateRender: false, 
+        onStart: function(){
+          $to.pin('top')
+
+          this._lastProgress = this.totalProgress()
+
+          this._onReverseStart = function(){
+            console.log('#2 reverse start')
+            $to.pin('top')
+          }
+        },
+        onComplete: function(){ 
+          $to.unpin()
+          window.scrollTo(0, $to.offset().top)
+        },
+        onReverseComplete: function(){
+          $to.unpin()
+          console.log('#2 reverse complete')
+        },
+        onUpdate: function(){
+          // the end was reached and going reverse
+          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
+            this._onReverseStart.call(this)
+          }
+          
+          this._lastProgress = this.totalProgress()
+        }
+      }))  
+      
+    ctrlTimeline.addTween(keyframe, tl, keyframe.height());
+	}
+	
+	
   // --------------------- SCENE 1 
 
-  function setupScene1(){
+  function setupScene1(){ 
     var $el = $('#scene1 p')
     var topOffset = $el.offset().top / 4
     var maxMargin = $scene1.height() - $el.offset().top - $el.height()  
@@ -327,8 +473,10 @@
 
   
   function setup(){
+    
     // scene 1
     setupScene1()
+    setupCrossFade($scene1, $scene2, window.innerHeight)
     
     // scene 2
     setupAliceFalling1()
