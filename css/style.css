@@ -342,7 +342,6 @@ Wrapping all content to prevent horizontal scrolling.
   height: 172em;
   overflow: hidden;
   position: relative;
-  margin-bottom: 300px;
   /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
   background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
   background-size: contain;

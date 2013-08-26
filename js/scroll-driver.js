@@ -52,7 +52,6 @@
   var $scene2 = $('#scene2')
   var $scene3_1 = $('#scene3_1')
   var $scene3_3 = $('#scene3_2')
-  var $overlay = $('#overlay')
   var $timeline = $('#timeline')
   
   // controller timeline element driven animations
@@ -246,26 +245,98 @@
     ctrlPosition.addTween($el, TweenMax.from( $el, 0.25, {css: { autoAlpha: 0 }}), $el.height())
   }
 
-  function setupCaterpillarDay(){
-    var $el = $('#scene2 .act2')
-    var $deco = $('#scene2 .decoration')
+  function setupPin2(){
     
-    var offset = $el.offset().top + $deco.offset().left
+    var $el = $scene2.find('.act2')
+    var $deco = $scene2.find('.decoration')
     
-    // horizontal offset applied to scene to scroll caterpillar into viewport
-    var hOffset = window.innerWidth - ($el.offset().left + $el.width())
-    hOffset = Math.max(Math.abs(hOffset), $deco.offset().left)
+    // amount by which to offset the scene horizontally to have the caterpillar act in the viewport
+    var hOffset = Math.max(
+      Math.abs( window.innerWidth - ($el.offset().left + $el.width()) ),
+      $deco.offset().left
+    )
     
-    // var container = $el.offset().top / 4
     var keyframe = addKeyframe({
-      top: $el.offset().top + hOffset
+      top: $el.offset().top,
+      height: $el.height() + hOffset + window.innerHeight, // extent
+      background: 'rgba(0,0,0,0.6)',
     })
     
-    ctrlTimeline.addTween(keyframe, TweenMax.to( $el, 0, {className:"+=day"}));
+    // pin sceen2 while other tweens are playing
+    var pin = TweenMax.to($scene2, 0.2, 
+      { 
+        className: '+=pin',
+        ease: Linear.easeNone, 
+        immediateRender: false,
+        onStart: function(){
+          
+          console.log('left offset, %s', $scene2.css('left'))
+          
+          $scene2
+            .pin()
+            .css({
+              top: -1 * $deco.height() + "px",
+              left: $scene2.css('left')
+            })
+          
+          this._lastProgress = this.totalProgress()
+        },
+        onComplete: function(){
+          var _memo = $scene2.css('left') 
+          console.log(_memo)
+          $scene2
+            .unpin()
+            .css({
+              top: 'auto',
+              left: _memo
+            })
+        },
+        onReverseComplete: function(){
+          $scene2
+            .unpin()
+            .css({
+              top: 'auto',
+              left: 'auto'
+            })
+          console.log('#1 reverse complete')
+        },
+        onUpdate: function(){
+          // the end was reached and going reverse
+          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
+            
+            console.log('#1 reverse start')
+            this.vars.onStart.call(this)
+          }
+          
+          this._lastProgress = this.totalProgress()
+        } 
+      })
+    
+    
+    var tl = new TimelineLite()
+    // horizontal offset
+    tl.add(TweenMax.to($scene2, 1, 
+      { 
+        css: { 
+          left: -1 * hOffset + 'px'
+        },
+        ease: Linear.easeNone, 
+        immediateRender: false
+      }))
+     
+     // reveal caterpillar 
+     tl.add(TweenMax.to( $el, 1, {className:"+=day"}))
+
+    
+     // TODO: add scene2 hOffset at the reverseStart of the TimeLine
+    ctrlTimeline.addTween(keyframe, pin, keyframe.height());
+    ctrlTimeline.addTween(keyframe, tl, keyframe.height());
   }
   
   function crossfade2to3(){
     var $el = $('#overlay')
+    
+    setupCrossFade($scene2)
     
     // TODO: merge this logic with scene pin logic
    // ---------------- SNIP
@@ -483,8 +554,9 @@
     setupAliceFalling2()
     setupAliceFalling3()
     setupAliceSeated()
-    setupCaterpillarDay()
-    crossfade2to3()
+
+    setupPin2()
+    // crossfade2to3()
     
     // scene 3_1
     setupCatFalling2()
