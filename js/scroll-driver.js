@@ -116,7 +116,7 @@
       distance: 1024, // @optional {Number} Distance in pixels over which to run the cross-fade while scrolling. Default: window.innerHeight
       cssFrom: {}, // @optional {Object} Hash with CSS properties to apply to source (from) after being pinned  
       cssTo: {}, // @optional {Object} Hash with CSS properties to apply to destination (to) after being pinned
-      keyframe: null // @optional {Object} Keyframe instance over which to run the cross-fade
+      keyframe: null // @optional {Object} Keyframe instance over which to run the cross-fade. Default: starting at bottom of source element
     }
 	*/
 	function crossfade(options){
@@ -234,6 +234,12 @@
     })
     
     ctrlTimeline.addTween(keyframe, TweenMax.to( $el, 1, {css: { marginTop: maxMargin }}), keyframe.height());
+    
+    crossfade({
+      from: $scene1,
+      to: $scene2,
+      duration: window.innerHeight
+    })
   }
   
   // --------------------- SCENE 2
@@ -575,11 +581,6 @@
     
     // scene 1
     setupScene1()
-    crossfade({
-      from: $scene1,
-      to: $scene2,
-      duration: window.innerHeight
-    })
     
     // scene 2
     setupAliceFalling1()
