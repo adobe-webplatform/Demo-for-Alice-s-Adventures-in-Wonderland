@@ -51,7 +51,7 @@
   var $scene1 = $('#scene1')
   var $scene2 = $('#scene2')
   var $scene3_1 = $('#scene3_1')
-  var $scene3_3 = $('#scene3_2')
+  var $scene3_2 = $('#scene3_2')
   var $timeline = $('#timeline')
   
   // controller timeline element driven animations
@@ -107,24 +107,31 @@
 	    5. unpin the destination element
 	    
     On reverse scroll, play the steps in reverse
-	    
-	  @param {Object} from Source element 
-	  @param {Object} to Destination element
-	  @param {Number} duration Distance in scroll pixels over which to run the cross-fade
-	  @param {Object} cssFrom Hash with CSS properties to apply to source (from) after being pinned
-	  @param {Object} cssTo Hash with CSS properties to apply to destination (to) after being pinned
+	  
+	  @param {Object} options Hash with configuration:
+	  
+    options = {
+      from: $('source'), // {Object} Source element
+      to: $('destination'), // {Object} Destination element
+      distance: 1024, // @optional {Number} Distance in pixels over which to run the cross-fade while scrolling. Default: window.innerHeight
+      cssFrom: {}, // @optional {Object} Hash with CSS properties to apply to source (from) after being pinned  
+      cssTo: {}, // @optional {Object} Hash with CSS properties to apply to destination (to) after being pinned
+      keyframe: null // @optional {Object} Keyframe instance over which to run the cross-fade
+    }
 	*/
-	function crossfade(from, to, duration, cssFrom, cssTo){
-	  var $from = $(from)
-	  var $to = $(to)
+	function crossfade(options){
+	  var $from = $(options.from)
+	  var $to = $(options.to)
 	  var $overlay = $('#overlay')
+	  var duration = options.duration || window.innerHeight
 	  
 	  // extra CSS properties to apply after pinning $from and $to
 	  // used as modifiers of default behavior
-	  var cssFrom = $.extend({}, cssFrom)
-	  var cssTo = $.extend({}, cssTo)
+	  var cssFrom = $.extend({}, options.cssFrom)
+	  var cssTo = $.extend({}, options.cssTo)
 	  
-    var keyframe = addKeyframe({
+	  // use given keyframe, if present, or generate one
+    var keyframe = options.keyframe || addKeyframe({
       top: $from.offset().top + $from.height() - window.innerHeight,
       height: duration,
       background: 'rgba(0,0,0,0.5)'
@@ -148,15 +155,13 @@
         ease: Linear.easeNone, 
         immediateRender: false,
         onStart: function(){ 
-          $from
-            .pin('bottom')
-            .css(cssFrom)
+          $from.pin('bottom').css(cssFrom)
           
           this._lastProgress = this.totalProgress()
 
           this._onReverseStart = function(){
             console.log('#1 reverse start')
-            $from.pin('bottom')
+            $from.pin('bottom').css(cssFrom)
           }
           
         },
@@ -186,13 +191,13 @@
         ease: Linear.easeNone, 
         immediateRender: false, 
         onStart: function(){
-          $to.pin('top')
+          $to.pin('top').css(cssTo)
 
           this._lastProgress = this.totalProgress()
 
           this._onReverseStart = function(){
             console.log('#2 reverse start')
-            $to.pin('top')
+            $to.pin('top').css(cssTo)
           }
         },
         onComplete: function(){ 
@@ -282,7 +287,7 @@
     var keyframe = addKeyframe({
       top: $el.offset().top,
       height: $el.height() + hOffset + window.innerHeight, // extent
-      background: 'rgba(0,0,0,0.6)',
+      background: 'rgba(0,150,0,0.6)',
     })
     
     // pin sceen2 while other tweens are playing
@@ -354,12 +359,12 @@
      // TODO: add scene2 hOffset at the reverseStart of the TimeLine
     ctrlTimeline.addTween(keyframe, pin, keyframe.height());
     ctrlTimeline.addTween(keyframe, tl, keyframe.height());
+    
   }
   
   function crossfade2to3(){
     var $el = $('#overlay')
     
-    setupCrossFade($scene2)
     
     // TODO: merge this logic with scene pin logic
    // ---------------- SNIP
@@ -570,7 +575,11 @@
     
     // scene 1
     setupScene1()
-    crossfade($scene1, $scene2, window.innerHeight)
+    crossfade({
+      from: $scene1,
+      to: $scene2,
+      duration: window.innerHeight
+    })
     
     // scene 2
     setupAliceFalling1()
