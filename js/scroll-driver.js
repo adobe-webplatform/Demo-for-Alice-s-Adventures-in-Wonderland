@@ -48,6 +48,62 @@
     })
   }
   
+  /*
+    Tween factory with decorated so its members handle the custom 'onReverseStart' event
+  */
+  var Tween = (function(){
+
+    function _decorate(){
+      var noop = function (){}
+      var args = Array.prototype.slice.call(arguments, 0)
+      var options = args[2]
+
+      if (!options){
+        return args
+      }  
+      
+      var _oldOnStart = options.onStart || noop,
+          _oldOnUpdate = options.onUpdate || noop
+
+      var decorated = $.extend(options, {
+        onStart: function(){
+          this._lastProgress = this.totalProgress()
+          _oldOnStart.call(this)
+        },
+        
+        onUpdate: function(){
+          // the end was reached and going reverse
+          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() && this.vars.onReverseStart){
+            console.log('#takevoer reverse start') 
+            this.vars.onReverseStart.call(this)
+          }
+          
+          // memorize current progress for later
+          this._lastProgress = this.totalProgress()
+          
+          _oldOnUpdate.call(this)
+        }
+      })
+      
+      args.splice(2, 1, decorated)
+      
+      return args
+    }
+        
+    function constructor(){}
+    
+    constructor.prototype.to = function(){
+      return TweenMax.to.apply(this, _decorate.apply(this, arguments))
+    }  
+
+    constructor.prototype.from = function(){
+      return TweenMax.from.apply(this, _decorate.apply(this, arguments))
+    }
+    
+    return new constructor
+  })() 
+  
+
   var $scene1 = $('#scene1')
   var $scene2 = $('#scene2')
   var $scene3_1 = $('#scene3_1')
@@ -146,7 +202,7 @@
     var tl = new TimelineLite()
     
     // fade-in
-    tl.add(TweenMax.to($overlay, 0.25, 
+    tl.add(Tween.to($overlay, 0.25, 
       { 
         css: { 
           autoAlpha: 1
@@ -163,7 +219,10 @@
           }
 
           $spacer.show()
-          this._lastProgress = this.totalProgress()
+        },
+        onReverseStart: function(){
+          console.log('#1 reverse start') 
+          this.vars.onStart.call(this)
         },
         onComplete: function(){
           if (options.onComplete){
@@ -182,21 +241,11 @@
           else{
             $from.unpin()
           }
-        },
-        onUpdate: function(){
-
-          // the end was reached and going reverse
-          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
-            console.log('#1 reverse start') 
-            this.vars.onStart.call(this)
-          }
-          
-          this._lastProgress = this.totalProgress()
-        } 
+        }
       }))
       
     // fade-out
-    tl.add(TweenMax.to($overlay, 0.25, 
+    tl.add(Tween.to($overlay, 0.25, 
       { 
         css: { 
           autoAlpha: 0
@@ -206,8 +255,10 @@
         onStart: function(){
           $to.pin('top').css(cssTo)
           $spacer.show()
-          
-          this._lastProgress = this.totalProgress()
+        },
+        onReverseStart: function(){
+          console.log('#2 reverse start') 
+          this.vars.onStart.call(this)
         },
         onComplete: function(){ 
           $to.unpin()
@@ -217,16 +268,6 @@
         },
         onReverseComplete: function(){
           $to.unpin()
-        },
-        onUpdate: function(){
-
-          // the end was reached and going reverse
-          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
-            console.log('#2 reverse start')
-            this.vars.onStart.call(this)
-          }
-          
-          this._lastProgress = this.totalProgress()
         }
       }))  
       
@@ -245,7 +286,7 @@
       height: $scene1.height() - window.innerHeight - topOffset
     })
     
-    ctrlTimeline.addTween(keyframe, TweenMax.to( $el, 1, {css: { marginTop: maxMargin }}), keyframe.height());
+    ctrlTimeline.addTween(keyframe, Tween.to( $el, 1, {css: { marginTop: maxMargin }}), keyframe.height());
     
     crossfade({
       from: $scene1,
@@ -260,8 +301,8 @@
     var $el = $('#scene2 .falling1')
     var tl = new TimelineLite()
 
-    tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-45deg) scale(0.85)" }}))
-    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-45deg) scale(0.85)" }}))
+    tl.add(Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-45deg) scale(0.85)" }}))
+    tl.add(Tween.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-45deg) scale(0.85)" }}))
 
     ctrlPosition.addTween($el, tl, $el.height() * 2)
   }
@@ -270,8 +311,8 @@
     var $el = $('#scene2 .falling2')
     var tl = new TimelineLite()
     
-    tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-65deg) scale(0.85)" }}))
-    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-35deg) scale(0.85)" }}))
+    tl.add(Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-65deg) scale(0.85)" }}))
+    tl.add(Tween.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-35deg) scale(0.85)" }}))
 
     ctrlPosition.addTween($el, tl, $el.height())
   }
@@ -280,15 +321,15 @@
     var $el = $('#scene2 .falling3')
     var tl = new TimelineLite()
 
-    tl.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-25deg) scale(0.85)" }}))
-    tl.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-25deg) scale(0.85)" }}))
+    tl.add(Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-25deg) scale(0.85)" }}))
+    tl.add(Tween.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-25deg) scale(0.85)" }}))
 
     ctrlPosition.addTween($el, tl, $el.height())
   }
 
   function setupAliceSeated(){
     var $el = $('#scene2 .act1 .alice-shape')
-    ctrlPosition.addTween($el, TweenMax.from( $el, 0.25, {css: { autoAlpha: 0 }}), $el.height())
+    ctrlPosition.addTween($el, Tween.from( $el, 0.25, {css: { autoAlpha: 0 }}), $el.height())
   }
 
   function setupPin2(){
@@ -317,7 +358,7 @@
       .insertAfter($scene2)
     
     // pin sceen2 while other tweens are playing
-    var pin = TweenMax.to($scene2, 0.2, 
+    var pin = Tween.to($scene2, 0.2, 
       { 
         className: '+=pin',
         ease: Linear.easeNone, 
@@ -329,8 +370,9 @@
               top: -1 * $deco.height() + "px",
               left: $scene2.css('left')
             })
-          
-          this._lastProgress = this.totalProgress()
+        },
+        onReverseStart: function(){
+          this.vars.onStart.call(this)
         },
         onComplete: function(){
           $scene2
@@ -346,23 +388,13 @@
               top: 'auto'
             })
           console.log('#1 reverse complete')
-        },
-        onUpdate: function(){
-          // the end was reached and going reverse
-          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
-            
-            console.log('#1 reverse start')
-            this.vars.onStart.call(this)
-          }
-          
-          this._lastProgress = this.totalProgress()
         } 
       })
     
     
     var tl = new TimelineLite()
     // horizontal offset
-    tl.add(TweenMax.to( $scene2, 1, 
+    tl.add(Tween.to( $scene2, 1, 
       { 
         css: { 
           left: -1 * hOffset + 'px'
@@ -372,7 +404,7 @@
       }))
      
     // reveal caterpillar 
-    tl.add(TweenMax.to( $el, 1, {className:"+=day"}))  
+    tl.add(Tween.to( $el, 1, {className:"+=day"}))  
 
     ctrlTimeline.addTween(keyframe, pin, keyframe.height());
     ctrlTimeline.addTween(keyframe, tl, keyframe.height());
@@ -416,8 +448,8 @@
       background: 'aliceblue'
     })
     
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-40px)" }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-40px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
     
     var keyframeExit = addKeyframe({
       top: $content.offset().top,
@@ -426,8 +458,8 @@
     })
     
     var tlExit = new TimelineLite()
-    tlExit.add(TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}))
-    tlExit.add(TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}))
+    tlExit.add(Tween.to($el, 0.25, {css: { autoAlpha: 0 }}))
+    tlExit.add(Tween.to($content, 0.25, {css: { autoAlpha: 0 }}))
     
     ctrlTimeline.addTween(keyframeExit, tlExit, keyframeExit.height())
   }
@@ -443,8 +475,8 @@
       background: 'aliceblue'
     })
     
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
     
     var keyframeExit = addKeyframe({
       top: $content.offset().top - 100,
@@ -452,8 +484,8 @@
       background: 'blue'
     })
     
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
 
   function setupCatFalling4(){
@@ -467,8 +499,8 @@
       background: 'aliceblue'
     })
     
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
     
     var keyframeExit = addKeyframe({
       top: $content.offset().top,
@@ -476,8 +508,8 @@
       background: 'blue'
     })
     
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
 
   function setupCatFalling5(){
@@ -491,8 +523,8 @@
       background: 'aliceblue'
     })
     
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-35px)" }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-35px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($content, 0.25, {css: { autoAlpha: 0 }}), keyframeEnter.height())
     
     var keyframeExit = addKeyframe({
       top: $content.offset().top + offset,
@@ -500,8 +532,8 @@
       background: 'blue'
     })
     
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
 
   function setupCatWalking(){
@@ -515,8 +547,8 @@
       background: 'purple'
     })
 
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateX(-15px)" }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateX(-15px)" }}), keyframeEnter.height())
+    ctrlTimeline.addTween(keyframeEnter, Tween.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}), keyframeEnter.height())
 
     var keyframeExit = addKeyframe({
       top: $el.offset().top + 100,
@@ -524,8 +556,8 @@
       background: 'blue'
     })
     
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
   
   function setupAliceWalking1(){
@@ -539,8 +571,8 @@
     })
     
     var tlEnter = new TimelineLite()
-    tlEnter.add(TweenMax.from($el, 0.25, {css: { autoAlpha: 0 }}))
-    tlEnter.add(TweenMax.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
+    tlEnter.add(Tween.from($el, 0.25, {css: { autoAlpha: 0 }}))
+    tlEnter.add(Tween.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
     
     ctrlTimeline.addTween(keyframeEnter, tlEnter, keyframeEnter.height())
 
@@ -550,8 +582,8 @@
       background: 'blue'
     })
     
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, TweenMax.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
 
   
