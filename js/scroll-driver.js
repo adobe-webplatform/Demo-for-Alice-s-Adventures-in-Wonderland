@@ -98,10 +98,31 @@
 	    .appendTo($timeline)
 	}
 	
-	function setupCrossFade(from, to, duration){
+	/*
+	  Cross-fade between two scenes while scrolling:
+	    1. pin the source (from) element when its bottom edge reaches the bottom of the viewport
+	    2. fade to black overlay 
+	    3. unpin the source element and pin the destination element (to) with its top edge stuck to the top of the viewport
+	    4. fade from black overlay
+	    5. unpin the destination element
+	    
+    On reverse scroll, play the steps in reverse
+	    
+	  @param {Object} from Source element 
+	  @param {Object} to Destination element
+	  @param {Number} duration Distance in scroll pixels over which to run the cross-fade
+	  @param {Object} cssFrom Hash with CSS properties to apply to source (from) after being pinned
+	  @param {Object} cssTo Hash with CSS properties to apply to destination (to) after being pinned
+	*/
+	function crossfade(from, to, duration, cssFrom, cssTo){
 	  var $from = $(from)
 	  var $to = $(to)
 	  var $overlay = $('#overlay')
+	  
+	  // extra CSS properties to apply after pinning $from and $to
+	  // used as modifiers of default behavior
+	  var cssFrom = $.extend({}, cssFrom)
+	  var cssTo = $.extend({}, cssTo)
 	  
     var keyframe = addKeyframe({
       top: $from.offset().top + $from.height() - window.innerHeight,
@@ -127,7 +148,9 @@
         ease: Linear.easeNone, 
         immediateRender: false,
         onStart: function(){ 
-          $from.pin('bottom')
+          $from
+            .pin('bottom')
+            .css(cssFrom)
           
           this._lastProgress = this.totalProgress()
 
@@ -547,7 +570,7 @@
     
     // scene 1
     setupScene1()
-    setupCrossFade($scene1, $scene2, window.innerHeight)
+    crossfade($scene1, $scene2, window.innerHeight)
     
     // scene 2
     setupAliceFalling1()
