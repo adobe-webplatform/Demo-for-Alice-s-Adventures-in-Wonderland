@@ -114,8 +114,6 @@
       from: $('source'), // {Object} Source element
       to: $('destination'), // {Object} Destination element
       distance: 1024, // @optional {Number} Distance in pixels over which to run the cross-fade while scrolling. Default: window.innerHeight
-      cssFrom: {}, // @optional {Object} Hash with CSS properties to apply to source (from) after being pinned  
-      cssTo: {}, // @optional {Object} Hash with CSS properties to apply to destination (to) after being pinned
       keyframe: null // @optional {Object} Keyframe instance over which to run the cross-fade. Default: starting at bottom of source element
     }
 	*/
@@ -136,13 +134,14 @@
       height: duration,
       background: 'rgba(0,0,0,0.5)'
     })
-    
-    // $('<div>')
-    //   .attr('class', 'pin-spacer')
-    //   .css({
-    //     height: $from.height() + keyframe.height()
-    //   })
-    //   .insertAfter($from)
+
+    var $spacer = $('<div>')
+      .attr('class', 'pin-spacer')
+      .css({
+        display: 'none',
+        height: $from.height() + keyframe.height()
+      })
+      .insertAfter($from)
     
     var tl = new TimelineLite()
     
@@ -154,28 +153,42 @@
         },
         ease: Linear.easeNone, 
         immediateRender: false,
-        onStart: function(){ 
-          $from.pin('bottom').css(cssFrom)
-          
-          this._lastProgress = this.totalProgress()
+        onStart: function(){
 
-          this._onReverseStart = function(){
-            console.log('#1 reverse start')
+          if (options.onStart){
+            options.onStart.call(this)
+          }
+          else{
             $from.pin('bottom').css(cssFrom)
           }
-          
+
+          $spacer.show()
+          this._lastProgress = this.totalProgress()
         },
         onComplete: function(){
-          $from.unpin()
+          if (options.onComplete){
+            options.onComplete.call(this)
+          }
+          else{
+            $from.unpin()
+          }
+          
+          $spacer.hide()
         },
         onReverseComplete: function(){
-          $from.unpin()
-          console.log('#1 reverse complete')
+          if (options.onReverseComplete){
+            options.onReverseComplete.call(this)
+          }
+          else{
+            $from.unpin()
+          }
         },
         onUpdate: function(){
+
           // the end was reached and going reverse
           if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
-            this._onReverseStart.call(this)
+            console.log('#1 reverse start') 
+            this.vars.onStart.call(this)
           }
           
           this._lastProgress = this.totalProgress()
@@ -192,26 +205,25 @@
         immediateRender: false, 
         onStart: function(){
           $to.pin('top').css(cssTo)
-
+          $spacer.show()
+          
           this._lastProgress = this.totalProgress()
-
-          this._onReverseStart = function(){
-            console.log('#2 reverse start')
-            $to.pin('top').css(cssTo)
-          }
         },
         onComplete: function(){ 
           $to.unpin()
+          $spacer.hide()
+          
           window.scrollTo(0, $to.offset().top)
         },
         onReverseComplete: function(){
           $to.unpin()
-          console.log('#2 reverse complete')
         },
         onUpdate: function(){
+
           // the end was reached and going reverse
           if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() ){
-            this._onReverseStart.call(this)
+            console.log('#2 reverse start')
+            this.vars.onStart.call(this)
           }
           
           this._lastProgress = this.totalProgress()
@@ -291,10 +303,18 @@
     )
     
     var keyframe = addKeyframe({
+      className: 'key-dialogue',
       top: $el.offset().top,
       height: $el.height() + hOffset + window.innerHeight, // extent
       background: 'rgba(0,150,0,0.6)',
     })
+    
+    var $spacer = $('<div>')
+      .attr('class', 'pin-spacer')
+      .css({
+        height: keyframe.height()
+      })
+      .insertAfter($scene2)
     
     // pin sceen2 while other tweens are playing
     var pin = TweenMax.to($scene2, 0.2, 
@@ -303,9 +323,6 @@
         ease: Linear.easeNone, 
         immediateRender: false,
         onStart: function(){
-          
-          console.log('left offset, %s', $scene2.css('left'))
-          
           $scene2
             .pin()
             .css({
@@ -316,21 +333,17 @@
           this._lastProgress = this.totalProgress()
         },
         onComplete: function(){
-          var _memo = $scene2.css('left') 
-          console.log(_memo)
           $scene2
             .unpin()
             .css({
-              top: 'auto',
-              left: _memo
+              top: 'auto'
             })
         },
         onReverseComplete: function(){
           $scene2
             .unpin()
             .css({
-              top: 'auto',
-              left: 'auto'
+              top: 'auto'
             })
           console.log('#1 reverse complete')
         },
@@ -349,7 +362,7 @@
     
     var tl = new TimelineLite()
     // horizontal offset
-    tl.add(TweenMax.to($scene2, 1, 
+    tl.add(TweenMax.to( $scene2, 1, 
       { 
         css: { 
           left: -1 * hOffset + 'px'
@@ -358,74 +371,39 @@
         immediateRender: false
       }))
      
-     // reveal caterpillar 
-     tl.add(TweenMax.to( $el, 1, {className:"+=day"}))
+    // reveal caterpillar 
+    tl.add(TweenMax.to( $el, 1, {className:"+=day"}))  
 
-    
-     // TODO: add scene2 hOffset at the reverseStart of the TimeLine
     ctrlTimeline.addTween(keyframe, pin, keyframe.height());
     ctrlTimeline.addTween(keyframe, tl, keyframe.height());
     
-  }
-  
-  function crossfade2to3(){
-    var $el = $('#overlay')
+    var pinToEnd = function (){
+      $scene2.pin()
+        .css({
+          left: -1 * hOffset + 'px',   
+          top: -1 * $deco.height() + "px"     
+        })
+    }      
     
-    
-    // TODO: merge this logic with scene pin logic
-   // ---------------- SNIP
-    $caterpillar = $('#scene2 .act2')
-    $decoration = $('#scene2 .decoration')
-    $scene2 = $('#scene2')
-    
-    var hOffset = window.innerWidth - ($caterpillar.offset().left + $caterpillar.width())
-    hOffset = Math.max(Math.abs(hOffset), $decoration.offset().left)
-    
-    var maxScroll = hOffset + $caterpillar.offset().top
-    
-    // available space under the caterpillar act
-    var extent = Math.abs($scene2.height() - $caterpillar.height() - $caterpillar.offset().top)
-   // ---------------- SNIP 
-    
-    var tl = new TimelineLite()
-
-    tl.add(TweenMax.to($el, 1, 
-      { 
-        css: { 
-          autoAlpha: 1
-        },
-        ease: Linear.easeNone, 
-        immediateRender: false, 
-        onComplete: function(){
-          // todo: unpin scene 2
-        }
-      }))
-
-    tl.add(TweenMax.to($el, 1, 
-      { 
-        css: { 
-          autoAlpha: 0
-        },
-        ease: Linear.easeNone, 
-        immediateRender: false, 
-        onComplete: function(){
-
-        },
-        onReverseComplete: function(){
-          // todo pin scene2
-        }
-      }))
-    
-    var keyframe = addKeyframe({
-      top: maxScroll + (extent * 2) - 150,
-      height: 300,
-      background: 'lime'
+    // cross-fade between caterpillar scene and cat falling scene
+    crossfade({
+      from: $scene2,
+      to: $scene3_1,
+      duration: window.innerHeight,
+      
+      // set a custom keyframe for the crossfade; ignores $from / $to positions
+      keyframe: addKeyframe({
+        // queue the crossfade keyframe after the dialogue keyframe above
+        top: keyframe.offset().top + keyframe.height(),
+        height: window.innerHeight,
+        background: 'rgba(150,0,0,0.5)',
+      }),
+      
+      onStart: pinToEnd,
+      onReverseComplete: pinToEnd
     })
     
-    ctrlTimeline.addTween(keyframe, tl, keyframe.height())
   }
-  
-  // --------------------- SCENE 3
   
   function setupCatFalling2(){
     var $el = $('#scene3_1 .cat-shape2')
@@ -589,7 +567,6 @@
     setupAliceSeated()
 
     setupPin2()
-    // crossfade2to3()
     
     // scene 3_1
     setupCatFalling2()
