@@ -103,7 +103,7 @@ Wrapping all content to prevent horizontal scrolling.
     -webkit-transform: translateY(0em); } }
 
 #scene1 {
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 90%, rgba(0, 0, 0, 0.9)) bottom, url(../images/bg_scn1.jpg) left top;
+  background: url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
   /* 
     Scale the scene size by tweaking the font-size on .wrapper 
@@ -134,22 +134,146 @@ Wrapping all content to prevent horizontal scrolling.
     margin-left: 37.5em;
     padding-top: 9em;
     -webkit-shape-inside: polygon(0em 0em, 33em -0.06em, 33.13em 23.75em, 30em 23.88em, 28em 25.88em, 28em 28.75em, 32.88em 33em, 31.38em 37.5em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.5em 46.81em, 21.19em 49.56em, 24em 53.13em, 27em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75em, 0em 65.94em, 2em 58em, 11.94em 53.5em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40em, 6.38em 40em, 12.44em 38.5em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.5em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4em 23.44em, 1em 20.63em, 2.88em 18.5em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em); }
-  #scene1 .overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    right: 0;
-    /*    -webkit-animation: flicker 8s infinite ease-in-out;*/
-    /*    background: -webkit-radial-gradient(center center, ellipse cover, rgba(0,0,0,0), rgba(0, 0, 0, 1) 40%);*/
-    background-color: black;
-    opacity: 0;
-    /* 
-      Fake vignette with scaling because gradients can't be animated in CSS
-      scale(1) for tight vignette
-      scale(5+) for wide vignette
-    */
-    /*    -webkit-transform: scale(8);*/ }
+
+#scene2 {
+  width: 161em;
+  height: 172em;
+  overflow: hidden;
+  position: relative;
+  /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
+  background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
+  background-size: contain;
+  /* end .content */ }
+  #scene2 .decoration {
+    width: 55em;
+    height: 90em;
+    position: relative;
+    margin-left: 20em; }
+    #scene2 .decoration .alice-shape {
+      position: absolute;
+      background: url(../images/alice_leaning.png) top left no-repeat;
+      background-size: contain;
+      width: 10.5em;
+      height: 22em; }
+      #scene2 .decoration .alice-shape.falling1 {
+        right: 12em;
+        -webkit-transform: rotate(-45deg) scale(0.85); }
+      #scene2 .decoration .alice-shape.falling2 {
+        top: 45em;
+        left: 20em;
+        -webkit-transform: rotate(-65deg) scale(0.85); }
+      #scene2 .decoration .alice-shape.falling3 {
+        top: 75em;
+        left: 18em;
+        -webkit-transform: rotate(-25deg) scale(0.85); }
+  #scene2 .content {
+    width: 90em;
+    height: 40em;
+    margin-left: 20em;
+    position: relative;
+    /* end .act2 */ }
+    #scene2 .content .act1 {
+      height: 100%;
+      width: 17em;
+      left: 25em;
+      position: relative; }
+      #scene2 .content .act1 .alice-shape {
+        position: absolute;
+        top: 6em;
+        width: 17em;
+        height: 14.375em;
+        background: url(../images/alice_seated.png) top left no-repeat;
+        background-size: contain; }
+    #scene2 .content .act2 {
+      position: absolute;
+      height: 100%;
+      width: 40em;
+      left: 42em;
+      top: 0;
+      /* end .caterpillar-shape */ }
+      #scene2 .content .act2 .shadow {
+        position: absolute;
+        -webkit-transform-origin: left top;
+        top: 0;
+        -webkit-transform: translateZ(0);
+        /*         -webkit-filter: blur(6px)*/ }
+      #scene2 .content .act2 .shadow1 {
+        width: 10em;
+        height: 60em;
+        left: 15em;
+        top: -10em;
+        -webkit-transform: rotate(50deg);
+        background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)); }
+      #scene2 .content .act2 .shadow2 {
+        width: 10em;
+        height: 60em;
+        left: 18em;
+        top: -10em;
+        -webkit-transform: rotate(40deg);
+        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0)); }
+      #scene2 .content .act2 .shadow3 {
+        width: 20em;
+        height: 60em;
+        left: 20em;
+        top: -10em;
+        -webkit-transform: rotate(32deg);
+        background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0) 90%); }
+      #scene2 .content .act2 .shadow4 {
+        width: 40em;
+        height: 95em;
+        left: 18em;
+        top: -10em;
+        -webkit-transform: rotate(17deg);
+        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 90%); }
+      #scene2 .content .act2 .shadow5 {
+        width: 56em;
+        height: 95em;
+        left: 14em;
+        top: -2em;
+        -webkit-transform: rotate(-7deg);
+        background: -webkit-linear-gradient(65deg, rgba(0, 0, 0, 0.9) 50%, transparent 85%); }
+      #scene2 .content .act2 .shadow4,
+      #scene2 .content .act2 .shadow5 {
+        -webkit-transition: all;
+        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
+      #scene2 .content .act2 .shadow4 {
+        -webkit-transition-duration: 1.8s;
+        -webkit-transition-delay: 0.2s; }
+      #scene2 .content .act2 .shadow5 {
+        -webkit-transition-duration: 1.8s; }
+      #scene2 .content .act2.day .caterpillar-shape.light {
+        opacity: 1; }
+      #scene2 .content .act2.day .caterpillar-shape.dark {
+        opacity: 0;
+        -webkit-filter: blur(7px); }
+      #scene2 .content .act2.day .shadow4,
+      #scene2 .content .act2.day .shadow5 {
+        opacity: 0; }
+      #scene2 .content .act2 .caterpillar-shape {
+        position: absolute;
+        width: 32.6em;
+        height: 19em;
+        top: 10em;
+        left: 5em;
+        background-size: contain;
+        -webkit-transform: translateZ(0); }
+        #scene2 .content .act2 .caterpillar-shape.light {
+          -webkit-transition: all 1s 0.2s ease-in;
+          opacity: 0;
+          background: url(../images/caterpillar-day.png) top left no-repeat; }
+        #scene2 .content .act2 .caterpillar-shape.dark {
+          -webkit-transition: all 2s ease-out;
+          opacity: 1;
+          background: url(../images/caterpillar-night.png) top left no-repeat; }
+    #scene2 .content .dialogue {
+      display: none;
+      width: 65em;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0; }
+    #scene2 .content .dialogue1 .alice-speech {
+      width: 18em; }
 
 #scene3_1 {
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
@@ -336,161 +460,6 @@ Wrapping all content to prevent horizontal scrolling.
       margin-top: 10%;
       height: 50%;
       -webkit-shape-inside: polygon(nonzero, 130px 58px, 76px 0px, 368px 0px, 324px 323px, 0px 320px, 0px 218px, 46px 187px, 90px 130px); }
-
-#scene2 {
-  width: 161em;
-  height: 172em;
-  overflow: hidden;
-  position: relative;
-  /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
-  background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
-  background-size: contain;
-  /* end .content */ }
-  #scene2 .decoration {
-    width: 55em;
-    height: 90em;
-    position: relative;
-    margin-left: 20em; }
-    #scene2 .decoration .alice-shape {
-      position: absolute;
-      background: url(../images/alice_leaning.png) top left no-repeat;
-      background-size: contain;
-      width: 10.5em;
-      height: 22em; }
-      #scene2 .decoration .alice-shape.falling1 {
-        right: 12em;
-        -webkit-transform: rotate(-45deg) scale(0.85); }
-      #scene2 .decoration .alice-shape.falling2 {
-        top: 45em;
-        left: 20em;
-        -webkit-transform: rotate(-65deg) scale(0.85); }
-      #scene2 .decoration .alice-shape.falling3 {
-        top: 75em;
-        left: 18em;
-        -webkit-transform: rotate(-25deg) scale(0.85); }
-  #scene2 .content {
-    width: 90em;
-    height: 40em;
-    margin-left: 20em;
-    position: relative;
-    /* end .act2 */ }
-    #scene2 .content .act1 {
-      height: 100%;
-      width: 17em;
-      left: 25em;
-      position: relative; }
-      #scene2 .content .act1 .alice-shape {
-        position: absolute;
-        top: 6em;
-        width: 17em;
-        height: 14.375em;
-        background: url(../images/alice_seated.png) top left no-repeat;
-        background-size: contain; }
-    #scene2 .content .act2 {
-      position: absolute;
-      height: 100%;
-      width: 40em;
-      left: 42em;
-      top: 0;
-      /* end .caterpillar-shape */ }
-      #scene2 .content .act2 .shadow {
-        position: absolute;
-        -webkit-transform-origin: left top;
-        top: 0;
-        -webkit-transform: translateZ(0);
-        /*         -webkit-filter: blur(6px)*/ }
-      #scene2 .content .act2 .shadow1 {
-        width: 10em;
-        height: 60em;
-        left: 15em;
-        top: -10em;
-        -webkit-transform: rotate(50deg);
-        background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-        /*        -webkit-animation: swiv1 8s infinite ease-in-out;*/ }
-      #scene2 .content .act2 .shadow2 {
-        width: 10em;
-        height: 60em;
-        left: 18em;
-        top: -10em;
-        -webkit-transform: rotate(40deg);
-        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0));
-        /*        -webkit-animation: swiv2 8s 0.5s infinite ease-in-out;*/ }
-      #scene2 .content .act2 .shadow3 {
-        width: 20em;
-        height: 60em;
-        left: 20em;
-        top: -10em;
-        -webkit-transform: rotate(32deg);
-        background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0) 90%);
-        /*        -webkit-animation: swiv3 8s 1s infinite ease-in-out;*/ }
-      #scene2 .content .act2 .shadow4 {
-        width: 40em;
-        height: 95em;
-        left: 18em;
-        top: -10em;
-        -webkit-transform: rotate(17deg);
-        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 90%); }
-      #scene2 .content .act2 .shadow5 {
-        width: 56em;
-        height: 95em;
-        left: 14em;
-        top: -2em;
-        -webkit-transform: rotate(-7deg);
-        background: -webkit-linear-gradient(65deg, rgba(0, 0, 0, 0.9) 50%, transparent 85%); }
-      #scene2 .content .act2 .shadow4,
-      #scene2 .content .act2 .shadow5 {
-        -webkit-transition: all;
-        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
-      #scene2 .content .act2 .shadow4 {
-        -webkit-transition-duration: 1.8s;
-        -webkit-transition-delay: 0.2s; }
-      #scene2 .content .act2 .shadow5 {
-        -webkit-transition-duration: 1.8s; }
-      #scene2 .content .act2.day .caterpillar-shape.light {
-        opacity: 1; }
-      #scene2 .content .act2.day .caterpillar-shape.dark {
-        opacity: 0;
-        -webkit-filter: blur(7px); }
-      #scene2 .content .act2.day .shadow4,
-      #scene2 .content .act2.day .shadow5 {
-        opacity: 0; }
-      #scene2 .content .act2 .caterpillar-shape {
-        position: absolute;
-        width: 32.6em;
-        height: 19em;
-        top: 10em;
-        left: 5em;
-        background-size: contain;
-        -webkit-transform: translateZ(0); }
-        #scene2 .content .act2 .caterpillar-shape.light {
-          -webkit-transition: all 1s 0.2s ease-in;
-          opacity: 0;
-          background: url(../images/caterpillar-day.png) top left no-repeat; }
-        #scene2 .content .act2 .caterpillar-shape.dark {
-          -webkit-transition: all 2s ease-out;
-          opacity: 1;
-          background: url(../images/caterpillar-night.png) top left no-repeat; }
-    #scene2 .content .dialogue {
-      display: none;
-      width: 65em;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0; }
-    #scene2 .content .dialogue1 .alice-speech {
-      width: 18em; }
-
-@-webkit-keyframes swiv1 {
-  50% {
-    -webkit-transform: rotate(48deg); } }
-
-@-webkit-keyframes swiv2 {
-  50% {
-    -webkit-transform: rotate(38deg); } }
-
-@-webkit-keyframes swiv3 {
-  50% {
-    -webkit-transform: rotate(30deg); } }
 
 .cat-shape1 {
   -webkit-shape-outside: polygon(1.38em -0.31em, 3.75em 2.25em, 7.25em 4.31em, 7em 7.19em, 8.19em 8.5em, 11.19em 7.13em, 11.75em 8.5em, 9em 10.88em, 7.44em 12.5em, 10.69em 14.5em, 12.06em 13.56em, 17.25em 14.75em, 21.19em 14.13em, 23.31em 13.56em, 24.63em 11.25em, 25.31em 14.38em, 26.75em 14.94em, 27.38em 17.31em, 29.63em 17.5em, 27.13em 19.88em, 25.56em 23.25em, 24.38em 27.38em, 20.06em 31.5em, 18.94em 30.75em, 11.69em 33.06em, 5.63em 31.56em, 2.19em 27.56em, 0.06em 22.69em, 3.13em 15.19em, 0.44em 12.44em, 1.94em 8.63em, 3.63em 5.94em, 1.88em 3.63em);
