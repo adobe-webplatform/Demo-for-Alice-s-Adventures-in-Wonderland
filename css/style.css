@@ -90,7 +90,7 @@ Wrapping all content to prevent horizontal scrolling.
   top: 0;
   z-index: 2;
   width: 15px;
-  height: 9000px;
+  height: 10000px;
   background: yellow; }
   #timeline div {
     position: absolute;

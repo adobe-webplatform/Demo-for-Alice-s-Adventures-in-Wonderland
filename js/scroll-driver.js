@@ -74,7 +74,6 @@
         onUpdate: function(){
           // the end was reached and going reverse
           if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() && this.vars.onReverseStart){
-            console.log('#takevoer reverse start') 
             this.vars.onReverseStart.call(this)
           }
           
@@ -221,7 +220,6 @@
           $spacer.show()
         },
         onReverseStart: function(){
-          console.log('#1 reverse start') 
           this.vars.onStart.call(this)
         },
         onComplete: function(){
@@ -257,7 +255,6 @@
           $spacer.show()
         },
         onReverseStart: function(){
-          console.log('#2 reverse start') 
           this.vars.onStart.call(this)
         },
         onComplete: function(){ 
@@ -387,7 +384,6 @@
             .css({
               top: 'auto'
             })
-          console.log('#1 reverse complete')
         } 
       })
     
@@ -435,6 +431,88 @@
       onReverseComplete: pinToEnd
     })
     
+  }
+  
+  
+  function setupPin3_2(){
+    
+    var $el = $scene3_2
+    var $act6 = $scene3_2.find('.act6')
+    
+    // custom pixel distance amount over which to run animation
+    var extent = 0
+    
+    // pixel distance to scroll scene horizontally while pinned
+    var hOffset = $el.width() - window.innerWidth
+
+    // pixel distance to scroll scene vertically while pinned
+    // used in second part of scene: bridge crossing, cat head reveal
+    var vOffset = Math.min($act6.position().top, $el.height() - window.innerHeight)
+    
+    var keyframe = addKeyframe({
+      top: $el.offset().top,
+      height: window.innerHeight + $el.width() - window.innerWidth + extent,
+      background: 'papaya',
+    })
+    
+    var $spacer = $('<div>')
+      .attr('class', 'pin-spacer')
+      .css({
+        // add an extra viewport height to the spacer so the keyframe can play-out completely; 
+        // the keyframe ends when it exits the upper edge of the viewport
+        height: keyframe.height() + window.innerHeight
+      })
+      .insertAfter($el)
+    
+    var pin = Tween.to($el, 0.2, 
+      { 
+        className: '+=pin',
+        ease: Linear.easeNone, 
+        immediateRender: false,
+        onStart: function(){
+          $scene3_2
+            .pin()
+            .css({
+              top: 0,
+              left: $el.css('left')
+            })
+        },
+        onReverseStart: function(){
+          this.vars.onStart.call(this)
+        },
+        onReverseComplete: function(){
+          $el
+            .unpin()
+            .css({
+              top: 'auto'
+            })
+        } 
+      })
+      
+    var tl = new TimelineLite()
+    // horizontal offset
+    tl.add(Tween.to( $el, 1, 
+      { 
+        css: { 
+          left: -1 * hOffset / 2 + 'px'
+        },
+        ease: Linear.easeNone, 
+        immediateRender: false
+      }))    
+
+    // vertical offset
+    tl.add(Tween.to( $el, 1, 
+      { 
+        css: { 
+          left: -1 * hOffset + 'px',
+          top: -1 * vOffset + 'px'
+        },
+        ease: Linear.easeNone, 
+        immediateRender: false
+      }))    
+
+    ctrlTimeline.addTween(keyframe, pin, keyframe.height());
+    ctrlTimeline.addTween(keyframe, tl, keyframe.height());
   }
   
   function setupCatFalling2(){
@@ -607,6 +685,7 @@
     setupCatFalling5()
     
     // scene 3_2
+    setupPin3_2()
     setupCatWalking()
     setupAliceWalking1()
     
