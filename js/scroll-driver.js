@@ -294,35 +294,37 @@
   
   // --------------------- SCENE 2
   
-  function setupAliceFalling1(){
-    var $el = $('#scene2 .falling1')
-    var tl = new TimelineLite()
-
-    tl.add(Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-45deg) scale(0.85)" }}))
-    tl.add(Tween.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-45deg) scale(0.85)" }}))
-
-    ctrlPosition.addTween($el, tl, $el.height() * 2)
-  }
-
-  function setupAliceFalling2(){
-    var $el = $('#scene2 .falling2')
-    var tl = new TimelineLite()
+  function setupAliceFalling(){
     
-    tl.add(Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-65deg) scale(0.85)" }}))
-    tl.add(Tween.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-35deg) scale(0.85)" }}))
+    var $act1 = $('#scene2 .falling1')
+    var tlAct1 = new TimelineLite()
+    
+    var $act2 = $('#scene2 .falling2')
+    var tlAct2 = new TimelineLite()
 
-    ctrlPosition.addTween($el, tl, $el.height())
+    tlAct1.add(Tween.from($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-45deg) scale(0.85)" }}))
+    tlAct1.add(Tween.to($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-45deg) scale(0.85)" }}))
+
+    tlAct2.add(Tween.from($act2, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-25deg) scale(0.85)" }}))
+    tlAct2.add(Tween.to($act2, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-25deg) scale(0.85)" }}))
+
+    ctrlPosition.addTween($act1, tlAct1, $act1.height() * 2)
+    ctrlPosition.addTween($act2, tlAct2, $act2.height())
   }
-
-  function setupAliceFalling3(){
-    var $el = $('#scene2 .falling3')
-    var tl = new TimelineLite()
-
-    tl.add(Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-25deg) scale(0.85)" }}))
-    tl.add(Tween.to($el, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-25deg) scale(0.85)" }}))
-
-    ctrlPosition.addTween($el, tl, $el.height())
+  
+  function setupContentScene2(){ 
+    var $el = $('#scene2 .decoration .content-wrapper')
+    var $content = $el.find('p')
+    var maxMargin = $el.height() - $content.height() - 50
+    
+    var keyframe = addKeyframe({
+      top: $el.offset().top - window.innerHeight / 2,
+      height: $el.height()
+    })
+    
+    ctrlTimeline.addTween(keyframe, Tween.to( $content, 1, {css: { marginTop: maxMargin }}), keyframe.height());
   }
+  
 
   function setupAliceSeated(){
     var $el = $('#scene2 .act1 .alice-shape')
@@ -671,11 +673,10 @@
     setupScene1()
     
     // scene 2
-    setupAliceFalling1()
-    setupAliceFalling2()
-    setupAliceFalling3()
+    setupAliceFalling()
     setupAliceSeated()
-
+    setupContentScene2()
+    
     setupPin2()
     
     // scene 3_1

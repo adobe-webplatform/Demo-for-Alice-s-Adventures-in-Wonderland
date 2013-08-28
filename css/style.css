@@ -61,6 +61,7 @@ p {
 p + p {
   margin-top: 1.6em; }
 
+.content-wrapper p,
 .content p {
   /* Keeps font-size consistent with root. */
   font-size: 1rem;
@@ -152,6 +153,13 @@ Wrapping all content to prevent horizontal scrolling.
     height: 90em;
     position: relative;
     margin-left: 20em; }
+    #scene2 .decoration .content-wrapper {
+      position: absolute;
+      width: 30em;
+      height: 35em;
+      top: 45em;
+      left: 8em;
+      -webkit-shape-inside: polygon(nonzero, 275px 15px, 428px 15px, 402px 88px, 403px 178px, 430px 226px, 389px 316px, 351px 449px, 286px 491px, 272px 556px, 34px 555px, 33px 442px, 183px 426px, 229px 357px, 253px 301px, 242px 227px, 200px 206px, 170px 152px, 114px 107px, 224px 75px); }
     #scene2 .decoration .alice-shape {
       position: absolute;
       background: url(../images/alice_leaning.png) top left no-repeat;
@@ -162,10 +170,6 @@ Wrapping all content to prevent horizontal scrolling.
         right: 12em;
         -webkit-transform: rotate(-45deg) scale(0.85); }
       #scene2 .decoration .alice-shape.falling2 {
-        top: 45em;
-        left: 20em;
-        -webkit-transform: rotate(-65deg) scale(0.85); }
-      #scene2 .decoration .alice-shape.falling3 {
         top: 75em;
         left: 18em;
         -webkit-transform: rotate(-25deg) scale(0.85); }
