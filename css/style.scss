@@ -32,6 +32,10 @@ p{
   margin:0;
 }
 
+p+p{
+  margin-top: 1.6em;
+}
+
 .content p{
   /* Keeps font-size consistent with root. */
   font-size: 1rem;
