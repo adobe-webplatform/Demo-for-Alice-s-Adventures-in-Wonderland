@@ -5,6 +5,7 @@
   -webkit-shape-outside: $shape;
   background: url($imagePath) top left no-repeat;
   background-size: contain;
+  visibility: hidden;
 }
 
 @mixin clearfix(){
@@ -368,6 +369,7 @@ Wrapping all content to prevent horizontal scrolling.
      -webkit-shape-margin: 1rem;
      font-size: 8px;
      margin-left: 28rem;
+     visibility: visible;
      
      & + p{
        padding-top: 2em;
