@@ -624,18 +624,19 @@
     // used in second part of scene: bridge crossing, cat head reveal
     var vOffset = Math.min($act6.position().top, $el.height() - window.innerHeight)
     
-    var keyframe = addKeyframe({
+    var keyframe = {
       top: $el.offset().top,
       height: window.innerHeight + $el.width() - window.innerWidth + extent,
       background: 'papaya',
-    })
+    }
     
+    // placeholder element to maintain scroll while scene pinned
     var $spacer = $('<div>')
       .attr('class', 'pin-spacer')
       .css({
         // add an extra viewport height to the spacer so the keyframe can play-out completely; 
         // the keyframe ends when it exits the upper edge of the viewport
-        height: keyframe.height() + window.innerHeight
+        height: keyframe.height + window.innerHeight
       })
       .insertAfter($el)
     
@@ -664,9 +665,9 @@
         } 
       })
       
-    var tl = new TimelineLite()
+    var animation = new TimelineLite()
     // horizontal offset
-    tl.add(Tween.to( $el, 1, 
+    animation.add(Tween.to( $el, 1, 
       { 
         css: { 
           left: -1 * hOffset / 2 + 'px'
@@ -676,7 +677,7 @@
       }))    
 
     // vertical offset
-    tl.add(Tween.to( $el, 1, 
+    animation.add(Tween.to( $el, 1, 
       { 
         css: { 
           left: -1 * hOffset + 'px',
@@ -685,9 +686,9 @@
         ease: Linear.easeNone, 
         immediateRender: false
       }))    
-
-    ctrlTimeline.addTween(keyframe, pin, keyframe.height());
-    ctrlTimeline.addTween(keyframe, tl, keyframe.height());
+      
+    Timeline.add(keyframe, pin)
+    Timeline.add(keyframe, animation)
   }
 
   function setupCatWalking(){
@@ -741,10 +742,7 @@
   }
   
   
-
-  
   function setup(){
-    
     // scene 1
     setupScene1()
     
@@ -757,10 +755,8 @@
     
     // scene 3_2
     setupTunnelScene()
-    
     setupCatWalking()
     setupAliceWalking1()
-    
   }            
   
   $(setup)
