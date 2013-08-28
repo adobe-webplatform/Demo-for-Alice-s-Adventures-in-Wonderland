@@ -98,8 +98,7 @@ Wrapping all content to prevent horizontal scrolling.
   background: yellow; }
   #timeline div {
     position: absolute;
-    width: 100%;
-    background: red; }
+    width: 100%; }
 
 @-webkit-keyframes title-in {
   100% {
