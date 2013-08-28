@@ -116,12 +116,6 @@
     playoutAnimations: false
   });
 
-	// controller for element position driven animation 
-  // when top-left corner of the target element reaches mid-point of viewport
-  var ctrlPosition = new $.superscrollorama({
-    triggerAtCenter: true
-  });
-
   // keyframe index, auto-increment
   var _index = 0
 	
@@ -297,19 +291,42 @@
   function setupAliceFalling(){
     
     var $act1 = $('#scene2 .falling1')
+    var $act2 = $('#scene2 .falling2')
+    var $act3 = $('#scene2 .act1 .alice-shape')
+    
+    var tlAct2 = new TimelineLite()
     var tlAct1 = new TimelineLite()
     
-    var $act2 = $('#scene2 .falling2')
-    var tlAct2 = new TimelineLite()
+    tlAct1.defaultEasing = tlAct2.defaultEasing = Linear.easeNone;
+    
+    var keyframeAct1 = addKeyframe({
+      // begin the animation ahead of the unpinning of the secene
+      top: $act1.offset().top - window.innerHeight / 4,
+      height: $act1.height()
+    })
+    
+    var keyframeAct2 = addKeyframe({
+      top: $act2.offset().top - window.innerHeight / 2,
+      height: $act2.height(),
+    })
 
-    tlAct1.add(Tween.from($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-45deg) scale(0.85)" }}))
-    tlAct1.add(Tween.to($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(90px) rotate(-45deg) scale(0.85)" }}))
-
-    tlAct2.add(Tween.from($act2, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-25deg) scale(0.85)" }}))
-    tlAct2.add(Tween.to($act2, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-25deg) scale(0.85)" }}))
-
-    ctrlPosition.addTween($act1, tlAct1, $act1.height() * 2)
-    ctrlPosition.addTween($act2, tlAct2, $act2.height())
+    var keyframeAct3 = addKeyframe({
+      top: $act3.offset().top - window.innerHeight / 2,
+      height: $act3.height() * 1.5,
+      background: 'red'
+    }) 
+    
+    var animAct3 = Tween.from( $act3, 0.25, {css: { autoAlpha: 0 }})
+    
+    tlAct1.add(Tween.from($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-45deg) scale(0.85)" }}))
+    tlAct1.add(Tween.to($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-45deg) scale(0.85)" }}))
+    
+    tlAct2.add(Tween.from($act2, 0.25, {css: { autoAlpha: 0, transform:"translateY(-50px) rotate(-25deg) scale(0.85)" }}))
+    tlAct2.add(Tween.to($act2, 0.25, {css: { autoAlpha: 0, transform:"translateY(50px) rotate(-25deg) scale(0.85)" }}))
+    
+    ctrlTimeline.addTween(keyframeAct1, tlAct1, keyframeAct1.height());
+    ctrlTimeline.addTween(keyframeAct2, tlAct2, keyframeAct2.height());
+    ctrlTimeline.addTween(keyframeAct3, animAct3, keyframeAct3.height());
   }
   
   function setupContentScene2(){ 
@@ -325,11 +342,6 @@
     ctrlTimeline.addTween(keyframe, Tween.to( $content, 1, {css: { marginTop: maxMargin }}), keyframe.height());
   }
   
-
-  function setupAliceSeated(){
-    var $el = $('#scene2 .act1 .alice-shape')
-    ctrlPosition.addTween($el, Tween.from( $el, 0.25, {css: { autoAlpha: 0 }}), $el.height())
-  }
 
   function setupPin2(){
     
@@ -674,7 +686,6 @@
     
     // scene 2
     setupAliceFalling()
-    setupAliceSeated()
     setupContentScene2()
     
     setupPin2()
