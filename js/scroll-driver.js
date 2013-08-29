@@ -616,6 +616,8 @@
     // custom pixel distance amount over which to run animation
     var extent = 0
     
+    var durationCatAnimation = window.innerHeight * 2
+    
     // pixel distance to scroll scene horizontally while pinned
     var hOffset = $el.width() - window.innerWidth
 
@@ -635,7 +637,7 @@
       .css({
         // add an extra viewport height to the spacer so the keyframe can play-out completely; 
         // the keyframe ends when it exits the upper edge of the viewport
-        height: keyframe.height + window.innerHeight
+        height: keyframe.height + window.innerHeight + durationCatAnimation
       })
       .insertAfter($el)
     
@@ -688,6 +690,27 @@
       
     Timeline.add(keyframe, pin)
     Timeline.add(keyframe, animation)
+    
+    
+    
+    // cat reveal transition
+    var $cat = $('#scene3_2 .act6 .cat-head')
+    var $states = $cat.find('.state')
+    
+    var animation = new TimelineLite()
+    animation.defaultEasing = Linear.easeNone
+        
+    // fade-in each state, one on top of each other
+    $states.each(function(index, state){
+      animation.add(Tween.to($(state), 1, {css: { autoAlpha: 1 }}))
+    })
+    
+    // queue a keyframe after the parent scene's keyframe.
+    Timeline.add({
+      background: 'pink',
+      top: keyframe.height + keyframe.top,
+      height: durationCatAnimation,
+    }, animation)  
   }
 
   function setupCatWalking(){
@@ -741,26 +764,26 @@
   }
   
   function setupCatTranstion(){
-    var $el = $('#scene3_2 .act6 .cat-head')
-    var $states = $el.find('.state')
-    
-    var $mock = $('#scene3_2').next('.pin-spacer')
-    
-    var animation = new TimelineLite()
-    animation.defaultEasing = Linear.easeNone
-        
-    var keyframe = {
-      background: 'pink',
-      top: $mock.offset().top + $mock.height() - ($('#scene3_2').width() - window.innerWidth),
-      height: window.innerHeight,
-    } 
-
-    // fade-in each state, one on top of each other
-    $states.each(function(index, state){
-      animation.add(Tween.to($(state), 1, {css: { autoAlpha: 1 }}))
-    })
-    
-    Timeline.add(keyframe, animation)  
+    // var $el = $('#scene3_2 .act6 .cat-head')
+    // var $states = $el.find('.state')
+    // 
+    // var $mock = $('#scene3_2').next('.pin-spacer')
+    // 
+    // var animation = new TimelineLite()
+    // animation.defaultEasing = Linear.easeNone
+    //     
+    // var keyframe = {
+    //   background: 'pink',
+    //   top: $mock.offset().top + $mock.height() - ($('#scene3_2').width() - window.innerWidth),
+    //   height: window.innerHeight,
+    // } 
+    // 
+    // // fade-in each state, one on top of each other
+    // $states.each(function(index, state){
+    //   animation.add(Tween.to($(state), 1, {css: { autoAlpha: 1 }}))
+    // })
+    // 
+    // Timeline.add(keyframe, animation)  
   }
   
   
