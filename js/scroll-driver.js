@@ -764,10 +764,7 @@
     animationExit.add(Tween.to($content, 1, {css: { autoAlpha: 0 }}))
     
     Timeline.add(keyframes.enter, animation )
-    Timeline.add(keyframes.enter, Tween.from($p, 1, {css: { transform:"translateX(-100px)" }}))
     Timeline.add(keyframes.exit, animationExit )
-    Timeline.add(keyframes.exit, Tween.to($p, 1, {css: { transform:"translateX(50px)" }}))
-    
   }
   
   
