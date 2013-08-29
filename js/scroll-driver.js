@@ -754,7 +754,7 @@
     ctrlTimeline.addTween(keyframeEnter, tlEnter, keyframeEnter.height())
 
     var keyframeExit = addKeyframe({
-      top: $el.offset().top + $el.offset().left - window.innerWidth/2,
+      top: $el.offset().top + $el.offset().left,
       height: 100,
       background: 'blue'
     })

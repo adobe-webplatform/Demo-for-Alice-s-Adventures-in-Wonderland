@@ -504,8 +504,9 @@ Wrapping all content to prevent horizontal scrolling.
       position: relative;
       margin-top: 18em;
       margin-left: 14em;
-      width: 30em;
+      width: 40em;
       height: 20em;
+      -webkit-shape-inside: polygon(nonzero, 178px 246px, 270px 147px, 569px 147px, 573px 307px, 305px 414px, 254px 363px, 168px 317px, 0px 320px);
     }
     
     .alice-shape{
@@ -519,6 +520,7 @@ Wrapping all content to prevent horizontal scrolling.
   }
   
   .act4{
+    display: none;
     width: 50em;
     height: 53em;
     -webkit-perspective: 900px;
