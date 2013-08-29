@@ -750,7 +750,7 @@
       },     
       exit: {
         background: 'aliceblue',
-        top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2 + window.innerHeight,
+        top: $scene3_2.offset().top + $el.offset().left + window.innerHeight /2,
         height: $el.height()
       }
     }
