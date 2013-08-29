@@ -607,7 +607,6 @@
     Timeline.add(keyframes.exit, Tween.to($act5.next('p'), 0.25, {css: { autoAlpha: 0 }}))
   }
   
-
   
   function setupTunnelScene(){
     
@@ -741,6 +740,29 @@
     ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
   
+  function setupCatTranstion(){
+    var $el = $('#scene3_2 .act6 .cat-head')
+    var $states = $el.find('.state')
+    
+    var $mock = $('#scene3_2').next('.pin-spacer')
+    
+    var animation = new TimelineLite()
+    animation.defaultEasing = Linear.easeNone
+        
+    var keyframe = {
+      background: 'pink',
+      top: $mock.offset().top + $mock.height() - ($('#scene3_2').width() - window.innerWidth),
+      height: window.innerHeight,
+    } 
+
+    // fade-in each state, one on top of each other
+    $states.each(function(index, state){
+      animation.add(Tween.to($(state), 1, {css: { autoAlpha: 1 }}))
+    })
+    
+    Timeline.add(keyframe, animation)  
+  }
+  
   
   function setup(){
     // scene 1
@@ -752,11 +774,13 @@
     
     // scene 3_1
     setupCatFallingScene()
-    
-    // scene 3_2
+
+    // scene 3_2       
     setupTunnelScene()
     setupCatWalking()
     setupAliceWalking1()
+
+    setupCatTranstion()    
   }            
   
   $(setup)

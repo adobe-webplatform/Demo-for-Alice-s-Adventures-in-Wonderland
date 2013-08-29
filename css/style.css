@@ -43,7 +43,7 @@
   -webkit-animation: fade-out 1s ease-out;
   -webkit-animation-fill-mode: forwards; }
 
-.anim-floating, #scene3_2 .act6 .cat-shape {
+.anim-floating, #scene3_2 .act6 .cat-head {
   -webkit-transform: translateZ(0);
   -webkit-animation: float 8s infinite ease-in-out; }
 
@@ -94,7 +94,7 @@ Wrapping all content to prevent horizontal scrolling.
   top: 0;
   z-index: 2;
   width: 15px;
-  height: 10000px;
+  height: 15000px;
   background: yellow; }
   #timeline div {
     position: absolute;
@@ -437,15 +437,48 @@ Wrapping all content to prevent horizontal scrolling.
     width: 45em;
     left: 225em;
     top: 25em; }
-    #scene3_2 .act6 .cat-shape {
+    #scene3_2 .act6 .cat-head {
       width: 20.75em;
       height: 20.75em;
       font-size: 80%;
-      background: url(../images/cat_smiling/s04.png) top left no-repeat;
-      background-size: contain;
       position: absolute;
       left: 12rem;
-      z-index: 5; }
+      z-index: 5;
+      outline: 1px solid red; }
+      #scene3_2 .act6 .cat-head .state {
+        width: 100%;
+        height: 100%;
+        background-position: top left;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0; }
+      #scene3_2 .act6 .cat-head .state.state-head-1 {
+        background-image: url(../images/cat_transition/s01.png); }
+      #scene3_2 .act6 .cat-head .state.state-head-2 {
+        background-image: url(../images/cat_transition/s02.png); }
+      #scene3_2 .act6 .cat-head .state.state-head-3 {
+        background-image: url(../images/cat_transition/s03.png); }
+      #scene3_2 .act6 .cat-head .state.state-head-4 {
+        background-image: url(../images/cat_transition/s04.png); }
+      #scene3_2 .act6 .cat-head .state.state-head-5 {
+        background-image: url(../images/cat_transition/s05.png); }
+      #scene3_2 .act6 .cat-head .state.state-head-6 {
+        background-image: url(../images/cat_transition/s06.png); }
+      #scene3_2 .act6 .cat-head .state.state-head-7 {
+        background-image: url(../images/cat_transition/s07.png); }
+      #scene3_2 .act6 .cat-head .state.state-head-8 {
+        background-image: url(../images/cat_transition/s08.png); }
+      #scene3_2 .act6 .cat-head .state.state-smiling-1 {
+        background-image: url(../images/cat_smiling/s01.png); }
+      #scene3_2 .act6 .cat-head .state.state-smiling-2 {
+        background-image: url(../images/cat_smiling/s02.png); }
+      #scene3_2 .act6 .cat-head .state.state-smiling-3 {
+        background-image: url(../images/cat_smiling/s03.png); }
+      #scene3_2 .act6 .cat-head .state.state-smiling-4 {
+        background-image: url(../images/cat_smiling/s04.png); }
     #scene3_2 .act6 .content-wrapper {
       width: 100%;
       height: 100%;
