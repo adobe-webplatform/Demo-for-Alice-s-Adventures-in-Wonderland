@@ -721,19 +721,15 @@
       enter: {
         background: 'red',
         top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2,
-        height: window.innerHeight / 2
+        height: $el.height()
       },     
-      
-
       exit: {
         background: 'pink',
         top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2 + window.innerHeight,
-        height: window.innerHeight / 2
+        height: $el.height()
       }
     }
     
-          console.log($el.offset().top)
-
     Timeline.add(keyframes.enter, Tween.from($el, 1, {css: { autoAlpha: 0, transform:"translateX(-20px) rotate(7deg)" }}))
     Timeline.add(keyframes.enter, Tween.from($content, 1, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}))
 
@@ -742,29 +738,36 @@
   }
   
   function setupAliceWalking1(){
-    // var $el = $('#scene3_2 .act3 .alice-shape')
-    // var $content = $('#scene3_2 .act3 .cat-paws-shape')
-    // 
-    // var keyframeEnter = addKeyframe({
-    //   top: $el.offset().top + $el.offset().left - window.innerWidth,
-    //   height: $el.height(),
-    //   background: 'black'
-    // })
-    // 
-    // var tlEnter = new TimelineLite()
-    // tlEnter.add(Tween.from($el, 0.25, {css: { autoAlpha: 0 }}))
-    // tlEnter.add(Tween.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
-    // 
-    // ctrlTimeline.addTween(keyframeEnter, tlEnter, keyframeEnter.height())
-    // 
-    // var keyframeExit = addKeyframe({
-    //   top: $el.offset().top + $el.offset().left,
-    //   height: 100,
-    //   background: 'blue'
-    // })
-    // 
-    // ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    // ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    var $el = $('#scene3_2 .act3 .alice-shape')
+    var $content = $('#scene3_2 .act3 .content-wrapper')
+    var $p = $('#scene3_2 .act3 .content-wrapper p')
+    
+    var keyframes = {
+      enter: {
+        background: 'blue',
+        top: $scene3_2.offset().top + $el.offset().left,
+        height: $el.height()
+      },     
+      exit: {
+        background: 'aliceblue',
+        top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2 + window.innerHeight,
+        height: $el.height()
+      }
+    }
+    
+    var animation = new TimelineLite()
+    animation.add(Tween.from($el, 1, {css: { autoAlpha: 0 }}))
+    animation.add(Tween.from($content, 1, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
+    
+    var animationExit = new TimelineLite()
+    animationExit.add(Tween.to($el, 1, {css: { autoAlpha: 0 }}))
+    animationExit.add(Tween.to($content, 1, {css: { autoAlpha: 0 }}))
+    
+    Timeline.add(keyframes.enter, animation )
+    Timeline.add(keyframes.enter, Tween.from($p, 1, {css: { transform:"translateX(-100px)" }}))
+    Timeline.add(keyframes.exit, animationExit )
+    Timeline.add(keyframes.exit, Tween.to($p, 1, {css: { transform:"translateX(50px)" }}))
+    
   }
   
   
