@@ -595,8 +595,8 @@
       },
 
       exit: {
-        top: $act5.offset().top + window.innerWidth / 2, // this scene is moving horizontally
-        height: $act5.width()
+        top: $act5.offset().top + $act5.offset().left - window.innerWidth / 2, // this scene is moving horizontally
+        height: window.innerHeight / 2
       }
     }
 
@@ -616,7 +616,9 @@
     // custom pixel distance amount over which to run animation
     var extent = 0
     
-    var durationCatAnimation = window.innerHeight * 2
+    var durations = {
+      catHead: window.innerHeight * 2
+    }
     
     // pixel distance to scroll scene horizontally while pinned
     var hOffset = $el.width() - window.innerWidth
@@ -631,17 +633,17 @@
       background: 'papaya',
     }
     
-    // placeholder element to maintain scroll while scene pinned
+    // placeholder element to give height and maintain scroll while scene pinned
     var $spacer = $('<div>')
       .attr('class', 'pin-spacer')
       .css({
         // add an extra viewport height to the spacer so the keyframe can play-out completely; 
         // the keyframe ends when it exits the upper edge of the viewport
-        height: keyframe.height + window.innerHeight + durationCatAnimation
+        height: keyframe.height + window.innerHeight + durations.catHead
       })
       .insertAfter($el)
     
-    var pin = Tween.to($el, 0.2, 
+    var scenePin = Tween.to($el, 0.2, 
       { 
         className: '+=pin',
         ease: Linear.easeNone, 
@@ -666,9 +668,9 @@
         } 
       })
       
-    var animation = new TimelineLite()
+    var sceneAnimation = new TimelineLite()
     // horizontal offset
-    animation.add(Tween.to( $el, 1, 
+    sceneAnimation.add(Tween.to( $el, 1, 
       { 
         css: { 
           left: -1 * hOffset / 2 + 'px'
@@ -678,7 +680,7 @@
       }))    
 
     // vertical offset
-    animation.add(Tween.to( $el, 1, 
+    sceneAnimation.add(Tween.to( $el, 1, 
       { 
         css: { 
           left: -1 * hOffset + 'px',
@@ -688,10 +690,8 @@
         immediateRender: false
       }))    
       
-    Timeline.add(keyframe, pin)
-    Timeline.add(keyframe, animation)
-    
-    
+    Timeline.add(keyframe, scenePin)
+    Timeline.add(keyframe, sceneAnimation)
     
     // cat reveal transition
     var $cat = $('#scene3_2 .act6 .cat-head')
@@ -709,81 +709,62 @@
     Timeline.add({
       background: 'pink',
       top: keyframe.height + keyframe.top,
-      height: durationCatAnimation,
+      height: durations.catHead,
     }, animation)  
   }
 
   function setupCatWalking(){
+    
     var $el = $('#scene3_2 .act2 .cat-shape-walking')
     var $content = $('#scene3_2 .act2 .content-wrapper p')
-    var offset = 100
-    
-    var keyframeEnter = addKeyframe({
-      top: $el.offset().top - offset,
-      height: 150,
-      background: 'purple'
-    })
+    var keyframes = {
+      enter: {
+        background: 'red',
+        top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2,
+        height: window.innerHeight / 2
+      },     
+      
 
-    ctrlTimeline.addTween(keyframeEnter, Tween.from($el, 0.25, {css: { autoAlpha: 0, transform:"translateX(-15px)" }}), keyframeEnter.height())
-    ctrlTimeline.addTween(keyframeEnter, Tween.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}), keyframeEnter.height())
-
-    var keyframeExit = addKeyframe({
-      top: $el.offset().top + 100,
-      height: 100,
-      background: 'blue'
-    })
+      exit: {
+        background: 'pink',
+        top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2 + window.innerHeight,
+        height: window.innerHeight / 2
+      }
+    }
     
-    ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+          console.log($el.offset().top)
+
+    Timeline.add(keyframes.enter, Tween.from($el, 1, {css: { autoAlpha: 0, transform:"translateX(-20px) rotate(7deg)" }}))
+    Timeline.add(keyframes.enter, Tween.from($content, 1, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}))
+
+    Timeline.add(keyframes.exit, Tween.to($el, 1, {css: { autoAlpha: 0, transform:"translateX(20px) rotate(7deg)" }}))
+    Timeline.add(keyframes.exit, Tween.to($content, 1, {css: { autoAlpha: 0, marginLeft: 100 }}))
   }
   
   function setupAliceWalking1(){
-    var $el = $('#scene3_2 .act3 .alice-shape')
-    var $content = $('#scene3_2 .act3 .cat-paws-shape')
-    
-    var keyframeEnter = addKeyframe({
-      top: $el.offset().top + $el.offset().left - window.innerWidth,
-      height: $el.height(),
-      background: 'black'
-    })
-    
-    var tlEnter = new TimelineLite()
-    tlEnter.add(Tween.from($el, 0.25, {css: { autoAlpha: 0 }}))
-    tlEnter.add(Tween.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
-    
-    ctrlTimeline.addTween(keyframeEnter, tlEnter, keyframeEnter.height())
-
-    var keyframeExit = addKeyframe({
-      top: $el.offset().top + $el.offset().left,
-      height: 100,
-      background: 'blue'
-    })
-    
-    ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-    ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
-  }
-  
-  function setupCatTranstion(){
-    // var $el = $('#scene3_2 .act6 .cat-head')
-    // var $states = $el.find('.state')
+    // var $el = $('#scene3_2 .act3 .alice-shape')
+    // var $content = $('#scene3_2 .act3 .cat-paws-shape')
     // 
-    // var $mock = $('#scene3_2').next('.pin-spacer')
-    // 
-    // var animation = new TimelineLite()
-    // animation.defaultEasing = Linear.easeNone
-    //     
-    // var keyframe = {
-    //   background: 'pink',
-    //   top: $mock.offset().top + $mock.height() - ($('#scene3_2').width() - window.innerWidth),
-    //   height: window.innerHeight,
-    // } 
-    // 
-    // // fade-in each state, one on top of each other
-    // $states.each(function(index, state){
-    //   animation.add(Tween.to($(state), 1, {css: { autoAlpha: 1 }}))
+    // var keyframeEnter = addKeyframe({
+    //   top: $el.offset().top + $el.offset().left - window.innerWidth,
+    //   height: $el.height(),
+    //   background: 'black'
     // })
     // 
-    // Timeline.add(keyframe, animation)  
+    // var tlEnter = new TimelineLite()
+    // tlEnter.add(Tween.from($el, 0.25, {css: { autoAlpha: 0 }}))
+    // tlEnter.add(Tween.from($content, 0.25, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
+    // 
+    // ctrlTimeline.addTween(keyframeEnter, tlEnter, keyframeEnter.height())
+    // 
+    // var keyframeExit = addKeyframe({
+    //   top: $el.offset().top + $el.offset().left,
+    //   height: 100,
+    //   background: 'blue'
+    // })
+    // 
+    // ctrlTimeline.addTween(keyframeExit, Tween.to($el, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
+    // ctrlTimeline.addTween(keyframeExit, Tween.to($content, 0.25, {css: { autoAlpha: 0 }}), keyframeExit.height())
   }
   
   
@@ -802,8 +783,6 @@
     setupTunnelScene()
     setupCatWalking()
     setupAliceWalking1()
-
-    setupCatTranstion()    
   }            
   
   $(setup)

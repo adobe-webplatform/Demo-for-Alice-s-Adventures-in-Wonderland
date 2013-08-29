@@ -366,7 +366,7 @@ Wrapping all content to prevent horizontal scrolling.
     #scene3_2 .act2 .content-wrapper {
       width: 100%;
       height: 100%;
-      -webkit-shape-inside: polygon(nonzero, 113px 59px, 297px 161px, 368px 236px, 481px 261px, 479px 606px, 256px 541px, 113px 528px, 89px 414px); }
+      -webkit-shape-inside: polygon(nonzero, 113px 59px, 297px 161px, 368px 236px, 481px 261px, 317px 464px, 256px 541px, 113px 528px, 89px 414px); }
     #scene3_2 .act2 .cat-shape {
       position: absolute;
       bottom: 0;
