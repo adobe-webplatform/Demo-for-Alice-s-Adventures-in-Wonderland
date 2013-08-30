@@ -1,3 +1,10 @@
+@-webkit-keyframes title-in{
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0em);
+  }
+}
+
 @-webkit-keyframes fade-out{
   to {
     opacity: 0;
