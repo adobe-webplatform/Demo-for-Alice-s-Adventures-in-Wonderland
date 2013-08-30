@@ -1,4 +1,4 @@
-@import 'lib/normalize/normalize.css';
+@import '../third-party/normalize/normalize.css';
 @import '_animations';
 
 @mixin cat-shape($imagePath, $shape){

@@ -1,4 +1,4 @@
-@import url(lib/normalize/normalize.css);
+@import url(../third-party/normalize/normalize.css);
 @-webkit-keyframes fade-out {
   to {
     opacity: 0; } }
