@@ -9,8 +9,7 @@ Demo
 Requirements:
 
 - Use [Google Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html)
-- Navigate to `chrome://flags` and enable _[Experimental WebKit features](chrome://flags/#enable-experimental-webkit-features)_
-
+- Enable the flags to support CSS Shapes and CSS Regions. [Learn how](http://html.adobe.com/webplatform/enable/).
 
 
 Development
