@@ -1,7 +1,7 @@
 Alice in Wonderland
 ====
 
-CSS Shapes and Exclusion demo using the Alice in Wonderland story.
+CSS Shapes demo using the Alice in Wonderland story.
 
 Demo
 ---
