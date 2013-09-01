@@ -99,7 +99,7 @@ Wrapping all content to prevent horizontal scrolling.
   position: absolute;
   top: 0;
   z-index: 2;
-  width: 0;
+  width: 15px;
   height: 1000px;
   background: yellow; }
   #timeline div {
@@ -245,7 +245,7 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
       #scene2 .content .act2 .shadow4 {
         -webkit-transition-duration: 1.8s;
-        -webkit-transition-delay: 0.2s; }
+        -webkit-transition-delay: 0.4s; }
       #scene2 .content .act2 .shadow5 {
         -webkit-transition-duration: 1.8s; }
       #scene2 .content .act2.day .caterpillar-shape.light {
