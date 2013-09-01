@@ -424,6 +424,7 @@
     
     var $el = $scene2.find('.act2')
     var $deco = $scene2.find('.decoration')
+    var viewportRest = window.innerHeight - $el.height() 
     
     // amount by which to offset the scene horizontally to have the caterpillar act in the viewport
     var hOffset = Math.max(
@@ -433,7 +434,7 @@
     
     var keyframe = {
       className: 'key-dialogue',
-      top: $el.offset().top,
+      top: $el.offset().top - viewportRest,
       height: $el.height() + hOffset + window.innerHeight, // extent
       background: 'rgba(0,150,0,0.6)',
     }
@@ -455,7 +456,7 @@
           $scene2
             .pin()
             .css({
-              top: -1 * $deco.height() + "px",
+              top: -1 * $deco.height() + viewportRest + "px",
               left: $scene2.css('left')
             })
         },
@@ -496,7 +497,7 @@
       $scene2.pin()
         .css({
           left: -1 * hOffset + 'px',   
-          top: -1 * $deco.height() + "px"     
+          top: -1 * $deco.height() + viewportRest + "px"     
         })
     }      
     
@@ -506,7 +507,7 @@
       to: $scene3_1,
       keyframe: {
         // queue the crossfade keyframe after the dialogue keyframe above
-        top: $el.offset().top + keyframe.height,
+        top: keyframe.top + keyframe.height,
         height: window.innerHeight,
         background: 'rgba(150,0,0,0.5)',
       },
