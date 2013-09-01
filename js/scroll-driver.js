@@ -441,7 +441,7 @@
     var dialogueKeyframe = {
       background: 'rgba(0,150,150,1)',
       top: keyframe.top + keyframe.height,
-      height: 2000  // arbitrary duration of dialogue animation
+      height: window.innerHeight * 5 * 2  // run dialogue over 5 viewport height sizes, x2 for longer animations
     }
     
     
@@ -534,6 +534,7 @@
   }
   
   function getDialogueAnimation(){
+    
     // master timeline
     var anim = new TimelineLite()
     
@@ -546,8 +547,57 @@
     d1anim.add(Tween.to($d1Caterpillar, 5, {className: "+=visible"}))
     d1anim.add(Tween.to($d1Alice, 2, {className: "+=visible"}))
     d1anim.add(Tween.to($d1Caterpillar, 5, {delay: -1, bezier:[{left:-50, top:-100}, {left:30, top:-150}, {left:-150, top:-300}], ease:Power1.easeInOut}))
-    d1anim.add(Tween.to($d1Alice, 2, {delay: -1, className: "+=hidden"}))
+    d1anim.add(Tween.to($d1Alice, 2, {className: "+=hidden"}))
     anim.add(d1anim)
+
+    // dialogue 2
+    var $d2 = $('#scene2 .dialogue2')
+    var $d2Caterpillar = $d2.find('.caterpillar p')
+    var $d2Alice = $d2.find('.alice')
+    var d2anim = new TimelineLite()
+    
+    d2anim.add(Tween.to($d2Caterpillar, 5, {className: "+=visible"}))
+    d2anim.add(Tween.to($d2Alice, 2, {className: "+=visible"}))
+    d2anim.add(Tween.to($d2Caterpillar, 5, {delay: -1, bezier:[{left:-50, top:-100}, {left:50, top:-150}, {left:220, top:-250}], ease:Power1.easeInOut}))
+    d2anim.add(Tween.to($d2Alice, 2, {delay: -1, className: "+=hidden"}))
+    anim.add(d2anim)
+    
+    
+    // dialogue 3
+    var $d3 = $('#scene2 .dialogue3')
+    var $d3Caterpillar = $d3.find('.caterpillar p')
+    var $d3Alice = $d3.find('.alice')
+    var d3anim = new TimelineLite()
+
+    d3anim.add(Tween.to($d3Caterpillar, 5, {className: "+=visible"}))
+    d3anim.add(Tween.to($d3Alice, 2, {className: "+=visible"}))
+    d3anim.add(Tween.to($d3Caterpillar, 5, {delay: -1, bezier:[{left:50, top:-70}, {left:-20, top:-130}, {left:-70, top:-150}, {left:0, top:-230}], ease:Power1.easeInOut}))
+    d3anim.add(Tween.to($d3Alice, 2, {delay: -1, className: "+=hidden"}))
+    anim.add(d3anim)
+    
+    // dialogue 4
+    var $d4 = $('#scene2 .dialogue4')
+    var $d4Caterpillar = $d4.find('.caterpillar p')
+    var $d4Alice = $d4.find('.alice')
+    var d4anim = new TimelineLite()
+
+    d4anim.add(Tween.to($d4Caterpillar, 5, {className: "+=visible"}))
+    d4anim.add(Tween.to($d4Alice, 2, {className: "+=visible"}))
+    d4anim.add(Tween.to($d4Caterpillar, 5, {delay: -1, bezier:[{left:-50, top:-70}, {left:30, top:-120}, {left:150, top:-150}], ease:Power1.easeInOut}))
+    d4anim.add(Tween.to($d4Alice, 2, {delay: -1, className: "+=hidden"}))
+    anim.add(d4anim)
+    
+    // dialogue 5
+    var $d5 = $('#scene2 .dialogue5')
+    var $d5Caterpillar = $d5.find('.caterpillar p')
+    var $d5Alice = $d5.find('.alice')
+    var d5anim = new TimelineLite()
+
+    d5anim.add(Tween.to($d5Caterpillar, 5, {className: "+=visible"}))
+    d5anim.add(Tween.to($d5Alice, 2, {className: "+=visible"}))
+    d5anim.add(Tween.to($d5Caterpillar, 5, {delay: -1, bezier:[{left:50, top:-30}, {left:-50, top:-70}, {left:-200, top:-160}], ease:Power1.easeInOut}))
+    // d5anim.add(Tween.to($d5Alice, 2, {delay: 1, className: "+=hidden"}))
+    anim.add(d5anim)
     
     return anim
   }
