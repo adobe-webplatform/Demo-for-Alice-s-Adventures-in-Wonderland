@@ -433,19 +433,25 @@
     )
     
     var keyframe = {
-      className: 'key-dialogue',
       top: $el.offset().top - viewportRest,
       height: $el.height() + hOffset + window.innerHeight, // extent
       background: 'rgba(0,150,0,0.6)',
     }
     
+    var dialogueKeyframe = {
+      background: 'rgba(0,150,150,1)',
+      top: keyframe.top + keyframe.height,
+      height: 2000  // arbitrary duration of dialogue animation
+    }
+    
+    
     var $spacer = $('<div>')
       .attr('class', 'pin-spacer')
       .css({
-        height: keyframe.height
+        height: keyframe.height + dialogueKeyframe.height
       })
       .insertAfter($scene2)
-    
+   
     // pin scene2 while dialogue animation is playing
     var pin = Tween.to($scene2, 0.2, 
       { 
@@ -489,9 +495,13 @@
     // reveal caterpillar 
     animation.add(Tween.to( $el, 1, {className:"+=day"}))  
     
+    var dialogueAnimation = getDialogueAnimation()
+    
     // pin and animation added separately because we want them to run at the same time
     Timeline.add(keyframe, pin)
     Timeline.add(keyframe, animation)
+    Timeline.add(dialogueKeyframe, dialogueAnimation)
+    
 
     var pinToEnd = function (){
       $scene2.pin()
@@ -507,7 +517,7 @@
       to: $scene3_1,
       keyframe: {
         // queue the crossfade keyframe after the dialogue keyframe above
-        top: keyframe.top + keyframe.height,
+        top: dialogueKeyframe.top + dialogueKeyframe.height + window.innerHeight - viewportRest,
         height: window.innerHeight,
         background: 'rgba(150,0,0,0.5)',
       },
@@ -521,6 +531,25 @@
           })
       }
     })
+  }
+  
+  function getDialogueAnimation(){
+    // master timeline
+    var anim = new TimelineLite()
+    
+    // dialogue 1
+    var $d1 = $('#scene2 .dialogue1')
+    var $d1Caterpillar = $d1.find('.caterpillar p')
+    var $d1Alice = $d1.find('.alice')
+    var d1anim = new TimelineLite()
+    
+    d1anim.add(Tween.to($d1Caterpillar, 5, {className: "+=visible"}))
+    d1anim.add(Tween.to($d1Alice, 2, {className: "+=visible"}))
+    d1anim.add(Tween.to($d1Caterpillar, 5, {delay: -1, bezier:[{left:-50, top:-100}, {left:30, top:-150}, {left:-150, top:-300}], ease:Power1.easeInOut}))
+    d1anim.add(Tween.to($d1Alice, 2, {delay: -1, className: "+=hidden"}))
+    anim.add(d1anim)
+    
+    return anim
   }
   
   function setupCatFallingScene(){

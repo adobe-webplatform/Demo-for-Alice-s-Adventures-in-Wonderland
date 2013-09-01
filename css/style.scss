@@ -215,7 +215,7 @@ Wrapping all content to prevent horizontal scrolling.
          -webkit-transform-origin: left top;
          top: 0;       
          -webkit-transform: translateZ(0);
-         -webkit-filter: blur(6px)
+/*         -webkit-filter: blur(6px)*/
       }
       
       .shadow1{
@@ -334,6 +334,7 @@ Wrapping all content to prevent horizontal scrolling.
       .alice,
       .caterpillar{
         position: absolute;
+        outline: 1px solid lime;
       }
       
       .alice{
@@ -341,12 +342,13 @@ Wrapping all content to prevent horizontal scrolling.
       }
       
       .caterpillar p{
+        position: absolute;
         text-align: right;
         bottom: 0;
-        right: 0; 
-        width: 100%;
-        height: 100%;
-        outline: 1px solid lime;
+        right: 0;
+        width: 0;
+        height: 0;
+        
         overflow: hidden; 
 /*        -webkit-transform: translateZ(0); */
         color: rgba(255,255,255,0.9);
@@ -365,23 +367,38 @@ Wrapping all content to prevent horizontal scrolling.
       
       .alice{
         top: 8em;
-        left: 8em;
+        left: 4em;
         width: 18em;
+        opacity: 0;
+        
+        &.visible{
+          left: 8em;
+          opacity: 1;
+        }
+        
+        &.hidden{
+          left: 10em;
+          opacity: 0;
+        }
       }
       
       .caterpillar{
         top: 6em;
         left: 24em;
         
-        width: 12em;
-        height: 6em;
+        $w: 12em;
+        $h: 6em;
         
-        p{
-/*          width: 0;*/
-/*          height: 0;*/
+        width: $w;
+        height: $h;
+        
+        p{ 
+          &.visible{
+            width: $w;
+            height: $h;
+          }
+          
           -webkit-shape-outside: ellipse(50%,50%,50%,50%);
-          -webkit-animation: speech 2s infinite ease-out;
-          -webkit-animation-fill-mode: forwards;
         }
       }
     }
@@ -389,18 +406,6 @@ Wrapping all content to prevent horizontal scrolling.
   }/* end .content */
     
 }
-
-/*@-webkit-keyframes speech{
-  from{
-    width: 0;
-    height: 0;
-  }
-  to{
-    width: 100%;
-    height: 100%;
-  }
-}
-*/
 
 #scene3_1{
   background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
