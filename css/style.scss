@@ -80,9 +80,7 @@ Wrapping all content to prevent horizontal scrolling.
   position: absolute;
   top: 0;
   z-index: 2;
-  width: 15px;
-  height: 1000px;
-  background:yellow;
+  width: 0;
   
   div{
     position: absolute;
