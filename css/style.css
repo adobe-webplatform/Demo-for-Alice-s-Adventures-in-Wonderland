@@ -529,16 +529,15 @@ Wrapping all content to prevent horizontal scrolling.
     width: 40em;
     left: 200em; }
     #scene3_2 .act5 .alice-shape {
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
       bottom: 0;
       left: 4em;
       height: 26.35em;
       width: 11.9em;
       background: url(../images/alice_walking_2.png) left top no-repeat;
-      background-size: contain;
-      opacity: 0;
-      -webkit-animation: alice-act-in 0.5s 1 ease-in-out;
-      -webkit-animation-fill-mode: forwards; }
+      background-size: contain; }
   #scene3_2 .act6 {
     height: 40em;
     width: 45em;

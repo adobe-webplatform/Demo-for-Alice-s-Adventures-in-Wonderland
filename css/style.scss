@@ -697,6 +697,8 @@ Wrapping all content to prevent horizontal scrolling.
     left: 200em;
     
     .alice-shape{
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
       bottom: 0;
       left: 4em; 
@@ -704,9 +706,6 @@ Wrapping all content to prevent horizontal scrolling.
       width: 11.9em;
       background: url(../images/alice_walking_2.png) left top no-repeat;
       background-size: contain; 
-      opacity: 0;
-      -webkit-animation: alice-act-in 0.5s 1 ease-in-out;
-      -webkit-animation-fill-mode: forwards;
     }
   }
   

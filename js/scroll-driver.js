@@ -403,8 +403,7 @@
     var animationAct3 = Tween.from($act3, 0.25, {css: { autoAlpha: 0 }})
     var keyframeAct3 = {
       top: $act3.offset().top - window.innerHeight / 2,
-      height: $act3.height() * 1.5,
-      background: 'red'
+      height: $act3.height() * 1.5
     }
 
     Timeline.add(keyframeAct3, animationAct3)
@@ -439,12 +438,10 @@
     
     var keyframe = {
       top: $el.offset().top - viewportRest,
-      height: $el.height() + hOffset + window.innerHeight, // extent
-      background: 'rgba(0,150,0,0.6)',
+      height: $el.height() + hOffset + window.innerHeight // extent
     }
     
     var dialogueKeyframe = {
-      background: 'rgba(0,150,150,1)',
       top: keyframe.top + keyframe.height,
       height: window.innerHeight * 5 * 2  // run dialogue over 5 viewport height sizes, x2 for longer animations
     }
@@ -523,8 +520,7 @@
       keyframe: {
         // queue the crossfade keyframe after the dialogue keyframe above
         top: dialogueKeyframe.top + dialogueKeyframe.height + window.innerHeight - viewportRest,
-        height: window.innerHeight,
-        background: 'rgba(150,0,0,0.5)',
+        height: window.innerHeight
       },
       onStart: pinToEnd,
       onReverseComplete: pinToEnd,
@@ -714,8 +710,7 @@
     
     var keyframe = {
       top: $el.offset().top,
-      height: window.innerHeight + $el.width() - window.innerWidth + extent,
-      background: 'papaya',
+      height: window.innerHeight + $el.width() - window.innerWidth + extent
     }
     
     // placeholder element to give height and maintain scroll while scene pinned
@@ -792,7 +787,6 @@
     
     // queue a keyframe after the parent scene's keyframe.
     Timeline.add({
-      background: 'pink',
       top: keyframe.height + keyframe.top,
       height: durations.catHead,
     }, animation)  
@@ -804,12 +798,10 @@
     var $content = $('#scene3_2 .act2 .content-wrapper p')
     var keyframes = {
       enter: {
-        background: 'red',
         top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2,
         height: $el.height()
       },     
       exit: {
-        background: 'pink',
         top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2 + window.innerHeight,
         height: $el.height() / 2
       }
@@ -831,6 +823,9 @@
     var $act4Alice = $act4.find('.alice-shape')
     var $act4Content = $act4.find('.content-wrapper')
     
+    var $act5 = $('#scene3_2 .act5')
+    var $act5Alice = $act5.find('.alice-shape')
+    
     // master timeline
     var animation = new TimelineLite()
     
@@ -841,12 +836,13 @@
     animation.add(Tween.to($act4Alice, 1, { delay: -0.5, css: { autoAlpha: 1 }}))
     animation.add(Tween.to($act4Content, 1, { delay: -0.75, css: { autoAlpha: 1 }}))
     animation.add(Tween.to($act4Alice, 1, { delay: 0, css: { autoAlpha: 0 }}))
-    animation.add(Tween.to($act4Content, 1, { delay: -1, css: { autoAlpha: 0 }}))
+    // animation.add(Tween.to($act4Content, 1, { delay: -1, css: { autoAlpha: 0 }}))
+    animation.add(Tween.to($act5Alice, 1, { delay: 0, css: { autoAlpha: 1 }}))
     
     var keyframe = { 
       background: 'blue',
       top: $scene3_2.offset().top + $act3.offset().left - window.innerHeight / 3,
-      height: $('#scene3_2 .act5').offset().left - $act3.offset().left
+      height: $act5.offset().left - $act3.offset().left
     }
     
     Timeline.add(keyframe, animation)
