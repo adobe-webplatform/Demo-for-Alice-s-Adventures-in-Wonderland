@@ -97,8 +97,6 @@ Wrapping all content to prevent horizontal scrolling.
   position: absolute;
   top: 0; 
   z-index: 5;
-  width: 15px;
-  height: 1000px;
   
   div{
     position: absolute;
@@ -381,11 +379,10 @@ Wrapping all content to prevent horizontal scrolling.
         width: 0;
         height: 0;
         
-        -webkit-shape-outside: ellipse(50%,50%,50%,50%);
+        -webkit-shape-inside: ellipse(50%,50%,50%,50%);
         overflow: hidden; 
         color: rgba(255,255,255,0.9);
         text-shadow: 2px 0 4px rgba(0,0,0,0.8);
-/*        -webkit-filter: drop-shadow(1px 0 2px rgba(0,0,0,0.7))*/
       }
     } 
     
