@@ -203,6 +203,9 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-transform-origin: left top;
         top: 0;
         -webkit-transform: translateZ(0);
+        -webkit-transition: all;
+        -webkit-transition-duration: 1.8s;
+        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08);
         /*         -webkit-filter: blur(6px)*/ }
       #scene2 .content .act2 .shadow1 {
         width: 10em;
@@ -239,15 +242,10 @@ Wrapping all content to prevent horizontal scrolling.
         top: -2em;
         -webkit-transform: rotate(-7deg);
         background: -webkit-linear-gradient(65deg, rgba(0, 0, 0, 0.9) 50%, transparent 85%); }
-      #scene2 .content .act2 .shadow4,
-      #scene2 .content .act2 .shadow5 {
-        -webkit-transition: all;
-        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
+      #scene2 .content .act2 .shadow2,
       #scene2 .content .act2 .shadow4 {
         -webkit-transition-duration: 1.8s;
         -webkit-transition-delay: 0.4s; }
-      #scene2 .content .act2 .shadow5 {
-        -webkit-transition-duration: 1.8s; }
       #scene2 .content .act2.day .caterpillar-shape.light {
         opacity: 1; }
       #scene2 .content .act2.day .caterpillar-shape.dark {
@@ -277,8 +275,7 @@ Wrapping all content to prevent horizontal scrolling.
       height: 100%;
       position: absolute;
       top: 0;
-      right: 0;
-      outline: 1px solid red; }
+      right: 0; }
       #scene2 .content .dialogue .alice,
       #scene2 .content .dialogue .caterpillar {
         position: absolute; }
@@ -287,7 +284,8 @@ Wrapping all content to prevent horizontal scrolling.
         top: 8em;
         left: 4em;
         width: 18em;
-        opacity: 0; }
+        opacity: 0;
+        text-shadow: 2px 0 2px rgba(255, 255, 255, 0.5); }
         #scene2 .content .dialogue .alice.visible {
           left: 8em;
           opacity: 1; }
@@ -304,6 +302,7 @@ Wrapping all content to prevent horizontal scrolling.
         -webkit-shape-outside: ellipse(50%, 50%, 50%, 50%);
         overflow: hidden;
         color: rgba(255, 255, 255, 0.9);
+        text-shadow: 2px 0 4px rgba(0, 0, 0, 0.8);
         /*        -webkit-filter: drop-shadow(1px 0 2px rgba(0,0,0,0.7))*/ }
     #scene2 .content .dialogue1 .caterpillar {
       top: 6em;
