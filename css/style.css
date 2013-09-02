@@ -132,8 +132,9 @@ Wrapping all content to prevent horizontal scrolling.
 #timeline {
   position: absolute;
   top: 0;
-  z-index: 2;
-  width: 0; }
+  z-index: 5;
+  width: 15px;
+  height: 1000px; }
   #timeline div {
     position: absolute;
     width: 100%; }
@@ -236,7 +237,7 @@ Wrapping all content to prevent horizontal scrolling.
         left: 0;
         width: 100%;
         height: 100%;
-        -webkit-filter: blur(6px); }
+        /*         -webkit-filter: blur(6px)*/ }
       #scene2 .content .act2 .shadow {
         position: absolute;
         -webkit-transform-origin: left top;
@@ -486,6 +487,8 @@ Wrapping all content to prevent horizontal scrolling.
       position: absolute;
       top: 0; }
     #scene3_2 .act3 .content-wrapper {
+      opacity: 0;
+      visibility: hidden;
       position: relative;
       margin-top: 18em;
       margin-left: 14em;
@@ -493,6 +496,8 @@ Wrapping all content to prevent horizontal scrolling.
       height: 20em;
       -webkit-shape-inside: polygon(nonzero, 178px 246px, 270px 147px, 569px 147px, 573px 307px, 305px 414px, 254px 363px, 168px 317px, 0px 320px); }
     #scene3_2 .act3 .alice-shape {
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
       bottom: 0;
       height: 26.35em;
@@ -500,22 +505,21 @@ Wrapping all content to prevent horizontal scrolling.
       background: url(../images/alice_walking_3.png) left top no-repeat;
       background-size: contain; }
   #scene3_2 .act4 {
-    display: none;
     width: 50em;
     height: 53em;
     -webkit-perspective: 900px;
     left: 124em; }
     #scene3_2 .act4 .alice-shape {
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
       bottom: 0;
       height: 26.35em;
       width: 11.9em;
       background: url(../images/alice_walking_4.png) left top no-repeat;
-      background-size: contain;
-      opacity: 0;
-      -webkit-animation: alice-act-in 0.5s 1 ease-in-out;
-      -webkit-animation-fill-mode: forwards; }
+      background-size: contain; }
     #scene3_2 .act4 .content-wrapper {
+      opacity: 0;
       width: 30em;
       height: 18em;
       margin: 25em 0 0 15em;

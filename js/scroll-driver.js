@@ -208,17 +208,6 @@
   var $scene2 = $('#scene2')
   var $scene3_1 = $('#scene3_1')
   var $scene3_2 = $('#scene3_2')
-  
-  // controller timeline element driven animations
-  // when top-left corner of the keyframe element reaches top-left corner of viewport
-  var ctrlTimeline = new $.superscrollorama({
-    triggerAtCenter: false,
-    playoutAnimations: false
-  });
-
-	function addKeyframe(options){
-	  return Timeline.temporaryKeyframe(options)
-	}
 	
 	/*
 	  Cross-fade between two scenes while scrolling:
@@ -822,7 +811,7 @@
       exit: {
         background: 'pink',
         top: $scene3_2.offset().top + $el.offset().left - window.innerWidth / 2 + window.innerHeight,
-        height: $el.height()
+        height: $el.height() / 2
       }
     }
     
@@ -833,36 +822,35 @@
     Timeline.add(keyframes.exit, Tween.to($content, 1, {css: { autoAlpha: 0, marginLeft: 100 }}))
   }
   
-  function setupAliceWalking1(){
-    var $el = $('#scene3_2 .act3 .alice-shape')
-    var $content = $('#scene3_2 .act3 .content-wrapper')
-    var $p = $('#scene3_2 .act3 .content-wrapper p')
+  function setupAliceWalking(){
+    var $act3 = $('#scene3_2 .act3')
+    var $act3Alice = $act3.find('.alice-shape')
+    var $act3Content = $act3.find('.content-wrapper')
+
+    var $act4 = $('#scene3_2 .act4')
+    var $act4Alice = $act4.find('.alice-shape')
+    var $act4Content = $act4.find('.content-wrapper')
     
-    var keyframes = {
-      enter: {
-        background: 'blue',
-        top: $scene3_2.offset().top + $el.offset().left,
-        height: $el.height()
-      },     
-      exit: {
-        background: 'aliceblue',
-        top: $scene3_2.offset().top + $el.offset().left + window.innerHeight /2,
-        height: $el.height()
-      }
+    // master timeline
+    var animation = new TimelineLite()
+    
+    animation.add(Tween.to($act3Alice, 1, {css: { autoAlpha: 1 }}))
+    animation.add(Tween.to($act3Content, 1, { delay: -0.75, css: { autoAlpha: 1 }, transform:"translateX(50px)"}))
+    animation.add(Tween.to($act3Alice, 1, {css: { autoAlpha: 0 }}))
+    animation.add(Tween.to($act3Content, 1, { delay: -0.5, css: { autoAlpha: 0 }}))
+    animation.add(Tween.to($act4Alice, 1, { delay: -0.5, css: { autoAlpha: 1 }}))
+    animation.add(Tween.to($act4Content, 1, { delay: -0.75, css: { autoAlpha: 1 }}))
+    animation.add(Tween.to($act4Alice, 1, { delay: 0, css: { autoAlpha: 0 }}))
+    animation.add(Tween.to($act4Content, 1, { delay: -1, css: { autoAlpha: 0 }}))
+    
+    var keyframe = { 
+      background: 'blue',
+      top: $scene3_2.offset().top + $act3.offset().left - window.innerHeight / 3,
+      height: $('#scene3_2 .act5').offset().left - $act3.offset().left
     }
     
-    var animation = new TimelineLite()
-    animation.add(Tween.from($el, 1, {css: { autoAlpha: 0 }}))
-    animation.add(Tween.from($content, 1, {css: { autoAlpha: 0 }, transform:"translateX(50px)"}))
-    
-    var animationExit = new TimelineLite()
-    animationExit.add(Tween.to($el, 1, {css: { autoAlpha: 0 }}))
-    animationExit.add(Tween.to($content, 1, {css: { autoAlpha: 0 }}))
-    
-    Timeline.add(keyframes.enter, animation )
-    Timeline.add(keyframes.exit, animationExit )
+    Timeline.add(keyframe, animation)
   }
-  
   
   function setup(){
     // scene 1
@@ -878,7 +866,7 @@
     // scene 3_2       
     setupTunnelScene()
     setupCatWalking()
-    setupAliceWalking1()
+    setupAliceWalking()
   }            
   
   $(setup)
