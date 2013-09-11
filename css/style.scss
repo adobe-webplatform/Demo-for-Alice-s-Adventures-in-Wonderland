@@ -325,13 +325,13 @@ Wrapping all content to prevent horizontal scrolling.
         &.light{  
           -webkit-transition: all 1s 0.2s ease-in;
           opacity: 0;
-          background: url(../images/caterpillar-day.png) top left no-repeat;
+          background: url(../images/caterpillar-day.png) top left / contain;
         }
 
         &.dark{ 
           -webkit-transition: all 2s ease-out;
           opacity: 1;
-          background: url(../images/caterpillar-night.png) top left no-repeat;
+          background: url(../images/caterpillar-night.png) top left / contain;
         }
         
       }/* end .caterpillar-shape */
