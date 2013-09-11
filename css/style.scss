@@ -62,8 +62,7 @@ p + p{
 
 .content-wrapper p,
 .content p{
-  /* Keeps font-size consistent with root. */
-  font-size: 1rem;
+  font-size: 1em;
   font-family: Georgia,serif;
 }
 
@@ -511,47 +510,47 @@ Wrapping all content to prevent horizontal scrolling.
     /* cat falling 1 */
    .cat-shape1{
      float: left;
-     -webkit-shape-margin: 1rem;
-     font-size: 8px;
-     margin-left: 28rem;
+     -webkit-shape-margin: 2em;
+     font-size: 0.5em;
+     margin-left: 54em;
      visibility: visible;
      
      & + p{
        padding-top: 2em;
        clear: right;
        display: block;
-       margin-bottom: 10rem;
+       margin-bottom: 10em;
      }
    }
    
    .cat-shape2{
      float: right; 
-     font-size: 7px;
-     -webkit-shape-margin: 1rem;
+     font-size: 0.45em;
+     -webkit-shape-margin: 2em;
      
      & + p{
        display: block;
        clear: left;
-       margin-bottom: 7rem;
+       margin-bottom: 7em;
      }
    }
 
    .cat-shape3{
      float: left;
-     margin-left: 10rem;
-     -webkit-shape-margin: 1rem;
-     font-size: 7px;
+     margin-left: 20em;
+     -webkit-shape-margin: 2em;
+     font-size: 0.45em;
      
      & + p{
-       margin-bottom: 4rem;
+       margin-bottom: 4em;
      }
    }
       
    .cat-shape4{
      float: right;
-     -webkit-shape-margin: 1rem;
-     font-size: 7px;
-     margin-right: 20rem;
+     -webkit-shape-margin: 2em;
+     font-size: 0.45em;
+     margin-right: 40em;
    }
 }
 
@@ -559,7 +558,7 @@ Wrapping all content to prevent horizontal scrolling.
 .cat-shape-walking{
   float: left;
   -webkit-shape-margin: 1em;
-  font-size: 6px;
+  font-size: 0.36em;
   
   & + p{
     margin-bottom: 3em;
@@ -573,8 +572,6 @@ Wrapping all content to prevent horizontal scrolling.
   background-size: 100%;
   width: 278.75em;
   height: 91.25em;
-  left: -2500px;
-  top: -300px;
   
   $act-height: 80em;
   .content{
@@ -596,9 +593,9 @@ Wrapping all content to prevent horizontal scrolling.
     
     .cat-shape5{
       float: right;
-      margin-top: 13rem;
-      -webkit-shape-margin: 1rem;
-      font-size: 5px;
+      margin-top: 33em;
+      -webkit-shape-margin: 2em;
+      font-size: 0.38em;
       & + p{
         margin-bottom: 3em;
       }
@@ -614,7 +611,7 @@ Wrapping all content to prevent horizontal scrolling.
     .content-wrapper{
       width: 100%;
       height: 100%;
-      -webkit-shape-inside: polygon(nonzero, 113px 59px, 297px 161px, 368px 236px, 481px 261px, 317px 464px, 256px 541px, 113px 528px, 89px 414px);
+      -webkit-shape-inside: polygon(nonzero, 113px 59px, 297px 161px, 368px 236px, 481px 261px, 317px 464px, 256px 541px, 113px 528px, -166px 307px);
     }
     
     .cat-shape{
@@ -657,15 +654,13 @@ Wrapping all content to prevent horizontal scrolling.
       bottom: 0; 
       height: 26.35em;
       width: 11.9em;
-      background: url(../images/alice_walking_3.png) left top no-repeat;
-      background-size: contain;
+      background: url(../images/alice_walking_3.png) left top / contain;
     }
   }
   
   .act4{
     width: 50em;
     height: 53em;
-    -webkit-perspective: 900px;
     left: 124em;
     
     .alice-shape{
@@ -715,9 +710,9 @@ Wrapping all content to prevent horizontal scrolling.
     .cat-head{
       width: 20.75em;
       height: 20.75em;
-      font-size: 80%;
+      font-size: 0.8em;
       position: absolute;
-      left: 12rem;
+      left: 15em;
       z-index: 5;
       
       // subtle float animation
@@ -763,7 +758,7 @@ Wrapping all content to prevent horizontal scrolling.
     }
     #region2{
       float: left;
-      margin-left: 1.5rem;
+      margin-left: 1.5em;
       width: 23em;
       margin-top: 10%;
       height: 50%;
