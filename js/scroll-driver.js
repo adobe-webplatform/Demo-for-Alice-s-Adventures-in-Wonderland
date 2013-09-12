@@ -419,7 +419,7 @@
       height: $act4.height()
     }
     
-    Timeline.add(keyframeAct4, animationAct4)
+    // Timeline.add(keyframeAct4, animationAct4)
   }
   
   
