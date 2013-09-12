@@ -138,6 +138,14 @@
     // keyframe index, auto-increment
     var _index = 0
     
+    var _emWasDone = false 
+    
+    // scroll controller
+    var _controller = new $.superscrollorama({
+      triggerAtCenter: false,
+      playoutAnimations: false
+    })
+    
     /*
   	  Add a keyframe element to the timeline. It will be used as an element proxy for the scroll driver to trigger animations. 
 
@@ -166,11 +174,6 @@
   	    .appendTo(_$timelineEl)
     }
     
-    var _controller = new $.superscrollorama({
-      triggerAtCenter: false,
-      playoutAnimations: false
-    })
-    
     return {
       /*
         Add a keyframe element and run an animation over the scroll distance equal to the keyframe's height.
@@ -198,9 +201,37 @@
         return key
       },
       
-      temporaryKeyframe: function(options){
-        return _addKeyframe(options)
+      /*
+        retro-transform all keyframe and spacer elements to 'em' units.
+        TODO: use 'em' units when generating the elements
+      */
+      emAllTheThings: function(){
+        // make sure we don't em-ize the em units.
+        if (_emWasDone){
+          return
+        }
+        
+        var _fontSize = parseInt(window.getComputedStyle(document.body)['font-size'], 10)  
+        
+        _$timelineEl.find('div').each(function(){
+          var $key = $(this)
+          $key.css({
+            top: parseInt($key.css('top'), 10) / _fontSize + 'em',
+            height: parseInt($key.css('height'), 10) / _fontSize + 'em'
+          })
+        })
+        
+        $('.pin-spacer').each(function(){
+          $spacer = $(this)
+          $spacer.css({
+            height: parseInt($spacer.css('height'), 10) / _fontSize + 'em'
+          })
+        })
+        
+        _controller.triggerCheckAnim(true)
+        _emWasDone = true
       }
+      
     }
   })()
   
@@ -863,7 +894,8 @@
     setupTunnelScene()
     setupCatWalking()
     setupAliceWalking()
-  }            
+  }
   
   $(setup)
 })()
+
