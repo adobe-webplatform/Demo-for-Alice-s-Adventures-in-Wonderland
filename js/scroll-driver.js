@@ -205,7 +205,7 @@
         retro-transform all keyframe and spacer elements to 'em' units.
         TODO: use 'em' units when generating the elements
       */
-      emAllTheThings: function(){
+      emALLTheThings: function(){
         // make sure we don't em-ize the em units.
         if (_emWasDone){
           return
@@ -894,8 +894,10 @@
     setupTunnelScene()
     setupCatWalking()
     setupAliceWalking()
+    
+    // 'Luke, use the hammer'
+    Timeline.emALLTheThings()
   }
   
   $(setup)
 })()
-
