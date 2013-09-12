@@ -145,7 +145,6 @@ Wrapping all content to prevent horizontal scrolling.
   */
   height: 75em;
   width: 118.75em;
-  overflow: hidden;
   position: relative; }
   #scene1 h1 {
     font-size: 1em;
