@@ -159,6 +159,9 @@ Wrapping all content to prevent horizontal scrolling.
     -webkit-animation-fill-mode: forwards; }
     #scene1 h1 span {
       margin-left: -100%; }
+  @media all and (max-width: 1280px) {
+    #scene1 {
+      margin-left: -18em; } }
   #scene1 .content {
     position: relative;
     width: 33em;
