@@ -1,7 +1,7 @@
-Alice in Wonderland
+Demo for Alice's Adventures in Wonderland, by Lewis Carroll
 ====
 
-CSS Shapes demo using the Alice in Wonderland story.
+Using CSS Shapes to enhance visual storytelling.
 
 Demo
 ---
