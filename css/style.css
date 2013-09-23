@@ -110,7 +110,6 @@ Wrapping all content to prevent horizontal scrolling.
 */
 .wrapper {
   overflow-x: hidden;
-  /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
   background: black;
   position: relative; }
@@ -133,6 +132,39 @@ Wrapping all content to prevent horizontal scrolling.
   #timeline div {
     position: absolute;
     width: 100%; }
+
+nav {
+  position: fixed;
+  right: 1rem;
+  z-index: 6;
+  outline: 1px solid red;
+  width: 2rem;
+  height: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  -moz-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+  nav a {
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(252, 252, 252, 0.5);
+    text-indent: 0.5rem;
+    overflow: hidden; }
+    nav a:hover {
+      background: rgba(252, 252, 252, 0.3); }
+    nav a.active {
+      background: rgba(252, 252, 252, 0.5); }
 
 #scene1 {
   background: url(../images/bg_scn1.jpg) left top;

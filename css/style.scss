@@ -69,8 +69,6 @@ Wrapping all content to prevent horizontal scrolling.
 */
 .wrapper{
   overflow-x: hidden;
-  
-  /* Use font-size to scale the scenes. They are in ems */
   font-size: 100%;
   background: black;
   position: relative;
@@ -97,6 +95,54 @@ Wrapping all content to prevent horizontal scrolling.
   div{
     position: absolute;
     width: 100%;
+  }
+}
+
+nav{
+  position: fixed;
+  right: 1rem;
+  z-index: 6;
+  outline: 1px solid red;
+  width: 2rem;
+  height: 100%;
+  
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+
+  -webkit-flex-flow: column nowrap;
+  -moz-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+
+  a{
+    $diameter: 0.5rem;
+    box-sizing: border-box;
+    margin-bottom: $diameter;
+
+    width: $diameter;
+    height: $diameter;
+    border-radius: $diameter;
+    border: 1px solid rgba(252, 252, 252, 0.5);
+    
+    &:hover{
+      background: rgba(252, 252, 252, 0.3);
+    }
+    
+    &.active{
+      background: rgba(252, 252, 252, 0.5);
+    }
+    
+    // hide text content just outside the visible part
+    text-indent: $diameter;
+    overflow: hidden;
   }
 }
 

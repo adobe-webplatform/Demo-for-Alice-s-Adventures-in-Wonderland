@@ -162,7 +162,7 @@
   	  @return {Object} jQuery object reference to keyframe element.
   	*/
     var _addKeyframe = function(options){
-      var className = 'key' + (++_index)
+      var id = 'key' + (++_index)
       var _defaults = {
             top: 0,
             height: '20px'
@@ -170,7 +170,7 @@
 
   	  return $('<div>')
   	    .css($.extend({}, _defaults, options))
-  	    .attr('class', className) 
+  	    .attr('id', id) 
   	    .appendTo(_$timelineEl)
     }
     
@@ -230,6 +230,10 @@
         
         _controller.triggerCheckAnim(true)
         _emWasDone = true
+      },
+      
+      getKeyframes: function(){
+        return _$timelineEl.find('div')
       }
       
     }
@@ -879,6 +883,34 @@
     Timeline.add(keyframe, animation)
   }
   
+  function nav(){
+    var $navEl = $('nav')
+    var frag = document.createDocumentFragment()
+    var keys = Timeline.getKeyframes()
+    
+    // TODO set scroll time on keyframe
+    var scrollTime = 3
+    
+    $navEl.delegate('a', 'click', function(e){
+      e.preventDefault()    
+      
+      var $key = $($(e.target).attr('href'))
+      var maxY = $key.offset().top + $key.height()
+      
+      TweenMax.to(window, 2, {scrollTo:{y : maxY}, ease:Power2.easeOut});
+     
+    })
+    
+    $.each(keys, function(index, key){ 
+      frag.appendChild(
+        $('<a>').attr({
+          href: '#' + key.id
+        })[0])
+    })
+    
+    $navEl.append(frag)
+  }
+  
   function setup(){
     // scene 1
     setupScene1()
@@ -897,6 +929,10 @@
     
     // 'Luke, use the hammer'
     Timeline.emALLTheThings()
+    
+    
+    // generate navigation
+    nav()
   }
   
   $(setup)
