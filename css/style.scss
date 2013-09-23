@@ -54,16 +54,13 @@ body{
 
 p{
   margin:0;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: Georgia,serif;
 }
 
 p + p{
   margin-top: 1.6em;
-}
-
-.content-wrapper p,
-.content p{
-  font-size: 1em;
-  font-family: Georgia,serif;
 }
 
 /* 

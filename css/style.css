@@ -96,15 +96,13 @@ body {
   padding: 0; }
 
 p {
-  margin: 0; }
+  margin: 0;
+  font-size: 1.2em;
+  line-height: 1.5;
+  font-family: Georgia,serif; }
 
 p + p {
   margin-top: 1.6em; }
-
-.content-wrapper p,
-.content p {
-  font-size: 1em;
-  font-family: Georgia,serif; }
 
 /* 
 Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.

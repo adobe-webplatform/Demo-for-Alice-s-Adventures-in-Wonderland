@@ -32,10 +32,6 @@
             close by her.
             <br /><br />In another moment down went Alice after it, never once considering how
             in the world she was to get out again.
-            <br /><br />The rabbit-hole went straight on like a tunnel for some way, and then
-            dipped suddenly down, so suddenly that Alice had not a moment to think
-            about stopping herself before she found herself falling down a very deep
-            well.
           </p>
       </div>
     </div><!-- end #scene1 -->
@@ -275,11 +271,21 @@
 	<script src="js/scroll-driver.js"></script>
 	<script>
   	(function(){
+
+      // typekit asyc loading
+      var config = {
+        kitId: 'fwk6qwz',
+        scriptTimeout: 1500
+      };
+      var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/(\s|^)wf-loading(\s|$)/g," ");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script"),d=false;tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(d||a&&a!="complete"&&a!="loaded")return;d=true;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+  	  
+  	  // force scroll to top on reload
   	  window.setTimeout(function(){
     	  window.scrollTo(0,0)
-  	  }, 150)
+  	  }, 150)           
+  	  
   	})()
-	</script>
-  
+	</script> 
+	
 </body>
 </html>
