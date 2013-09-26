@@ -170,7 +170,10 @@
 
   	  return $('<div>')
   	    .css($.extend({}, _defaults, options))
-  	    .attr('id', id) 
+  	    .attr('id', id)
+  	    .attr('class', function(){
+  	      return options.navigable ? 'navigable': null
+  	    }) 
   	    .appendTo(_$timelineEl)
     }
     
@@ -382,6 +385,7 @@
     
     // keyframe element CSS properties
     var keyframe = {
+      navigable: true,
       top: $el.offset().top / 4,
       height: $scene1.height() - window.innerHeight - $el.offset().top / 4
     }
@@ -408,6 +412,7 @@
     var $act1 = $('#scene2 .falling1')
     var animationAct1 = new TimelineLite()
     var keyframeAct1 = {
+      navigable: true,
       // intentionally begin the animation before the parent scene is unpinned
       top: $act1.offset().top - window.innerHeight / 4,
       height: $act1.height()
@@ -437,6 +442,7 @@
     var $act3 = $('#scene2 .act1 .alice-shape')
     var animationAct3 = Tween.from($act3, 0.25, {css: { autoAlpha: 0 }})
     var keyframeAct3 = {
+      navigable: true,
       top: $act3.offset().top - window.innerHeight / 2,
       height: $act3.height() * 1.5
     }
@@ -886,10 +892,9 @@
   function nav(){
     var $navEl = $('nav')
     var frag = document.createDocumentFragment()
-    var keys = Timeline.getKeyframes()
-    
-    // TODO set scroll time on keyframe
-    var scrollTime = 3
+
+    // get only keyframes that make sense for navigation; ignore helpers
+    var keys = Timeline.getKeyframes().filter('.navigable')
     
     $navEl.delegate('a', 'click', function(e){
       e.preventDefault()    
@@ -897,10 +902,13 @@
       var $key = $($(e.target).attr('href'))
       var maxY = $key.offset().top + $key.height()
       
-      TweenMax.to(window, 2, {scrollTo:{y : maxY}, ease:Power2.easeOut});
-     
+      // duration as fn of keyframe height, longer keyframes playout slower 
+      var duration = $key.height() / 100
+      
+      TweenMax.to(window, duration, {scrollTo:{y : maxY}, ease:Power2.easeOut});
     })
     
+    // TODO: add a start keyframe in Timeline to be able to go back to top
     $.each(keys, function(index, key){ 
       frag.appendChild(
         $('<a>').attr({
