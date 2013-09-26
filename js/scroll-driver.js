@@ -399,7 +399,10 @@
     crossfade({
       from: $scene1,
       to: $scene2,
-      duration: window.innerHeight
+      duration: window.innerHeight,
+      keyframe: {
+        navigable: true
+      }
     })
     
   }
@@ -419,7 +422,7 @@
     }
     
     animationAct1.add(Tween.from($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(-70px) rotate(-45deg) scale(0.85)" }}))
-    animationAct1.add(Tween.to($act1, 0.25, {css: { autoAlpha: 0, transform:"translateY(70px) rotate(-45deg) scale(0.85)" }}))
+    animationAct1.add(Tween.to($act1, 0.75, {css: { autoAlpha: 1, transform:"translateY(70px) rotate(-45deg) scale(0.85)" }}))
     animationAct1.defaultEasing = Linear.easeNone
     
     Timeline.add(keyframeAct1, animationAct1)  
@@ -428,6 +431,7 @@
     var $act2 = $('#scene2 .falling2')
     var animationAct2 = new TimelineLite()
     var keyframeAct2 = {
+      navigable: true,
       top: $act2.offset().top - window.innerHeight / 2,
       height: $act2.height(),
     }
@@ -448,22 +452,7 @@
     }
 
     Timeline.add(keyframeAct3, animationAct3)
-    
-    // content between mushrooms
-    var $act4 = $('#scene2 .decoration .content-wrapper')
-    var $content = $act4.find('p')
-    var maxMargin = $act4.height() - $content.height() - 50
-    var animationAct4 = Tween.to($content, 1, {css: { marginTop: maxMargin }})
-
-    var keyframeAct4 = {
-      top: $act4.offset().top - window.innerHeight / 2,
-      height: $act4.height()
-    }
-    
-    // Timeline.add(keyframeAct4, animationAct4)
   }
-  
-  
 
   function setupDialogueScene(){
     
@@ -483,6 +472,7 @@
     }
     
     var dialogueKeyframe = {
+      navigable: true,
       top: keyframe.top + keyframe.height,
       height: window.innerHeight * 5 * 2  // run dialogue over 5 viewport height sizes, x2 for longer animations
     }
@@ -660,7 +650,7 @@
       }
     }
     
-    Timeline.add(keyframes.enter, Tween.from($act2, 1, {css: { autoAlpha: 0, transform:"translateY(-40px)" }})) 
+    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($act2, 1, {css: { autoAlpha: 0, transform:"translateY(-40px)" }})) 
     Timeline.add(keyframes.enter, Tween.from($act2.next('p'), 1, {css: { autoAlpha: 0 }})) 
 
     Timeline.add(keyframes.exit, Tween.to($act2, 0.25, {css: { autoAlpha: 0 }})) 
@@ -681,7 +671,7 @@
       }
     }
     
-    Timeline.add(keyframes.enter, Tween.from($act3, 1, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}))
+    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($act3, 1, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}))
     Timeline.add(keyframes.enter, Tween.from($act3.next('p'), 1, {css: { autoAlpha: 0 }}))
     
     Timeline.add(keyframes.exit, Tween.to($act3, 1, {css: { autoAlpha: 0 }}))
@@ -702,7 +692,7 @@
       }
     }
 
-    Timeline.add(keyframes.enter, Tween.from($act4, 1, {css: { autoAlpha: 0, transform:"translateY(-45px)" }}))
+    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($act4, 1, {css: { autoAlpha: 0, transform:"translateY(-45px)" }}))
     Timeline.add(keyframes.enter, Tween.from($act4.next('p'), 1, {css: { autoAlpha: 0 }}))
 
     Timeline.add(keyframes.exit, Tween.to($act4, 1, {css: { autoAlpha: 0 }}))
@@ -722,7 +712,7 @@
       }
     }
 
-    Timeline.add(keyframes.enter, Tween.from($act5, 1, {css: { autoAlpha: 0, transform:"translateY(-35px)" }}))
+    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($act5, 1, {css: { autoAlpha: 0, transform:"translateY(-35px)" }}))
     Timeline.add(keyframes.enter, Tween.from($act5.next('p'), 1, {css: { autoAlpha: 0 }}))
 
     Timeline.add(keyframes.exit, Tween.to($act5, 1, {css: { autoAlpha: 0 }}))
@@ -814,6 +804,9 @@
     Timeline.add(keyframe, scenePin)
     Timeline.add(keyframe, sceneAnimation)
     
+    setupCatWalking()
+    setupAliceWalking()
+    
     // cat reveal transition
     var $cat = $('#scene3_2 .act6 .cat-head')
     var $states = $cat.find('.state')
@@ -828,11 +821,12 @@
     
     // queue a keyframe after the parent scene's keyframe.
     Timeline.add({
+      navigable: true,
       top: keyframe.height + keyframe.top,
       height: durations.catHead,
     }, animation)  
   }
-
+  
   function setupCatWalking(){
     
     var $el = $('#scene3_2 .act2 .cat-shape-walking')
@@ -848,7 +842,7 @@
       }
     }
     
-    Timeline.add(keyframes.enter, Tween.from($el, 1, {css: { autoAlpha: 0, transform:"translateX(-20px) rotate(7deg)" }}))
+    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($el, 1, {css: { autoAlpha: 0, transform:"translateX(-20px) rotate(7deg)" }}))
     Timeline.add(keyframes.enter, Tween.from($content, 1, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}))
 
     Timeline.add(keyframes.exit, Tween.to($el, 1, {css: { autoAlpha: 0, transform:"translateX(20px) rotate(7deg)" }}))
@@ -881,6 +875,7 @@
     animation.add(Tween.to($act5Alice, 1, { delay: 0, css: { autoAlpha: 1 }}))
     
     var keyframe = { 
+      navigable: true,
       background: 'blue',
       top: $scene3_2.offset().top + $act3.offset().left - window.innerHeight / 3,
       height: $act5.offset().left - $act3.offset().left
@@ -903,8 +898,12 @@
       var maxY = $key.offset().top + $key.height()
       
       // duration as fn of keyframe height, longer keyframes playout slower 
-      var duration = $key.height() / 100
+      // TODO: clamp duration for very long scenes
+      // TODO: duration as delta between current position and upcoming position
+      var duration = Math.max($key.height() / 100, 30)
       
+      // TODO: use another easing
+      // TODO: do not share same scroll duration if delta(target Y - current Y) > current height.
       TweenMax.to(window, duration, {scrollTo:{y : maxY}, ease:Power2.easeOut});
     })
     
@@ -932,8 +931,6 @@
 
     // scene 3_2       
     setupTunnelScene()
-    setupCatWalking()
-    setupAliceWalking()
     
     // 'Luke, use the hammer'
     Timeline.emALLTheThings()
