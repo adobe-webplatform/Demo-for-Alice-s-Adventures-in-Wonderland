@@ -137,7 +137,6 @@ nav {
   position: fixed;
   right: 1rem;
   z-index: 6;
-  outline: 1px solid red;
   width: 2rem;
   height: 100%;
   display: -webkit-flex;
@@ -159,6 +158,7 @@ nav {
     height: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid rgba(252, 252, 252, 0.5);
+    box-shadow: 0 0 1px 1px red;
     text-indent: 0.5rem;
     overflow: hidden; }
     nav a:hover {

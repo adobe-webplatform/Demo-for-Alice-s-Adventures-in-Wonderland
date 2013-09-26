@@ -102,7 +102,6 @@ nav{
   position: fixed;
   right: 1rem;
   z-index: 6;
-  outline: 1px solid red;
   width: 2rem;
   height: 100%;
   
@@ -131,6 +130,7 @@ nav{
     height: $diameter;
     border-radius: $diameter;
     border: 1px solid rgba(252, 252, 252, 0.5);
+    box-shadow: 0 0 1px 1px red;
     
     &:hover{
       background: rgba(252, 252, 252, 0.3);
