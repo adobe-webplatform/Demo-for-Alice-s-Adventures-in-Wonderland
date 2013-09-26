@@ -895,12 +895,19 @@
       e.preventDefault()    
       
       var $key = $($(e.target).attr('href'))
-      var maxY = $key.offset().top + $key.height()
+      var height = $key.height()
+      var maxY = $key.offset().top + height
+      
       
       // duration as fn of keyframe height, longer keyframes playout slower 
       // TODO: clamp duration for very long scenes
-      // TODO: duration as delta between current position and upcoming position
-      var duration = Math.max($key.height() / 100, 30)
+      /*
+        if (targetY - currentY) < Height, use delta as time because we're somewhere within the target keyframe
+      */
+      var speed = 150 // px/second
+      var delta = maxY - window.scrollY
+      var duration = height /  speed 
+      // var duration = (delta < height) ? delta / speed : height / speed
       
       // TODO: use another easing
       // TODO: do not share same scroll duration if delta(target Y - current Y) > current height.
