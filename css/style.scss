@@ -17,6 +17,7 @@
  */
 @import '../third-party/normalize/normalize.css';
 @import '_animations';
+@import '_intro';
 
 @mixin cat-shape($imagePath, $shape){
   -webkit-shape-outside: $shape;

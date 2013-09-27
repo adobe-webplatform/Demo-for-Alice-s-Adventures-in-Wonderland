@@ -1,0 +1,161 @@
+/**
+ *
+ * Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+.no-shape-inside #intro .warning{
+  display: block;
+}
+
+.no-shape-inside #intro .direction{
+  display: none;
+}
+
+.no-shape-inside nav,
+.no-shape-inside .wrapper{
+  display: none;
+} 
+
+ 
+#intro{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  
+  -webkit-transition: opacity 0.5s ease-in;
+  
+  &.hidden{
+    display: none;
+  }
+  
+  &.hide{
+    opacity: 0;
+  }
+  
+  z-index: 7;
+  box-sizing: border-box;
+  width: 40rem;
+  min-height: 7rem;
+  max-height: 50%;
+  background: rgba(252,252,252,1);
+  outline: 99em solid rgba(0,0,0,0.7);
+  
+  a{
+    white-space: nowrap;
+  }
+  
+  p{
+    padding: 1rem 3rem;
+    color: #333;
+  }
+  
+  .warning{
+    display: none;
+    background: #ffc;
+    padding: 1rem 0;
+  }
+  
+  .direction{
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    padding: 2rem 3rem 0;
+    
+    .illustration{
+      float: left;
+      width: 2rem;
+      margin-right: 1rem;
+    }
+    
+    span{
+      width: 100%;
+      height: 1rem;
+      background: lime;
+      display: block;
+      opacity: 1;
+      
+      &+span{
+        margin-top: 1rem;
+      }
+      
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-iteration-count: infinite;
+      
+      &:nth-child(2){
+        -webkit-animation-delay: 1s;
+      }
+      &:nth-child(3){
+        -webkit-animation-delay: 1.5s;
+      }
+    }
+    
+  }
+  
+  header{
+    padding: 3rem 3rem 0;
+    font-size: 2em;
+    font-weight: bolder;
+    letter-spacing: -0.02em;
+    font-family: Helvetica, Arial, sans-serif;   
+  }
+  
+  footer{
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    padding: 0 2rem;
+    width: 100%;
+    
+    a{
+      float: right;
+      text-indent: -99em;
+      overflow: hidden;
+      &+a{
+        margin-right: 1.5rem;
+      }
+    }
+    
+    .ultranoir-logo{
+      width: 3.8rem;
+      height: 4.5rem;
+      background: url(../images/logo-ultranoir.svg) center top / contain;
+      background-repeat: no-repeat;
+    }
+    
+    .adobe-logo{ 
+      width: 2.7rem;
+      height: 4.5rem;
+      background: url(../images/logo-adobe-bottom.svg) center bottom / contain;
+    }
+  }
+}
+
+@-webkit-keyframes fade{
+  0%{
+    opacity: 1;
+  }
+  
+  70%{
+    opacity: 0.2;
+  }
+  
+  100%{
+    opacity: 1;
+  }
+}
