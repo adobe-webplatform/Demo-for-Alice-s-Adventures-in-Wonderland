@@ -537,12 +537,13 @@
     
 
     var pinToEnd = function (){
+      
       $scene2.pin()
         .css({
-          left: -1 * hOffset + 'px',   
-          top: -1 * $deco.height() + viewportRest + "px"     
+          left: -1 * hOffset + 'px',
+          top: -1 * $deco.height() + viewportRest + "px"
         })
-    }      
+    }
     
     // cross-fade between caterpillar scene and cat falling scene
     crossfade({
@@ -554,7 +555,27 @@
         height: window.innerHeight
       },
       onStart: pinToEnd,
-      onReverseComplete: pinToEnd,
+      onReverseComplete: function(){
+        /*
+          When scrolling back up, at the end of the cross-fade the 'fixed' positioned 
+          #scene2 is offset and frozen.
+
+          I order to clear the composite layer cache (? - vague asumption), I'm swapping the 
+          positioning of the scene between frames. I have no explanation why 
+          this works, but it solves the freezing issue.
+
+          There is a quick flash when doing this. I have no other solution at the moment.
+          If you do, mail me at rcaliman at adobe.com
+        */
+        window.requestAnimationFrame(function(){
+          $scene2.css('position','relative')
+
+          window.requestAnimationFrame(function(){
+            pinToEnd()
+          })
+
+        })
+      },
       onComplete: function(){
         $scene2
           .unpin()
