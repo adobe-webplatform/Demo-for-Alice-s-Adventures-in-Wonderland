@@ -213,9 +213,12 @@ body {
 
 p {
   margin: 0;
-  font-size: 1.2em;
+  font-size: 1.1em;
   line-height: 1.5;
   font-family: Georgia,serif; }
+
+.wf-active p {
+  font-size: 1.2em; }
 
 p + p {
   margin-top: 1.6em; }
