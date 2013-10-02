@@ -965,7 +965,7 @@
     
     
     // generate navigation
-    nav()
+    // nav()
   }
   
   $(setup)
