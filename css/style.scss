@@ -726,11 +726,11 @@ nav{
     }
     
     .content-wrapper{
-      opacity: 0;
-      width: 30em;
-      height: 18em;
-      margin: 25em 0 0 15em;
-      -webkit-shape-inside: polygon(nonzero, 141px -1px, 394px 26px, 481px 157px, 247px 185px, 52px 279px, 23px 217px, 3px 112px, 46px 44px);
+      visibility: hidden; 
+      width: 36rem; 
+      height: 28rem; 
+      margin: 18rem 0px 0px 9rem; 
+      -webkit-shape-inside: polygon(nonzero, 141px 69px, 401px 69px, 577px 154px, 488px 271px, 321px 309px, 131px 388px, 129px 446px, 65px 447px, 50px 418px, 6px 407px, 38px 344px, 9px 291px, 35px 240px, 13px 153px);    
     }
   }
   
