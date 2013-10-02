@@ -541,21 +541,20 @@ nav {
     width: 62em;
     margin-left: 16em;
     height: 97.5em;
-    -webkit-shape-inside: polygon(nonzero, 363px 0px, 900px 0px, 928px 72px, 910px 159px, 928px 256px, 972px 342px, 943px 379px, 936px 423px, 944px 499px, 994px 518px, 967px 604px, 940px 616px, 923px 656px, 955px 736px, 880px 900px, 731px 951px, 668px 1008px, 619px 1072px, 691px 1119px, 744px 1244px, 706px 1560px, 90px 1565px, 63px 1471px, 118px 1396px, 171px 1348px, 218px 1272px, 250px 1252px, 256px 1212px, 113px 1172px, 79px 1055px, 308px 799px, 427px 791px, 560px 681px, 547px 645px, 446px 598px, 466px 532px, 456px 468px, 426px 452px, 451px 374px, 409px 292px, 412px 250px, 360px 139px, 350px 74px);
-    /* TODO, investigate bug with shape-padding 16px+ / 1em+. Might be self-intersecting paths. */
-    -webkit-shape-padding: 1.5em;
-    padding-top: 2em; }
+    -webkit-shape-inside: polygon(nonzero, 363px 0px, 900px 0px, 928px 72px, 910px 159px, 928px 256px, 972px 342px, 943px 379px, 936px 423px, 944px 499px, 994px 518px, 967px 604px, 940px 616px, 923px 656px, 955px 736px, 880px 900px, 849px 958px, 744px 966px, 693px 1004px, 619px 1072px, 691px 1119px, 744px 1244px, 706px 1560px, 90px 1565px, 63px 1471px, 118px 1396px, 171px 1348px, 218px 1272px, 250px 1252px, 240px 1222px, 113px 1186px, 60px 1057px, 137px 918px, 203px 846px, 308px 799px, 427px 791px, 560px 681px, 547px 645px, 446px 598px, 466px 532px, 456px 468px, 426px 452px, 451px 374px, 409px 292px, 412px 250px, 360px 139px, 350px 74px);
+    -webkit-shape-padding: 1.5em; }
   #scene3_1 .cat-shape1 {
     float: left;
     -webkit-shape-margin: 2em;
     font-size: 0.5em;
     margin-left: 54em;
-    visibility: visible; }
+    visibility: visible;
+    margin-top: 2em; }
     #scene3_1 .cat-shape1 + p {
-      padding-top: 2em;
+      padding-top: 4rem;
+      margin-bottom: 4rem;
       clear: right;
-      display: block;
-      margin-bottom: 10em; }
+      display: block; }
   #scene3_1 .cat-shape2 {
     float: right;
     font-size: 0.45em;
@@ -563,16 +562,17 @@ nav {
     #scene3_1 .cat-shape2 + p {
       display: block;
       clear: left;
-      margin-bottom: 7em; }
+      margin-bottom: 8rem; }
   #scene3_1 .cat-shape3 {
     float: left;
-    margin-left: 20em;
     -webkit-shape-margin: 2em;
     font-size: 0.45em; }
     #scene3_1 .cat-shape3 + p {
-      margin-bottom: 4em; }
+      display: block;
+      clear: right;
+      margin-bottom: 10rem; }
   #scene3_1 .cat-shape4 {
-    float: right;
+    float: left;
     -webkit-shape-margin: 2em;
     font-size: 0.45em;
     margin-right: 40em; }
