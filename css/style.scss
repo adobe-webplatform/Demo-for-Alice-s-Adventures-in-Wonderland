@@ -339,6 +339,13 @@ nav{
         background: -webkit-linear-gradient(65deg, rgba(0,0,0,0.9) 50%, transparent 85%);
       }
       
+      .shadow1,
+      .shadow3,
+      .shadow5{
+        -webkit-transition-duration: 1.2s;
+        -webkit-transition-delay: 0.8s;
+      }                               
+
       .shadow2,
       .shadow4{
         -webkit-transition-duration: 1.8s;
@@ -356,8 +363,7 @@ nav{
           -webkit-filter: blur(7px);
         }
         
-        .shadow4,
-        .shadow5{
+        .shadow{
           opacity: 0;
         }
       }
@@ -407,8 +413,6 @@ nav{
         left: 4em;
         width: 18em;
         opacity: 0;
-        text-shadow: 1px 1px 1px rgba(255,255,255,0.4);
-        
 
         &.visible{
           left: 8em;
@@ -432,7 +436,7 @@ nav{
         -webkit-shape-inside: ellipse(50%,50%,50%,50%);
         overflow: hidden; 
         color: rgba(255,255,255,0.9);
-        text-shadow: 2px 0 4px rgba(0,0,0,0.8);
+        text-shadow: 2px 0 2px rgba(0,0,0,0.8);
       }
     } 
     
@@ -662,7 +666,7 @@ nav{
     .content-wrapper{
       width: 100%;
       height: 100%;
-      -webkit-shape-inside: polygon(nonzero, 113px 59px, 297px 161px, 368px 236px, 481px 261px, 317px 464px, 256px 541px, 113px 528px, -166px 307px);
+      -webkit-shape-inside: polygon(nonzero, 127px 12px, 389px 230px, 481px 261px, 489px 330px, 438px 358px, 366px 368px, 343px 427px, 369px 459px, 352px 532px, 260px 530px, 223px 544px, 196px 564px, 190px 578px, 86px 576px, 103px 510px, -26px 418px, -26px 183px);
     }
     
     .cat-shape{

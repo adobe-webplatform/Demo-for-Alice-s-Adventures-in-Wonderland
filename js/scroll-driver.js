@@ -846,7 +846,7 @@
     Timeline.add(keyframes.enter, Tween.from($content, 1, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}))
 
     Timeline.add(keyframes.exit, Tween.to($el, 1, {css: { autoAlpha: 0, transform:"translateX(20px) rotate(7deg)" }}))
-    Timeline.add(keyframes.exit, Tween.to($content, 1, {css: { autoAlpha: 0, marginLeft: 100 }}))
+    Timeline.add(keyframes.exit, Tween.to($content, 1, {css: { autoAlpha: 0 }}))
   }
   
   function setupAliceWalking(){
