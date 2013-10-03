@@ -220,9 +220,11 @@
       */
       add: function(keyframeCSS, animation){
         var key = _addKeyframe(keyframeCSS)
-                
-        _controller.addTween(key, animation, key.height())
-
+        
+        if (animation){
+          _controller.addTween(key, animation, key.height())
+        }
+        
         return key
       },
       
@@ -396,8 +398,20 @@
 	
 	
   // --------------------- SCENE 1 
-
+  
+  // Add a keyframe for the navigation to latch onto and drive to the start
+  function setupStart(){
+    var keyframe = {
+      navigable: true,
+      top: 0,
+      height: 0
+    }
+    
+    Timeline.add(keyframe)
+  }
+  
   function setupScene1(){ 
+    
     
     // target element
     var $el = $('#scene1 p')
@@ -407,13 +421,16 @@
     
     // keyframe element CSS properties
     var keyframe = {
-      navigable: true,
       top: $el.offset().top / 4,
       height: $scene1.height() - window.innerHeight - $el.offset().top / 4
     }
     
     // animation description 
     var animation = Tween.to($el, 1, {css: { marginTop: maxMargin }}) 
+    
+    
+    // add an empty keyframe for the start of the demo
+    setupStart()
     
     Timeline.add(keyframe, animation)  
     
@@ -437,7 +454,6 @@
     var $act1 = $('#scene2 .falling1')
     var animationAct1 = new TimelineLite()
     var keyframeAct1 = {
-      navigable: true,
       // intentionally begin the animation before the parent scene is unpinned
       top: $act1.offset().top - window.innerHeight / 4,
       height: $act1.height()
@@ -453,7 +469,6 @@
     var $act2 = $('#scene2 .falling2')
     var animationAct2 = new TimelineLite()
     var keyframeAct2 = {
-      navigable: true,
       top: $act2.offset().top - window.innerHeight / 2,
       height: $act2.height(),
     }
@@ -468,7 +483,6 @@
     var $act3 = $('#scene2 .act1 .alice-shape')
     var animationAct3 = Tween.from($act3, 0.25, {css: { autoAlpha: 0 }})
     var keyframeAct3 = {
-      navigable: true,
       top: $act3.offset().top - window.innerHeight / 2,
       height: $act3.height() * 1.5
     }
@@ -489,12 +503,12 @@
     )
     
     var keyframe = {
+      navigable: true,
       top: $el.offset().top - viewportRest,
       height: $el.height() + hOffset + window.innerHeight // extent
     }
     
     var dialogueKeyframe = {
-      navigable: true,
       top: keyframe.top + keyframe.height,
       height: window.innerHeight * 5 * 2  // run dialogue over 5 viewport height sizes, x2 for longer animations
     }
@@ -572,6 +586,7 @@
       from: $scene2,
       to: $scene3_1,
       keyframe: {
+        navigable: true,
         // queue the crossfade keyframe after the dialogue keyframe above
         top: dialogueKeyframe.top + dialogueKeyframe.height + window.innerHeight - viewportRest,
         height: window.innerHeight
@@ -693,7 +708,7 @@
       }
     }
     
-    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($act2, 1, {css: { autoAlpha: 0, transform:"translateY(-40px)" }})) 
+    Timeline.add(keyframes.enter, Tween.from($act2, 1, {css: { autoAlpha: 0, transform:"translateY(-40px)" }})) 
     Timeline.add(keyframes.enter, Tween.from($act2.next('p'), 1, {css: { autoAlpha: 0 }})) 
 
     Timeline.add(keyframes.exit, Tween.to($act2, 0.25, {css: { autoAlpha: 0 }})) 
@@ -714,7 +729,7 @@
       }
     }
     
-    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($act3, 1, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}))
+    Timeline.add(keyframes.enter, Tween.from($act3, 1, {css: { autoAlpha: 0, transform:"translateY(-25px)" }}))
     Timeline.add(keyframes.enter, Tween.from($act3.next('p'), 1, {css: { autoAlpha: 0 }}))
     
     Timeline.add(keyframes.exit, Tween.to($act3, 1, {css: { autoAlpha: 0 }}))
@@ -735,7 +750,7 @@
       }
     }
 
-    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($act4, 1, {css: { autoAlpha: 0, transform:"translateY(-45px)" }}))
+    Timeline.add(keyframes.enter, Tween.from($act4, 1, {css: { autoAlpha: 0, transform:"translateY(-45px)" }}))
     Timeline.add(keyframes.enter, Tween.from($act4.next('p'), 1, {css: { autoAlpha: 0 }}))
 
     Timeline.add(keyframes.exit, Tween.to($act4, 1, {css: { autoAlpha: 0 }}))
@@ -885,7 +900,7 @@
       }
     }
     
-    Timeline.add($.extend({}, keyframes.enter, {navigable: true}), Tween.from($el, 1, {css: { autoAlpha: 0, transform:"translateX(-20px) rotate(7deg)" }}))
+    Timeline.add(keyframes.enter, Tween.from($el, 1, {css: { autoAlpha: 0, transform:"translateX(-20px) rotate(7deg)" }}))
     Timeline.add(keyframes.enter, Tween.from($content, 1, {css: { autoAlpha: 0 }, transform:"translateX(-100px)"}))
 
     Timeline.add(keyframes.exit, Tween.to($el, 1, {css: { autoAlpha: 0, transform:"translateX(20px) rotate(7deg)" }}))
@@ -918,7 +933,6 @@
     animation.add(Tween.to($act5Alice, 1, { delay: 0, css: { autoAlpha: 1 }}))
     
     var keyframe = { 
-      navigable: true,
       background: 'blue',
       top: $scene3_2.offset().top + $act3.offset().left - window.innerHeight / 3,
       height: $act5.offset().left - $act3.offset().left
@@ -949,7 +963,7 @@
       */
       var speed = 150 // px/second
       var delta = maxY - window.scrollY
-      var duration = height /  speed 
+      var duration = 2 
       // var duration = (delta < height) ? delta / speed : height / speed
       
       // TODO: use another easing
@@ -985,10 +999,6 @@
     // 'Luke, use the hammer'
     Timeline.emALLTheThings()
     
-    
-    // generate navigation
-    // nav()
-    
     if (document.documentElement.classList.contains('shape-inside')){
       var delta = 0;
       var maxDelta = 30;
@@ -1008,6 +1018,8 @@
       // remove intro after a short scroll
       window.addEventListener('wheel', listener)
     }
+
+    nav()
   }
   
   // run setup on DOM ready
