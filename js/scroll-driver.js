@@ -503,7 +503,6 @@
     )
     
     var keyframe = {
-      navigable: true,
       top: $el.offset().top - viewportRest,
       height: $el.height() + hOffset + window.innerHeight // extent
     }
@@ -568,7 +567,7 @@
     
     // pin and animation added separately because we want them to run at the same time
     Timeline.add(keyframe, pin)
-    Timeline.add(keyframe, animation)
+    Timeline.add($.extend({}, keyframe, {navigable: true}), animation)
     Timeline.add(dialogueKeyframe, dialogueAnimation)
     
 
@@ -941,7 +940,43 @@
     Timeline.add(keyframe, animation)
   }
   
+  function trans(options){
+	  var $overlay = $('#overlay')
+	  var noop = function(){}
+	  var defaults = {
+	    duration: 2, // seconds
+	    onStart: noop,
+	    onHalfway: noop,
+	    onComplete: noop
+	  }
+	  var config = $.extend({}, defaults, options)
+    var animation = new TimelineLite()
+    // animation.defaultEasing = Power4.easeOut
+    
+    // fade-in
+    animation.add(Tween.to($overlay, config.duration / 2, 
+      { 
+        ease: Linear.easeIn,
+        css: { autoAlpha: 1 },
+        onStart: config.onStart
+      }
+    ))
+      
+    // fade-out
+    animation.add(Tween.to($overlay, config.duration / 2, 
+      { 
+        ease: Cubic.easeOut,
+        css: { autoAlpha: 0 },
+        onStart: config.onHalfway,
+        onComplete: config.onComplete
+      }
+    ))
+    
+    animation.play()
+	}
+  
   function nav(){
+    
     var $navEl = $('nav')
     var frag = document.createDocumentFragment()
 
@@ -952,23 +987,24 @@
       e.preventDefault()    
       
       var $key = $($(e.target).attr('href'))
-      var height = $key.height()
-      var maxY = $key.offset().top + height
-      
-      
-      // duration as fn of keyframe height, longer keyframes playout slower 
-      // TODO: clamp duration for very long scenes
-      /*
-        if (targetY - currentY) < Height, use delta as time because we're somewhere within the target keyframe
-      */
-      var speed = 150 // px/second
+      var maxY = $key.offset().top + $key.height()
+      var currY = window.scrollY
+      var speed = 300 // px/second
       var delta = maxY - window.scrollY
-      var duration = 2 
-      // var duration = (delta < height) ? delta / speed : height / speed
+      var distance = Math.abs(maxY - currY)
+      var maxDuration = 3 // seconds
+      var duration = distance / speed
       
-      // TODO: use another easing
-      // TODO: do not share same scroll duration if delta(target Y - current Y) > current height.
-      TweenMax.to(window, duration, {scrollTo:{y : maxY}, ease:Power2.easeOut});
+      // large distance to travel; teleport there
+      if (duration > maxDuration){
+        trans({
+          onHalfway: function(){ window.scrollTo(0, maxY) }
+        })
+      }
+      else{
+        TweenMax.to(window, duration, {scrollTo:{y : maxY}, ease:Power2.easeOut});
+      }
+      
     })
     
     // TODO: add a start keyframe in Timeline to be able to go back to top
