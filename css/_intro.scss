@@ -16,20 +16,29 @@
  *
  */
 
-.no-shape-inside #intro .warning{
-  display: block;
-}
+.no-shape-inside{
 
-.no-shape-inside #intro .direction{
-  display: none;
-}
+  /* hide scenes, hints and navigation */
+  .wrapper div, 
+  #intro .direction, 
+  nav{ 
+    display: none;
+  }
 
-.no-shape-inside nav,
-.no-shape-inside .wrapper{
-  display: none;
+  /* show glimpse of first scene and warning */
+  #scene1,
+  #intro .warning{
+    display: block;
+  }
+
+  /* prevent navigation */
+  body .wrapper{
+    height: 100%;
+    overflow: hidden;
+  }
+
 } 
 
- 
 #intro{
   position: absolute;
   top: 0;
@@ -37,8 +46,32 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  
+  color: #eee;
+  text-align: center;
   -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+  
+  $bg: rgba(66, 66, 66, 0.89);
+  
+  z-index: 7;
+  box-sizing: border-box;
+  width: 40rem;
+  height: 50%;
+/*  background: $bg;*/
+/*  outline: 99em solid $bg;*/
+  
+  &::before{
+    top: 0;
+    right: 0;
+    z-index: -1;
+    position: fixed;
+    background: $bg;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+  }
   
   &.hidden{
     display: none;
@@ -48,33 +81,59 @@
     opacity: 0;
   }
   
-  z-index: 7;
-  box-sizing: border-box;
-  width: 40rem;
-  min-height: 7rem;
-  max-height: 50%;
-  background: rgba(252,252,252,1);
-  outline: 99em solid rgba(0,0,0,0.7);
+  a,
+  .no-break{
+    white-space: nowrap;
+  }
   
   a{
-    white-space: nowrap;
+    color: inherit;
+    
+    &:active{
+      color: #A70203;
+    };                                            
+    &:hover{
+      text-decoration: none;
+    }
   }
   
   p{
     padding: 1rem 3rem;
-    color: #333;
+    font-size: 1.3em;
   }
   
   .warning{
+    text-align: left;
     display: none;
-    background: #ffc;
+    border-radius: 22px;
+    background: #fcffd5 url(../images/warning.png) left center no-repeat;
+    background-size: auto 75%;
+    background-position: -5% 5%;
     padding: 1rem 0;
+    
+    p{
+      color: #333;
+      padding-left: 4.5rem;
+    }
+    
+    a{
+      color: #A70203;
+      
+      &:active{
+        color: black;
+      }
+    }
   }
   
   .direction{
+    width: 10rem;
+    margin: 0 auto;
     display: -webkit-flex;
+    display: flex;
     -webkit-align-items: center;
-    padding: 2rem 3rem 0;
+    align-items: center;
+    padding: 2rem 3rem 0; 
+    font-weight: 100;
     
     .illustration{
       float: left;
@@ -84,54 +143,58 @@
     
     span{
       width: 100%;
-      height: 1rem;
-      background: lime;
+      height: 0.6rem;
+      background: white;
       display: block;
       opacity: 1;
       
-      &+span{
-        margin-top: 1rem;
+      & + span{
+        margin-top: 0.8rem;
       }
       
       -webkit-animation-name: fade;
-      -webkit-animation-duration: 1s;
+      animation-name: fade;
+      -webkit-animation-duration: 1.6s;
+      animation-duration: 1.6s;
       -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
       
       &:nth-child(2){
-        -webkit-animation-delay: 1s;
+        -webkit-animation-delay: 0.8s;
+        animation-delay: 0.8s;
       }
       &:nth-child(3){
-        -webkit-animation-delay: 1.5s;
+        -webkit-animation-delay: 1.4s;
+        animation-delay: 1.4s;
       }
     }
     
   }
   
   header{
-    padding: 3rem 3rem 0;
+    padding: 3rem 3rem 1rem;
     font-size: 2em;
-    font-weight: bolder;
-    letter-spacing: -0.02em;
-    font-family: Helvetica, Arial, sans-serif;   
+    font-weight: 700;
+    font-family: Georgia, serif;
+    
+    .no-break{
+      font-size: 0.6em;
+    }
   }
   
   footer{
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    padding: 0 2rem;
-    width: 100%;
     
-    a{
-      float: right;
+    a{ 
+      bottom: 0;
+      right: 0;
+      position: fixed;
+      z-index: 12;
       text-indent: -99em;
       overflow: hidden;
-      &+a{
-        margin-right: 1.5rem;
-      }
     }
     
     .ultranoir-logo{
+      right: 5rem;
       width: 3.8rem;
       height: 4.5rem;
       background: url(../images/logo-ultranoir.svg) center top / contain;
@@ -139,6 +202,7 @@
     }
     
     .adobe-logo{ 
+      right: 1rem;
       width: 2.7rem;
       height: 4.5rem;
       background: url(../images/logo-adobe-bottom.svg) center bottom / contain;
@@ -147,6 +211,20 @@
 }
 
 @-webkit-keyframes fade{
+  0%{
+    opacity: 1;
+  }
+  
+  70%{
+    opacity: 0.2;
+  }
+  
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes fade{
   0%{
     opacity: 1;
   }

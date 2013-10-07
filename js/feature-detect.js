@@ -19,7 +19,7 @@
   var el = document.querySelector('#intro')                                  
   
   if (skipIntro){
-    el.classList.add('hidden')
+    // el.classList.add('hidden')
   }
 
   if (document.documentElement.classList.contains('shape-inside') && !skipIntro){

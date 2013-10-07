@@ -103,15 +103,20 @@
  * limitations under the License.
  *
  */
-.no-shape-inside #intro .warning {
-  display: block; }
-
-.no-shape-inside #intro .direction {
-  display: none; }
-
-.no-shape-inside nav,
-.no-shape-inside .wrapper {
-  display: none; }
+.no-shape-inside {
+  /* hide scenes, hints and navigation */
+  /* show glimpse of first scene and warning */
+  /* prevent navigation */ }
+  .no-shape-inside .wrapper div,
+  .no-shape-inside #intro .direction,
+  .no-shape-inside nav {
+    display: none; }
+  .no-shape-inside #scene1,
+  .no-shape-inside #intro .warning {
+    display: block; }
+  .no-shape-inside body .wrapper {
+    height: 100%;
+    overflow: hidden; }
 
 #intro {
   position: absolute;
@@ -120,79 +125,128 @@
   right: 0;
   bottom: 0;
   margin: auto;
+  color: #eee;
+  text-align: center;
   -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
   z-index: 7;
   box-sizing: border-box;
   width: 40rem;
-  min-height: 7rem;
-  max-height: 50%;
-  background: #fcfcfc;
-  outline: 99em solid rgba(0, 0, 0, 0.7); }
+  height: 50%;
+  /*  background: $bg;*/
+  /*  outline: 99em solid $bg;*/ }
+  #intro::before {
+    top: 0;
+    right: 0;
+    z-index: -1;
+    position: fixed;
+    background: rgba(66, 66, 66, 0.89);
+    content: ' ';
+    width: 100%;
+    height: 100%; }
   #intro.hidden {
     display: none; }
   #intro.hide {
     opacity: 0; }
-  #intro a {
+  #intro a,
+  #intro .no-break {
     white-space: nowrap; }
+  #intro a {
+    color: inherit; }
+    #intro a:active {
+      color: #A70203; }
+    #intro a:hover {
+      text-decoration: none; }
   #intro p {
     padding: 1rem 3rem;
-    color: #333; }
+    font-size: 1.3em; }
   #intro .warning {
+    text-align: left;
     display: none;
-    background: #ffc;
+    border-radius: 22px;
+    background: #fcffd5 url(../images/warning.png) left center no-repeat;
+    background-size: auto 75%;
+    background-position: -5% 5%;
     padding: 1rem 0; }
+    #intro .warning p {
+      color: #333;
+      padding-left: 4.5rem; }
+    #intro .warning a {
+      color: #A70203; }
+      #intro .warning a:active {
+        color: black; }
   #intro .direction {
+    width: 10rem;
+    margin: 0 auto;
     display: -webkit-flex;
+    display: flex;
     -webkit-align-items: center;
-    padding: 2rem 3rem 0; }
+    align-items: center;
+    padding: 2rem 3rem 0;
+    font-weight: 100; }
     #intro .direction .illustration {
       float: left;
       width: 2rem;
       margin-right: 1rem; }
     #intro .direction span {
       width: 100%;
-      height: 1rem;
-      background: lime;
+      height: 0.6rem;
+      background: white;
       display: block;
       opacity: 1;
       -webkit-animation-name: fade;
-      -webkit-animation-duration: 1s;
-      -webkit-animation-iteration-count: infinite; }
+      animation-name: fade;
+      -webkit-animation-duration: 1.6s;
+      animation-duration: 1.6s;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite; }
       #intro .direction span + span {
-        margin-top: 1rem; }
+        margin-top: 0.8rem; }
       #intro .direction span:nth-child(2) {
-        -webkit-animation-delay: 1s; }
+        -webkit-animation-delay: 0.8s;
+        animation-delay: 0.8s; }
       #intro .direction span:nth-child(3) {
-        -webkit-animation-delay: 1.5s; }
+        -webkit-animation-delay: 1.4s;
+        animation-delay: 1.4s; }
   #intro header {
-    padding: 3rem 3rem 0;
+    padding: 3rem 3rem 1rem;
     font-size: 2em;
-    font-weight: bolder;
-    letter-spacing: -0.02em;
-    font-family: Helvetica, Arial, sans-serif; }
-  #intro footer {
-    box-sizing: border-box;
-    position: absolute;
+    font-weight: 700;
+    font-family: Georgia, serif; }
+    #intro header .no-break {
+      font-size: 0.6em; }
+  #intro footer a {
     bottom: 0;
-    padding: 0 2rem;
-    width: 100%; }
-    #intro footer a {
-      float: right;
-      text-indent: -99em;
-      overflow: hidden; }
-      #intro footer a + a {
-        margin-right: 1.5rem; }
-    #intro footer .ultranoir-logo {
-      width: 3.8rem;
-      height: 4.5rem;
-      background: url(../images/logo-ultranoir.svg) center top/contain;
-      background-repeat: no-repeat; }
-    #intro footer .adobe-logo {
-      width: 2.7rem;
-      height: 4.5rem;
-      background: url(../images/logo-adobe-bottom.svg) center bottom/contain; }
+    right: 0;
+    position: fixed;
+    z-index: 12;
+    text-indent: -99em;
+    overflow: hidden; }
+  #intro footer .ultranoir-logo {
+    right: 5rem;
+    width: 3.8rem;
+    height: 4.5rem;
+    background: url(../images/logo-ultranoir.svg) center top/contain;
+    background-repeat: no-repeat; }
+  #intro footer .adobe-logo {
+    right: 1rem;
+    width: 2.7rem;
+    height: 4.5rem;
+    background: url(../images/logo-adobe-bottom.svg) center bottom/contain; }
 
 @-webkit-keyframes fade {
+  0% {
+    opacity: 1; }
+
+  70% {
+    opacity: 0.2; }
+
+  100% {
+    opacity: 1; } }
+
+@keyframes fade {
   0% {
     opacity: 1; }
 
