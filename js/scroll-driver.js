@@ -64,6 +64,28 @@
     })
   }
   
+  /* 
+    jQuery utility wrapper for Array.some(). Polyfill if missing
+  */
+  $.some = function(obj, iterator, context) {
+    var result = false
+    
+    if (obj == null){
+      return result
+    }
+    
+    if (Array.prototype.some && obj.some === Array.prototype.some){
+      return obj.some(iterator, context)
+    } 
+    
+    $.each(obj, function(value, index, list) {
+      if (result || (result = iterator.call(context, value, index, list))) return {};
+    })
+
+    return !!result;
+  };
+  
+  
   /*
     Tween factory with decorated so its members handle the custom 'onReverseStart' event
   */
@@ -966,7 +988,42 @@
     
     // generate navigation
     // nav()
+    
+    if (document.documentElement.classList.contains('shape-inside')){
+      var delta = 0;
+      var maxDelta = 30;
+      var el = document.querySelector('#intro')                                  
+
+      function listener(e){
+        e.preventDefault()
+        delta += Math.abs(e.wheelDelta)
+
+        if(delta > maxDelta){
+          el.classList.add('hide')
+
+          window.removeEventListener('wheel', listener)
+        }
+      }
+
+      // remove intro after a short scroll
+      window.addEventListener('wheel', listener)
+    }
   }
   
+  // run setup on DOM ready
   $(setup)
+  
+  // feather-weight Modernizr-like CSS feature check
+  $.each(['shape-inside','flow-into'], function(index, property){
+        
+    // check if any variant exists, prefixed or not
+    var isCapable = $.some(['-webkit-','-ms-','-moz-',''], function(prefix){
+      return prefix + property in document.body.style 
+    })
+
+    property = isCapable ? property : 'no-' + property;
+    
+    document.documentElement.classList.add(property)
+  })
+
 })()
