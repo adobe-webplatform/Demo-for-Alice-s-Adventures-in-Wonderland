@@ -1038,14 +1038,18 @@
     if (document.documentElement.classList.contains('shape-inside')){
       var delta = 0;
       var maxDelta = 30;
-      var el = document.querySelector('#intro')                                  
+      var $el = $('#intro')                                  
 
       function listener(e){
         e.preventDefault()
         delta += Math.abs(e.wheelDelta)
 
         if(delta > maxDelta){
-          el.classList.add('hide')
+          $el
+            .addClass('hide')
+            .on('transitionEnd webkitTransitionEnd', function(e){
+              $el.remove()
+            })
 
           window.removeEventListener('wheel', listener)
         }
