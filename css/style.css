@@ -755,35 +755,47 @@ nav {
         height: 100%;
         background-position: top left;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
         opacity: 0;
         position: absolute;
         top: 0;
         left: 0; }
-      #scene3_2 .act6 .cat-head .state.state-head-1 {
-        background-image: url(../images/cat_transition/s01.png); }
-      #scene3_2 .act6 .cat-head .state.state-head-2 {
-        background-image: url(../images/cat_transition/s02.png); }
-      #scene3_2 .act6 .cat-head .state.state-head-3 {
-        background-image: url(../images/cat_transition/s03.png); }
-      #scene3_2 .act6 .cat-head .state.state-head-4 {
-        background-image: url(../images/cat_transition/s04.png); }
-      #scene3_2 .act6 .cat-head .state.state-head-5 {
-        background-image: url(../images/cat_transition/s05.png); }
-      #scene3_2 .act6 .cat-head .state.state-head-6 {
-        background-image: url(../images/cat_transition/s06.png); }
-      #scene3_2 .act6 .cat-head .state.state-head-7 {
-        background-image: url(../images/cat_transition/s07.png); }
-      #scene3_2 .act6 .cat-head .state.state-head-8 {
-        background-image: url(../images/cat_transition/s08.png); }
-      #scene3_2 .act6 .cat-head .state.state-smiling-1 {
-        background-image: url(../images/cat_smiling/s01.png); }
-      #scene3_2 .act6 .cat-head .state.state-smiling-2 {
-        background-image: url(../images/cat_smiling/s02.png); }
-      #scene3_2 .act6 .cat-head .state.state-smiling-3 {
-        background-image: url(../images/cat_smiling/s03.png); }
-      #scene3_2 .act6 .cat-head .state.state-smiling-4 {
-        background-image: url(../images/cat_smiling/s04.png); }
+      #scene3_2 .act6 .cat-head .state.state-1 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: 0em 0; }
+      #scene3_2 .act6 .cat-head .state.state-2 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -20.75em 0; }
+      #scene3_2 .act6 .cat-head .state.state-3 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -41.5em 0; }
+      #scene3_2 .act6 .cat-head .state.state-4 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -62.25em 0; }
+      #scene3_2 .act6 .cat-head .state.state-5 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -83em 0; }
+      #scene3_2 .act6 .cat-head .state.state-6 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -103.75em 0; }
+      #scene3_2 .act6 .cat-head .state.state-7 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -124.5em 0; }
+      #scene3_2 .act6 .cat-head .state.state-8 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -145.25em 0; }
+      #scene3_2 .act6 .cat-head .state.state-9 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -166em 0; }
+      #scene3_2 .act6 .cat-head .state.state-10 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -186.75em 0; }
+      #scene3_2 .act6 .cat-head .state.state-11 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -207.5em 0; }
+      #scene3_2 .act6 .cat-head .state.state-12 {
+        background-image: url(../images/sprite-cat-head.png);
+        background-position: -228.25em 0; }
     #scene3_2 .act6 .content-wrapper {
       width: 100%;
       height: 100%;

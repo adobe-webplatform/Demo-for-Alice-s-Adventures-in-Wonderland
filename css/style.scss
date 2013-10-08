@@ -26,18 +26,11 @@
   visibility: hidden;
 }
 
-@mixin generate-cat-head-states(){
-  @for $i from 1 through 8 {
-    .state.state-head-#{$i} {
-      background-image: url(../images/cat_transition/s0#{$i}.png);
-    }
-  }
-}
-
-@mixin generate-cat-smiling-states(){
-  @for $i from 1 through 4 {
-    .state.state-smiling-#{$i} {
-      background-image: url(../images/cat_smiling/s0#{$i}.png);
+@mixin generate-cat-head-sprite(){
+  @for $i from 0 through 11 {
+    .state.state-#{$i+1} {
+      background-image: url(../images/sprite-cat-head.png);
+      background-position: -1 * $i * 20.75em 0;
     }
   }
 }
@@ -778,15 +771,14 @@ nav{
         height: 100%;
         background-position: top left;
         background-repeat: no-repeat;
-        background-size: contain;
+        background-size: cover;
         opacity: 0;
         position: absolute;
         top: 0;
         left: 0;
       } 
 
-      @include generate-cat-head-states();
-      @include generate-cat-smiling-states();
+      @include generate-cat-head-sprite();
     }
     
     
