@@ -374,13 +374,13 @@ nav{
         &.light{  
           -webkit-transition: all 1s 0.2s ease-in;
           opacity: 0;
-          background: url(../images/caterpillar-day.png) top left / contain;
+          background: url(../images/sprite-caterpillar.png) top left no-repeat;
         }
 
         &.dark{ 
           -webkit-transition: all 2s ease-out;
           opacity: 1;
-          background: url(../images/caterpillar-night.png) top left / contain;
+          background: url(../images/sprite-caterpillar.png) top right no-repeat;
         }
         
       }/* end .caterpillar-shape */

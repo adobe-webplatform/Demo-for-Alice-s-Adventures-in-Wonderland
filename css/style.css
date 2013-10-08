@@ -510,11 +510,11 @@ nav {
         #scene2 .content .act2 .caterpillar-shape.light {
           -webkit-transition: all 1s 0.2s ease-in;
           opacity: 0;
-          background: url(../images/caterpillar-day.png) top left/contain; }
+          background: url(../images/sprite-caterpillar.png) top left no-repeat; }
         #scene2 .content .act2 .caterpillar-shape.dark {
           -webkit-transition: all 2s ease-out;
           opacity: 1;
-          background: url(../images/caterpillar-night.png) top left/contain; }
+          background: url(../images/sprite-caterpillar.png) top right no-repeat; }
     #scene2 .content .dialogue {
       width: 65em;
       height: 100%;
