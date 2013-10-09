@@ -529,11 +529,13 @@
         ease: Linear.easeNone, 
         immediateRender: false,
         onStart: function(){
+          if ($scene2.css('position') == 'fixed')
+            return
+            
           $scene2
             .pin()
             .css({
-              top: -1 * $deco.height() + viewportRest + "px",
-              left: $scene2.css('left')
+              top: -1 * $deco.height() + viewportRest + "px"
             })
         },
         data: {
@@ -545,6 +547,7 @@
           // unpinning is done in the onComplete of the overlay fade-in (mid-point) to prevent flashes
         },
         onReverseComplete: function(){
+          console.log('revcompelte')
           $scene2
             .unpin()
             .css({
@@ -576,6 +579,8 @@
     
 
     var pinToEnd = function (){
+      if ($scene2.css('position') == 'fixed')
+        return
       
       $scene2.pin()
         .css({
@@ -595,27 +600,7 @@
         height: window.innerHeight
       },
       onStart: pinToEnd,
-      onReverseComplete: function(){
-        /*
-          When scrolling back up, at the end of the cross-fade the 'fixed' positioned 
-          #scene2 is offset and frozen.
-
-          I order to clear the composite layer cache (? - vague asumption), I'm swapping the 
-          positioning of the scene between frames. I have no explanation why 
-          this works, but it solves the freezing issue.
-
-          There is a quick flash when doing this. I have no other solution at the moment.
-          If you do, mail me at rcaliman at adobe.com
-        */
-        window.requestAnimationFrame(function(){
-          $scene2.css('position','relative')
-
-          window.requestAnimationFrame(function(){
-            pinToEnd()
-          })
-
-        })
-      },
+      onReverseComplete: pinToEnd,
       onComplete: function(){
         $scene2
           .unpin()
