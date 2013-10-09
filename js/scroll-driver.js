@@ -341,7 +341,7 @@
           else{     
             $from.pin('bottom')
           }
-
+          
           $spacer.show()
         },
         onReverseStart: function(){
@@ -412,22 +412,20 @@
   
   function setupScene1(){ 
     
-    
     // target element
     var $el = $('#scene1 p')
     
     // max amount by which to offset the margin-top
-    var maxMargin = $scene1.height() - $el.offset().top - $el.height()  
+    var maxMargin = $el.height() + $scene1.height() - $el.height() - $el.offset().top
     
     // keyframe element CSS properties
     var keyframe = {
       top: $el.offset().top / 4,
-      height: $scene1.height() - window.innerHeight - $el.offset().top / 4
+      height: maxMargin 
     }
     
     // animation description 
     var animation = Tween.to($el, 1, {css: { marginTop: maxMargin }}) 
-    
     
     // add an empty keyframe for the start of the demo
     setupStart()
@@ -932,7 +930,6 @@
     animation.add(Tween.to($act5Alice, 1, { delay: 0, css: { autoAlpha: 1 }}))
     
     var keyframe = { 
-      background: 'blue',
       top: $scene3_2.offset().top + $act3.offset().left - window.innerHeight / 3,
       height: $act5.offset().left - $act3.offset().left
     }
