@@ -151,7 +151,7 @@
   #intro.hide {
     opacity: 0; }
   #intro a,
-  #intro .no-break {
+  #intro header span {
     white-space: nowrap; }
   #intro a {
     color: inherit; }
@@ -215,7 +215,7 @@
     font-size: 2em;
     font-weight: 700;
     font-family: Georgia, serif; }
-    #intro header .no-break {
+    #intro header span {
       font-size: 0.6em; }
   #intro footer a {
     bottom: 0;
