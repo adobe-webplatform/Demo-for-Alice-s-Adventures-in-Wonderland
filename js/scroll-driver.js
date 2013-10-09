@@ -111,8 +111,8 @@
         
         onUpdate: function(){
           // the end was reached and going reverse
-          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() && this.vars.onReverseStart){
-            this.vars.onReverseStart.call(this)
+          if (this._lastProgress === 1 && this._lastProgress > this.totalProgress() && this.vars.data && this.vars.data.onReverseStart){
+            this.vars.data.onReverseStart.call(this)
           }
           
           // memorize current progress for later
@@ -344,8 +344,10 @@
           
           $spacer.show()
         },
-        onReverseStart: function(){
-          this.vars.onStart.call(this)
+        data: {
+          onReverseStart: function(){
+            this.vars.onStart.call(this)
+          }
         },
         onComplete: function(){
           if (options.onComplete){
@@ -379,8 +381,10 @@
           $to.pin('top')
           $spacer.show()
         },
-        onReverseStart: function(){
-          this.vars.onStart.call(this)
+        data: {
+          onReverseStart: function(){
+            this.vars.onStart.call(this)
+          }
         },
         onComplete: function(){ 
           $to.unpin()
@@ -532,8 +536,10 @@
               left: $scene2.css('left')
             })
         },
-        onReverseStart: function(){
-          this.vars.onStart.call(this)
+        data: {
+          onReverseStart: function(){
+            this.vars.onStart.call(this)
+          }
         },
         onComplete: function(){
           // unpinning is done in the onComplete of the overlay fade-in (mid-point) to prevent flashes
@@ -822,8 +828,10 @@
               left: $el.css('left')
             })
         },
-        onReverseStart: function(){
-          this.vars.onStart.call(this)
+        data: {
+          onReverseStart: function(){
+            this.vars.onStart.call(this)
+          }
         },
         onReverseComplete: function(){
           $el
