@@ -527,16 +527,16 @@ nav {
       #scene2 .content .dialogue .caterpillar {
         position: absolute; }
       #scene2 .content .dialogue .alice {
-        -webkit-shape-inside: polygon(nonzero, 0px 0px, 212px 0px, 369px 138px, 371px 166px, 166px 165px, 142px 130px, 55px 113px);
-        top: 8em;
-        left: 4em;
-        width: 18em;
+        -webkit-shape-inside: polygon(nonzero, 0px 0px, 212px 0px, 293px 78px, 386px 77px, 387px 166px, 328px 193px, 205px 212px, 166px 165px, 142px 130px, 55px 113px);
+        top: 8rem;
+        left: 4rem;
+        width: 25rem;
         opacity: 0; }
         #scene2 .content .dialogue .alice.visible {
-          left: 8em;
+          left: 8rem;
           opacity: 1; }
         #scene2 .content .dialogue .alice.hidden {
-          left: 10em;
+          left: 10rem;
           opacity: 0; }
       #scene2 .content .dialogue .caterpillar p {
         position: absolute;
