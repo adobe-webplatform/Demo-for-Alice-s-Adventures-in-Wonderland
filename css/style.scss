@@ -5,7 +5,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -15,7 +15,8 @@
  * limitations under the License.
  *
  */
-@import '../third-party/normalize/normalize.css';
+
+@import '../third-party/normalize/normalize.scss';
 @import '_animations';
 @import '_intro';
 
@@ -53,17 +54,17 @@ p{
   font-family: Georgia,serif;
 }
 
-.wf-active p{
-  font-size: 1.2em;
-}
-
 p + p{
   margin-top: 1.6em;
 }
 
-/* 
+.wf-active p{
+  font-size: 1.2em;
+}
+
+/*
 Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.
-Wrapping all content to prevent horizontal scrolling. 
+Wrapping all content to prevent horizontal scrolling.
 */
 .wrapper{
   overflow-x: hidden;
@@ -80,18 +81,16 @@ Wrapping all content to prevent horizontal scrolling.
   height: 100%;
   top: 0;
   background-color: rgba(0,0,0,1);
-  opacity: 0; 
-  // visibility toggled by TweenMax when animating 'autoAlpha' property
+  opacity: 0;
+  // visibility toggled by TweenMax.js when animating 'autoAlpha' property
   visibility: hidden;
 }
 
 #timeline{
   position: absolute;
-  top: 0; 
+  top: 0;
   z-index: 5;
-  width: 15px;
-  background: yellow;
-  
+
   div{
     position: absolute;
     width: 100%;
@@ -104,7 +103,7 @@ nav{
   z-index: 6;
   width: 2rem;
   height: 100%;
-  
+
   display: -webkit-flex;
   display: -moz-flex;
   display: flex;
@@ -124,8 +123,10 @@ nav{
   a{
     $diameter: 0.5rem;
     box-sizing: border-box;
+    overflow: hidden;
+    // hide text content just outside the visible part
+    text-indent: $diameter;
     margin-bottom: $diameter;
-
     width: $diameter;
     height: $diameter;
     border-radius: $diameter;
@@ -135,49 +136,50 @@ nav{
     &:hover{
       background: rgba(252, 252, 252, 0.3);
     }
-    
+
     &.active{
       background: rgba(252, 252, 252, 0.5);
     }
-    
-    // hide text content just outside the visible part
-    text-indent: $diameter;
-    overflow: hidden;
   }
 }
 
 #scene1{
 
-  h1{
-    font-size: 1em;
-    margin: 0 auto 3em;
-    width: 15em; 
-    height: 9em;
-    background: url('../images/title-full.png') center bottom no-repeat;
-    background-size: contain;
-    opacity: 0;
-    -webkit-transform: translateY(-1em);
-    -webkit-animation: title-in 1.3s 1 ease-out;
-    -webkit-animation-fill-mode: forwards;
-
-    span{
-      margin-left: -100%;
-    }
-  }
-  
-  background: url(../images/bg_scn1.jpg) left top;
-  background-size: 100%;
-  
-  /* 
-    Scale the scene size by tweaking the font-size on .wrapper 
+  /*
+    Scale the scene size by tweaking the font-size on .wrapper
     The background will scale with the scene. Fonts are in `rem` so they stay constant.
   */
   height: 75em;
   width: 118.75em;
   position: relative;
-  
+  background: url(../images/bg_scn1.jpg) left top;
+  background-size: 100%;
+
   @media all and (max-width: 1280px){
     margin-left: -18em;
+  }
+
+  h1{
+    font-size: 1em;
+    margin: 0 auto 3em;
+    width: 15em;
+    height: 9em;
+    background: url('../images/title-full.png') center bottom no-repeat;
+    background-size: contain;
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+    -moz-transform: translateY(-1em);
+    transform: translateY(-1em);
+    -webkit-animation: title-in 1.3s 1 ease-out;
+    -moz-animation: title-in 1.3s 1 ease-out;
+    animation: title-in 1.3s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    span{
+      margin-left: -100%;
+    }
   }
 
   .content{
@@ -186,7 +188,7 @@ nav{
     height: 75em;
     box-sizing: border-box;
     margin-left: 37.5em;
-    padding-top: 9em;  
+    padding-top: 9em;
     -webkit-shape-inside: polygon(0em 0em, 33.00em -0.06em, 33.13em 23.75em, 30.00em 23.88em, 28.00em 25.88em, 28.00em 28.75em, 32.88em 33.00em, 31.38em 37.50em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.50em 46.81em, 21.19em 49.56em, 24.00em 53.13em, 27.00em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75.00em, 0em 65.94em, 2.00em 58.00em, 11.94em 53.50em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40.00em, 6.38em 40.00em, 12.44em 38.50em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.50em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4.00em 23.44em, 1.00em 20.63em, 2.88em 18.50em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em);
   }
 }
@@ -196,38 +198,38 @@ nav{
   height: 172em;
   overflow: hidden;
   position: relative;
-  
+
   // TODO: use individual mushrooms for subtle animation
 /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
   background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
   background-size: contain;
-  
+
   .decoration{
     width: 55em;
     height: 90em;
     position: relative;
     margin-left: 20em;
-    
+
     .content-wrapper{
       position: absolute;
       width: 30em;
       height: 35em;
       top: 45em;
-      left: 8em; 
+      left: 8em;
       -webkit-shape-inside: polygon(nonzero, 275px 15px, 428px 15px, 402px 88px, 403px 178px, 430px 226px, 389px 316px, 351px 449px, 286px 491px, 272px 556px, 34px 555px, 33px 442px, 183px 426px, 229px 357px, 253px 301px, 242px 227px, 200px 206px, 170px 152px, 114px 107px, 224px 75px);
     }
-    
-    .alice-shape{   
+
+    .alice-shape{
+      $scale: 0.85;
+
       position: absolute;
       background: url(../images/alice_leaning.png) top left no-repeat;
       background-size: contain;
       width: 10.5em;
       height: 22em;
-      
-      $scale: 0.85;
-      
+
       &.falling1{
-        right: 12em;                               
+        right: 12em;
         -webkit-transform: rotate(-45deg) scale($scale);
       }
 
@@ -237,27 +239,26 @@ nav{
         -webkit-transform: rotate(-25deg) scale($scale);
       }
     }
-    
   }
-  
+
   .content{
     width: 90em;
     height: 40em;
     margin-left: 20em;
     position: relative;
-    
+
     .act1{
       height: 100%;
       width: 17em;
       left: 25em;
       position: relative;
-      
+
       .alice-shape{
         position: absolute;
         top: 6em;
         width: 17em;
         height: 14.375em;
-        background: url(../images/alice_seated.png) top left no-repeat;
+        background: url('../images/alice_seated.png') top left no-repeat;
         background-size: contain;
       }
     }
@@ -268,26 +269,38 @@ nav{
       width: 40em;
       left: 42em;
       top: 0;
-      
+
       .shadow-container{
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-         -webkit-filter: blur(5px)
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        filter: blur(5px);
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        transform: translateZ(0);
       }
-      
+
       .shadow{
          position: absolute;
+         top: 0;
          -webkit-transform-origin: left top;
-         top: 0;       
-         -webkit-transform: translateZ(0);
+         -moz-transform-origin: left top;
+         transform-origin: left top;
          -webkit-transition: all;
+         -moz-transition: all;
+         transition: all;
          -webkit-transition-duration: 1.8s;
+         -moz-transition-duration: 1.8s;
+         transition-duration: 1.8s;
          -webkit-transition-timing-function: cubic-bezier(.36,0,.27,1.08);
+         -moz-transition-timing-function: cubic-bezier(.36,0,.27,1.08);
+         transition-timing-function: cubic-bezier(.36,0,.27,1.08);
       }
-      
+
       .shadow1{
         width: 10em;
         height: 60em;
@@ -304,7 +317,7 @@ nav{
         top: -10em;
         -webkit-transform: rotate(40deg);
         background: -webkit-linear-gradient(left, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0));
-        
+
       }
 
       .shadow3{
@@ -315,7 +328,7 @@ nav{
         -webkit-transform: rotate(32deg);
         background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.5), rgba(0,0,0,0.3) 55%, rgba(0,0,0,0) 90%);
       }
-      
+
       .shadow4{
         width: 40em;
         height: 95em;
@@ -324,7 +337,7 @@ nav{
         -webkit-transform: rotate(17deg);
         background: -webkit-linear-gradient(left, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0) 90%);
       }
-      
+
       .shadow5{
         width: 56em;
         height: 95em;
@@ -333,36 +346,37 @@ nav{
         -webkit-transform: rotate(-7deg);
         background: -webkit-linear-gradient(65deg, rgba(0,0,0,0.9) 50%, transparent 85%);
       }
-      
+
       .shadow1,
       .shadow3,
       .shadow5{
         -webkit-transition-duration: 1.2s;
         -webkit-transition-delay: 0.8s;
-      }                               
+      }
 
       .shadow2,
       .shadow4{
         -webkit-transition-duration: 1.8s;
         -webkit-transition-delay: 0.4s;
-      }                               
+      }
 
-      
       // applay 'day' class to .act2 to run the shadow & caterpillar transition
       &.day{
+
         .caterpillar-shape.light{
-          opacity: 1; 
+          opacity: 1;
         }
+
         .caterpillar-shape.dark{
           opacity: 0;
           -webkit-filter: blur(7px);
         }
-        
+
         .shadow{
           opacity: 0;
         }
+
       }
-      
 
       .caterpillar-shape{
         position: absolute;
@@ -372,36 +386,36 @@ nav{
         left: 5em;
         background-size: contain;
         -webkit-transform: translateZ(0);
-        
-        &.light{  
+
+        &.light{
           -webkit-transition: all 1s 0.2s ease-in;
           opacity: 0;
           background: url(../images/sprite-caterpillar.png) top left no-repeat;
         }
 
-        &.dark{ 
+        &.dark{
           -webkit-transition: all 2s ease-out;
           opacity: 1;
           background: url(../images/sprite-caterpillar.png) top right no-repeat;
         }
-        
+
       }/* end .caterpillar-shape */
-      
+
     }/* end .act2 */
-    
-    
+
+
     .dialogue{
       width: 65em;
       height: 100%;
       position: absolute;
       top: 0;
       right: 0;
-      
+
       .alice,
       .caterpillar{
         position: absolute;
       }
-      
+
       .alice{
         -webkit-shape-inside: polygon(nonzero, 0px 0px, 212px 0px, 293px 78px, 386px 77px, 387px 166px, 328px 193px, 205px 212px, 166px 165px, 142px 130px, 55px 113px);
         top: 8rem;
@@ -419,7 +433,7 @@ nav{
           opacity: 0;
         }
       }
-      
+
       .caterpillar p{
         position: absolute;
         text-align: right;
@@ -427,26 +441,25 @@ nav{
         right: 0;
         width: 0;
         height: 0;
-        
-        -webkit-shape-inside: ellipse(50%,50%,50%,50%);
-        overflow: hidden; 
+        -webkit-shape-inside: ellipse(50%, 50%, 50%, 50%);
+        overflow: hidden;
         color: rgba(255,255,255,0.9);
-        text-shadow: 2px 0 2px rgba(0,0,0,0.8);
+        text-shadow: 2px 0 2px rgba(0, 0, 0, 0.8);
       }
-    } 
-    
+    }
+
     .dialogue1{
-      
+
       .caterpillar{
         $w: 12em;
         $h: 6em;
-        
+
         top: 6em;
         left: 24em;
         width: $w;
         height: $h;
-        
-        p{ 
+
+        p{
           &.visible{
             width: $w;
             height: $h;
@@ -454,20 +467,19 @@ nav{
         }
       }
     }
-    
-    
+
     .dialogue2{
-      
+
       .caterpillar{
         $w: 14em;
         $h: 6em;
-        
+
         top: 4em;
         left: 24em;
         width: $w;
         height: $h;
-        
-        p{ 
+
+        p{
           &.visible{
             width: $w;
             height: $h;
@@ -475,19 +487,19 @@ nav{
         }
       }
     }
-    
+
     .dialogue3{
-      
+
       .caterpillar{
         $w: 9em;
         $h: 6em;
-        
+
         top: 5em;
         left: 27em;
         width: $w;
         height: $h;
-        
-        p{ 
+
+        p{
           &.visible{
             width: $w;
             height: $h;
@@ -497,17 +509,17 @@ nav{
     }
 
     .dialogue4{
-      
+
       .caterpillar{
         $w: 9em;
         $h: 6em;
-        
+
         top: 5em;
         left: 27em;
         width: $w;
         height: $h;
-        
-        p{ 
+
+        p{
           &.visible{
             width: $w;
             height: $h;
@@ -517,17 +529,16 @@ nav{
     }
 
     .dialogue5{
-      
+
       .caterpillar{
         $w: 14em;
         $h: 8em;
-        
         top: 3em;
         left: 22em;
         width: $w;
         height: $h;
-        
-        p{ 
+
+        p{
           &.visible{
             width: $w;
             height: $h;
@@ -535,18 +546,18 @@ nav{
         }
       }
     }
-    
-    
+
+
   }/* end .content */
-    
+
 }
 
 #scene3_1{
-  background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
+  background: url('../images/bg_scn2_part_r1_c1_s1.jpg') 0 top;
   background-size: 100%;
   width: 109em;
-  height: 97.5em; 
-  
+  height: 97.5em;
+
   .content{
     width: 62em;
     margin-left: 16em;
@@ -554,7 +565,7 @@ nav{
     -webkit-shape-inside: polygon(nonzero, 363px 0px, 900px 0px, 928px 72px, 910px 159px, 928px 256px, 972px 342px, 943px 379px, 936px 423px, 944px 499px, 994px 518px, 967px 604px, 940px 616px, 923px 656px, 955px 736px, 880px 900px, 849px 958px, 744px 966px, 693px 1004px, 619px 1072px, 691px 1119px, 744px 1244px, 706px 1560px, 90px 1565px, 63px 1471px, 118px 1396px, 171px 1348px, 218px 1272px, 250px 1252px, 240px 1222px, 113px 1186px, 60px 1057px, 137px 918px, 203px 846px, 308px 799px, 427px 791px, 560px 681px, 547px 645px, 446px 598px, 466px 532px, 456px 468px, 426px 452px, 451px 374px, 409px 292px, 412px 250px, 360px 139px, 350px 74px);
     -webkit-shape-padding: 1.5em;
   }
-  
+
     /* cat falling 1 */
    .cat-shape1{
      float: left;
@@ -563,7 +574,7 @@ nav{
      margin-left: 54em;
      visibility: visible;
      margin-top: 2em;
-     
+
      & + p{
        padding-top: 4rem;
        margin-bottom: 4rem;
@@ -571,12 +582,12 @@ nav{
        display: block;
      }
    }
-   
+
    .cat-shape2{
-     float: right; 
+     float: right;
      font-size: 0.45em;
      -webkit-shape-margin: 2em;
-     
+
      & + p{
        display: block;
        clear: left;
@@ -588,14 +599,14 @@ nav{
      float: left;
      -webkit-shape-margin: 2em;
      font-size: 0.45em;
-     
+
      & + p{
        display: block;
        clear: right;
        margin-bottom: 10rem;
      }
    }
-      
+
    .cat-shape4{
      float: left;
      -webkit-shape-margin: 2em;
@@ -609,7 +620,7 @@ nav{
   float: left;
   -webkit-shape-margin: 1em;
   font-size: 0.36em;
-  
+
   & + p{
     margin-bottom: 3em;
   }
@@ -617,53 +628,51 @@ nav{
 
 
 #scene3_2{
-  
-  background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
+
+  background: black url('../images/bg_scn2_part_r2_c1_s1.jpg') 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
   height: 91.25em;
-  
-  $act-height: 80em;
+
   .content{
     width: 278.75em;
-    height: $act-height; 
-
-/*    -webkit-shape-inside: polygon(16.56em 0em, 61.50em 0.06em, 61.88em 8.25em, 66.38em 9.81em, 71.81em 5.69em, 74.75em 0em, 83.44em 0em, 93.19em 10.56em, 106.75em 15.25em, 115.00em 16.25em, 125.69em 21.69em, 136.00em 18.25em, 137.56em 20.31em, 146.56em 18.94em, 151.19em 15.19em, 153.06em 18.50em, 157.69em 16.25em, 159.13em 19.31em, 161.56em 15.94em, 164.56em 17.44em, 169.81em 16.75em, 171.06em 20.56em, 174.50em 20.19em, 177.06em 18.50em, 182.25em 22.69em, 194.63em 24.94em, 195.88em 28.38em, 198.81em 28.94em, 199.88em 31.94em, 201.06em 28.38em, 206.50em 28.31em, 214.69em 24.31em, 220.69em 23.81em, 223.63em 29.81em, 227.69em 20.38em, 242.06em 18.38em, 248.13em 14.88em, 255.13em 16.63em, 267.00em 16.25em, 278.63em 11.50em, 278.88em 62.13em, 271.38em 60.50em, 252.00em 63.50em, 251.56em 54.75em, 249.69em 52.31em, 240.63em 52.25em, 241.31em 56.81em, 242.56em 59.94em, 239.19em 62.81em, 234.81em 61.88em, 231.56em 64.94em, 227.19em 65.00em, 223.69em 69.69em, 222.31em 66.19em, 220.00em 63.31em, 217.00em 61.13em, 213.06em 64.44em, 212.19em 72.63em, 204.44em 69.00em, 204.06em 62.44em, 201.25em 60.81em, 197.94em 54.31em, 194.31em 49.88em, 188.13em 47.94em, 188.00em 42.13em, 184.63em 39.94em, 181.13em 36.31em, 176.81em 38.25em, 171.38em 37.38em, 169.38em 34.13em, 164.00em 35.88em, 161.63em 37.19em, 151.13em 39.50em, 141.56em 43.69em, 138.56em 56.75em, 130.31em 52.94em, 122.69em 50.50em, 118.50em 43.88em, 118.75em 41.19em, 115.56em 38.56em, 113.06em 40.00em, 109.69em 39.06em, 106.13em 38.13em, 102.25em 44.31em, 97.69em 44.38em, 97.69em 42.69em, 94.13em 37.88em, 92.31em 39.75em, 86.25em 33.81em, 80.94em 38.19em, 74.81em 37.69em, 72.75em 36.88em, 69.94em 33.44em, 67.56em 32.75em, 60.94em 36.81em, 60.50em 33.19em, 56.63em 32.00em, 50.25em 34.88em, 50.56em 31.19em, 44.19em 30.81em, 42.63em 24.69em, 46.88em 21.75em, 46.75em 18.69em, 40.94em 23.56em, 34.00em 21.63em, 33.13em 18.00em, 38.00em 17.19em, 42.63em 12.19em, 37.38em 14.94em, 34.38em 15.63em, 32.00em 13.19em, 33.06em 10.75em, 29.44em 8.75em, 17.31em 9.94em);*/
+    height: 80em;
   }
-  
+
   .act{
     position: absolute;
   }
-  
+
   .act1{
     -webkit-shape-inside: polygon(nonzero, 584px 292px, 650px 293px, 687px 419px, 880px 422px, 881px 539px, 584px 513px, 471px 414px, 509px 368px, 502px 305px, 363px 277px, 429px 205px, 594px 205px);
     width: 55em;
     height: 50em;
     left: 16em;
-    
+
     .cat-shape5{
       float: right;
       margin-top: 33em;
       -webkit-shape-margin: 2em;
       font-size: 0.38em;
+      
       & + p{
         margin-bottom: 3em;
       }
     }
-    
+
   }
-  
+
   .act2{
     width: 30em;
     height: 48em;
     left: 71em;
-    
+
     .content-wrapper{
       width: 100%;
       height: 100%;
       -webkit-shape-inside: polygon(nonzero, 127px 12px, 389px 230px, 481px 261px, 489px 330px, 438px 358px, 366px 368px, 343px 427px, 369px 459px, 352px 532px, 260px 530px, 223px 544px, 196px 564px, 190px 578px, 86px 576px, 103px 510px, -26px 418px, -26px 183px);
     }
-    
+
     .cat-shape{
       position: absolute;
       bottom: 0;
@@ -671,23 +680,23 @@ nav{
       -webkit-transform: rotate(7deg);
     }
   }
-  
+
   .act3{
     width: 50em;
     height: 50em;
     left: 90em;
-    
+
     .cat-paws-shape{
-      background: url(../images/cat-paws.png) left top no-repeat;
+      background: url('../images/cat-paws.png') left top no-repeat;
       background-size: contain;
       width: 29em;
       height: 18em;
       position: absolute;
       top:0;
     }
-    
+
     .content-wrapper{
-      opacity: 0;  
+      opacity: 0;
       visibility: hidden;
       position: relative;
       margin-top: 18em;
@@ -696,67 +705,67 @@ nav{
       height: 20em;
       -webkit-shape-inside: polygon(nonzero, 178px 246px, 270px 147px, 569px 147px, 573px 307px, 305px 414px, 254px 363px, 168px 317px, 0px 320px);
     }
-    
-    .alice-shape{ 
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      bottom: 0; 
-      height: 26.35em;
-      width: 11.9em;
-      background: url(../images/alice_walking_3.png) left top / contain;
-    }
-  }
-  
-  .act4{
-    width: 50em;
-    height: 53em;
-    left: 124em;
-    
-    .alice-shape{
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      bottom: 0; 
-      height: 26.35em;
-      width: 11.9em;
-      background: url(../images/alice_walking_4.png) left top no-repeat;
-      background-size: contain; 
-    }
-    
-    .content-wrapper{
-      visibility: hidden; 
-      width: 36rem; 
-      height: 28rem; 
-      margin: 18rem 0px 0px 9rem; 
-      -webkit-shape-inside: polygon(nonzero, 141px 69px, 401px 69px, 577px 154px, 488px 271px, 321px 309px, 131px 388px, 129px 446px, 65px 447px, 50px 418px, 6px 407px, 38px 344px, 9px 291px, 35px 240px, 13px 153px);    
-    }
-  }
-  
-  .act5{
-    height: 73em;
-    width: 40em;
-    left: 200em;
-    
+
     .alice-shape{
       opacity: 0;
       visibility: hidden;
       position: absolute;
       bottom: 0;
-      left: 4em; 
       height: 26.35em;
       width: 11.9em;
-      background: url(../images/alice_walking_2.png) left top no-repeat;
-      background-size: contain; 
+      background: url('../images/alice_walking_3.png') left top / contain;
     }
   }
-  
+
+  .act4{
+    width: 50em;
+    height: 53em;
+    left: 124em;
+
+    .alice-shape{
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      bottom: 0;
+      height: 26.35em;
+      width: 11.9em;
+      background: url('../images/alice_walking_4.png') left top no-repeat;
+      background-size: contain;
+    }
+
+    .content-wrapper{
+      visibility: hidden;
+      width: 36rem;
+      height: 28rem;
+      margin: 18rem 0px 0px 9rem;
+      -webkit-shape-inside: polygon(nonzero, 141px 69px, 401px 69px, 577px 154px, 488px 271px, 321px 309px, 131px 388px, 129px 446px, 65px 447px, 50px 418px, 6px 407px, 38px 344px, 9px 291px, 35px 240px, 13px 153px);
+    }
+  }
+
+  .act5{
+    height: 73em;
+    width: 40em;
+    left: 200em;
+
+    .alice-shape{
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      bottom: 0;
+      left: 4em;
+      height: 26.35em;
+      width: 11.9em;
+      background: url('../images/alice_walking_2.png') left top no-repeat;
+      background-size: contain;
+    }
+  }
+
   .act6{
     height: 40em;
     width: 45em;
     left: 225em;
     top: 25em;
-    
+
     .cat-head{
       width: 20.75em;
       height: 20.75em;
@@ -764,10 +773,10 @@ nav{
       position: absolute;
       left: 15em;
       z-index: 5;
-      
+
       // subtle float animation
       @extend .anim-floating;
-      
+
       .state{
         width: 100%;
         height: 100%;
@@ -778,26 +787,25 @@ nav{
         position: absolute;
         top: 0;
         left: 0;
-      } 
+      }
 
       @include generate-cat-head-sprite();
     }
-    
-    
+
     .content-wrapper{
       width: 100%;
       height: 100%;
       position: relative;
     }
-    
+
     p{
       -webkit-flow-into: act6-flow;
     }
-    
+
     .region{
       -webkit-flow-from: act6-flow;
     }
-    
+
     #region1{
       float: left;
       width: 20em;
@@ -805,6 +813,7 @@ nav{
       height: 80%;
       -webkit-shape-inside: polygon(nonzero, 46px 0px, 206px 0px, 183px 74px, 200px 103px, 321px 158px, 321px 307px, 242px 328px, 242px 405px, 274px 448px, 207px 482px, 7px 465px);
     }
+
     #region2{
       float: left;
       margin-left: 1.5em;

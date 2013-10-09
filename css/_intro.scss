@@ -5,7 +5,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -19,9 +19,9 @@
 .no-shape-inside{
 
   /* hide scenes, hints and navigation */
-  .wrapper div, 
-  #intro .direction, 
-  nav{ 
+  .wrapper div,
+  #intro .direction,
+  nav{
     display: none;
   }
 
@@ -37,7 +37,7 @@
     overflow: hidden;
   }
 
-} 
+}
 
 #intro{
   position: absolute;
@@ -52,16 +52,14 @@
   -moz-transition: opacity 0.5s ease-in;
   -ms-transition: opacity 0.5s ease-in;
   transition: opacity 0.5s ease-in;
-  
+
   $bg: rgba(66, 66, 66, 0.89);
-  
+
   z-index: 7;
   box-sizing: border-box;
   width: 40rem;
   height: 50%;
-/*  background: $bg;*/
-/*  outline: 99em solid $bg;*/
-  
+
   &::before{
     top: 0;
     right: 0;
@@ -72,36 +70,37 @@
     width: 100%;
     height: 100%;
   }
-  
+
   &.hidden{
     display: none;
   }
-  
+
   &.hide{
     opacity: 0;
   }
-  
+
   a,
   header span{
     white-space: nowrap;
   }
-  
+
   a{
     color: inherit;
-    
+
     &:active{
       color: #A70203;
-    };                                            
+    };
+
     &:hover{
       text-decoration: none;
     }
   }
-  
+
   p{
     padding: 1rem 3rem;
     font-size: 1.3em;
   }
-  
+
   .warning{
     text-align: left;
     display: none;
@@ -110,21 +109,21 @@
     background-size: auto 75%;
     background-position: -5% 5%;
     padding: 1rem 0;
-    
+
     p{
       color: #333;
       padding-left: 4.5rem;
     }
-    
+
     a{
       color: #A70203;
-      
+
       &:active{
         color: black;
       }
     }
   }
-  
+
   .direction{
     width: 10rem;
     margin: 0 auto;
@@ -132,33 +131,33 @@
     display: flex;
     -webkit-align-items: center;
     align-items: center;
-    padding: 2rem 3rem 0; 
+    padding: 2rem 3rem 0;
     font-weight: 100;
-    
+
     .illustration{
       float: left;
       width: 2rem;
       margin-right: 1rem;
     }
-    
+
     span{
       width: 100%;
       height: 0.6rem;
       background: white;
       display: block;
       opacity: 1;
-      
+
       & + span{
         margin-top: 0.8rem;
       }
-      
+
       -webkit-animation-name: fade;
       animation-name: fade;
       -webkit-animation-duration: 1.6s;
       animation-duration: 1.6s;
       -webkit-animation-iteration-count: infinite;
       animation-iteration-count: infinite;
-      
+
       &:nth-child(2){
         -webkit-animation-delay: 0.8s;
         animation-delay: 0.8s;
@@ -168,23 +167,23 @@
         animation-delay: 1.4s;
       }
     }
-    
+
   }
-  
+
   header{
     padding: 3rem 3rem 1rem;
     font-size: 2em;
     font-weight: 700;
     font-family: Georgia, serif;
-    
+
     span{
       font-size: 0.6em;
     }
   }
-  
+
   footer{
-    
-    a{ 
+
+    a{
       bottom: 0;
       right: 0;
       position: fixed;
@@ -192,7 +191,7 @@
       text-indent: -99em;
       overflow: hidden;
     }
-    
+
     .ultranoir-logo{
       right: 5rem;
       width: 3.8rem;
@@ -200,8 +199,8 @@
       background: url(../images/logo-ultranoir.svg) center top / contain;
       background-repeat: no-repeat;
     }
-    
-    .adobe-logo{ 
+
+    .adobe-logo{
       right: 1rem;
       width: 2.7rem;
       height: 4.5rem;
@@ -214,11 +213,11 @@
   0%{
     opacity: 1;
   }
-  
+
   70%{
     opacity: 0.2;
   }
-  
+
   100%{
     opacity: 1;
   }
@@ -228,11 +227,11 @@
   0%{
     opacity: 1;
   }
-  
+
   70%{
     opacity: 0.2;
   }
-  
+
   100%{
     opacity: 1;
   }

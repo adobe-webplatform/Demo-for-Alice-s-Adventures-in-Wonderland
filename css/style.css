@@ -1,4 +1,3 @@
-@import url(../third-party/normalize/normalize.css);
 /**
  *
  * Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
@@ -6,7 +5,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -16,6 +15,338 @@
  * limitations under the License.
  *
  */
+/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block; }
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+audio,
+canvas,
+video {
+  display: inline-block; }
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+[hidden] {
+  display: none; }
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */ }
+
+/**
+ * Remove default margin.
+ */
+body {
+  margin: 0; }
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+a:focus {
+  outline: thin dotted; }
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+a:active,
+a:hover {
+  outline: 0; }
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+b,
+strong {
+  font-weight: bold; }
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+dfn {
+  font-style: italic; }
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+mark {
+  background: #ff0;
+  color: #000; }
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+pre {
+  white-space: pre-wrap; }
+
+/**
+ * Set consistent quote types.
+ */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+img {
+  border: 0; }
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+svg:not(:root) {
+  overflow: hidden; }
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+figure {
+  margin: 0; }
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */ }
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+button,
+input {
+  line-height: normal; }
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+  text-transform: none; }
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */ }
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+button[disabled],
+html input[disabled] {
+  cursor: default; }
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9.
+ * 2. Remove excess padding in IE 8/9.
+ */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  /* 2 */
+  box-sizing: content-box; }
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */ }
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 /**
  *
  * Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
@@ -93,7 +424,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -134,9 +465,7 @@
   z-index: 7;
   box-sizing: border-box;
   width: 40rem;
-  height: 50%;
-  /*  background: $bg;*/
-  /*  outline: 99em solid $bg;*/ }
+  height: 50%; }
   #intro::before {
     top: 0;
     right: 0;
@@ -271,15 +600,15 @@ p {
   line-height: 1.5;
   font-family: Georgia,serif; }
 
-.wf-active p {
-  font-size: 1.2em; }
-
 p + p {
   margin-top: 1.6em; }
 
-/* 
+.wf-active p {
+  font-size: 1.2em; }
+
+/*
 Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.
-Wrapping all content to prevent horizontal scrolling. 
+Wrapping all content to prevent horizontal scrolling.
 */
 .wrapper {
   overflow-x: hidden;
@@ -301,9 +630,7 @@ Wrapping all content to prevent horizontal scrolling.
 #timeline {
   position: absolute;
   top: 0;
-  z-index: 5;
-  width: 15px;
-  background: yellow; }
+  z-index: 5; }
   #timeline div {
     position: absolute;
     width: 100%; }
@@ -328,29 +655,32 @@ nav {
   align-items: center; }
   nav a {
     box-sizing: border-box;
+    overflow: hidden;
+    text-indent: 0.5rem;
     margin-bottom: 0.5rem;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 0.5rem;
     border: 1px solid rgba(252, 252, 252, 0.5);
-    box-shadow: 0 0 1px 1px red;
-    text-indent: 0.5rem;
-    overflow: hidden; }
+    box-shadow: 0 0 1px 1px red; }
     nav a:hover {
       background: rgba(252, 252, 252, 0.3); }
     nav a.active {
       background: rgba(252, 252, 252, 0.5); }
 
 #scene1 {
-  background: url(../images/bg_scn1.jpg) left top;
-  background-size: 100%;
-  /* 
-    Scale the scene size by tweaking the font-size on .wrapper 
+  /*
+    Scale the scene size by tweaking the font-size on .wrapper
     The background will scale with the scene. Fonts are in `rem` so they stay constant.
   */
   height: 75em;
   width: 118.75em;
-  position: relative; }
+  position: relative;
+  background: url(../images/bg_scn1.jpg) left top;
+  background-size: 100%; }
+  @media all and (max-width: 1280px) {
+    #scene1 {
+      margin-left: -18em; } }
   #scene1 h1 {
     font-size: 1em;
     margin: 0 auto 3em;
@@ -360,13 +690,16 @@ nav {
     background-size: contain;
     opacity: 0;
     -webkit-transform: translateY(-1em);
+    -moz-transform: translateY(-1em);
+    transform: translateY(-1em);
     -webkit-animation: title-in 1.3s 1 ease-out;
-    -webkit-animation-fill-mode: forwards; }
+    -moz-animation: title-in 1.3s 1 ease-out;
+    animation: title-in 1.3s 1 ease-out;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards; }
     #scene1 h1 span {
       margin-left: -100%; }
-  @media all and (max-width: 1280px) {
-    #scene1 {
-      margin-left: -18em; } }
   #scene1 .content {
     position: relative;
     width: 33em;
@@ -426,7 +759,7 @@ nav {
         top: 6em;
         width: 17em;
         height: 14.375em;
-        background: url(../images/alice_seated.png) top left no-repeat;
+        background: url("../images/alice_seated.png") top left no-repeat;
         background-size: contain; }
     #scene2 .content .act2 {
       position: absolute;
@@ -441,15 +774,27 @@ nav {
         left: 0;
         width: 100%;
         height: 100%;
-        -webkit-filter: blur(5px); }
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        filter: blur(5px);
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        transform: translateZ(0); }
       #scene2 .content .act2 .shadow {
         position: absolute;
-        -webkit-transform-origin: left top;
         top: 0;
-        -webkit-transform: translateZ(0);
+        -webkit-transform-origin: left top;
+        -moz-transform-origin: left top;
+        transform-origin: left top;
         -webkit-transition: all;
+        -moz-transition: all;
+        transition: all;
         -webkit-transition-duration: 1.8s;
-        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
+        -moz-transition-duration: 1.8s;
+        transition-duration: 1.8s;
+        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08);
+        -moz-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08);
+        transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
       #scene2 .content .act2 .shadow1 {
         width: 10em;
         height: 60em;
@@ -591,7 +936,7 @@ nav {
         height: 8em; }
 
 #scene3_1 {
-  background: url(../images/bg_scn2_part_r1_c1_s1.jpg) 0 top;
+  background: url("../images/bg_scn2_part_r1_c1_s1.jpg") 0 top;
   background-size: 100%;
   width: 109em;
   height: 97.5em;
@@ -644,14 +989,13 @@ nav {
     margin-bottom: 3em; }
 
 #scene3_2 {
-  background: black url(../images/bg_scn2_part_r2_c1_s1.jpg) 0 top no-repeat;
+  background: black url("../images/bg_scn2_part_r2_c1_s1.jpg") 0 top no-repeat;
   background-size: 100%;
   width: 278.75em;
   height: 91.25em; }
   #scene3_2 .content {
     width: 278.75em;
-    height: 80em;
-    /*    -webkit-shape-inside: polygon(16.56em 0em, 61.50em 0.06em, 61.88em 8.25em, 66.38em 9.81em, 71.81em 5.69em, 74.75em 0em, 83.44em 0em, 93.19em 10.56em, 106.75em 15.25em, 115.00em 16.25em, 125.69em 21.69em, 136.00em 18.25em, 137.56em 20.31em, 146.56em 18.94em, 151.19em 15.19em, 153.06em 18.50em, 157.69em 16.25em, 159.13em 19.31em, 161.56em 15.94em, 164.56em 17.44em, 169.81em 16.75em, 171.06em 20.56em, 174.50em 20.19em, 177.06em 18.50em, 182.25em 22.69em, 194.63em 24.94em, 195.88em 28.38em, 198.81em 28.94em, 199.88em 31.94em, 201.06em 28.38em, 206.50em 28.31em, 214.69em 24.31em, 220.69em 23.81em, 223.63em 29.81em, 227.69em 20.38em, 242.06em 18.38em, 248.13em 14.88em, 255.13em 16.63em, 267.00em 16.25em, 278.63em 11.50em, 278.88em 62.13em, 271.38em 60.50em, 252.00em 63.50em, 251.56em 54.75em, 249.69em 52.31em, 240.63em 52.25em, 241.31em 56.81em, 242.56em 59.94em, 239.19em 62.81em, 234.81em 61.88em, 231.56em 64.94em, 227.19em 65.00em, 223.69em 69.69em, 222.31em 66.19em, 220.00em 63.31em, 217.00em 61.13em, 213.06em 64.44em, 212.19em 72.63em, 204.44em 69.00em, 204.06em 62.44em, 201.25em 60.81em, 197.94em 54.31em, 194.31em 49.88em, 188.13em 47.94em, 188.00em 42.13em, 184.63em 39.94em, 181.13em 36.31em, 176.81em 38.25em, 171.38em 37.38em, 169.38em 34.13em, 164.00em 35.88em, 161.63em 37.19em, 151.13em 39.50em, 141.56em 43.69em, 138.56em 56.75em, 130.31em 52.94em, 122.69em 50.50em, 118.50em 43.88em, 118.75em 41.19em, 115.56em 38.56em, 113.06em 40.00em, 109.69em 39.06em, 106.13em 38.13em, 102.25em 44.31em, 97.69em 44.38em, 97.69em 42.69em, 94.13em 37.88em, 92.31em 39.75em, 86.25em 33.81em, 80.94em 38.19em, 74.81em 37.69em, 72.75em 36.88em, 69.94em 33.44em, 67.56em 32.75em, 60.94em 36.81em, 60.50em 33.19em, 56.63em 32.00em, 50.25em 34.88em, 50.56em 31.19em, 44.19em 30.81em, 42.63em 24.69em, 46.88em 21.75em, 46.75em 18.69em, 40.94em 23.56em, 34.00em 21.63em, 33.13em 18.00em, 38.00em 17.19em, 42.63em 12.19em, 37.38em 14.94em, 34.38em 15.63em, 32.00em 13.19em, 33.06em 10.75em, 29.44em 8.75em, 17.31em 9.94em);*/ }
+    height: 80em; }
   #scene3_2 .act {
     position: absolute; }
   #scene3_2 .act1 {
@@ -684,7 +1028,7 @@ nav {
     height: 50em;
     left: 90em; }
     #scene3_2 .act3 .cat-paws-shape {
-      background: url(../images/cat-paws.png) left top no-repeat;
+      background: url("../images/cat-paws.png") left top no-repeat;
       background-size: contain;
       width: 29em;
       height: 18em;
@@ -706,7 +1050,7 @@ nav {
       bottom: 0;
       height: 26.35em;
       width: 11.9em;
-      background: url(../images/alice_walking_3.png) left top/contain; }
+      background: url("../images/alice_walking_3.png") left top/contain; }
   #scene3_2 .act4 {
     width: 50em;
     height: 53em;
@@ -718,7 +1062,7 @@ nav {
       bottom: 0;
       height: 26.35em;
       width: 11.9em;
-      background: url(../images/alice_walking_4.png) left top no-repeat;
+      background: url("../images/alice_walking_4.png") left top no-repeat;
       background-size: contain; }
     #scene3_2 .act4 .content-wrapper {
       visibility: hidden;
@@ -738,7 +1082,7 @@ nav {
       left: 4em;
       height: 26.35em;
       width: 11.9em;
-      background: url(../images/alice_walking_2.png) left top no-repeat;
+      background: url("../images/alice_walking_2.png") left top no-repeat;
       background-size: contain; }
   #scene3_2 .act6 {
     height: 40em;
