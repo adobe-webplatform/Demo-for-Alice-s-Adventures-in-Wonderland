@@ -637,8 +637,10 @@ nav{
     left: 16em;
 
     .cat-shape5{
-      float: right;
-      margin-top: 12.5rem;
+      position: absolute;
+      position: absolute;
+      right: 0rem;
+      top: 12rem;
       -webkit-shape-margin: 1rem;
       font-size: 1em;
     }
