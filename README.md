@@ -7,6 +7,8 @@ All code is offered under the [Apache License Version 2.0](http://www.apache.org
 
 All assets are offered under the [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US). 
 
+To learn more about this project, see [Using CSS Shapes to Enhance Visual Storytelling](http://blogs.adobe.com/webplatform/2013/10/23/css-shapes-visual-storytelling/).
+
 Demo
 ---
 
