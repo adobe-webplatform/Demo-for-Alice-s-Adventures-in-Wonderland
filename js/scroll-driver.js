@@ -540,7 +540,6 @@
           // unpinning is done in the onComplete of the overlay fade-in (mid-point) to prevent flashes
         },
         onReverseComplete: function(){
-          console.log('revcompelte')
           $scene2
             .unpin()
             .css({
@@ -1014,12 +1013,12 @@
 
     if (document.documentElement.classList.contains('shape-inside')){
       var delta = 0;
-      var maxDelta = 30;
+      var maxDelta = 50;
       var $el = $('#intro')
 
-      function listener(e){
+      function listener(e){ 
         e.preventDefault()
-        delta += Math.abs(e.wheelDelta)
+        delta += Math.abs(window.scrollY)
 
         if(delta > maxDelta){
           $el
@@ -1028,12 +1027,12 @@
               $el.remove()
             })
 
-          window.removeEventListener('wheel', listener)
+          window.removeEventListener('scroll', listener)
         }
       }
 
       // remove intro after a short scroll
-      window.addEventListener('wheel', listener)
+      window.addEventListener('scroll', listener)
     }
     
     // generate navigation
