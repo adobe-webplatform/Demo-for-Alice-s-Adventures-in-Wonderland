@@ -1011,6 +1011,13 @@
     // 'Luke, use the hammer'
     Timeline.emALLTheThings()
 
+    // prevent from working in older Chrome
+    if (window.navigator.userAgent.indexOf('Chrome') > -1 && !('onwheel' in window)){
+      var html = document.documentElement;
+      html.classList.remove('shape-inside')
+      html.classList.add('no-shape-inside')
+    }
+
     if (document.documentElement.classList.contains('shape-inside')){
       var delta = 0;
       var maxDelta = 50;
@@ -1054,5 +1061,6 @@
 
     document.documentElement.classList.add(property)
   })
+  
 
 })()
