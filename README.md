@@ -3,7 +3,7 @@ Demo for Alice's Adventures in Wonderland, by Lewis Carroll
 
 Using CSS Shapes to enhance visual storytelling.
 
-All code is offered under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0).
+All code is offered under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0). For licenses on third-party libraries used see [NOTICE](./NOTICE) file.
 
 All assets are offered under the [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 license](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US). 
 
