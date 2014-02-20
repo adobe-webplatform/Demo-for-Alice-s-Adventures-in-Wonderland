@@ -1050,7 +1050,7 @@
   $(setup)
 
   // feather-weight Modernizr-like CSS feature check
-  $.each(['shape-inside','flow-into'], function(index, property){
+  $.each(['shape-inside'], function(index, property){
 
     // check if any variant exists, prefixed or not
     var isCapable = $.some(['-webkit-','-ms-','-moz-',''], function(prefix){
