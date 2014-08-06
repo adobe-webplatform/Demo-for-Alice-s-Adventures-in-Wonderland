@@ -22,26 +22,13 @@
 /**
  * Correct `block` display not defined in IE 8/9.
  */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section,
-summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
   display: block; }
 
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */
-audio,
-canvas,
-video {
+audio, canvas, video {
   display: inline-block; }
 
 /**
@@ -92,8 +79,7 @@ a:focus {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-a:active,
-a:hover {
+a:active, a:hover {
   outline: 0; }
 
 /* ==========================================================================
@@ -116,8 +102,7 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
-b,
-strong {
+b, strong {
   font-weight: bold; }
 
 /**
@@ -144,10 +129,7 @@ mark {
 /**
  * Correct font family set oddly in Safari 5 and Chrome.
  */
-code,
-kbd,
-pre,
-samp {
+code, kbd, pre, samp {
   font-family: monospace, serif;
   font-size: 1em; }
 
@@ -172,8 +154,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-sub,
-sup {
+sub, sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -235,10 +216,7 @@ legend {
  * 2. Correct font size not being inherited in all browsers.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
-button,
-input,
-select,
-textarea {
+button, input, select, textarea {
   font-family: inherit;
   /* 1 */
   font-size: 100%;
@@ -250,8 +228,7 @@ textarea {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-button,
-input {
+button, input {
   line-height: normal; }
 
 /**
@@ -260,8 +237,7 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
-button,
-select {
+button, select {
   text-transform: none; }
 
 /**
@@ -271,10 +247,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -283,16 +256,14 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-button[disabled],
-html input[disabled] {
+button[disabled], html input[disabled] {
   cursor: default; }
 
 /**
  * 1. Address box sizing set to `content-box` in IE 8/9.
  * 2. Remove excess padding in IE 8/9.
  */
-input[type="checkbox"],
-input[type="radio"] {
+input[type="checkbox"], input[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -315,15 +286,13 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
@@ -413,7 +382,7 @@ table {
   -webkit-animation: fade-out 1s ease-out;
   -webkit-animation-fill-mode: forwards; }
 
-.anim-floating, #scene3_2 .act6 .cat-head {
+.anim-floating {
   -webkit-transform: translateZ(0);
   -webkit-animation: float 8s infinite ease-in-out; }
 
@@ -438,13 +407,8 @@ table {
   /* hide scenes, hints and navigation */
   /* show glimpse of first scene and warning */
   /* prevent navigation */ }
-  .no-shape-inside .wrapper div,
-  .no-shape-inside #intro .direction,
-  .no-shape-inside nav {
+  .no-shape-inside .wrapper div, .no-shape-inside #intro .direction, .no-shape-inside nav {
     display: none; }
-  .no-shape-inside #scene1,
-  .no-shape-inside #intro .warning {
-    display: block; }
   .no-shape-inside body .wrapper {
     height: 100%;
     overflow: hidden; }
@@ -479,8 +443,7 @@ table {
     display: none; }
   #intro.hide {
     opacity: 0; }
-  #intro a,
-  #intro header span {
+  #intro a, #intro header span {
     white-space: nowrap; }
   #intro a {
     color: inherit; }
@@ -585,6 +548,9 @@ table {
   100% {
     opacity: 1; } }
 
+* {
+  box-sizing: border-box; }
+
 html, body {
   height: 100%;
   width: 100%;
@@ -598,7 +564,7 @@ p {
   margin: 0;
   font-size: 1.1em;
   line-height: 1.5;
-  font-family: Georgia,serif; }
+  font-family: Georgia, serif; }
 
 p + p {
   margin-top: 1.6em; }
@@ -616,6 +582,9 @@ Wrapping all content to prevent horizontal scrolling.
   background: black;
   position: relative; }
 
+#intro {
+  display: none; }
+
 /* Used for cross-fade between scenes */
 #overlay {
   position: fixed;
@@ -627,583 +596,57 @@ Wrapping all content to prevent horizontal scrolling.
   opacity: 0;
   visibility: hidden; }
 
-#timeline {
-  position: absolute;
-  top: 0;
-  z-index: 5; }
-  #timeline div {
-    position: absolute;
-    width: 100%; }
-
-nav {
-  position: fixed;
-  right: 1rem;
-  z-index: 6;
-  width: 2rem;
-  height: 100%;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: flex;
-  -webkit-flex-flow: column nowrap;
-  -moz-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  align-items: center; }
-  nav a {
-    box-sizing: border-box;
-    overflow: hidden;
-    text-indent: 0.5rem;
-    margin-bottom: 0.5rem;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(252, 252, 252, 0.5);
-    box-shadow: 0 0 1px 1px red; }
-    nav a:hover {
-      background: rgba(252, 252, 252, 0.3); }
-    nav a.active {
-      background: rgba(252, 252, 252, 0.5); }
-
-#scene1 {
+.scene--alice {
   /*
     Scale the scene size by tweaking the font-size on .wrapper
     The background will scale with the scene. Fonts are in `rem` so they stay constant.
   */
   height: 75em;
-  width: 118.75em;
+  width: 120em;
   position: relative;
   background: url(../images/bg_scn1.jpg) left top;
   background-size: 100%; }
   @media all and (max-width: 1280px) {
-    #scene1 {
+    .scene--alice {
       margin-left: -18em; } }
-  #scene1 h1 {
-    font-size: 1em;
-    margin: 0 auto 3em;
-    width: 15em;
-    height: 9em;
-    background: url("../images/title-full.png") center bottom no-repeat;
-    background-size: contain;
-    opacity: 0;
-    -webkit-transform: translateY(-1em);
-    -moz-transform: translateY(-1em);
-    transform: translateY(-1em);
-    -webkit-animation: title-in 1.3s 1 ease-out;
-    -moz-animation: title-in 1.3s 1 ease-out;
-    animation: title-in 1.3s 1 ease-out;
-    -webkit-animation-fill-mode: forwards;
-    -moz-animation-fill-mode: forwards;
-    animation-fill-mode: forwards; }
-    #scene1 h1 span {
-      margin-left: -100%; }
-  #scene1 .content {
-    position: relative;
-    width: 33em;
-    height: 75em;
-    box-sizing: border-box;
-    margin-left: 37.5em;
-    padding-top: 9em;
-    -webkit-shape-inside: polygon(0em 0em, 33em -0.06em, 33.13em 23.75em, 30em 23.88em, 28em 25.88em, 28em 28.75em, 32.88em 33em, 31.38em 37.5em, 27.75em 37.88em, 23.31em 42.56em, 22.56em 45.88em, 24.5em 46.81em, 21.19em 49.56em, 24em 53.13em, 27em 53.13em, 28.81em 61.13em, 26.31em 74.88em, 0em 75em, 0em 65.94em, 2em 58em, 11.94em 53.5em, 11.25em 49.69em, 8.75em 47.25em, 9.44em 44.94em, 1.81em 43.75em, 0em 40em, 6.38em 40em, 12.44em 38.5em, 15.75em 35.25em, 9.88em 35.25em, 8.69em 33.5em, 5.63em 31.75em, 10.75em 30.19em, 5.44em 28.75em, 3.44em 25.19em, 7.25em 23.75em, 4em 23.44em, 1em 20.63em, 2.88em 18.5em, 1.25em 15.63em, 5.63em 11.69em, 6.13em 6.94em, 3.25em 2.44em) border-box; }
 
-#scene2 {
-  width: 161em;
-  height: 172em;
+.shape-shim, .shape-shim--left, .shape-shim--right {
+  height: 100%;
+  width: 50%; }
+
+.shape-shim--left {
+  float: left;
+  shape-outside: polygon(0px 0px, 714px 0px, 705px 200px, 653px 262px, 651px 345px, 722px 381px, 693px 411px, 690px 455px, 776px 476px, 751px 516px, 751px 556px, 851px 559px, 846px 611px, 721px 650px, 710px 694px, 753px 728px, 782px 790px, 800px 839px, 761px 898px, 657px 923px, 625px 1024px, 598px 1199px, 0px 1200px);
+  -webkit-shape-outside: polygon(0px 0px, 714px 0px, 705px 200px, 653px 262px, 651px 345px, 722px 381px, 693px 411px, 690px 455px, 776px 476px, 751px 516px, 751px 556px, 851px 559px, 846px 611px, 721px 650px, 710px 694px, 753px 728px, 782px 790px, 800px 839px, 761px 898px, 657px 923px, 625px 1024px, 598px 1199px, 0px 1200px); }
+
+.shape-shim--right {
+  float: right;
+  shape-outside: polygon(94px 1007px, 82px 886px, -2px 840px, -2px 794px, 12px 756px, 15px 685px, 58px 618px, 139px 600px, 154px 532px, 89px 472px, 95px 414px, 143px 374px, 219px 285px, 146px 177px, 212px 1px, 960px 0px, 960px 1200px, 59px 1199px);
+  -webkit-shape-outside: polygon(94px 1007px, 82px 886px, -2px 840px, -2px 794px, 12px 756px, 15px 685px, 58px 618px, 139px 600px, 154px 532px, 89px 472px, 95px 414px, 143px 374px, 219px 285px, 146px 177px, 212px 1px, 960px 0px, 960px 1200px, 59px 1199px); }
+
+h1 {
+  font-size: 1em;
+  margin: 8em auto 3em;
+  width: 15em;
+  /* hide the text content */
+  height: 9em;
+  padding-top: 9em;
   overflow: hidden;
+  background: url('../images/title-full.png') center bottom no-repeat;
+  background-size: contain;
+  opacity: 0;
+  -webkit-transform: translateY(-1em);
+  -moz-transform: translateY(-1em);
+  transform: translateY(-1em);
+  -webkit-animation: title-in 1.3s 1 ease-out;
+  -moz-animation: title-in 1.3s 1 ease-out;
+  animation: title-in 1.3s 1 ease-out;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.content {
   position: relative;
-  /*  background: url(../images/bg_scn-caterpillar-shroomless.jpg) top left no-repeat;*/
-  background: url(../images/bg_scn-caterpillar.jpg) top left no-repeat;
-  background-size: contain;
-  /* end .content */ }
-  #scene2 .decoration {
-    width: 55em;
-    height: 90em;
-    position: relative;
-    margin-left: 20em; }
-    #scene2 .decoration .content-wrapper {
-      position: absolute;
-      width: 30em;
-      height: 35em;
-      top: 45em;
-      left: 8em;
-      -webkit-shape-inside: polygon(nonzero, 275px 15px, 428px 15px, 402px 88px, 403px 178px, 430px 226px, 389px 316px, 351px 449px, 286px 491px, 272px 556px, 34px 555px, 33px 442px, 183px 426px, 229px 357px, 253px 301px, 242px 227px, 200px 206px, 170px 152px, 114px 107px, 224px 75px); }
-    #scene2 .decoration .alice-shape {
-      position: absolute;
-      background: url(../images/alice_leaning.png) top left no-repeat;
-      background-size: contain;
-      width: 10.5em;
-      height: 22em; }
-      #scene2 .decoration .alice-shape.falling1 {
-        right: 12em;
-        -webkit-transform: rotate(-45deg) scale(0.85); }
-      #scene2 .decoration .alice-shape.falling2 {
-        top: 75em;
-        left: 18em;
-        -webkit-transform: rotate(-25deg) scale(0.85); }
-  #scene2 .content {
-    width: 90em;
-    height: 40em;
-    margin-left: 20em;
-    position: relative;
-    /* end .act2 */ }
-    #scene2 .content .act1 {
-      height: 100%;
-      width: 17em;
-      left: 25em;
-      position: relative; }
-      #scene2 .content .act1 .alice-shape {
-        position: absolute;
-        top: 6em;
-        width: 17em;
-        height: 14.375em;
-        background: url("../images/alice_seated.png") top left no-repeat;
-        background-size: contain; }
-    #scene2 .content .act2 {
-      position: absolute;
-      height: 100%;
-      width: 40em;
-      left: 42em;
-      top: 0;
-      /* end .caterpillar-shape */ }
-      #scene2 .content .act2 .shadow-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        -webkit-filter: blur(5px);
-        -moz-filter: blur(5px);
-        filter: blur(5px);
-        -webkit-transform: translateZ(0);
-        -moz-transform: translateZ(0);
-        transform: translateZ(0); }
-      #scene2 .content .act2 .shadow {
-        position: absolute;
-        top: 0;
-        -webkit-transform-origin: left top;
-        -moz-transform-origin: left top;
-        transform-origin: left top;
-        -webkit-transition: all;
-        -moz-transition: all;
-        transition: all;
-        -webkit-transition-duration: 1.8s;
-        -moz-transition-duration: 1.8s;
-        transition-duration: 1.8s;
-        -webkit-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08);
-        -moz-transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08);
-        transition-timing-function: cubic-bezier(0.36, 0, 0.27, 1.08); }
-      #scene2 .content .act2 .shadow1 {
-        width: 10em;
-        height: 60em;
-        left: 15em;
-        top: -10em;
-        -webkit-transform: rotate(50deg);
-        background: -webkit-linear-gradient(-90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)); }
-      #scene2 .content .act2 .shadow2 {
-        width: 10em;
-        height: 60em;
-        left: 18em;
-        top: -10em;
-        -webkit-transform: rotate(40deg);
-        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0)); }
-      #scene2 .content .act2 .shadow3 {
-        width: 20em;
-        height: 60em;
-        left: 20em;
-        top: -10em;
-        -webkit-transform: rotate(32deg);
-        background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0) 90%); }
-      #scene2 .content .act2 .shadow4 {
-        width: 40em;
-        height: 95em;
-        left: 18em;
-        top: -10em;
-        -webkit-transform: rotate(17deg);
-        background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 90%); }
-      #scene2 .content .act2 .shadow5 {
-        width: 56em;
-        height: 95em;
-        left: 14em;
-        top: -2em;
-        -webkit-transform: rotate(-7deg);
-        background: -webkit-linear-gradient(65deg, rgba(0, 0, 0, 0.9) 50%, transparent 85%); }
-      #scene2 .content .act2 .shadow1,
-      #scene2 .content .act2 .shadow3,
-      #scene2 .content .act2 .shadow5 {
-        -webkit-transition-duration: 1.2s;
-        -webkit-transition-delay: 0.8s; }
-      #scene2 .content .act2 .shadow2,
-      #scene2 .content .act2 .shadow4 {
-        -webkit-transition-duration: 1.8s;
-        -webkit-transition-delay: 0.4s; }
-      #scene2 .content .act2.day .caterpillar-shape.light {
-        opacity: 1; }
-      #scene2 .content .act2.day .caterpillar-shape.dark {
-        opacity: 0;
-        -webkit-filter: blur(7px); }
-      #scene2 .content .act2.day .shadow {
-        opacity: 0; }
-      #scene2 .content .act2 .caterpillar-shape {
-        position: absolute;
-        width: 32.6em;
-        height: 19em;
-        top: 10em;
-        left: 5em;
-        background-size: contain;
-        -webkit-transform: translateZ(0); }
-        #scene2 .content .act2 .caterpillar-shape.light {
-          -webkit-transition: all 1s 0.2s ease-in;
-          opacity: 0;
-          background: url(../images/sprite-caterpillar.png) top left no-repeat; }
-        #scene2 .content .act2 .caterpillar-shape.dark {
-          -webkit-transition: all 2s ease-out;
-          opacity: 1;
-          background: url(../images/sprite-caterpillar.png) top right no-repeat; }
-    #scene2 .content .dialogue {
-      width: 65em;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      right: 0; }
-      #scene2 .content .dialogue .alice,
-      #scene2 .content .dialogue .caterpillar {
-        position: absolute; }
-      #scene2 .content .dialogue .alice {
-        -webkit-shape-inside: polygon(nonzero, 0px 0px, 212px 0px, 293px 78px, 386px 77px, 387px 166px, 328px 193px, 205px 212px, 166px 165px, 142px 130px, 55px 113px);
-        top: 8rem;
-        left: 4rem;
-        width: 25rem;
-        opacity: 0; }
-        #scene2 .content .dialogue .alice.visible {
-          left: 8rem;
-          opacity: 1; }
-        #scene2 .content .dialogue .alice.hidden {
-          left: 10rem;
-          opacity: 0; }
-      #scene2 .content .dialogue .caterpillar p {
-        position: absolute;
-        text-align: right;
-        bottom: 0;
-        right: 0;
-        width: 0;
-        height: 0;
-        -webkit-shape-inside: ellipse(50%, 50%, 50%, 50%);
-        overflow: hidden;
-        color: rgba(255, 255, 255, 0.9);
-        text-shadow: 2px 0 2px rgba(0, 0, 0, 0.8); }
-    #scene2 .content .dialogue1 .caterpillar {
-      top: 6em;
-      left: 24em;
-      width: 12em;
-      height: 6em; }
-      #scene2 .content .dialogue1 .caterpillar p.visible {
-        width: 12em;
-        height: 6em; }
-    #scene2 .content .dialogue2 .caterpillar {
-      top: 4em;
-      left: 24em;
-      width: 14em;
-      height: 6em; }
-      #scene2 .content .dialogue2 .caterpillar p.visible {
-        width: 14em;
-        height: 6em; }
-    #scene2 .content .dialogue3 .caterpillar {
-      top: 5em;
-      left: 27em;
-      width: 9em;
-      height: 6em; }
-      #scene2 .content .dialogue3 .caterpillar p.visible {
-        width: 9em;
-        height: 6em; }
-    #scene2 .content .dialogue4 .caterpillar {
-      top: 5em;
-      left: 27em;
-      width: 9em;
-      height: 6em; }
-      #scene2 .content .dialogue4 .caterpillar p.visible {
-        width: 9em;
-        height: 6em; }
-    #scene2 .content .dialogue5 .caterpillar {
-      top: 3em;
-      left: 22em;
-      width: 14em;
-      height: 8em; }
-      #scene2 .content .dialogue5 .caterpillar p.visible {
-        width: 14em;
-        height: 8em; }
-
-#scene3_1 {
-  background: url("../images/bg_scn2_part_r1_c1_s1.jpg") 0 top;
-  background-size: 100%;
-  width: 109em;
-  height: 97.5em;
-  /* cat falling 1 */ }
-  #scene3_1 .content {
-    width: 62em;
-    margin-left: 16em;
-    height: 97.5em;
-    -webkit-shape-inside: polygon(nonzero, 363px 0px, 900px 0px, 928px 72px, 910px 159px, 928px 256px, 972px 342px, 943px 379px, 936px 423px, 944px 499px, 994px 518px, 967px 604px, 940px 616px, 923px 656px, 955px 736px, 880px 900px, 849px 958px, 744px 966px, 693px 1004px, 619px 1072px, 691px 1119px, 744px 1244px, 706px 1560px, 90px 1565px, 63px 1471px, 118px 1396px, 171px 1348px, 218px 1272px, 250px 1252px, 240px 1222px, 113px 1186px, 60px 1057px, 137px 918px, 203px 846px, 308px 799px, 427px 791px, 560px 681px, 547px 645px, 446px 598px, 466px 532px, 456px 468px, 426px 452px, 451px 374px, 409px 292px, 412px 250px, 360px 139px, 350px 74px);
-    -webkit-shape-padding: 1.5em; }
-  #scene3_1 .cat-shape1 {
-    float: left;
-    -webkit-shape-margin: 1rem;
-    font-size: 1em;
-    margin-left: 27rem;
-    visibility: visible;
-    margin-top: 1rem; }
-    #scene3_1 .cat-shape1 + p {
-      padding-top: 4rem;
-      margin-bottom: 4rem;
-      clear: right;
-      display: block; }
-  #scene3_1 .cat-shape2 {
-    float: right;
-    font-size: 0.85em;
-    -webkit-shape-margin: 1rem; }
-    #scene3_1 .cat-shape2 + p {
-      display: block;
-      clear: left;
-      margin-bottom: 8rem; }
-  #scene3_1 .cat-shape3 {
-    float: left;
-    -webkit-shape-margin: 1rem;
-    font-size: 1em; }
-    #scene3_1 .cat-shape3 + p {
-      display: block;
-      clear: right;
-      margin-bottom: 10rem; }
-  #scene3_1 .cat-shape4 {
-    float: left;
-    -webkit-shape-margin: 1rem;
-    font-size: 1em; }
-
-#scene3_2 {
-  background: black url("../images/bg_scn2_part_r2_c1_s1.jpg") 0 top no-repeat;
-  background-size: 100%;
-  width: 278.75em;
-  height: 91.25em; }
-  #scene3_2 .content {
-    width: 278.75em;
-    height: 80em; }
-  #scene3_2 .act {
-    position: absolute; }
-  #scene3_2 .act1 {
-    -webkit-shape-inside: polygon(nonzero, 584px 292px, 650px 293px, 687px 419px, 880px 422px, 881px 539px, 584px 513px, 471px 414px, 509px 368px, 502px 305px, 363px 277px, 429px 205px, 594px 205px);
-    width: 55em;
-    height: 50em;
-    left: 16em; }
-    #scene3_2 .act1 .cat-shape5 {
-      position: absolute;
-      position: absolute;
-      right: 0rem;
-      top: 12rem;
-      -webkit-shape-margin: 1rem;
-      font-size: 1em; }
-  #scene3_2 .act2 {
-    width: 30em;
-    height: 48em;
-    left: 71em; }
-    #scene3_2 .act2 .content-wrapper {
-      width: 100%;
-      height: 100%;
-      -webkit-shape-inside: polygon(nonzero, 127px 12px, 389px 230px, 481px 261px, 489px 330px, 438px 358px, 366px 368px, 343px 427px, 369px 459px, 352px 532px, 260px 530px, 223px 544px, 196px 564px, 190px 578px, 86px 576px, 103px 510px, -26px 418px, -26px 183px); }
-    #scene3_2 .act2 .cat-shape-walking {
-      position: absolute;
-      bottom: 0;
-      left: -1rem;
-      -webkit-transform: rotate(7deg);
-      -webkit-shape-margin: 1rem;
-      font-size: 1em; }
-  #scene3_2 .act3 {
-    width: 50em;
-    height: 50em;
-    left: 90em; }
-    #scene3_2 .act3 .cat-paws-shape {
-      background: url("../images/cat-paws.png") left top no-repeat;
-      background-size: contain;
-      width: 29em;
-      height: 18em;
-      position: absolute;
-      top: 0; }
-    #scene3_2 .act3 .content-wrapper {
-      opacity: 0;
-      visibility: hidden;
-      position: relative;
-      margin-top: 18em;
-      margin-left: 14em;
-      width: 40em;
-      height: 20em;
-      -webkit-shape-inside: polygon(nonzero, 178px 246px, 270px 147px, 569px 147px, 573px 307px, 305px 414px, 254px 363px, 168px 317px, 0px 320px); }
-    #scene3_2 .act3 .alice-shape {
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      bottom: 0;
-      height: 26.35em;
-      width: 11.9em;
-      background: url("../images/alice_walking_3.png") left top/contain; }
-  #scene3_2 .act4 {
-    width: 50em;
-    height: 53em;
-    left: 124em; }
-    #scene3_2 .act4 .alice-shape {
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      bottom: 0;
-      height: 26.35em;
-      width: 11.9em;
-      background: url("../images/alice_walking_4.png") left top no-repeat;
-      background-size: contain; }
-    #scene3_2 .act4 .content-wrapper {
-      visibility: hidden;
-      width: 36rem;
-      height: 28rem;
-      margin: 18rem 0px 0px 9rem;
-      -webkit-shape-inside: polygon(nonzero, 141px 69px, 401px 69px, 577px 154px, 488px 271px, 321px 309px, 131px 388px, 129px 446px, 65px 447px, 50px 418px, 6px 407px, 38px 344px, 9px 291px, 35px 240px, 13px 153px); }
-  #scene3_2 .act5 {
-    height: 73em;
-    width: 40em;
-    left: 200em; }
-    #scene3_2 .act5 .alice-shape {
-      opacity: 0;
-      visibility: hidden;
-      position: absolute;
-      bottom: 0;
-      left: 4em;
-      height: 26.35em;
-      width: 11.9em;
-      background: url("../images/alice_walking_2.png") left top no-repeat;
-      background-size: contain; }
-  #scene3_2 .act6 {
-    height: 40em;
-    width: 45em;
-    left: 225em;
-    top: 25em; }
-    #scene3_2 .act6 .cat-head {
-      width: 20.75em;
-      height: 20.75em;
-      font-size: 0.8em;
-      position: absolute;
-      left: 15em;
-      z-index: 5; }
-      #scene3_2 .act6 .cat-head .state {
-        width: 100%;
-        height: 100%;
-        background-position: top left;
-        background-repeat: no-repeat;
-        background-size: cover;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        left: 0; }
-      #scene3_2 .act6 .cat-head .state.state-1 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: 0em 0; }
-      #scene3_2 .act6 .cat-head .state.state-2 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -20.75em 0; }
-      #scene3_2 .act6 .cat-head .state.state-3 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -41.5em 0; }
-      #scene3_2 .act6 .cat-head .state.state-4 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -62.25em 0; }
-      #scene3_2 .act6 .cat-head .state.state-5 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -83em 0; }
-      #scene3_2 .act6 .cat-head .state.state-6 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -103.75em 0; }
-      #scene3_2 .act6 .cat-head .state.state-7 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -124.5em 0; }
-      #scene3_2 .act6 .cat-head .state.state-8 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -145.25em 0; }
-      #scene3_2 .act6 .cat-head .state.state-9 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -166em 0; }
-      #scene3_2 .act6 .cat-head .state.state-10 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -186.75em 0; }
-      #scene3_2 .act6 .cat-head .state.state-11 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -207.5em 0; }
-      #scene3_2 .act6 .cat-head .state.state-12 {
-        background-image: url(../images/sprite-cat-head.png);
-        background-position: -228.25em 0; }
-    #scene3_2 .act6 .content-wrapper {
-      width: 100%;
-      height: 100%;
-      position: relative; }
-    #scene3_2 .act6 #region1 {
-      float: left;
-      width: 20em;
-      margin-top: 15%;
-      height: 80%;
-      -webkit-shape-inside: polygon(nonzero, 46px 0px, 206px 0px, 183px 74px, 200px 103px, 321px 158px, 321px 307px, 242px 328px, 242px 405px, 274px 448px, 207px 482px, 7px 465px); }
-    #scene3_2 .act6 #region2 {
-      float: left;
-      margin-left: 1.5em;
-      width: 23em;
-      margin-top: 10%;
-      height: 50%;
-      -webkit-shape-inside: polygon(nonzero, 130px 58px, 76px 0px, 368px 0px, 324px 323px, 0px 320px, 0px 218px, 46px 187px, 90px 130px); }
-
-.cat-shape1 {
-  -webkit-shape-outside: polygon(0.69em -0.15em, 1.88em 1.13em, 3.63em 2.15em, 3.5em 3.6em, 4.09em 4.25em, 5.59em 3.56em, 5.88em 4.25em, 4.5em 5.44em, 3.72em 6.25em, 5.34em 7.25em, 6.03em 6.78em, 8.63em 7.38em, 10.6em 7.07em, 11.65em 6.78em, 12.31em 5.63em, 12.65em 7.19em, 13.38em 7.47em, 13.69em 8.65em, 14.81em 8.75em, 13.56em 9.94em, 12.78em 11.63em, 12.19em 13.69em, 10.03em 15.75em, 9.47em 15.38em, 5.84em 16.53em, 2.81em 15.78em, 1.09em 13.78em, 0.03em 11.35em, 1.56em 7.59em, 0.22em 6.22em, 0.97em 4.32em, 1.81em 2.97em, 0.94em 1.81em) border-box;
-  background: url("../images/cat_falling1-05.png") top left no-repeat;
-  background-size: contain;
-  visibility: hidden;
-  width: 14.75em;
-  height: 16.625em; }
-
-.cat-shape2 {
-  -webkit-shape-outside: polygon(1.16em 0.78em, 4.63em 0em, 5.63em 0.81em, 5.84em 2.06em, 5.19em 3.44em, 6.28em 4em, 6.82em 5.5em, 9.31em 5.94em, 10.47em 4.84em, 12.03em 4.19em, 13.13em 3.03em, 14.85em 2.81em, 16.28em 2.75em, 18em 3.56em, 17.25em 4.38em, 17.28em 5.5em, 16.66em 7em, 15.53em 7.16em, 15em 8.1em, 16.32em 8.94em, 17.25em 11.03em, 16.07em 11.4em, 16.75em 12.69em, 15.5em 12.72em, 15.13em 11.47em, 13.35em 11.03em, 12.6em 10.53em, 10.38em 12.06em, 8.53em 12.22em, 3.38em 10.65em, 0.56em 8.9em, 0.03em 7.66em, 0.32em 6.63em, 1.28em 4.41em, 1em 3.53em, 1.5em 2.53em);
-  background: url("../images/cat_falling2-05.png") top left no-repeat;
-  background-size: contain;
-  visibility: hidden;
-  width: 18em;
-  height: 13.3125em; }
-
-.cat-shape3 {
-  -webkit-shape-outside: polygon(0.59em 0.13em, 1.78em 0.13em, 2.34em 1.25em, 2.5em 2.1em, 3.56em 2.13em, 4.54em 1.09em, 5.42em 0.82em, 6.8em 0.8em, 9.09em 1.65em, 11.81em 1.2em, 14.99em 1.91em, 16.63em 2.13em, 17.59em 2.45em, 18.12em 4.15em, 19.05em 4.81em, 17.85em 5.05em, 16.85em 5.81em, 15.11em 6.27em, 12.38em 6.66em, 11.5em 8.42em, 10.44em 9.94em, 9.94em 9.78em, 10.86em 7.34em, 10.29em 6.75em, 8.1em 6.59em, 7.17em 7.39em, 4.6em 6.66em, 5.07em 7.7em, 4.57em 8.82em, 3.24em 6.06em, 3.21em 3.85em, 1.3em 3.48em, 0.13em 2.15em, 0.03em 0.77em);
-  background: url("../images/cat_falling3-05.png") top left no-repeat;
-  background-size: contain;
-  visibility: hidden;
-  width: 18.9em;
-  height: 9.9em; }
-
-.cat-shape4 {
-  -webkit-shape-outside: polygon(-0.11em 3.16em, 1.25em 1.62em, 6.61em 0.06em, 7.46em 0.45em, 12.75em 0.82em, 15.01em 0.19em, 17.43em 1.83em, 16.69em 2.36em, 15.67em 3.99em, 14.64em 3.96em, 13.57em 5.21em, 14.53em 8.61em, 14.31em 9.59em, 13.12em 10.46em, 10.95em 5.29em, 7.22em 5.31em, 5.37em 6.45em, 6.88em 7.49em, 6.65em 7.99em, 3.14em 6.56em, 3.43em 5.34em, 2.76em 4.2em, 0.56em 4.28em);
-  background: url("../images/cat_falling4-05.png") top left no-repeat;
-  background-size: contain;
-  visibility: hidden;
-  width: 17.3em;
-  height: 10.25em; }
-
-.cat-shape5 {
-  -webkit-shape-outside: polygon(0.17em 2.42em, 1.83em 1.26em, 1.92em 2.78em, 5.53em 3.09em, 9.21em 0.36em, 11.12em 0.02em, 13.16em 0.71em, 13.96em 1.8em, 15.22em 1.14em, 16.89em 1.64em, 18.36em 2.94em, 17.27em 3.52em, 16.74em 4.82em, 15.72em 5.51em, 14.44em 6.55em, 14.08em 7.24em, 14.3em 11.33em, 11.66em 11.61em, 9em 11.88em, 8.15em 11.33em, 7.2em 11.8em, 7.84em 13.06em, 6.65em 12.9em, 6.27em 12.16em, 5.53em 9.83em, 5.46em 7.96em, 4.7em 5.96em, 4.92em 4.54em, 3.85em 4.3em, 2.11em 4.87em, 0.1em 3.94em);
-  background: url("../images/cat_falling5-038.png") top left no-repeat;
-  background-size: contain;
-  visibility: hidden;
-  width: 18.33em;
-  height: 13.11em; }
-
-/* NOT USED */
-/*.cat-shape6{
-  @include cat-shape('../images/cat_falling6.png', polygon(-0.31em 0.25em, 4.94em 2.25em, 8.38em 6.31em, 9.69em 14.63em, 11.63em 15.44em, 17.56em 11.44em, 22.06em 10.13em, 28.94em 12.31em, 32.06em 15.50em, 37.13em 15.31em, 40.88em 16.88em, 39.63em 18.19em, 39.63em 21.31em, 38.63em 23.13em, 37.25em 24.56em, 34.56em 24.13em, 33.50em 27.63em, 32.94em 29.63em, 33.69em 33.06em, 33.63em 37.00em, 35.56em 41.19em, 33.06em 41.25em, 30.06em 40.63em, 30.19em 43.75em, 27.56em 43.63em, 26.19em 39.38em, 22.44em 37.00em, 18.69em 38.69em, 19.38em 40.81em, 14.50em 42.50em, 12.44em 41.06em, 10.94em 36.81em, 9.81em 30.94em, 8.81em 23.19em, 10.06em 18.75em, 7.44em 17.50em, 5.75em 11.63em, 1.56em 6.44em));
-  width: 40.75em;
-  height: 43.75em;
-} */
-.cat-shape-walking {
-  -webkit-shape-outside: polygon(2.85em 0.02em, 4.63em 0.21em, 5.22em 1.33em, 4.87em 2.54em, 3.3em 3.09em, 3.16em 4.37em, 4.46em 6.46em, 8.17em 6.15em, 13.47em 7.03em, 14.99em 6.63em, 14.72em 5.13em, 16.13em 5.46em, 17.53em 5.01em, 18.07em 5.63em, 19.21em 4.77em, 19.26em 6.27em, 19.97em 7.43em, 19.09em 7.98em, 17.67em 9.67em, 17.57em 12.28em, 19.29em 14.72em, 21.07em 15.82em, 20.57em 16.46em, 19.05em 16.05em, 14.75em 12.52em, 13.18em 12.63em, 11.8em 15.58em, 12.45em 16.1em, 11.9em 16.72em, 11.09em 16.6em, 10.88em 15.79em, 11.45em 12.56em, 7.22em 12.56em, 6.39em 13.89em, 5.63em 15.2em, 6.63em 16.22em, 7.72em 16.96em, 6.08em 17.1em, 4.44em 15.46em, 4.06em 14.23em, 4.37em 12.87em, 1.78em 13.7em, 0.78em 16.65em, -0.05em 16.22em, 0.67em 13.66em, 1.07em 12.16em, 2.42em 10.81em, 2.87em 7.01em, 1.57em 4.32em, 1.19em 2.87em, 1.66em 1.12em);
-  background: url("../images/cat_walking-038.png") top left no-repeat;
-  background-size: contain;
-  visibility: hidden;
-  width: 21em;
-  height: 16em; }
+  height: 100%;
+  padding-top: 1px;
+  /* prevent margin-collapse from H1 */ }
