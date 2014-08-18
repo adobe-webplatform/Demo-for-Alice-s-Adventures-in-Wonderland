@@ -69,15 +69,23 @@
 
   (function(){
     // helpers
-    $ = document.querySelector.bind(document);
-    Node.prototype.on = function(event, fn){ this.addEventListener(event, fn, false); };
+    var $ = document.querySelector.bind(document);
+    Node.prototype.on = window.on = function(event, fn){ this.addEventListener(event, fn, false); };
+
 
     $sceneEl = $('.scene--alice');
     $textEl = $('.scene--alice p');
     $titleEl = $('h1');
 
-    console.log($titleEl.offsetTop)
+    var lastOffset = 0;
 
+    window.on('scroll', function(e){
+      if (window.scrollY > $titleEl.offsetTop){
+        window.requestAnimationFrame(function(){
+          $textEl.style.paddingTop = (window.scrollY - $titleEl.offsetTop) + 'px';
+        })
+      }
+    })
 
   })()
 

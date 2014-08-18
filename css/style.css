@@ -650,3 +650,6 @@ h1 {
   height: 100%;
   padding-top: 1px;
   /* prevent margin-collapse from H1 */ }
+
+.content p {
+  will-change: padding; }
