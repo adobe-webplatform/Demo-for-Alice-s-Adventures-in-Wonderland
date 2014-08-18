@@ -572,6 +572,16 @@ p + p {
 .wf-active p {
   font-size: 1.2em; }
 
+.keyframes {
+  position: absolute;
+  z-index: 2; }
+  .keyframes div {
+    height: 100vh;
+    width: 10px;
+    background: yellow; }
+  .keyframes .keyframe--alice {
+    background: lime; }
+
 /*
 Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.
 Wrapping all content to prevent horizontal scrolling.
@@ -603,7 +613,7 @@ Wrapping all content to prevent horizontal scrolling.
   */
   height: 75em;
   width: 120em;
-  position: relative;
+  position: fixed;
   background: url(../images/bg_scn1.jpg) left top;
   background-size: 100%; }
   @media all and (max-width: 1280px) {

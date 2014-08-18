@@ -6,7 +6,11 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 </head>
 <body>
-
+  <div class="keyframes">
+    <div class="keyframe--intro"></div>
+    <div class="keyframe--alice"></div>
+    <div class="keyframe--outro"></div>
+  </div>
   <!-- overlay for fade to black -->
   <div id="overlay"></div>
 
@@ -72,20 +76,30 @@
     var $ = document.querySelector.bind(document);
     Node.prototype.on = window.on = function(event, fn){ this.addEventListener(event, fn, false); };
 
+    var $sceneEl = $('.scene--alice');
+    var $keyframeEl = $('.keyframe--alice');
+    var $textEl = $('.scene--alice p');
+    var $titleEl = $('h1');
+    var textOffsetMultiplier = 1.3;
 
-    $sceneEl = $('.scene--alice');
-    $textEl = $('.scene--alice p');
-    $titleEl = $('h1');
+    $keyframeEl.style.height = window.getComputedStyle($sceneEl).height;
 
-    var lastOffset = 0;
+    var minOff = $keyframeEl.offsetTop,
+        maxOff = $keyframeEl.offsetTop + parseInt(window.getComputedStyle($keyframeEl).height, 10) - window.innerHeight;
 
     window.on('scroll', function(e){
-      if (window.scrollY > $titleEl.offsetTop){
-        window.requestAnimationFrame(function(){
-          $textEl.style.paddingTop = (window.scrollY - $titleEl.offsetTop) + 'px';
-        })
-      }
-    })
+      window.requestAnimationFrame(function(){
+
+        if (window.scrollY > $titleEl.offsetTop + minOff){
+          $textEl.style.paddingTop = (window.scrollY - $titleEl.offsetTop - minOff) * textOffsetMultiplier + 'px';
+        }
+
+        if (window.scrollY > minOff && window.scrollY < maxOff){
+          var yOffset = (minOff - window.scrollY) + "px";
+          $sceneEl.style.transform = ['translate3d(0, ', yOffset, ', 0)'].join('');
+        }
+      })
+    });
 
   })()
 
