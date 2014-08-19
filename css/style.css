@@ -330,25 +330,12 @@ body {
 
 p {
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
   line-height: 1.5;
   font-family: Georgia, serif; }
 
 p + p {
   margin-top: 1.6em; }
-
-.wf-active p {
-  font-size: 1.2em; }
-
-.keyframes {
-  position: absolute;
-  z-index: 2; }
-  .keyframes div {
-    height: 100vh;
-    width: 10px;
-    background: yellow; }
-  .keyframes .keyframe--alice {
-    background: lime; }
 
 /*
 Scroll events don't trigger on vertical scrolling if overflow-x is applied to the body.
@@ -404,29 +391,15 @@ Wrapping all content to prevent horizontal scrolling.
   background: black; }
 
 .scene--intro {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+  width: 100%;
+  height: 100%;
   color: #eee;
   text-align: center;
   -webkit-transition: opacity 0.5s ease-in;
   -moz-transition: opacity 0.5s ease-in;
   -ms-transition: opacity 0.5s ease-in;
   transition: opacity 0.5s ease-in;
-  box-sizing: border-box;
-  width: 40rem;
-  height: 70%; }
-  .scene--intro::before {
-    top: 0;
-    right: 0;
-    z-index: -1;
-    position: fixed;
-    background: rgba(66, 66, 66, 0.9);
-    content: ' ';
-    width: 100%;
-    height: 100%; }
+  background: rgba(66, 66, 66, 0.9); }
   .scene--intro.hidden {
     display: none; }
   .scene--intro.hide {
