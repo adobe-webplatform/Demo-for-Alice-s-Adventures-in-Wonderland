@@ -554,7 +554,7 @@ table {
 html, body {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0); }
+  background: black; }
 
 body {
   margin: 0;

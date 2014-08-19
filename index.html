@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="keyframes">
-    <div class="keyframe--intro"></div>
+    <!-- <div class="keyframe--intro"></div> -->
     <div class="keyframe--alice"></div>
     <div class="keyframe--outro"></div>
   </div>
@@ -80,17 +80,22 @@
     var $keyframeEl = $('.keyframe--alice');
     var $textEl = $('.scene--alice p');
     var $titleEl = $('h1');
-    var textOffsetMultiplier = 1.3;
+    var textOffsetMultiplier = 1.4;
+    var textOffsetLimit = parseInt(window.getComputedStyle($textEl).height, 10);
 
     $keyframeEl.style.height = window.getComputedStyle($sceneEl).height;
 
     var minOff = $keyframeEl.offsetTop,
         maxOff = $keyframeEl.offsetTop + parseInt(window.getComputedStyle($keyframeEl).height, 10) - window.innerHeight;
 
+    var minTextOff = $titleEl.offsetTop + minOff,
+        maxTextOff = minTextOff + parseInt(window.getComputedStyle($textEl).height, 10);
+
+
     window.on('scroll', function(e){
       window.requestAnimationFrame(function(){
 
-        if (window.scrollY > $titleEl.offsetTop + minOff){
+        if (window.scrollY > minTextOff && window.scrollY < maxTextOff){
           $textEl.style.paddingTop = (window.scrollY - $titleEl.offsetTop - minOff) * textOffsetMultiplier + 'px';
         }
 
