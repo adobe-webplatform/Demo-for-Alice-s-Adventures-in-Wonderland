@@ -316,238 +316,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/**
- *
- * Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-@-webkit-keyframes title-in {
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0em); } }
-
-@-webkit-keyframes fade-out {
-  to {
-    opacity: 0; } }
-
-@-webkit-keyframes fade-in {
-  to {
-    opacity: 1; } }
-
-@-webkit-keyframes shadow-swivel1 {
-  from {
-    -webkit-transform: rotateZ(-25deg); }
-
-  50% {
-    -webkit-transform: rotateZ(-23deg); }
-
-  to {
-    -webkit-transform: rotateZ(-25deg); } }
-
-@-webkit-keyframes alice-act-in {
-  from {
-    -webkit-transform: rotateY(-20deg); }
-
-  to {
-    opacity: 1;
-    -webkit-transform: rotateY(0); } }
-
-@-webkit-keyframes float {
-  0% {
-    -webkit-transform: translate(0, 0); }
-
-  50% {
-    -webkit-transform: translate(3px, -12px); }
-
-  100% {
-    -webkit-transform: translate(0, 0); } }
-
-.anim-fade-out {
-  -webkit-animation: fade-out 1s ease-out;
-  -webkit-animation-fill-mode: forwards; }
-
-.anim-fade-in {
-  -webkit-animation: fade-out 1s ease-out;
-  -webkit-animation-fill-mode: forwards; }
-
-.anim-floating {
-  -webkit-transform: translateZ(0);
-  -webkit-animation: float 8s infinite ease-in-out; }
-
-/**
- *
- * Copyright (c) 2013 Adobe Systems Incorporated. All rights reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-.no-shape-inside {
-  /* hide scenes, hints and navigation */
-  /* show glimpse of first scene and warning */
-  /* prevent navigation */ }
-  .no-shape-inside .wrapper div, .no-shape-inside #intro .direction, .no-shape-inside nav {
-    display: none; }
-  .no-shape-inside body .wrapper {
-    height: 100%;
-    overflow: hidden; }
-
-#intro {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  color: #eee;
-  text-align: center;
-  -webkit-transition: opacity 0.5s ease-in;
-  -moz-transition: opacity 0.5s ease-in;
-  -ms-transition: opacity 0.5s ease-in;
-  transition: opacity 0.5s ease-in;
-  z-index: 7;
-  box-sizing: border-box;
-  width: 40rem;
-  height: 70%; }
-  #intro::before {
-    top: 0;
-    right: 0;
-    z-index: -1;
-    position: fixed;
-    background: rgba(66, 66, 66, 0.89);
-    content: ' ';
-    width: 100%;
-    height: 100%; }
-  #intro.hidden {
-    display: none; }
-  #intro.hide {
-    opacity: 0; }
-  #intro a, #intro header span {
-    white-space: nowrap; }
-  #intro a {
-    color: inherit; }
-    #intro a:active {
-      color: #A70203; }
-    #intro a:hover {
-      text-decoration: none; }
-  #intro p {
-    padding: 1rem 3rem;
-    font-size: 1.3em; }
-  #intro .warning {
-    text-align: left;
-    display: none;
-    border-radius: 22px;
-    background: #fcffd5 url(../images/warning.png) left center no-repeat;
-    background-size: auto 75%;
-    background-position: -5% 5%;
-    padding: 1rem 0; }
-    #intro .warning p {
-      color: #333;
-      padding-left: 4.5rem; }
-    #intro .warning a {
-      color: #A70203; }
-      #intro .warning a:active {
-        color: black; }
-  #intro .direction {
-    width: 10rem;
-    margin: 0 auto;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    padding: 2rem 3rem 0;
-    font-weight: 100; }
-    #intro .direction .illustration {
-      float: left;
-      width: 2rem;
-      margin-right: 1rem; }
-    #intro .direction span {
-      width: 100%;
-      height: 0.6rem;
-      background: white;
-      display: block;
-      opacity: 1;
-      -webkit-animation-name: fade;
-      animation-name: fade;
-      -webkit-animation-duration: 1.6s;
-      animation-duration: 1.6s;
-      -webkit-animation-iteration-count: infinite;
-      animation-iteration-count: infinite; }
-      #intro .direction span + span {
-        margin-top: 0.8rem; }
-      #intro .direction span:nth-child(2) {
-        -webkit-animation-delay: 0.8s;
-        animation-delay: 0.8s; }
-      #intro .direction span:nth-child(3) {
-        -webkit-animation-delay: 1.4s;
-        animation-delay: 1.4s; }
-  #intro header {
-    padding: 3rem 3rem 1rem;
-    font-size: 2em;
-    font-weight: 700;
-    font-family: Georgia, serif; }
-    #intro header span {
-      font-size: 0.6em; }
-  #intro footer a {
-    bottom: 0;
-    right: 0;
-    position: fixed;
-    z-index: 12;
-    text-indent: -99em;
-    overflow: hidden; }
-  #intro footer .ultranoir-logo {
-    right: 5rem;
-    width: 3.8rem;
-    height: 4.5rem;
-    background: url(../logos/logo-ultranoir.svg) center top/contain;
-    background-repeat: no-repeat; }
-  #intro footer .adobe-logo {
-    right: 1rem;
-    width: 2.7rem;
-    height: 4.5rem;
-    background: url(../logos/logo-adobe-bottom.svg) center bottom/contain; }
-
-@-webkit-keyframes fade {
-  0% {
-    opacity: 1; }
-
-  70% {
-    opacity: 0.2; }
-
-  100% {
-    opacity: 1; } }
-
-@keyframes fade {
-  0% {
-    opacity: 1; }
-
-  70% {
-    opacity: 0.2; }
-
-  100% {
-    opacity: 1; } }
-
 * {
   box-sizing: border-box; }
 
@@ -592,9 +360,6 @@ Wrapping all content to prevent horizontal scrolling.
   background: black;
   position: relative; }
 
-#intro {
-  display: none; }
-
 /* Used for cross-fade between scenes */
 #overlay {
   position: fixed;
@@ -606,6 +371,20 @@ Wrapping all content to prevent horizontal scrolling.
   opacity: 0;
   visibility: hidden; }
 
+.scene, .scene--alice, .scene--outro, .scene--intro {
+  position: fixed; }
+
+.scene--intro {
+  z-index: 2;
+  opacity: 1; }
+
+.scene--alice {
+  z-index: 1; }
+
+.scene--outro {
+  z-index: 3;
+  opacity: 0; }
+
 .scene--alice {
   /*
     Scale the scene size by tweaking the font-size on .wrapper
@@ -613,12 +392,119 @@ Wrapping all content to prevent horizontal scrolling.
   */
   height: 75em;
   width: 120em;
-  position: fixed;
   background: url(../images/bg_scn1.jpg) left top;
   background-size: 100%; }
   @media all and (max-width: 1280px) {
     .scene--alice {
       margin-left: -18em; } }
+
+.scene--outro {
+  width: 100%;
+  height: 100%;
+  background: black; }
+
+.scene--intro {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  color: #eee;
+  text-align: center;
+  -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+  box-sizing: border-box;
+  width: 40rem;
+  height: 70%; }
+  .scene--intro::before {
+    top: 0;
+    right: 0;
+    z-index: -1;
+    position: fixed;
+    background: rgba(66, 66, 66, 0.9);
+    content: ' ';
+    width: 100%;
+    height: 100%; }
+  .scene--intro.hidden {
+    display: none; }
+  .scene--intro.hide {
+    opacity: 0; }
+  .scene--intro header span {
+    display: block; }
+  .scene--intro a, .scene--intro header span {
+    white-space: nowrap; }
+  .scene--intro a {
+    color: inherit; }
+    .scene--intro a:active {
+      color: #A70203; }
+    .scene--intro a:hover {
+      text-decoration: none; }
+  .scene--intro p {
+    padding: 1rem 3rem;
+    font-size: 1.3em; }
+  .scene--intro .warning {
+    text-align: left;
+    display: none;
+    border-radius: 22px;
+    background: #fcffd5 url(../images/warning.png) left center no-repeat;
+    background-size: auto 75%;
+    background-position: -5% 5%;
+    padding: 1rem 0; }
+    .scene--intro .warning p {
+      color: #333;
+      padding-left: 4.5rem; }
+    .scene--intro .warning a {
+      color: #A70203; }
+      .scene--intro .warning a:active {
+        color: black; }
+  .scene--intro .direction {
+    width: 10rem;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 2rem 3rem 0;
+    font-weight: 100; }
+  .scene--intro header {
+    padding: 3rem 3rem 1rem;
+    font-size: 2em;
+    font-weight: 700;
+    font-family: Georgia, serif; }
+    .scene--intro header span {
+      font-size: 0.6em; }
+  .scene--intro footer a {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 12;
+    text-indent: -99em;
+    overflow: hidden; }
+  .scene--intro footer .ultranoir-logo {
+    right: 5rem;
+    width: 3.8rem;
+    height: 4.5rem;
+    background: url(../logos/logo-ultranoir.svg) center top/contain;
+    background-repeat: no-repeat; }
+  .scene--intro footer .adobe-logo {
+    right: 1rem;
+    width: 2.7rem;
+    height: 4.5rem;
+    background: url(../logos/logo-adobe-bottom.svg) center bottom/contain; }
+
+.no-shape-inside {
+  /* hide scenes, hints and navigation */
+  /* show glimpse of first scene and warning */
+  /* prevent navigation */ }
+  .no-shape-inside .wrapper div, .no-shape-inside .scene--intro .direction, .no-shape-inside nav {
+    display: none; }
+  .no-shape-inside #scene1, .no-shape-inside .scene--intro .warning {
+    display: block; }
+  .no-shape-inside body .wrapper {
+    height: 100%;
+    overflow: hidden; }
 
 .shape-shim, .shape-shim--left, .shape-shim--right {
   height: 100%;
@@ -633,6 +519,11 @@ Wrapping all content to prevent horizontal scrolling.
   float: right;
   shape-outside: polygon(94px 1007px, 82px 886px, -2px 840px, -2px 794px, 12px 756px, 15px 685px, 58px 618px, 139px 600px, 154px 532px, 89px 472px, 95px 414px, 143px 374px, 219px 285px, 146px 177px, 212px 1px, 960px 0px, 960px 1200px, 59px 1199px);
   -webkit-shape-outside: polygon(94px 1007px, 82px 886px, -2px 840px, -2px 794px, 12px 756px, 15px 685px, 58px 618px, 139px 600px, 154px 532px, 89px 472px, 95px 414px, 143px 374px, 219px 285px, 146px 177px, 212px 1px, 960px 0px, 960px 1200px, 59px 1199px); }
+
+@-webkit-keyframes title-in {
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0em); } }
 
 h1 {
   font-size: 1em;

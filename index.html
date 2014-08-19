@@ -7,39 +7,38 @@
 </head>
 <body>
   <div class="keyframes">
-    <!-- <div class="keyframe--intro"></div> -->
+    <div class="keyframe--intro"></div>
     <div class="keyframe--alice"></div>
     <div class="keyframe--outro"></div>
   </div>
-  <!-- overlay for fade to black -->
-  <div id="overlay"></div>
-
-  <!-- introduction slide and feature detect message -->
-  <div id="intro">
-    <header>Demo for Alice in Wonderland <span>by Lewis Carroll</span></header>
-    <p>
-      <a href="http://blogs.adobe.com/webplatform/2013/10/23/css-shapes-visual-storytelling/" target="_blank">Using CSS Shapes</a> to enhance visual storytelling.
-    </p>
-    <div class="warning">
-      <p>
-        This example demonstrates cutting-edge features that the <a href="http://html.adobe.com/webplatform/" target="_blank">Adobe Web Platform Team</a> is working on. To see these features in action, <a href="http://html.adobe.com/webplatform/enable/#section-chrome-canary" target="_blank">enable CSS Shapes</a> in the <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Google Chrome Canary</a> browser.
-        <a href="http://html.adobe.com/webplatform/layout/shapes/browser-support/" target="_blank">CSS Shapes Support Matrix</a>.
-        <br><br>
-        <strong>Update, May 2014:</strong> Support for CSS <code>shape-inside</code>, which this example uses, is only available up until the following nightly builds: <a href="http://builds.nightly.webkit.org/files/trunk/mac/WebKit-SVN-r166290.dmg">WebKit r166290</a> and <a href="http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?path=Mac/260092/">Chromium 260092</a>. Widespread support will return at a later date.
-      </p>
-
-    </div>
-
-    <div class="direction">
-      <em>scroll to begin</em>
-    </div>
-    <footer>
-      <a href="http://html.adobe.com" class="adobe-logo" target="_blank">html.adobe.com</a>
-      <a href="http://ultranoir.com" class="ultranoir-logo" target="_blank">ultranoir.com</a>
-    </footer>
-  </div>
 
   <div class="wrapper">
+
+    <!-- introduction slide and feature detect message -->
+    <div class="scene--intro">
+      <header>Demo for Alice in Wonderland <span>by Lewis Carroll</span></header>
+      <p>
+        <a href="http://blogs.adobe.com/webplatform/2013/10/23/css-shapes-visual-storytelling/" target="_blank">Using CSS Shapes</a> to enhance visual storytelling.
+      </p>
+      <div class="warning">
+        <p>
+          This example demonstrates cutting-edge features that the <a href="http://html.adobe.com/webplatform/" target="_blank">Adobe Web Platform Team</a> is working on. To see these features in action, <a href="http://html.adobe.com/webplatform/enable/#section-chrome-canary" target="_blank">enable CSS Shapes</a> in the <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Google Chrome Canary</a> browser.
+          <a href="http://html.adobe.com/webplatform/layout/shapes/browser-support/" target="_blank">CSS Shapes Support Matrix</a>.
+          <br><br>
+          <strong>Update, May 2014:</strong> Support for CSS <code>shape-inside</code>, which this example uses, is only available up until the following nightly builds: <a href="http://builds.nightly.webkit.org/files/trunk/mac/WebKit-SVN-r166290.dmg">WebKit r166290</a> and <a href="http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?path=Mac/260092/">Chromium 260092</a>. Widespread support will return at a later date.
+        </p>
+
+      </div>
+
+      <div class="direction">
+        <em>scroll to begin</em>
+      </div>
+
+      <footer>
+        <a href="http://html.adobe.com" class="adobe-logo" target="_blank">html.adobe.com</a>
+        <a href="http://ultranoir.com" class="ultranoir-logo" target="_blank">ultranoir.com</a>
+      </footer>
+    </div>
 
     <div class="scene--alice">
       <div class="content">
@@ -66,6 +65,8 @@
         </p>
       </div>
     </div><!-- end .scene -->
+
+    <div class="scene--outro"></div>
 
   </div><!-- end .wrapper -->
 

@@ -17,8 +17,6 @@
  */
 
 @import '../third-party/normalize/normalize.scss';
-@import '_animations';
-@import '_intro';
 
 * {
   box-sizing: border-box;
@@ -77,10 +75,6 @@ Wrapping all content to prevent horizontal scrolling.
   position: relative;
 }
 
-#intro{
-  display: none;
-}
-
 /* Used for cross-fade between scenes */
 #overlay{
   position: fixed;
@@ -94,20 +88,204 @@ Wrapping all content to prevent horizontal scrolling.
   visibility: hidden;
 }
 
+.scene{
+  position: fixed;
+}
+
+.scene--intro{
+  z-index: 2;
+  opacity: 1;
+}
 .scene--alice{
+  z-index: 1;
+}
+.scene--outro{
+  z-index: 3;
+  opacity: 0;
+}
+
+.scene--alice{
+  @extend .scene;
   /*
     Scale the scene size by tweaking the font-size on .wrapper
     The background will scale with the scene. Fonts are in `rem` so they stay constant.
   */
   height: 75em;
   width: 120em;
-  position: fixed;
   background: url(../images/bg_scn1.jpg) left top;
   background-size: 100%;
 
   @media all and (max-width: 1280px){
     margin-left: -18em;
   }
+}
+
+.scene--outro{
+  @extend .scene;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 1);
+}
+
+.scene--intro{
+  @extend .scene;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  color: #eee;
+  text-align: center;
+  -webkit-transition: opacity 0.5s ease-in;
+  -moz-transition: opacity 0.5s ease-in;
+  -ms-transition: opacity 0.5s ease-in;
+  transition: opacity 0.5s ease-in;
+
+  $bg: rgba(66, 66, 66, 0.9);
+
+  box-sizing: border-box;
+  width: 40rem;
+  height: 70%;
+
+  &::before{
+    top: 0;
+    right: 0;
+    z-index: -1;
+    position: fixed;
+    background: $bg;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+  }
+
+  &.hidden{
+    display: none;
+  }
+
+  &.hide{
+    opacity: 0;
+  }
+
+  header span{
+    display: block;
+  }
+
+  a,
+  header span{
+    white-space: nowrap;
+  }
+
+  a{
+    color: inherit;
+
+    &:active{
+      color: #A70203;
+    };
+
+    &:hover{
+      text-decoration: none;
+    }
+  }
+
+  p{
+    padding: 1rem 3rem;
+    font-size: 1.3em;
+  }
+
+  .warning{
+    text-align: left;
+    display: none;
+    border-radius: 22px;
+    background: #fcffd5 url(../images/warning.png) left center no-repeat;
+    background-size: auto 75%;
+    background-position: -5% 5%;
+    padding: 1rem 0;
+
+    p{
+      color: #333;
+      padding-left: 4.5rem;
+    }
+
+    a{
+      color: #A70203;
+
+      &:active{
+        color: black;
+      }
+    }
+  }
+
+  .direction{
+    width: 10rem;
+    margin: 0 auto;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    padding: 2rem 3rem 0;
+    font-weight: 100;
+  }
+
+  header{
+    padding: 3rem 3rem 1rem;
+    font-size: 2em;
+    font-weight: 700;
+    font-family: Georgia, serif;
+
+    span{
+      font-size: 0.6em;
+    }
+  }
+
+  footer{
+
+    a{
+      bottom: 0;
+      right: 0;
+      position: fixed;
+      z-index: 12;
+      text-indent: -99em;
+      overflow: hidden;
+    }
+
+    .ultranoir-logo{
+      right: 5rem;
+      width: 3.8rem;
+      height: 4.5rem;
+      background: url(../logos/logo-ultranoir.svg) center top / contain;
+      background-repeat: no-repeat;
+    }
+
+    .adobe-logo{
+      right: 1rem;
+      width: 2.7rem;
+      height: 4.5rem;
+      background: url(../logos/logo-adobe-bottom.svg) center bottom / contain;
+    }
+  }
+}
+
+.no-shape-inside{
+
+  /* hide scenes, hints and navigation */
+  .wrapper div,
+  .scene--intro .direction,
+  nav{
+    display: none;
+  }
+
+  /* show glimpse of first scene and warning */
+  #scene1,
+  .scene--intro .warning{
+    display: block;
+  }
+
+  /* prevent navigation */
+  body .wrapper{
+    height: 100%;
+    overflow: hidden;
+  }
+
 }
 
 .shape-shim{
@@ -137,6 +315,13 @@ Wrapping all content to prevent horizontal scrolling.
   // background: rgba(255, 192, 203, 0.5);
 }
 
+
+@-webkit-keyframes title-in{
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0em);
+  }
+}
 
 h1{
   font-size: 1em;
