@@ -77,11 +77,13 @@
         $sceneAlice = $('.js-scene--alice'),
         $elContent  = $('.js-content'),
         $elTitle    = $('.js-title'),
-        $elTrack = $('.js-timeline-track');
+        $elTrack    = $('.js-timeline-track');
 
-    var introBox = $sceneIntro.getBoundingClientRect(),
-        outroBox = $sceneOutro.getBoundingClientRect(),
-        aliceBox = $sceneAlice.getBoundingClientRect();
+    var introBox   = $sceneIntro.getBoundingClientRect(),
+        outroBox   = $sceneOutro.getBoundingClientRect(),
+        aliceBox   = $sceneAlice.getBoundingClientRect(),
+        contentBox = $elContent.getBoundingClientRect(),
+        titleBox   = $elTitle.getBoundingClientRect();
 
     var timeline = [];
 
@@ -106,8 +108,9 @@
 
     // Add Alice scene offset animation to timeline
     timeline.push({
-      min: introBox.height,
-      max: introBox.height + aliceBox.height,
+      // chain after prev animation
+      min: timeline[timeline.length - 1].max + aliceBox.top,
+      max: timeline[timeline.length - 1].max + aliceBox.top + aliceBox.height,
       freeze: false,
       fn: function(progress){
         if (this.freeze){
@@ -121,6 +124,25 @@
           var str = 'translate3d(0, ' + offset + 'px, 0)';
           $sceneAlice.style['-webkit-transform'] = str;
           $sceneAlice.style['transform'] = str;
+        })
+      }
+    });
+
+    // Add text offset animation to timeline
+    timeline.push({
+      min: timeline[timeline.length - 1].min * 1.4  + contentBox.top,
+      max: timeline[timeline.length - 1].min * 1.4 + contentBox.top + contentBox.height,
+      freeze: false,
+      fn: function(progress){
+        if (this.freeze){
+          return;
+        }
+
+        var maxOffset = aliceBox.height - contentBox.top;
+        var offset = Math.ceil((maxOffset * progress) / 100);
+
+        window.requestAnimationFrame(function(){
+          $elContent.style['margin-top'] = offset + 'px';
         })
       }
     });
@@ -163,7 +185,7 @@
       $elTrack.style.height = window.innerHeight + Math.round(max) + "px";
     })();
 
-  })()
+  })();
 
   </script>
   <script>
