@@ -147,6 +147,25 @@
       }
     });
 
+    // Add fade-to-black animation to timeline
+    timeline.push({
+      min: timeline[timeline.length - 1].max * 0.85, // early start
+      max: timeline[timeline.length - 1].max, // quick transition
+      freeze: false,
+      fn: function(progress){
+        var opacity = progress;
+
+        if (this.freeze){
+          return;
+        }
+
+        window.requestAnimationFrame(function(){
+          $sceneOutro.style['-webkit-filter'] = 'opacity(' + opacity + '%)';
+          $sceneOutro.style['visibility'] = (opacity === 0) ? 'hidden' : 'visible';
+        })
+      }
+    });
+
     window.on('scroll', function(e){
         var scrollY = window.scrollY;
 
