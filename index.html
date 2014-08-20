@@ -165,13 +165,16 @@
       /*
         All scenes are `position: fixed`. The .timeline-track el is a placeholder
         to create artificial height so the page can be scrolled.
+
+        Set .timeline-track height to the maximum extent that needs to be reched
+        by the scroll.
       */
       var max = 0;
+      
       timeline.forEach(function(t){
         max = (max < t.max) ? t.max : max;
       });
 
-      // one viewport height + the max extent that needs to be reached by scroll
       $elTrack.style.height = window.innerHeight + Math.round(max) + "px";
 
       // listen to scroll change and trigger animations
