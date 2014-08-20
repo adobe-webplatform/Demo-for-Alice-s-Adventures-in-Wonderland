@@ -85,7 +85,7 @@
     // Add intro scene animation to timeline
     timeline.push({
       min: introBox.top,
-      max: introBox.height,
+      max: introBox.height / 4,
       freeze: false,
       fn: function(progress){
         var opacity = 100 - progress;
@@ -97,7 +97,7 @@
         window.requestAnimationFrame(function(){
           $sceneIntro.style['-webkit-filter'] = 'opacity(' + opacity + '%)';
           $sceneIntro.style['visibility'] = (opacity === 0) ? 'hidden' : 'visible';
-        })
+        });
       }
     });
 
@@ -170,7 +170,7 @@
         by the scroll.
       */
       var max = 0;
-      
+
       timeline.forEach(function(t){
         max = (max < t.max) ? t.max : max;
       });
