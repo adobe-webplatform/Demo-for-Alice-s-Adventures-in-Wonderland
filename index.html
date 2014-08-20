@@ -17,17 +17,12 @@
       </p>
       <div class="warning">
         <p>
-          This example demonstrates cutting-edge features that the <a href="http://html.adobe.com/webplatform/" target="_blank">Adobe Web Platform Team</a> is working on. To see these features in action, <a href="http://html.adobe.com/webplatform/enable/#section-chrome-canary" target="_blank">enable CSS Shapes</a> in the <a href="https://www.google.com/intl/en/chrome/browser/canary.html">Google Chrome Canary</a> browser.
-          <a href="http://html.adobe.com/webplatform/layout/shapes/browser-support/" target="_blank">CSS Shapes Support Matrix</a>.
-          <br><br>
-          <strong>Update, May 2014:</strong> Support for CSS <code>shape-inside</code>, which this example uses, is only available up until the following nightly builds: <a href="http://builds.nightly.webkit.org/files/trunk/mac/WebKit-SVN-r166290.dmg">WebKit r166290</a> and <a href="http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?path=Mac/260092/">Chromium 260092</a>. Widespread support will return at a later date.
+          This example demonstrates a cutting-edge feature that the <a href="http://html.adobe.com/webplatform/" target="_blank">Adobe Web Platform Team</a> is working on. To see this feature in action, use a <a href="http://html.adobe.com/webplatform/layout/shapes/browser-support/" target="_blank">browser which supports it</a>, such as <a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> (in older versions you may need to manually <a href="http://html.adobe.com/webplatform/enable/#section-chrome-canary" target="_blank">enable CSS Shapes</a>).
         </p>
 
       </div>
 
-      <div class="direction">
-        <em>scroll to begin</em>
-      </div>
+      <em class="direction">scroll to begin</em>
 
       <footer>
         <a href="http://html.adobe.com" class="adobe-logo" target="_blank">html.adobe.com</a>
@@ -166,39 +161,11 @@
       }
     });
 
-    window.on('scroll', function(e){
-        var scrollY = window.scrollY;
-
-        // run animations that fit scroll range
-        timeline.forEach(function(t){
-          if (t.min < scrollY && scrollY < t.max){
-            var progress = (scrollY - t.min) / (t.max - t.min);
-            t.freeze = false;
-            t.fn.call(t, Math.ceil(progress * 100));
-          }
-
-          /*
-            'scroll' event granularity is not consistent when scrooling.
-            Clamp the progress at 0 or 100 and complete any leftover animation,
-            then freeze until the scroll gets within min/max range again.
-          */
-          if (scrollY > t.max){
-            t.fn.call(t, 100);
-            t.freeze = true;
-          }
-
-          if (scrollY < t.min){
-            t.fn.call(t, 0);
-            t.freeze = true;
-          }
-        })
-    });
-
-    /*
-      All scenes are `position: fixed`. The .timeline-track el is a placeholder
-      to create artificial height so the page can be scrolled.
-    */
-    (function(){
+    function setup(){
+      /*
+        All scenes are `position: fixed`. The .timeline-track el is a placeholder
+        to create artificial height so the page can be scrolled.
+      */
       var max = 0;
       timeline.forEach(function(t){
         max = (max < t.max) ? t.max : max;
@@ -206,7 +173,50 @@
 
       // one viewport height + the max extent that needs to be reached by scroll
       $elTrack.style.height = window.innerHeight + Math.round(max) + "px";
-    })();
+
+      // listen to scroll change and trigger animations
+      window.on('scroll', function(e){
+          var scrollY = window.scrollY;
+
+          // run animations that fit scroll range
+          timeline.forEach(function(t){
+            if (t.min < scrollY && scrollY < t.max){
+              var progress = (scrollY - t.min) / (t.max - t.min);
+              t.freeze = false;
+              t.fn.call(t, Math.ceil(progress * 100));
+            }
+
+            /*
+              'scroll' event granularity is not consistent when scrooling.
+              Clamp the progress at 0 or 100 and complete any leftover animation,
+              then freeze until the scroll gets within min/max range again.
+            */
+            if (scrollY > t.max){
+              t.fn.call(t, 100);
+              t.freeze = true;
+            }
+
+            if (scrollY < t.min){
+              t.fn.call(t, 0);
+              t.freeze = true;
+            }
+          })
+      });
+    }
+
+    // feature detection
+    ['shape-outside'].forEach(function(property){
+
+      // check if any variant exists, prefixed or not
+      var isCapable = ['-webkit-', '-ms-', '-moz-', ''].some(function(prefix){
+        return (prefix + property) in document.body.style;
+      })
+
+      if (isCapable){
+        document.documentElement.classList.add('shapes');
+        setup();
+      }
+    });
 
   })();
 

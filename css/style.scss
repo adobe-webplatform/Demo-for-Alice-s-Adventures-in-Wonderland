@@ -122,13 +122,14 @@ Wrapping all content to prevent horizontal scrolling.
   color: #eee;
   text-align: center;
   background: rgba(66, 66, 66, 0.9);
+  padding-top: 10%;
 
-  header span{
+  span{
     display: block;
   }
 
   a,
-  header span{
+  span{
     white-space: nowrap;
   }
 
@@ -149,49 +150,11 @@ Wrapping all content to prevent horizontal scrolling.
     font-size: 1.3em;
   }
 
-  .warning{
-    text-align: left;
-    display: none;
-    border-radius: 22px;
-    background: #fcffd5 url(../images/warning.png) left center no-repeat;
-    background-size: auto 75%;
-    background-position: -5% 5%;
-    padding: 1rem 0;
-
-    p{
-      color: #333;
-      padding-left: 4.5rem;
-    }
-
-    a{
-      color: #A70203;
-
-      &:active{
-        color: black;
-      }
-    }
-  }
-
-  .direction{
-    width: 10rem;
-    margin: 0 auto;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    padding: 2rem 3rem 0;
-    font-weight: 100;
-  }
-
   header{
     padding: 3rem 3rem 1rem;
     font-size: 2em;
     font-weight: 700;
     font-family: Georgia, serif;
-
-    span{
-      font-size: 0.6em;
-    }
   }
 
   footer{
@@ -222,27 +185,50 @@ Wrapping all content to prevent horizontal scrolling.
   }
 }
 
-.no-shape-inside{
+.direction{
+  display: none;
+  margin: 3em auto 0;
+  font-weight: 100;
+}
 
-  /* hide scenes, hints and navigation */
-  .wrapper div,
-  .scene--intro .direction,
-  nav{
+.warning{
+  text-align: left;
+  border-radius: 22px;
+  background: #fcffd5 url(../images/warning.png) left center no-repeat;
+  background-size: auto 75%;
+  background-position: -5% 5%;
+  padding: 1rem 0;
+  width: 50%;
+  min-width: 40em;
+  margin: 0 auto;
+
+  p{
+    color: #333;
+    padding-left: 4.5rem;
+  }
+
+  a{
+    color: #A70203;
+
+    &:active{
+      color: black;
+    }
+  }
+}
+
+/* `shapes` class added by feature detection in JS */
+html.shapes{
+  .warning{
     display: none;
   }
 
-  /* show glimpse of first scene and warning */
-  #scene1,
-  .scene--intro .warning{
+  .direction{
     display: block;
   }
 
-  /* prevent navigation */
-  body .wrapper{
-    height: 100%;
-    overflow: hidden;
+  .content{
+    visibility: visible;
   }
-
 }
 
 .shape-shim{
@@ -257,8 +243,6 @@ Wrapping all content to prevent horizontal scrolling.
 
   shape-outside: $shape;
   -webkit-shape-outside: $shape;
-
-  // background: rgba(0, 255, 0, 0.6);
 }
 
 .shape-shim--right{
@@ -268,8 +252,6 @@ Wrapping all content to prevent horizontal scrolling.
 
   shape-outside: $shape;
   -webkit-shape-outside: $shape;
-
-  // background: rgba(255, 192, 203, 0.5);
 }
 
 
@@ -306,11 +288,12 @@ h1{
 }
 
 .content{
+  visibility: hidden;
   position: relative;
   height: 100%;
   padding-top: 1px; /* prevent margin-collapse from H1 */
 }
 
 .content p{
-  will-change: padding;
+  will-change: margin;
 }

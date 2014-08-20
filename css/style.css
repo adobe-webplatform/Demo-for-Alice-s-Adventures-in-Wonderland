@@ -403,10 +403,11 @@ Wrapping all content to prevent horizontal scrolling.
   height: 100%;
   color: #eee;
   text-align: center;
-  background: rgba(66, 66, 66, 0.9); }
-  .scene--intro header span {
+  background: rgba(66, 66, 66, 0.9);
+  padding-top: 10%; }
+  .scene--intro span {
     display: block; }
-  .scene--intro a, .scene--intro header span {
+  .scene--intro a, .scene--intro span {
     white-space: nowrap; }
   .scene--intro a {
     color: inherit; }
@@ -417,37 +418,11 @@ Wrapping all content to prevent horizontal scrolling.
   .scene--intro p {
     padding: 1rem 3rem;
     font-size: 1.3em; }
-  .scene--intro .warning {
-    text-align: left;
-    display: none;
-    border-radius: 22px;
-    background: #fcffd5 url(../images/warning.png) left center no-repeat;
-    background-size: auto 75%;
-    background-position: -5% 5%;
-    padding: 1rem 0; }
-    .scene--intro .warning p {
-      color: #333;
-      padding-left: 4.5rem; }
-    .scene--intro .warning a {
-      color: #A70203; }
-      .scene--intro .warning a:active {
-        color: black; }
-  .scene--intro .direction {
-    width: 10rem;
-    margin: 0 auto;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    padding: 2rem 3rem 0;
-    font-weight: 100; }
   .scene--intro header {
     padding: 3rem 3rem 1rem;
     font-size: 2em;
     font-weight: 700;
     font-family: Georgia, serif; }
-    .scene--intro header span {
-      font-size: 0.6em; }
   .scene--intro footer a {
     bottom: 0;
     right: 0;
@@ -467,17 +442,36 @@ Wrapping all content to prevent horizontal scrolling.
     height: 4.5rem;
     background: url(../logos/logo-adobe-bottom.svg) center bottom/contain; }
 
-.no-shape-inside {
-  /* hide scenes, hints and navigation */
-  /* show glimpse of first scene and warning */
-  /* prevent navigation */ }
-  .no-shape-inside .wrapper div, .no-shape-inside .scene--intro .direction, .no-shape-inside nav {
-    display: none; }
-  .no-shape-inside #scene1, .no-shape-inside .scene--intro .warning {
-    display: block; }
-  .no-shape-inside body .wrapper {
-    height: 100%;
-    overflow: hidden; }
+.direction {
+  display: none;
+  margin: 3em auto 0;
+  font-weight: 100; }
+
+.warning {
+  text-align: left;
+  border-radius: 22px;
+  background: #fcffd5 url(../images/warning.png) left center no-repeat;
+  background-size: auto 75%;
+  background-position: -5% 5%;
+  padding: 1rem 0;
+  width: 50%;
+  min-width: 40em;
+  margin: 0 auto; }
+  .warning p {
+    color: #333;
+    padding-left: 4.5rem; }
+  .warning a {
+    color: #A70203; }
+    .warning a:active {
+      color: black; }
+
+/* `shapes` class added by feature detection in JS */
+html.shapes .warning {
+  display: none; }
+html.shapes .direction {
+  display: block; }
+html.shapes .content {
+  visibility: visible; }
 
 .shape-shim, .shape-shim--left, .shape-shim--right {
   height: 100%;
@@ -520,10 +514,11 @@ h1 {
   animation-fill-mode: forwards; }
 
 .content {
+  visibility: hidden;
   position: relative;
   height: 100%;
   padding-top: 1px;
   /* prevent margin-collapse from H1 */ }
 
 .content p {
-  will-change: padding; }
+  will-change: margin; }
