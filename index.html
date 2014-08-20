@@ -6,7 +6,7 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 </head>
 <body>
-
+  <div class="timeline-track js-timeline-track"></div>
   <div class="wrapper">
 
     <!-- introduction slide and feature detect message -->
@@ -76,7 +76,8 @@
         $sceneOutro = $('.js-scene--outro'),
         $sceneAlice = $('.js-scene--alice'),
         $elContent  = $('.js-content'),
-        $elTitle    = $('.js-title');
+        $elTitle    = $('.js-title'),
+        $elTrack = $('.js-timeline-track');
 
     var introBox = $sceneIntro.getBoundingClientRect(),
         outroBox = $sceneOutro.getBoundingClientRect(),
@@ -125,8 +126,6 @@
       }
     });
 
-
-
     window.on('scroll', function(e){
         var scrollY = window.scrollY;
 
@@ -153,6 +152,16 @@
           }
         })
     });
+
+    // Set the lenght of the timeline-track as the max limit timeline animations
+    (function(){
+      var max = 0;
+      timeline.forEach(function(t){
+        max = (max < t.max) ? t.max : max;
+      });
+
+      $elTrack.style.height = Math.round(max) + "px";
+    })();
 
   })()
 
