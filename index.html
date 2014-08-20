@@ -169,7 +169,7 @@
     window.on('scroll', function(e){
         var scrollY = window.scrollY;
 
-        // run any animation that fits the scroll position constraints
+        // run animations that fit scroll range
         timeline.forEach(function(t){
           if (t.min < scrollY && scrollY < t.max){
             var progress = (scrollY - t.min) / (t.max - t.min);
@@ -178,8 +178,8 @@
           }
 
           /*
-            'scroll' event granularity is not consistent when scrolling quickly.
-            Clamp the progress at 0 or 100 and complete animation,
+            'scroll' event granularity is not consistent when scrooling.
+            Clamp the progress at 0 or 100 and complete any leftover animation,
             then freeze until the scroll gets within min/max range again.
           */
           if (scrollY > t.max){
@@ -194,13 +194,17 @@
         })
     });
 
-    // Set the length of the timeline-track as the max limit timeline animations
+    /*
+      All scenes are `position: fixed`. The .timeline-track el is a placeholder
+      to create artificial height so the page can be scrolled.
+    */
     (function(){
       var max = 0;
       timeline.forEach(function(t){
         max = (max < t.max) ? t.max : max;
       });
 
+      // one viewport height + the max extent that needs to be reached by scroll
       $elTrack.style.height = window.innerHeight + Math.round(max) + "px";
     })();
 
