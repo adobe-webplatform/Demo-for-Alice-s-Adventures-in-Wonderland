@@ -88,7 +88,7 @@
     // Add intro scene animation to timeline
     timeline.push({
       min: introBox.top,
-      max: introBox.height / 3,
+      max: introBox.height,
       freeze: false,
       fn: function(progress){
         var opacity = 100 - progress;
@@ -106,17 +106,16 @@
 
     // Add Alice scene offset animation to timeline
     timeline.push({
-      min: introBox.top + introBox.height / 3 + aliceBox.top,
-      max: introBox.top + introBox.height / 3 + aliceBox.top + aliceBox.height,
+      min: introBox.height,
+      max: introBox.height + aliceBox.height,
       freeze: false,
       fn: function(progress){
-
-        var maxOffset = aliceBox.height - window.innerHeight;
-        var offset = -1 * Math.ceil((maxOffset * progress) / 100);
-
         if (this.freeze){
           return;
         }
+
+        var maxOffset = aliceBox.height - window.innerHeight;
+        var offset = -1 * Math.ceil((maxOffset * progress) / 100);
 
         window.requestAnimationFrame(function(){
           var str = 'translate3d(0, ' + offset + 'px, 0)';
@@ -132,8 +131,9 @@
         // run any animation that fits the scroll position constraints
         timeline.forEach(function(t){
           if (t.min < scrollY && scrollY < t.max){
+            var progress = (scrollY - t.min) / (t.max - t.min);
             t.freeze = false;
-            t.fn.call(t, Math.round((scrollY / t.max) * 100));
+            t.fn.call(t, Math.ceil(progress * 100));
           }
 
           /*
@@ -160,7 +160,7 @@
         max = (max < t.max) ? t.max : max;
       });
 
-      $elTrack.style.height = Math.round(max) + "px";
+      $elTrack.style.height = window.innerHeight + Math.round(max) + "px";
     })();
 
   })()

@@ -45,15 +45,12 @@ p + p{
 }
 
 /*
-The timeline-track is a placeholder to give the page height so scoll will work.
-Its height is set from JS as the largest maximum limit of all animations.
+The timeline-track is a placeholder to give the page height so scroll will work.
+Its height is set from JavaScript as the largest maximum limit of all animations.
 */
 .timeline-track{
+  width: 1px; /* needs width, otherwise height will be ingored */
   position: absolute;
-  width: 20px;
-  top: 0;
-  z-index: 4;
-  background: lime;
 }
 
 /*
