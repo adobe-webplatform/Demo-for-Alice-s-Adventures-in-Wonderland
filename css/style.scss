@@ -83,14 +83,12 @@ Wrapping all content to prevent horizontal scrolling.
 
 .scene--intro{
   z-index: 2;
-  opacity: 1;
 }
 .scene--alice{
   z-index: 1;
 }
 .scene--outro{
   z-index: 3;
-  opacity: 0;
 }
 
 .scene--alice{
@@ -114,6 +112,7 @@ Wrapping all content to prevent horizontal scrolling.
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 1);
+  visibility: hidden;
 }
 
 .scene--intro{
@@ -122,20 +121,7 @@ Wrapping all content to prevent horizontal scrolling.
   height: 100%;
   color: #eee;
   text-align: center;
-  -webkit-transition: opacity 0.5s ease-in;
-  -moz-transition: opacity 0.5s ease-in;
-  -ms-transition: opacity 0.5s ease-in;
-  transition: opacity 0.5s ease-in;
-
   background: rgba(66, 66, 66, 0.9);
-
-  &.hidden{
-    display: none;
-  }
-
-  &.hide{
-    opacity: 0;
-  }
 
   header span{
     display: block;
