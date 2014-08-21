@@ -326,16 +326,13 @@ html, body {
 
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: Georgia, Times, serif; }
 
 p {
   margin: 0;
   font-size: 1.2em;
-  line-height: 1.5;
-  font-family: Georgia, serif; }
-
-p + p {
-  margin-top: 1.6em; }
+  line-height: 1.5; }
 
 /*
 The timeline-track is a placeholder to give the page height so scroll will work.
@@ -356,30 +353,17 @@ Wrapping all content to prevent horizontal scrolling.
   background: black;
   position: relative; }
 
-/* Used for cross-fade between scenes */
-#overlay {
-  position: fixed;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  background-color: black;
-  opacity: 0;
-  visibility: hidden; }
-
-.scene, .scene--alice, .scene--outro, .scene--intro {
+.scene, .scene--intro, .scene--alice, .scene--outro {
   position: fixed; }
 
 .scene--intro {
-  z-index: 2; }
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(66, 66, 66, 0.9); }
 
 .scene--alice {
-  z-index: 1; }
-
-.scene--outro {
-  z-index: 3; }
-
-.scene--alice {
+  z-index: 1;
   /*
     Scale the scene size by tweaking the font-size on .wrapper
     The background will scale with the scene. Fonts are in `rem` so they stay constant.
@@ -393,54 +377,58 @@ Wrapping all content to prevent horizontal scrolling.
       margin-left: -18em; } }
 
 .scene--outro {
+  z-index: 3;
   width: 100%;
   height: 100%;
   background: black;
   visibility: hidden; }
+  .scene--outro header, .scene--outro .description {
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-in; }
+  .scene--outro.complete header, .scene--outro.complete .description {
+    opacity: 1; }
 
-.scene--intro {
-  width: 100%;
-  height: 100%;
+footer a {
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: 12;
+  text-indent: -99em;
+  overflow: hidden; }
+footer .ultranoir-logo {
+  right: 5rem;
+  width: 3.8rem;
+  height: 4.5rem;
+  background: url(../logos/logo-ultranoir.svg) center top/contain;
+  background-repeat: no-repeat; }
+footer .adobe-logo {
+  right: 1rem;
+  width: 2.7rem;
+  height: 4.5rem;
+  background: url(../logos/logo-adobe-bottom.svg) center bottom/contain; }
+
+header {
+  padding: 5em 0 1em;
+  font-size: 2em;
+  font-weight: 700;
   color: #eee;
-  text-align: center;
-  background: rgba(66, 66, 66, 0.9);
-  padding-top: 10%; }
-  .scene--intro span {
-    display: block; }
-  .scene--intro a, .scene--intro span {
+  text-align: center; }
+  header span {
+    display: block;
     white-space: nowrap; }
-  .scene--intro a {
+
+.description {
+  padding: 1rem 3rem;
+  font-size: 1.3em;
+  color: #eee;
+  text-align: center; }
+  .description a {
+    white-space: nowrap;
     color: inherit; }
-    .scene--intro a:active {
+    .description a:active {
       color: #A70203; }
-    .scene--intro a:hover {
+    .description a:hover {
       text-decoration: none; }
-  .scene--intro p {
-    padding: 1rem 3rem;
-    font-size: 1.3em; }
-  .scene--intro header {
-    padding: 3rem 3rem 1rem;
-    font-size: 2em;
-    font-weight: 700;
-    font-family: Georgia, serif; }
-  .scene--intro footer a {
-    bottom: 0;
-    right: 0;
-    position: fixed;
-    z-index: 12;
-    text-indent: -99em;
-    overflow: hidden; }
-  .scene--intro footer .ultranoir-logo {
-    right: 5rem;
-    width: 3.8rem;
-    height: 4.5rem;
-    background: url(../logos/logo-ultranoir.svg) center top/contain;
-    background-repeat: no-repeat; }
-  .scene--intro footer .adobe-logo {
-    right: 1rem;
-    width: 2.7rem;
-    height: 4.5rem;
-    background: url(../logos/logo-adobe-bottom.svg) center bottom/contain; }
 
 .direction {
   display: none;
@@ -453,17 +441,38 @@ Wrapping all content to prevent horizontal scrolling.
   background: #fcffd5 url(../images/warning.png) left center no-repeat;
   background-size: auto 75%;
   background-position: -5% 5%;
-  padding: 1rem 0;
+  padding: 1em;
   width: 50%;
   min-width: 40em;
   margin: 0 auto; }
   .warning p {
     color: #333;
-    padding-left: 4.5rem; }
+    padding: 1rem 1rem 1rem 4.5rem; }
   .warning a {
     color: #A70203; }
     .warning a:active {
       color: black; }
+
+h1 {
+  font-size: 1em;
+  margin: 8em auto 3em;
+  width: 15em;
+  /* hide the text content */
+  height: 9em;
+  padding-top: 9em;
+  overflow: hidden;
+  background: url('../images/title-full.png') center bottom no-repeat;
+  background-size: contain; }
+
+.content {
+  visibility: hidden;
+  position: relative;
+  height: 100%;
+  padding-top: 1px;
+  /* prevent margin-collapse from H1 */ }
+
+.content p {
+  will-change: margin; }
 
 /* `shapes` class added by feature detection in JS */
 html.shapes .warning {
@@ -486,39 +495,3 @@ html.shapes .content {
   float: right;
   shape-outside: polygon(94px 1007px, 82px 886px, -2px 840px, -2px 794px, 12px 756px, 15px 685px, 58px 618px, 139px 600px, 154px 532px, 89px 472px, 95px 414px, 143px 374px, 219px 285px, 146px 177px, 212px 1px, 960px 0px, 960px 1200px, 59px 1199px);
   -webkit-shape-outside: polygon(94px 1007px, 82px 886px, -2px 840px, -2px 794px, 12px 756px, 15px 685px, 58px 618px, 139px 600px, 154px 532px, 89px 472px, 95px 414px, 143px 374px, 219px 285px, 146px 177px, 212px 1px, 960px 0px, 960px 1200px, 59px 1199px); }
-
-@-webkit-keyframes title-in {
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0em); } }
-
-h1 {
-  font-size: 1em;
-  margin: 8em auto 3em;
-  width: 15em;
-  /* hide the text content */
-  height: 9em;
-  padding-top: 9em;
-  overflow: hidden;
-  background: url('../images/title-full.png') center bottom no-repeat;
-  background-size: contain;
-  opacity: 0;
-  -webkit-transform: translateY(-1em);
-  -moz-transform: translateY(-1em);
-  transform: translateY(-1em);
-  -webkit-animation: title-in 1.3s 1 ease-out;
-  -moz-animation: title-in 1.3s 1 ease-out;
-  animation: title-in 1.3s 1 ease-out;
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards; }
-
-.content {
-  visibility: hidden;
-  position: relative;
-  height: 100%;
-  padding-top: 1px;
-  /* prevent margin-collapse from H1 */ }
-
-.content p {
-  will-change: margin; }

@@ -31,17 +31,13 @@ html, body{
 body{
   margin: 0;
   padding: 0;
+  font-family: Georgia, Times, serif;
 }
 
 p{
-  margin:0;
+  margin: 0;
   font-size: 1.2em;
   line-height: 1.5;
-  font-family: Georgia,serif;
-}
-
-p + p{
-  margin-top: 1.6em;
 }
 
 /*
@@ -64,35 +60,22 @@ Wrapping all content to prevent horizontal scrolling.
   position: relative;
 }
 
-/* Used for cross-fade between scenes */
-#overlay{
-  position: fixed;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  top: 0;
-
-  background-color: rgba(0,0,0,1);
-  opacity: 0;
-  visibility: hidden;
-}
-
 .scene{
   position: fixed;
 }
 
 .scene--intro{
+  @extend .scene;
   z-index: 2;
-}
-.scene--alice{
-  z-index: 1;
-}
-.scene--outro{
-  z-index: 3;
+  width: 100%;
+  height: 100%;
+  background: rgba(66, 66, 66, 0.9);
 }
 
 .scene--alice{
   @extend .scene;
+  z-index: 1;
+
   /*
     Scale the scene size by tweaking the font-size on .wrapper
     The background will scale with the scene. Fonts are in `rem` so they stay constant.
@@ -109,31 +92,72 @@ Wrapping all content to prevent horizontal scrolling.
 
 .scene--outro{
   @extend .scene;
+  z-index: 3;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 1);
   visibility: hidden;
+
+  header, .description{
+    opacity: 0;
+    -webkit-transition: opacity 0.4s ease-in;
+  }
+
+  &.complete{
+    header, .description{
+      opacity: 1;
+    }
+  }
 }
 
-.scene--intro{
-  @extend .scene;
-  width: 100%;
-  height: 100%;
+footer{
+
+  a{
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    z-index: 12;
+    text-indent: -99em;
+    overflow: hidden;
+  }
+
+  .ultranoir-logo{
+    right: 5rem;
+    width: 3.8rem;
+    height: 4.5rem;
+    background: url(../logos/logo-ultranoir.svg) center top / contain;
+    background-repeat: no-repeat;
+  }
+
+  .adobe-logo{
+    right: 1rem;
+    width: 2.7rem;
+    height: 4.5rem;
+    background: url(../logos/logo-adobe-bottom.svg) center bottom / contain;
+  }
+}
+
+header{
+  padding: 5em 0 1em;
+  font-size: 2em;
+  font-weight: 700;
   color: #eee;
   text-align: center;
-  background: rgba(66, 66, 66, 0.9);
-  padding-top: 10%;
 
   span{
     display: block;
-  }
-
-  a,
-  span{
     white-space: nowrap;
   }
+}
+
+.description{
+  padding: 1rem 3rem;
+  font-size: 1.3em;
+  color: #eee;
+  text-align: center;
 
   a{
+    white-space: nowrap;
     color: inherit;
 
     &:active{
@@ -142,45 +166,6 @@ Wrapping all content to prevent horizontal scrolling.
 
     &:hover{
       text-decoration: none;
-    }
-  }
-
-  p{
-    padding: 1rem 3rem;
-    font-size: 1.3em;
-  }
-
-  header{
-    padding: 3rem 3rem 1rem;
-    font-size: 2em;
-    font-weight: 700;
-    font-family: Georgia, serif;
-  }
-
-  footer{
-
-    a{
-      bottom: 0;
-      right: 0;
-      position: fixed;
-      z-index: 12;
-      text-indent: -99em;
-      overflow: hidden;
-    }
-
-    .ultranoir-logo{
-      right: 5rem;
-      width: 3.8rem;
-      height: 4.5rem;
-      background: url(../logos/logo-ultranoir.svg) center top / contain;
-      background-repeat: no-repeat;
-    }
-
-    .adobe-logo{
-      right: 1rem;
-      width: 2.7rem;
-      height: 4.5rem;
-      background: url(../logos/logo-adobe-bottom.svg) center bottom / contain;
     }
   }
 }
@@ -197,14 +182,14 @@ Wrapping all content to prevent horizontal scrolling.
   background: #fcffd5 url(../images/warning.png) left center no-repeat;
   background-size: auto 75%;
   background-position: -5% 5%;
-  padding: 1rem 0;
+  padding: 1em;
   width: 50%;
   min-width: 40em;
   margin: 0 auto;
 
   p{
     color: #333;
-    padding-left: 4.5rem;
+    padding: 1rem 1rem 1rem 4.5rem;
   }
 
   a{
@@ -214,6 +199,31 @@ Wrapping all content to prevent horizontal scrolling.
       color: black;
     }
   }
+}
+
+h1{
+  font-size: 1em;
+  margin: 8em auto 3em;
+  width: 15em;
+
+  /* hide the text content */
+  height: 9em;
+  padding-top: 9em;
+  overflow: hidden;
+
+  background: url('../images/title-full.png') center bottom no-repeat;
+  background-size: contain;
+}
+
+.content{
+  visibility: hidden;
+  position: relative;
+  height: 100%;
+  padding-top: 1px; /* prevent margin-collapse from H1 */
+}
+
+.content p{
+  will-change: margin;
 }
 
 /* `shapes` class added by feature detection in JS */
@@ -252,48 +262,4 @@ html.shapes{
 
   shape-outside: $shape;
   -webkit-shape-outside: $shape;
-}
-
-
-@-webkit-keyframes title-in{
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0em);
-  }
-}
-
-h1{
-  font-size: 1em;
-  margin: 8em auto 3em;
-  width: 15em;
-
-  /* hide the text content */
-  height: 9em;
-  padding-top: 9em;
-  overflow: hidden;
-
-  background: url('../images/title-full.png') center bottom no-repeat;
-  background-size: contain;
-  opacity: 0;
-
-  -webkit-transform: translateY(-1em);
-  -moz-transform: translateY(-1em);
-  transform: translateY(-1em);
-  -webkit-animation: title-in 1.3s 1 ease-out;
-  -moz-animation: title-in 1.3s 1 ease-out;
-  animation: title-in 1.3s 1 ease-out;
-  -webkit-animation-fill-mode: forwards;
-  -moz-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-.content{
-  visibility: hidden;
-  position: relative;
-  height: 100%;
-  padding-top: 1px; /* prevent margin-collapse from H1 */
-}
-
-.content p{
-  will-change: margin;
 }

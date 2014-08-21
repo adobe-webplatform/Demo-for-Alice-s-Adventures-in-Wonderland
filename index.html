@@ -12,8 +12,9 @@
     <!-- introduction slide and feature detect message -->
     <div class="scene--intro js-scene--intro">
       <header>Demo for Alice in Wonderland <span>by Lewis Carroll</span></header>
-      <p>
+      <p class="description">
         <a href="http://blogs.adobe.com/webplatform/2013/10/23/css-shapes-visual-storytelling/" target="_blank">Using CSS Shapes</a> to enhance visual storytelling.
+        <em class="direction">scroll to begin</em>
       </p>
       <div class="warning">
         <p>
@@ -21,8 +22,6 @@
         </p>
 
       </div>
-
-      <em class="direction">scroll to begin</em>
 
       <footer>
         <a href="http://html.adobe.com" class="adobe-logo" target="_blank">html.adobe.com</a>
@@ -56,7 +55,16 @@
       </div>
     </div><!-- end .scene -->
 
-    <div class="scene--outro js-scene--outro"></div>
+    <div class="scene--outro js-scene--outro">
+        <header>Demo for Alice in Wonderland <span>by Lewis Carroll</span></header>
+        <p class="description">
+          <a href="http://blogs.adobe.com/webplatform/2013/10/23/css-shapes-visual-storytelling/" target="_blank">Using CSS Shapes</a> to enhance visual storytelling.
+          <br><br>
+          <a href="https://github.com/adobe-webplatform/Demo-for-Alice-s-Adventures-in-Wonderland" target="_blank">View source</a> or
+          <a href="http://blogs.adobe.com/webplatform/2013/10/23/css-shapes-visual-storytelling/" target="_blank">Learn more</a>
+        </p>
+      </header>
+    </div>
 
   </div><!-- end .wrapper -->
 
@@ -99,7 +107,7 @@
           $sceneIntro.style['visibility'] = (opacity === 0) ? 'hidden' : 'visible';
 
           // remove this scene after the fade-out
-          if (opacity === 0){
+          if (progress === 100){
             timeline.splice(0,1);
           }
         });
@@ -162,6 +170,13 @@
         window.requestAnimationFrame(function(){
           $sceneOutro.style['-webkit-filter'] = 'opacity(' + opacity + '%)';
           $sceneOutro.style['visibility'] = (opacity === 0) ? 'hidden' : 'visible';
+
+          if (progress === 100){
+            $sceneOutro.classList.add('complete')
+          } else {
+            $sceneOutro.classList.remove('complete')
+          }
+
         })
       }
     });
