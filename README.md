@@ -8,8 +8,9 @@ __UPDATE August 2014:__
 __The full demo is obsolete because the `shape-inside` property was removed from browser implementations of CSS Shapes. What remains here is only a redux of the original demo. It demonstrates just one use-case with the `shape-outside` property.__
 
 
-The original source still exists in the [archive](https://github.com/adobe-webplatform/Demo-for-Alice-s-Adventures-in-Wonderland/releases/tag/archive) tag.
-There is a [video](https://www.youtube.com/watch?v=VON2shFlsKU) of the original demo.
+The original source still exists in the [archive](https://github.com/adobe-webplatform/Demo-for-Alice-s-Adventures-in-Wonderland/releases/tag/archive) tag. Use an [old Chromium build](http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?prefix=Mac/230051/) and enable _experimental Web Platform features_ in `chrome://flags` to run the demo.
+
+There is a [video recording](https://www.youtube.com/watch?v=VON2shFlsKU) of the original demo.
 
 See "[Using CSS Shapes to Enhance Visual Storytelling](http://blogs.adobe.com/webplatform/2013/10/23/css-shapes-visual-storytelling/)" to learn more about the project.
 
